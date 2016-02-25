@@ -1,0 +1,501 @@
+<!-- POLSKIE STACJE RADIOWE DLA RADIO TRAY
+Kodowanie: Tomasz Przybył (tomasz.przybyl@windowslive.com)
+Wersja z dnia 24.02.2015
+Licencja: GNU GPL V3 
+https://www.gnu.org/licenses/gpl-3.0.txt
+-->
+<bookmarks>
+<group name="root">
+  <!--================================================================-->
+ <!--DOMYŚLNE WPISY RADIOTRAY - USUŃ ZNAKI KOMENTARZA ABY ODBLOKOWAĆ-->
+  <!-- <group name="Jazz">
+        <bookmark name="Smooth Jazz" url="http://smoothjazz.com/streams/smoothjazz_128.pls"/>
+        <bookmark name="SKY.fm Piano Jazz" url="http://listen.sky.fm/public1/pianojazz.pls"/>
+        <bookmark name="SKY.fm Smooth Jazz" url="http://listen.sky.fm/public1/smoothjazz.pls"/>
+        <bookmark name="Sonic Universe" url="http://somafm.com/sonicuniverse.pls"/>
+        <bookmark name="Blue FM" url="http://bluefm.net/listen.pls"/>
+        <bookmark name="The Breeze" url="mmsh://wms-rly.181.fm/181-breeze?MSWMExt=.asf"/>
+    </group>
+    <group name="Latin">
+        <bookmark name="Onda Tropical" url="http://yp.shoutcast.com/sbin/tunein-station.pls?id=506392"/>
+        <bookmark name="Top Latino Radio" url="http://online.radiodifusion.net:8020/listen.pls"/>
+        <bookmark name="Salsa Stream" url="http://listen.sky.fm/public3/salsa.pls"/>
+        <bookmark name="Reggaeton 24/7" url="http://cc.net2streams.com/tunein.php/reggaeton/playlist.pls"/>
+        <bookmark name="Suave 107" url="http://grupomedrano.com.do/suave107/suave107.m3u"/>
+    </group>
+    <group name="Classic Rock">
+        <bookmark name="181.FM Classic Hits" url="http://sc-rly.181.fm:80/stream/1094"/>
+        <bookmark name=".977 Classic Rock" url="http://www.977music.com/tunein/web/classicrock.asx"/>
+        <bookmark name="80s Sky.FM" url="http://listen.sky.fm/public3/the80s.pls"/>
+        <bookmark name="Covers" url="http://somafm.com/covers.pls"/>
+    </group>
+    <group name="Classical">
+        <bookmark name="KDFC" url="http://provisioning.streamtheworld.com/pls/KDFCFM.pls"/>
+        <bookmark name="Classic FM" url="http://media-ice.musicradio.com/ClassicFMMP3.m3u"/>
+        <bookmark name="WCPE" url="http://www.ibiblio.org/wcpe/wcpe.pls"/>
+        <bookmark name="CINEMIX" url="http://cinemix.us/cine.asx"/>
+        <bookmark name="SKY.fm Soundtracks" url="http://listen.sky.fm/public1/soundtracks.pls"/>
+        <bookmark name="SKY.fm Mostly Classical" url="http://listen.sky.fm/public1/classical.pls"/>
+    </group>
+    <group name="Pop / Rock">
+        <bookmark name="Radio Paradise" url="http://www.radioparadise.com/musiclinks/rp_128aac.m3u"/>
+        <bookmark name=".977 The Hitz Channel" url="http://yp.shoutcast.com/sbin/tunein-station.pls?id=1280356"/>
+        <bookmark name="Enjoy Station" url="http://yp.shoutcast.com/sbin/tunein-station.pls?id=1377285"/>
+        <bookmark name="SKY.fm Top Hits" url="http://listen.sky.fm/public1/tophits.pls"/>
+        <bookmark name="Indie Pop Rocks!" url="http://somafm.com/indiepop.pls"/>
+        <bookmark name="PopTron" url="http://somafm.com/poptron.pls"/>
+    </group>
+    <group name="Oldies">
+        <bookmark name="AM 1710" url="http://lin2.ash.fast-serv.com:9022/listen.pls"/>
+        <bookmark name="WNAR" url="http://live.wnar-am.com:8500/listen.pls"/>
+        <bookmark name="SKY.fm Oldies" url="http://listen.sky.fm/public1/oldies.pls"/>
+    </group>
+    <group name="Chill">
+        <bookmark name="181.FM" url="http://yp.shoutcast.com/sbin/tunein-station.pls?id=1275050"/>
+        <bookmark name="Lounge Radio" url="http://yp.shoutcast.com/sbin/tunein-station.pls?id=1288934"/>
+        <bookmark name="Beat Blender" url="http://somafm.com/beatblender.pls"/>
+        <bookmark name="Secret Agent" url="http://somafm.com/secretagent.pls"/>
+        <bookmark name="Groove Salad" url="http://somafm.com/groovesalad.pls"/>
+        <bookmark name="Illinois Street Lounge" url="http://somafm.com/illstreet.pls"/>
+    </group>
+    <group name="Country">
+        <bookmark name="SKY.fm Country" url="http://listen.sky.fm/public1/country.pls"/>
+        <bookmark name="Boot Liquor" url="http://somafm.com/bootliquor.pls"/>
+        <bookmark name="US 181" url="mmsh://wms-rly.181.fm/181-us181?MSWMExt=.asf"/>
+        <bookmark name="Real Country" url="mmsh://wms-rly.181.fm/181-realcountry?MSWMExt=.asf"/>
+        <bookmark name="Highway 181" url="mmsh://wms-rly.181.fm/181-highway?MSWMExt=.asf"/>
+        <bookmark name="Country 108" url="http://www.country108.com/listen.pls"/>
+    </group>
+    <group name="Techno / Electronic">
+        <bookmark name="Drone Zone" url="http://somafm.com/dronezone.pls"/>
+        <bookmark name="Space Station Soma" url="http://somafm.com/spacestation.pls"/>
+        <bookmark name="cliqhop idm" url="http://somafm.com/cliqhop.pls"/>
+        <bookmark name="Black Rock FM" url="http://somafm.com/brfm.pls"/>
+        <bookmark name="New Dance Radio" url="http://jbstream.net/tunein.php/blackoutworm/playlist.asx"/>
+    </group>
+    <group name="Community">
+        <bookmark name="Jupiter Broadcast" url="http://jblive.fm/"/>
+        <bookmark name="WCRS LPFM Columbus" url="http://sh4.audio-stream.com/tunein.php/pleonard/playlist.pls"/>
+        <bookmark name="WBEZ" url="http://wbez.ic.llnwd.net/stream/wbez_91_5_fm.pls"/>
+      </group> -->
+<!--================================================================-->
+<!--ANTYRADIO-->
+<group name="ANTYRADIO">
+<bookmark name="Antyradio Online (Warszawa, Katowice, Kraków)" url="http://www.deren.internetdsl.pl/shoutcast/antyradioonline.m3u"/>
+<bookmark name="Antyradio - Greatest Hits" url="http://antygreatest-01.eurozet.pl:8000/"/>
+<bookmark name="Antyradio - Hard" url="http://antyhard-01.eurozet.pl:8500/"/>
+<bookmark name="Antyradio - Made in Poland" url="http://antypl-01.eurozet.pl:8100/"/>
+<bookmark name="Antyradio - Covers" url="http://antycovers-02.eurozet.pl:8100/"/>
+<bookmark name="Antyradio - Classic Ballads" url="http://www.deren.internetdsl.pl/shoutcast/antyradioballads.m3u"/>
+<bookmark name="Antyradio - Classic Hard" url="http://www.deren.internetdsl.pl/shoutcast/antyradiohard.m3u"/>
+<bookmark name="Antyradio - Classic Rock" url="http://www.deren.internetdsl.pl/shoutcast/antyradiogreatest.m3u"/>
+<bookmark name="Antyradio - Classic Xmass" url="http://www.deren.internetdsl.pl/shoutcast/antyradioxmass.m3u"/>
+</group>
+<!--================================================================-->
+<!--DIGITALLY IMPORTED-->
+<group name="DI.FM">
+<bookmark name="di.fm - Ambient" url="http://listen.di.fm/public3/ambient.pls"/>
+<bookmark name="di.fm - Big Room House" url="http://listen.di.fm/public3/bigroomhouse.pls"/>
+<bookmark name="di.fm - Breaks" url="http://listen.di.fm/public3/breaks.pls"/>
+<bookmark name="di.fm - Chillout" url="http://listen.di.fm/public3/chillout"/>
+<bookmark name="di.fm - Chillout Dreams" url="http://listen.di.fm/public3/chilloutdreams.pls"/>
+<bookmark name="di.fm - ChillHop" url="http://listen.di.fm/public3/chillhop.pls"/>
+<bookmark name="di.fm - Chiptunes" url="http://listen.di.fm/public3/chiptunes.pls"/>
+<bookmark name="di.fm - Classic EuroDance" url="http://listen.di.fm/public3/classiceurodance.pls"/>
+<bookmark name="di.fm - Classic EuroDisco" url="http://listen.di.fm/public3/classiceurodisco.pls"/>
+<bookmark name="di.fm - Classic Techno" url="http://listen.di.fm/public3/classictechno.pls"/>
+<bookmark name="di.fm - Classic Trance" url="http://listen.di.fm/public3/classictrance.pls"/>
+<bookmark name="di.fm - Classic Vocal Trance" url="http://listen.di.fm/public3/vocaltrance.pls"/>
+<bookmark name="di.fm - Club" url="http://listen.di.fm/public3/club.pls"/>
+<bookmark name="di.fm - Cosmic Downtempo" url="http://listen.di.fm/public3/cosmicdowntempo.pls"/>
+<bookmark name="di.fm - Club Dubstep" url="http://listen.di.fm/public3/clubdubstep.pls"/>
+<bookmark name="di.fm - Dark DnB" url="http://listen.di.fm/public3/darkdnb.pls"/>
+<bookmark name="di.fm - Deep House" url="http://listen.di.fm/public3/deephouse.pls"/>
+<bookmark name="di.fm - Deep Nu-Disco" url="http://listen.di.fm/public3/deepnudisco.pls"/>
+<bookmark name="di.fm - Deep Tech" url="http://listen.di.fm/public3/deeptech.pls"/>
+<bookmark name="di.fm - Disco House" url="http://listen.di.fm/public3/discohouse.pls"/>
+<bookmark name="di.fm - DJ Mixes" url="http://listen.di.fm/public3/djmixes.pls"/>
+<bookmark name="di.fm - Downtempo Lounge" url="http://listen.di.fm/public3/downtempolounge.pls"/>
+<bookmark name="di.fm - Drum and Bass" url="http://listen.di.fm/public3/drumandbass.pls"/>
+<bookmark name="di.fm - Dubstep" url="http://listen.di.fm/public3/dubstep.pls"/>
+<bookmark name="di.fm - EcLectronica" url="http://listen.di.fm/public3/eclectronica.pls"/>
+<bookmark name="di.fm - Electro" url="http://listen.di.fm/public3/electro.pls"/>
+<bookmark name="di.fm - Epic Trance" url="http://listen.di.fm/public3/epictrance.pls"/>
+<bookmark name="di.fm - EuroDance" url="http://listen.di.fm/public3/eurodance.pls"/>
+<bookmark name="di.fm - Funky House" url="http://listen.di.fm/public3/funkyhouse.pls"/>
+<bookmark name="di.fm - Future Synthpop" url="http://listen.di.fm/public3/futuresynthpop.pls"/>
+<bookmark name="di.fm - Gabber" url="http://listen.di.fm/public3/gabber.pls"/>
+<bookmark name="di.fm - Glitch Hop" url="http://listen.di.fm/public3/glitchhop.pls"/>
+<bookmark name="di.fm - Goa Psy" url="http://listen.di.fm/public3/goapsy.pls"/>
+<bookmark name="di.fm - Hands Up" url="http://listen.di.fm/public3/handsup.pls"/>
+<bookmark name="di.fm - Hardcore" url="http://listen.di.fm/public3/hardcore.pls"/>
+<bookmark name="di.fm - Hard Dance" url="http://listen.di.fm/public3/harddance.pls"/>
+<bookmark name="di.fm - Hardstyle" url="http://listen.di.fm/public3/hardstyle.pls"/>
+<bookmark name="di.fm - House" url="http://listen.di.fm/public3/house.pls"/>
+<bookmark name="di.fm - Latin House" url="http://listen.di.fm/public3/latinhouse.pls"/>
+<bookmark name="di.fm - Liquid DnB" url="http://listen.di.fm/public3/liquiddnb.pls"/>
+<bookmark name="di.fm - Liquid Dubstep" url="http://listen.di.fm/public3/liquiddubstep.pls"/>
+<bookmark name="di.fm - Lounge" url="http://listen.di.fm/public3/lounge.pls"/>
+<bookmark name="di.fm - Mainstage" url="http://listen.di.fm/public3/mainstage.pls"/>
+<bookmark name="di.fm - Minimal" url="http://listen.di.fm/public3/minimal.pls"/>
+<bookmark name="di.fm - Old School Acid" url="http://listen.di.fm/public3/oldschoolacid.pls"/>
+<bookmark name="di.fm - Old School House" url="http://listen.di.fm/public3/oldschoolhouse.pls"/>
+<bookmark name="di.fm - Progressive" url="http://listen.di.fm/public3/progressive.pls"/>
+<bookmark name="di.fm - Progressive Psy" url="http://listen.di.fm/public3/progressivepsy.pls"/>
+<bookmark name="di.fm - PsyChill" url="http://listen.di.fm/public3/psychill.pls"/>
+<bookmark name="di.fm - Russian Club Hits" url="http://listen.di.fm/public3/russianclubhits.pls"/>
+<bookmark name="di.fm - Sankeys Radio" url="http://listen.di.fm/public3/sankeys.pls"/>
+<bookmark name="di.fm - Soulful House" url="http://listen.di.fm/public3/soulfulhouse.pls"/>
+<bookmark name="di.fm - Space Music" url="http://listen.di.fm/public3/spacemusic.pls"/>
+<bookmark name="di.fm - Tech House" url="http://listen.di.fm/public3/techhouse.pls"/>
+<bookmark name="di.fm - Techno" url="http://listen.di.fm/public3/techno.pls"/>
+<bookmark name="di.fm - Trance" url="http://listen.di.fm/public3/trance.pls"/>
+<bookmark name="di.fm - Trap" url="http://listen.di.fm/public3/trap.pls"/>
+<bookmark name="di.fm - Tribal House" url="http://listen.di.fm/public3/tribalhouse.pls"/>
+<bookmark name="di.fm - UK Garage" url="http://listen.di.fm/public3/ukgarage.pls"/>
+<bookmark name="di.fm - UMF Radio" url="http://listen.di.fm/public3/umfradio.pls"/>
+<bookmark name="di.fm - Vocal Chillout" url="http://listen.di.fm/public3/vocalchillout.pls"/>
+<bookmark name="di.fm - Vocal Trance" url="http://listen.di.fm/public3/vocaltrance.pls"/>
+</group>
+<!--================================================================-->
+<!--ESKA-->
+<group name="ESKA">
+<bookmark name="ESKA ŚLĄSK" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskaslaskmp3"/>
+<bookmark name="ESKA SZCZECIN" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskaszczecinmp3"/>
+<bookmark name="ESKA POZNAŃ" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskapoznanmp3"/>
+<bookmark name="ESKA KRAKÓW" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskakrakowmp3"/>
+<bookmark name="ESKA WROCŁAW" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskawroclawmp3"/>
+<bookmark name="ESKA ŁÓDŹ" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskalodzmp3"/>
+<bookmark name="ESKA WARSZAWA" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskawarszawamp3"/>
+<bookmark name="ESKA TRÓJMIASTO" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskatrojmiastomp3"/>
+<bookmark name="ESKA BYDGOSZCZ" url="http://www.radio.pionier.net.pl/stream.pls?radio=eskabydgoszczmp3"/>
+<bookmark name="RADIO WAWA" url="http://www.radio.pionier.net.pl/stream.pls?radio=wawa"/>
+<bookmark name="VOX FM" url="http://www.radio.pionier.net.pl/stream.pls?radio=voxfm"/>
+<bookmark name="RADIO POLO TV" url="http://static.eska.pl/content/streams/pls/discopolo.pls"/>
+</group>
+<!--================================================================-->
+<!--EUROZET-->
+<group name="EUROZET">
+<bookmark name="Chilli ZET Covers" url="http://www.deren.internetdsl.pl/shoutcast/chillizetcovers.m3u"/>
+<bookmark name="Chilli ZET Deep" url="http://www.deren.internetdsl.pl/shoutcast/chillizetdeep.m3u"/>
+<bookmark name="Chilli ZET Ladies" url="http://www.deren.internetdsl.pl/shoutcast/chillizetladies.m3u"/>
+<bookmark name="Chilli ZET On-line" url="http://www.deren.internetdsl.pl/shoutcast/chillizetonline.m3u"/>
+<bookmark name="Chilli ZET PL" url="http://www.deren.internetdsl.pl/shoutcast/chillizetpl.m3u"/>
+<bookmark name="Chilli ZET Rafał Bryndal Jazz Quartet" url="http://www.deren.internetdsl.pl/shoutcast/chillizetjazz.m3u"/>
+<bookmark name="Chilli ZET Soul" url="http://www.deren.internetdsl.pl/shoutcast/chillizetsoul.m3u"/>
+<bookmark name="Radio ZET" url="http://radiozetmp3-07.eurozet.pl:8400/listen.pls"/>
+<bookmark name="Radio ZET Gold" url="http://zgl-poz-01.cdn.eurozet.pl:8816/listen.pls"/>
+<bookmark name="Radio ZET 2000" url="http://www.deren.internetdsl.pl/shoutcast/zet2000.m3u"/>
+<bookmark name="Radio ZET Beatles" url="http://www.deren.internetdsl.pl/shoutcast/zetbeatles.m3u"/>
+<bookmark name="Radio ZET Chilli" url="http://chillizetmp3-01.eurozet.pl:8400/listen.pls"/>
+<bookmark name="Radio ZET Choppin" url="http://zetcho-02.cdn.eurozet.pl:8410/listen.pls"/>
+<bookmark name="Radio ZET Classic" url="http://zetcla-01.cdn.eurozet.pl:8412/listen.pls"/>
+<bookmark name="Radio ZET Classic Rock" url="http://www.deren.internetdsl.pl/shoutcast/zetrock.m3u"/>
+<bookmark name="Radio ZET Dance" url="http://zetdan-02.cdn.eurozet.pl:8416/listen.pls"/>
+<bookmark name="Radio ZET Gold" url="http://www.deren.internetdsl.pl/shoutcast/zetgold.m3u"/>
+<bookmark name="Radio ZET Hits" url="http://www.deren.internetdsl.pl/shoutcast/zethits.m3u"/>
+<bookmark name="Radio ZET Hot" url="http://zethot-01.cdn.eurozet.pl:8430/listen.pls"/>
+<bookmark name="Radio ZET Kids" url="http://www.deren.internetdsl.pl/shoutcast/zetkids.m3u"/>
+<bookmark name="Radio ZET Lato" url="http://www.deren.internetdsl.pl/shoutcast/latozet.m3u"/>
+<bookmark name="Radio ZET Love" url="http://zetlov-01.cdn.eurozet.pl:8440/listen.pls"/>
+<bookmark name="Radio ZET Osiecka" url="http://www.deren.internetdsl.pl/shoutcast/zetosiecka.m3u"/>
+<bookmark name="Radio ZET Party" url="http://www.deren.internetdsl.pl/shoutcast/zetparty.m3u"/>
+<bookmark name="Radio ZET Polskie" url="http://zetpl1-02.cdn.eurozet.pl:8446/listen.pls"/>
+<bookmark name="Radio ZET Rock And Rap" url="http://www.deren.internetdsl.pl/shoutcast/zetrockrap.m3u"/>
+<bookmark name="Radio ZET Sade" url="http://www.deren.internetdsl.pl/shoutcast/zetsade.m3u"/>
+<bookmark name="Radio ZET Slow" url="http://www.deren.internetdsl.pl/shoutcast/zetslow.m3u"/>
+<bookmark name="Radio ZET Smooth Jazz" url="http://www.deren.internetdsl.pl/shoutcast/zetsjazz.m3u"/>
+<bookmark name="Radio ZET Soul" url="http://zetsou-01.cdn.eurozet.pl:8458/listen.pls"/>
+<bookmark name="Radio ZET Super Gold" url="http://zetsupergold-01.eurozet.pl:8000/listen.pls"/>
+<bookmark name="Radio ZET XX-lecie" url="http://www.deren.internetdsl.pl/shoutcast/zetxxlecie.m3u"/>
+</group>
+<!--================================================================-->
+<!--GRA.FM-->
+<group name="GRA.FM">
+<bookmark name="GRA.fm - Toruń" url="icyx://live.gra.fm:9005"/>
+<bookmark name="GRA.fm - Bydgoszcz" url="icyx://live.gra.fm:9015"/>
+<bookmark name="GRA.fm - Włocławek" url="icyx://live.gra.fm:9025"/>
+<bookmark name="GRA.fm - Inowrocław" url="icyx://live.gra.fm:9035"/>
+</group>
+<!--================================================================-->
+<!--MUZYCZNE RADIO JELENIA GÓRA-->
+<group name="MUZYCZNE RADIO JELENIA GÓRA">
+<bookmark name="Muzyczne Radio - Jelenia Gra - Live" url="http://muzyczneradio.pl:9000/listen.pls"/>
+<bookmark name="Muzyczne Radio - Jelenia Gra - Strefa '89" url="http://muzyczneradio.pl:9500/listen.pls"/>
+<bookmark name="Muzyczne Radio - Jelenia Gra - Hitplaneta DMC" url="http://muzyczneradio.pl:9400/listen.pls"/>
+<bookmark name="Muzyczne Radio - Jelenia Gra - Nowości" url="http://muzyczneradio.pl:9300/listen.pls"/>
+<bookmark name="Muzyczne Radio - Jelenia Gra - Relax" url="http://muzyczneradio.pl:9200/listen.pls"/>
+</group>
+<!--================================================================-->
+<!--OPEN.FM-->
+<group name="OPEN.FM">
+<bookmark name="100% Kazik" url="http://gr-relay-6.gaduradio.pl/35"/>
+<bookmark name="100% Grabaż" url="http://gr-relay-6.gaduradio.pl/73"/>
+<bookmark name="100% Dżem" url="http://gr-relay-6.gaduradio.pl/15"/>
+<bookmark name="Odgłosy Natury" url="http://gr-relay-2.gaduradio.pl/52"/>
+</group>
+<!--================================================================-->
+<!--POLSKIE RADIA LOKALNE-->
+<group name="POLSKIE RADIA LOKALNE">
+  <bookmark name="Akademickie Radio LUZ" url="http://radioluz.pwr.wroc.pl/listen.pls"/>
+  <bookmark name="Radio Born (Borne Sulinowo)" url="http://sc1.readycast.org:8882/listen.pls"/>
+  <bookmark name="Radio Bon Ton (Chelm)" url="http://bonton.streamhost.pl:8092/listen.pls"/>
+  <bookmark name="Radio Ciechanów" url="http://radiokrc.pl/shoutcast/posluchaj.pls"/>
+  <bookmark name="Wietrzne Radio Chicago 1080 AM" url="http://www.wietrzneradio.com/radio/mp3.m3u"/>
+  <bookmark name="Wietrzne Radio Chicago 1080 AM Polskie Hity" url="http://www.wietrzneradio.com/radio/wrpolskie.m3u"/>
+  <bookmark name="Wietrzne Radio Chicago 1080 AM The Best Euro" url="http://www.wietrzneradio.com/radio/wreuro.m3u"/>
+  <bookmark name="Katolickie Radio FIAT (Częstochowa)" url="http://stream2.nadaje.com:8056/listen.pls"/>
+  <bookmark name="Radio Jasna Góra 100.6 FM (Częstochowa)" url="http://shot2.inten.pl:8252/listen.pls"/>
+  <bookmark name="Radio Sudety 96.4 FM (Dzierżoniów)" url="http://shot2.inten.pl:8906/listen.pls"/>
+  <bookmark name="Radio Atut (Dusseldorf)" url="http://85.214.97.114:6170"/>
+  <bookmark name="Radio Szkocja (Edynburg)" url="http://s4.radiohost.pl/play-8606.pls"/>
+  <bookmark name="Radio Szkocja - Polska Muzyka (Edynburg)" url="http://94.23.22.121/play-7200.asx"/>
+  <bookmark name="Radio Szkocja - Clubbing (Edynburg)" url="http://s4.radiohost.pl/play-8604.asx"/>
+  <bookmark name="Radio Szkocja - Hip Hop (Edynburg)" url="http://94.23.22.121/play-7202.asx"/>
+  <bookmark name="Radio El 94.1 FM (Elblg)" url="http://shot2.inten.pl:8778/listen.pls"/>
+  <bookmark name="Radio 5 (Suwaki)" url="http://80.54.14.252:8000/listen.pls"/>
+  <bookmark name="Radio 5 (Ełk)" url="http://sc.ipip.cz:8086/listen.pls"/>
+  <bookmark name="Polskie Radio Gdańsk" url="http://www.radiogdansk.pl/audio/rg_icyx.asx"/>
+  <bookmark name="Radio Bogoria 94.5 FM (Grodzisk Mazowiecki)" url="http://s7.radiohost.pl/play-8888.pls"/>
+  <bookmark name="Radio Fara 98.2 FM, 104.5 FM (Jarosław)" url="http://62.133.128.22:8000/listen.pls"/>
+  <bookmark name="Radio Rodzina (Wrocław)" url="http://www.radiorodzina.pl/static//rr92fm-hifi.pls"/>
+  <bookmark name="Radio Rodzina 103.1 FM (Kalisz)" url="http://82.160.38.68:8000/listen.pls"/>
+  <bookmark name="Radio Centrum 106.4 FM (Kalisz)" url="http://shot2.inten.pl:8888/listen.pls"/>
+  <bookmark name="Polskie Radio Katowice S.A." url="http://radiointernetowe.net:7700/"/>
+  <bookmark name="Radio eM 107.6 FM (Katowice)" url="http://shot2.inten.pl:8384/listen.pls"/>
+  <bookmark name="Radio Park 93.9 (Kędzierzyn-Koźle)" url="http://www.radiopark.com.pl/images/stories/shoutcast_icons/listy/park_winamp_listen.pls"/>
+  <bookmark name="Radio Sud 101.7 FM (Kępno)" url="http://www.radiosud.pl/templates/img/listen.pls"/>
+  <bookmark name="Radio FaMa 100.8 FM (Kielce)" url="http://stream2.nadaje.com:8076/listen.pls"/>
+  <bookmark name="Radio FaMa 92.9 FM (Tomaszów)" url="http://stream2.nadaje.com:8078/listen.pls"/>
+  <bookmark name="Radio Kielce 101.4 FM" url="http://gra.radio.kielce.com.pl:8000/rk1"/>
+  <bookmark name="Radio Hi-Fi (Kluczbork) - 19:00 - 21:00" url="http://www.24kluczbork.pl/radio/2.nadajnik.net/8016.pls"/>
+  <bookmark name="Radio Kołobrzeg 90.2 FM" url="http://194.24.244.11:8000/"/>
+  <bookmark name="Radio Alfa 102.4 FM (Kraków)" url="http://www.radioalfa.pl/sluchaj.m3u"/>
+  <bookmark name="Radio Kraków" url="http://www.radio.pionier.net.pl/stream.pls?radio=radiokrakow"/>
+  <bookmark name="Radio Elka (Leszno)" url="http://elka.fm/elka.pls"/>
+  <bookmark name="Radio Heynow (Londyn)" url="http://www.radioheynow.com/playlinks/radioheynow.pls"/>
+  <bookmark name="Polish Radio London / PRL 24 (Londyn)" url="http://www.prl24.net/prl128.asx"/>
+  <bookmark name="Radio ORA.fm (Londyn)" url="http://www.orla.fm/player/orla.m3u"/>
+  <bookmark name="Radio Centrum 98.2 FM (Lublin)" url="http://www.centrum.fm/sites/default/files/radio.m3u"/>
+  <bookmark name="Radio eR 87.9 FM (Lublin)" url="http://radioer.pl/sluchaj-winamp.m3u"/>
+  <bookmark name="Radio Lublin" url="http://www.radio.lublin.pl/streaming/64k.m3u"/>
+  <bookmark name="Radio Nadzieja 103.6 FM" url="http://s5.radiohost.pl/play-8600.pls"/>
+  <bookmark name="Radio Victoria (Skierniewice)" url="http://178.33.51.122:8176"/>
+  <bookmark name="Radio Parada 96.0 FM" url="http://195.69.82.77:9000"/>
+  <bookmark name="Radio Łódź" url="http://www.radio.pionier.net.pl/stream.m3u?radio=radiolodz"/>
+  <bookmark name="Studenckie Radio AK Politechniki Łódzkiej 88.8 FM" url="http://www.radio.pionier.net.pl/stream.asx?radio=radiozak"/>
+  <bookmark name="Radio Mysłowice" url="http://www.myslowice.fm/sluchaj.pls"/>
+  <bookmark name="Radio Nakło 107.5 FM" url="http://shot2.inten.pl:9998/listen.pls"/>
+  <bookmark name="Internetowe Radio Nasielsk" url="http://www.irn.pl/play.m3u"/>
+  <bookmark name="Radio Niepokalanów" url="http://88.199.169.10:8004/listen.pls"/>
+  <bookmark name="Radio Rytm - Kana Główny (Nowy Jork)" url="http://91.121.72.48:8514/listen.pls"/>
+  <bookmark name="Radio Rytm Zote Przeboje (Nowy Jork)" url="http://sc3.soundcast.pl:8486/listen.pls"/>
+  <bookmark name="Radio Rytm Muzyka Klubowa (Nowy Jork)" url="http://sc3.soundcast.pl:8482/listen.pls"/>
+  <bookmark name="Polskie Radio Olsztyn" url="http://213.73.25.178:7055/listen.pls"/>
+  <bookmark name="Radio UWM FM 95.9 FM (Olsztyn)" url="http://www.uwmfm.pl/media/uwmfm_stream.m3u"/>
+  <bookmark name="Radio Opole" url="http://posluchaj.radio.opole.pl:8030/listen.pls"/>
+  <bookmark name="Radio Sygnaly (Opole)" url="http://217.173.194.62:8000/rs.mp3.m3u"/>
+  <bookmark name="Radio Oko 88.5 FM" url="http://stream2.nadaje.com:8094/listen.pls"/>
+  <bookmark name="Radio Głos (Szymbark, Chojnice, Pelplin)" url="http://83.12.223.226:8000"/>
+  <bookmark name="Radio Piekary Śląskie 88.7 FM" url="http://shot2.inten.pl:8412/listen.pls"/>
+  <bookmark name="Radio Strefa FM 98.2 FM (Piotrków Trybunalski)" url="http://strefa.fm/winamp.m3u"/>
+  <bookmark name="Radio Afera 98.6 FM (Poznań)" url="http://www.radio.pionier.net.pl/stream.pls?radio=afera"/>
+  <bookmark name="Radio Emaus (Poznań)" url="http://www.radio.pionier.net.pl/stream.pls?radio=emaus"/>
+  <bookmark name="MC Radio 102.7 FM (Poznań)" url="http://www.radio.pionier.net.pl/stream.pls?radio=mcradio"/>
+  <bookmark name="Radio Merkury (Poznań)" url="http://poznan5.radio.pionier.net.pl:8000/merkury3.ogg"/>
+  <bookmark name="Radio Vanessa FM (Racibórz" url="http://www.vanessa.com.pl/listen.pls"/>
+  <bookmark name="Radio 90 FM (Rybnik, Cieszyn)" url="http://www.radio90.pl/files/radio90.m3u"/>
+  <bookmark name="Radio Centrum 89.0 FM (Rzeszów)" url="http://radiocentrum.pl:8000"/>
+  <bookmark name="Polskie Radio Rzeszow SA" url="http://www.radio.rzeszow.pl/stereo.pls"/>
+  <bookmark name="Radio VIA (Rzeszów)" url="http://www.radiovia.com.pl/images/stories/elementy_strona/RADIOVIA_AAC.m3u"/>
+  <bookmark name="Slonsky Radio (Śląsk)" url="http://slonskyradio.eu/listen.m3u"/>
+  <bookmark name="Wesoły Hanys (Śląsk)" url="http://www.wesolyhanys.pl/listen.m3u"/>
+  <bookmark name="Radio Śląsk" url="http://live.slaskieradio.com/play-8030.pls"/>
+  <bookmark name="Śląskie Radio Hitmix (Śląsk)" url="http://s6.radiohost.pl/play-8150.pls"/>
+  <bookmark name="Radio RDN Małopolska (Tarnów)" url="http://82.115.76.69:8128/"/>
+  <bookmark name="ABC Polish Radio (Toronto)" url="http://s3.voscast.com:7436"/>
+  <bookmark name="Radio Sfera (Toruń)" url="http://158.75.34.231:8000/sfera.mp3"/>
+  <bookmark name="Radio Express (Tychy)" url="http://www.radioexpress.pl/RadioExpress.m3u"/>
+  <bookmark name="Radio Kampus 97.1 FM (Warszawa)" url="http://193.0.98.66:8002/listen.pls"/>
+  <bookmark name="Radio Kolor 103.0 FM (Warszawa)" url="http://stream3.nadaje.com:8072/"/>
+  <bookmark name="Radio Warszawa 106.2 FM" url="http://radiowarszawa.com.pl/wp-content/radiowarszawa.m3u"/>
+  <bookmark name="Radio Ziemii Wieluńskiej 88.6 FM, 97.7 FM (Wieluń)" url="http://www.radiozw.com.pl/RZW.pls"/>
+  <bookmark name="Znad Wilii 103.8 FM (Wilno)" url="http://stream.nadaje.com:8016/listen.pls"/>
+  <bookmark name="Radio Kaszebe (Władysławowo)" url="http://shot2.inten.pl:8920/listen.pls"/>
+  <bookmark name="Akademickie Radio Luz 91.6 FM (Wrocław)" url="http://radioluz.pwr.wroc.pl/listen.pls"/>
+  <bookmark name="Radio RAM 89.8 FM (Wrocław)" url="http://www.radio.pionier.net.pl/stream.pls?radio=radiorammp3"/>
+  <bookmark name="Traffic Radio (Wrocław)" url="http://www.radiotraffic.fm/stream/sluchaj.pls"/>
+  <bookmark name="Radio Alex 105.2 FM (Zakopane)" url="http://87.98.186.209:8000/listen.pls"/>
+  <bookmark name="Katolickie Radio Zamość" url="http://83.3.230.10:8000/lq.m3u"/>
+  <bookmark name="Radio Index 96.0 FM (Zielona Góra)" url="http://shoutcast2.index.uz.zgora.pl:8000/"/>
+  <bookmark name="Radio Żnin" url="http://radioznin.pl/radio_znin.m3u"/>
+</group>
+<!--================================================================-->
+<!--POLSKIE RADIO-->
+<group name="POLSKIE RADIO">
+<bookmark name="Polskie Radio 1" url="http://stream3.polskieradio.pl:8900/listen.pls"/>
+<bookmark name="Polskie Radio 2" url="http://stream3.polskieradio.pl:8902/listen.pls"/>
+<bookmark name="Polskie Radio 3" url="http://stream3.polskieradio.pl:8904/listen.pls"/>
+<bookmark name="Polskie Radio Czwórka" url="http://stream3.polskieradio.pl:8906/listen.pls"/>
+<bookmark name="Polskie Radio dla zagranicy" url="http://stream3.polskieradio.pl:8908/listen.pls"/>
+<bookmark name="PR Radio Bialystok" url="http://www.radio.bialystok.pl/internetowe/radioplayer/mp3stream.pls"/>
+<bookmark name="PR Radio Dla Ciebie" url="http://www.rdc.pl/rdc.m3u"/>
+<bookmark name="PR Radio Gdańsk" url="http://stream.task.gda.pl:8000/rg1.m3u"/>
+<bookmark name="PR Gorzów" url="http://stream01.zachod.pl:10115/listen.pls"/>
+<bookmark name="PR Radio Katowice" url="http://panel.nadaje.com:9212/radiokatowice.m3u"/>
+<bookmark name="PR Radio Kielce" url="http://www.radio.kielce.pl/themes/basic/radio_1/player/radio-kielce.pls"/>
+<bookmark name="PR Radio Koszalin" url="http://91.232.4.24:9092/listen.pls"/>
+<bookmark name="PR Radio Kraków" url="http://panel.nadaje.com:9680/radiokrakow-s3.m3u"/>
+<bookmark name="PR Radio Łódź" url="http://www.radiolodz.pl/docs/others/radiolodz.m3u"/>
+<bookmark name="PR Radio Lublin" url="http://www.radio.lublin.pl/streaming/64k.m3u"/>
+<bookmark name="PR Radio Merkury Poznań" url="http://warszawa1-3.radio.pionier.net.pl:8000/pl/merkury.ogg.m3u"/>
+<bookmark name="PR MC Radio" url="http://www.radio.pionier.net.pl/stream.pls?radio=mcradio"/>
+<bookmark name="PR Radio Olsztyn" url="http://213.73.25.178:7055/listen.pls"/>
+<bookmark name="PR Radio Opole (Region)" url="http://dab.radio.opole.pl:8090/1.m3u"/>
+<bookmark name="PR Radio Opole (Miasto)" url="http://dab.radio.opole.pl:8080/1.m3u"/>
+<bookmark name="PR Radio Opole 2" url="http://dab.radio.opole.pl:8060/1.m3u"/>
+<bookmark name="PR Radio Pik" url="http://stream.radiopik.pl:9004/listen.pls"/>
+<bookmark name="PR Radio Rzeszów" url="http://www.radio.rzeszow.pl/stereo.pls"/>
+<bookmark name="PR Radio RAM" url="http://www.radio.pionier.net.pl/stream.pls?radio=radioram"/>
+<bookmark name="PR Radio Szczecin" url="http://www.radio.szczecin.pl/prs.m3u"/>
+<bookmark name="PR Radio Wrocław" url="http://www.radio.pionier.net.pl/stream.pls?radio=prwroclaw"/>
+<bookmark name="PR Radio Zachód" url="http://stream01.zachod.pl:10103/listen.pls"/>
+<bookmark name="PR Radio Zielona Góra" url="http://rzg.pl/player/rzg.m3u"/>
+</group>
+<!--================================================================-->
+<!--RADIO PiN-->
+<!--<group name="RADIO PiN">
+<bookmark name="Gorączka Codziennego Wieczoru" url="http://panel.nadaje.com:9060/radiopin4"/>
+<bookmark name="Midnight Funk Association" url="http://panel.nadaje.com:9054/radiopin2"/>
+<bookmark name="Musyka dla Dorosłych" url="http://panel.nadaje.com:9056/radiopin3"/>
+<bookmark name="PiN" url="http://www.radiopin.pl/shoutcast/radiopin128.m3u"/>
+<bookmark name="PiN Jazz" url="http://panel.nadaje.com:9062/radiopin5"/>
+<bookmark name="PiNCode" url="http://panel.nadaje.com:9050/radiopin1"/>
+</group>-->
+<!--================================================================-->
+<!--RADIO PLANETA FM-->
+<group name="PLANETA FM">
+<bookmark name="PLANETA FM ABOVE AND BEYOND" url="http://www.deren.internetdsl.pl/shoutcast/planetafmabovebeyond.m3u"/>
+<bookmark name="PLANETA FM BIELSKO-BIAŁA" url="http://www.deren.internetdsl.pl/shoutcast/planetafmbielskobiala.m3u"/>
+<bookmark name="PLANETA FM CHIC" url="http://www.deren.internetdsl.pl/shoutcast/planetafmchic.m3u"/>
+<bookmark name="PLANETA FM HOUSE" url="http://www.deren.internetdsl.pl/shoutcast/planetafmhouse.m3u"/>
+<bookmark name="PLANETA FM KATOWICE" url="http://www.deren.internetdsl.pl/shoutcast/planetafmkatowice.m3u"/>
+<bookmark name="PLANETA FM KONIN" url="http://www.deren.internetdsl.pl/shoutcast/planetafmkonin.m3u"/>
+<bookmark name="PLANETA FM KIELCE" url="http://www.deren.internetdsl.pl/shoutcast/planetafmkielce.m3u"/>
+<bookmark name="PLANETA FM ŁÓDŹ" url="http://www.deren.internetdsl.pl/shoutcast/planetafmlodz.m3u"/>
+<bookmark name="PLANETA FM OLDSKUL" url="http://www.deren.internetdsl.pl/shoutcast/planetafmoldskul.m3u"/>
+<bookmark name="PLANETA FM OLSZTYN" url="http://www.deren.internetdsl.pl/shoutcast/planetafmolsztyngizyckoilawamragowo.m3u"/>
+<bookmark name="PLANETA FM OPOLE" url="http://www.deren.internetdsl.pl/shoutcast/planetafmopole.m3u"/>
+<bookmark name="PLANETA FM POZNAŃ" url="http://www.deren.internetdsl.pl/shoutcast/planetafmpoznan.m3u"/>
+<bookmark name="PLANETA FM PROGRESSIVE HOUSE" url="http://www.deren.internetdsl.pl/shoutcast/planetafmprogressivehouse.m3u"/>
+<bookmark name="PLANETA FM RNB" url="http://www.deren.internetdsl.pl/shoutcast/planetafmrnb.m3u"/>
+<bookmark name="PLANETA FM WARSZAWA" url="http://www.deren.internetdsl.pl/shoutcast/planetafmwarszawakrakow.m3u"/>
+</group>
+<!--================================================================-->
+<!--RADIO PLUS-->
+<group name="RADIO PLUS">
+<bookmark name="Radio Plus" url="http://www.deren.internetdsl.pl/shoutcast/plusonline.m3u"/>
+<bookmark name="Radio Plus Bydgoszcz" url="http://www.deren.internetdsl.pl/shoutcast/plusbydgoszcz.m3u"/>
+<bookmark name="Radio Plus Gdańsk" url="http://www.deren.internetdsl.pl/shoutcast/plusgdansk.m3u"/>
+<bookmark name="Radio Plus Gliwice" url="http://www.deren.internetdsl.pl/shoutcast/plusgliwice.m3u"/>
+<bookmark name="Radio Plus Głogów" url="http://www.deren.internetdsl.pl/shoutcast/plusglogow.m3u"/>
+<bookmark name="Radio Plus Gniezno" url="http://www.deren.internetdsl.pl/shoutcast/plusgniezno.m3u"/>
+<bookmark name="Radio Plus Gorzów" url="http://www.deren.internetdsl.pl/shoutcast/plusgorzow.m3u"/>
+<bookmark name="Radio Plus Kielce" url="http://www.deren.internetdsl.pl/shoutcast/pluskielce.m3u"/>
+<bookmark name="Radio Plus Radom" url="http://www.deren.internetdsl.pl/shoutcast/plusradom.m3u"/>
+<bookmark name="Radio Plus Toruń" url="http://www.deren.internetdsl.pl/shoutcast/plustorun.m3u"/>
+<bookmark name="Radio Plus Warszawa" url="http://www.deren.internetdsl.pl/shoutcast/pluswarszawa.m3u"/>
+<bookmark name="Radio Plus Zielona Góra" url="http://www.deren.internetdsl.pl/shoutcast/plusozielonagora.m3u"/>
+<bookmark name="Radio Plus - Taneczne Przeboje" url="http://www.deren.internetdsl.pl/shoutcast/plustaneczne.m3u"/>
+<bookmark name="Radio Plus - Milego Dnia" url="http://www.deren.internetdsl.pl/shoutcast/plusmilegodnia.m3u"/>
+<bookmark name="Radio Plus - Przeboje Ostatniej Dekady" url="http://www.deren.internetdsl.pl/shoutcast/plusdekady.m3u"/>
+<bookmark name="Radio Plus - Przeboje z Młodości" url="http://www.deren.internetdsl.pl/shoutcast/pluszmlodosci.m3u"/>
+<bookmark name="Radio Plus - Plus po Polsku" url="http://www.deren.internetdsl.pl/shoutcast/pluspopolsku.m3u"/>
+<bookmark name="Radio Plus - Boska Muzyka" url="http://www.deren.internetdsl.pl/shoutcast/plusboskamuzyka.m3u"/>
+<bookmark name="Radio Plus - Muzyka z Ekranu" url="http://www.deren.internetdsl.pl/shoutcast/plusmuzykazekranu.m3u"/>
+<bookmark name="Radio Plus - Karnawałowe Przeboje" url="http://www.deren.internetdsl.pl/shoutcast/pluskarnawaloweprzeboje.m3u"/>
+<bookmark name="Radio Plus - Na Boże Narodzenie" url="http://www.deren.internetdsl.pl/shoutcast/plusnaswieta.m3u"/>
+</group>
+<!--================================================================-->
+<!-- RMFON -->
+<group name="RMFON">
+<bookmark name="20 lat RMF FM" url="http://www.miastomuzyki.pl/n/rmf20lat.pls"/>
+<bookmark name="RMF 2000" url="http://www.miastomuzyki.pl/n/rmf2000.pls"/>
+<bookmark name="RMF 50s" url="http://www.miastomuzyki.pl/n/rmf50s.pls"/>
+<bookmark name="RMF 60s" url="http://www.miastomuzyki.pl/n/rmf60s.pls"/>
+<bookmark name="RMF 70s" url="http://www.miastomuzyki.pl/n/rmf70s.pls"/>
+<bookmark name="RMF 80s" url="http://www.miastomuzyki.pl/n/rmf80s.pls"/>
+<bookmark name="RMF 90s" url="http://www.miastomuzyki.pl/n/rmf90s.pls"/>
+<bookmark name="RMF Alternatywa" url="http://www.miastomuzyki.pl/n/rmfalternatywa.pls"/>
+<bookmark name="RMF Baby" url="http://www.miastomuzyki.pl/n/rmfbaby"/>
+<bookmark name="RMF Beatle Mania" url="http://www.miastomuzyki.pl/n/rmfbeatlemania.pls"/>
+<bookmark name="RMF Blues" url="http://www.miastomuzyki.pl/n/rmfblues.pls"/>
+<bookmark name="RMF Bravo" url="http://www.miastomuzyki.pl/n/rmfbravo.pls"/>
+<bookmark name="RMF Celtic" url="http://www.miastomuzyki.pl/n/rmfceltic.pls"/>
+<bookmark name="RMF Chopin" url="http://www.miastomuzyki.pl/n/rmfchopin.pls"/>
+<bookmark name="RMF Chillout" url="http://www.miastomuzyki.pl/n/rmfchillout.pls"/>
+<bookmark name="RMF Classic" url="http://www.miastomuzyki.pl/n/rmfclassic.pls"/>
+<bookmark name="RMF Classic Rock" url="http://www.miastomuzyki.pl/n/rmfclassic_rock.pls"/>
+<bookmark name="RMF Club" url="http://www.miastomuzyki.pl/n/rmfclub.pls"/>
+<bookmark name="RMF Club Breaks" url="http://www.miastomuzyki.pl/n/rmfclub_breaks.pls"/>
+<bookmark name="RMF Cover" url="http://www.miastomuzyki.pl/n/rmfcover.pls"/>
+<bookmark name="RMF Cuba" url="http://www.miastomuzyki.pl/n/rmfcuba.pls"/>
+<bookmark name="RMF Dance" url="http://www.miastomuzyki.pl/n/rmfdance.pls"/>
+<bookmark name="RMF Depeche Mode" url="http://www.miastomuzyki.pl/n/rmfdepechemode.pls"/>
+<bookmark name="RMF Electro Shockwave" url="http://www.miastomuzyki.pl/n/rmfelectroshockwave.pls"/>
+<bookmark name="RMF Extra" url="http://www.miastomuzyki.pl/n/rmfextra.pls"/>
+<bookmark name="RMF FM" url="http://www.miastomuzyki.pl/n/rmffm.pls"/>
+<bookmark name="RMF Flamenco" url="http://www.miastomuzyki.pl/n/rmfflamenco.pls"/>
+<bookmark name="RMF Francais" url="http://www.miastomuzyki.pl/n/rmffrancais.pls"/>
+<bookmark name="RMF Gold" url="http://www.miastomuzyki.pl/n/rmfgold.pls"/>
+<bookmark name="RMF Groove" url="http://www.miastomuzyki.pl/n/rmfgroove.pls"/>
+<bookmark name="RMF Grunge" url="http://www.miastomuzyki.pl/n/rmfgrunge.pls"/>
+<bookmark name="RMF HOT New" url="http://www.miastomuzyki.pl/n/rmfhot_new.pls"/>	
+<bookmark name="RMF Hard and Heavy" url="http://www.miastomuzyki.pl/n/rmfhard_heavy.pls"/>
+<bookmark name="RMF Hip Hop" url="http://www.miastomuzyki.pl/n/rmfhip_hop.pls"/>
+<bookmark name="RMF Kalinka" url="http://www.miastomuzyki.pl/n/rmfkalinka.pls"/>
+<bookmark name="RMF Lady Pank" url="http://www.miastomuzyki.pl/n/rmfladypank.pls"/>
+<bookmark name="RMF Love" url="http://www.miastomuzyki.pl/n/rmflove.pls"/>
+<bookmark name="RMF MJ" url="http://www.miastomuzyki.pl/n/rmfmj.pls"/>
+<bookmark name="RMF Maxxx" url="http://www.miastomuzyki.pl/n/rmfmaxxx.pls"/>
+<bookmark name="RMF Maxxx Hop-Bęc" url="http://www.miastomuzyki.pl/n/rmfhopbec.pls"/>
+<bookmark name="RMF Michael Jackson" url="http://www.miastomuzyki.pl/n/rmfmichaeljackson.pls"/>
+<bookmark name="RMF Muzyka filmowa" url="http://www.miastomuzyki.pl/n/rmfmuzykafilmowa.pls"/>
+<bookmark name="RMF Muzyka klasyczna" url="http://www.miastomuzyki.pl/n/rmfmuzykaklasyczna.pls"/>
+<bookmark name="RMF Muzzo" url="http://www.miastomuzyki.pl/n/rmfmuzzo.pls"/>
+<bookmark name="RMF Nippon" url="http://www.miastomuzyki.pl/n/rmfnippon.pls"/>
+<bookmark name="RMF POP and Colors" url="http://www.miastomuzyki.pl/n/rmfpnc.pls"/>
+<bookmark name="RMF Pacuda Country" url="http://www.miastomuzyki.pl/n/rmfpacudacountry.pls"/>
+<bookmark name="RMF Party" url="http://www.miastomuzyki.pl/n/rmfparty"/>
+<bookmark name="RMF Piosenka Literacka" url="http://www.miastomuzyki.pl/n/rmfpiosenkaliteracka.pls"/>
+<bookmark name="RMF Polski Rock" url="http://www.miastomuzyki.pl/n/rmfpolskirock.pls"/>
+<bookmark name="RMF Polskie Przeboje" url="http://www.miastomuzyki.pl/n/rmfpolskieprzeboje.pls"/>
+<bookmark name="RMF Poplista" url="http://www.miastomuzyki.pl/n/rmfpoplista.pls"/>
+<bookmark name="RMF Przebój Roku " url="http://www.miastomuzyki.pl/n/rmfprzebojroku.pls"/>
+<bookmark name="RMF Punk" url="http://www.miastomuzyki.pl/n/rmfpunk.pls"/>
+<bookmark name="RMF Queen" url="http://www.miastomuzyki.pl/n/rmfqueen.pls"/>
+<bookmark name="RMF RNB" url="http://www.miastomuzyki.pl/n/rmfrnb.pls"/>
+<bookmark name="RMF Reggae" url="http://www.miastomuzyki.pl/n/rmfreggae.pls"/>
+<bookmark name="RMF Rock" url="http://www.miastomuzyki.pl/n/rmfrock.pls"/>
+<bookmark name="RMF Rumor" url="http://www.miastomuzyki.pl/n/rmfrumor.pls"/>
+<bookmark name="RMF Select" url="http://www.miastomuzyki.pl/n/rmfselect.pls"/>
+<bookmark name="RMF Smooth Jazz" url="http://www.miastomuzyki.pl/n/rmfsmoothjazz.pls"/>
+<bookmark name="RMF Styl" url="http://www.miastomuzyki.pl/n/rmfstyl.pls"/>
+<bookmark name="RMF Festiwale" url="http://www.miastomuzyki.pl/n/rmfsupport.pls"/>
+<bookmark name="RMF Szanty" url="http://www.miastomuzyki.pl/n/rmfszanty.pls"/>
+<bookmark name="RMF Słonecznie Przeboje" url="http://www.miastomuzyki.pl/n/rmfsloneczneprzeboje.pls"/>
+<bookmark name="RMF Wasza Muzyka" url="http://www.miastomuzyki.pl/n/rmfwaszamuzyka.pls"/>
+<bookmark name="RMF Ziom" url="http://www.miastomuzyki.pl/n/rmfziom.pls"/>
+<bookmark name="eLO RMF" url="http://www.miastomuzyki.pl/n/rmfelo.pls"/>
+</group>
+<!--================================================================-->
+<!--TUBA.FM-->
+<group name="TUBA.FM">
+<bookmark name="Radio Złote Przeboje" url="http://poznan5-6.radio.pionier.net.pl:8000/tuba9-1.mp3"/>
+<bookmark name="KISS FM" url="http://stream5.radioagora.pl/tuba19-1.mp3"/>
+<bookmark name="RADIO BAOBAB" url="http://stream.radiobaobab.pl:8000/radiobaobab.mp3"/>
+<bookmark name="ROXY FM" url="http://gdansk.radio.pionier.net.pl:8000/pl/roxyfm.ogg"/>
+<bookmark name="TOK FM" url="http://www.radio.pionier.net.pl/stream.pls?radio=radiotok"/>
+</group>
+</group>
+</bookmarks>

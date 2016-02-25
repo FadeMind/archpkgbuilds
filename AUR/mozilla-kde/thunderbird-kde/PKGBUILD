@@ -1,0 +1,95 @@
+# Maintainer : Ramon Buldó <ramon@manjaro.org>
+# Contributor: AlmAck <almack@chakra-project.org>
+
+pkgname=thunderbird-kde
+pkgver=38.6.0
+pkgrel=1
+provides=(thunderbird=${pkgver})
+pkgdesc="Standalone Mail/News reader"
+arch=('i686' 'x86_64')
+license=('MPL' 'GPL')
+url="http://www.mozilla.org/thunderbird/"
+depends=('gtk2' 'mozilla-common' 'libxt' 'startup-notification' 'mime-types'
+         'dbus-glib' 'alsa-lib' 'desktop-file-utils' 'hicolor-icon-theme'
+         'libvpx' 'icu' 'libevent' 'nss' 'hunspell' 'sqlite' 'nspr' 'libnotify')
+makedepends=('unzip' 'zip' 'python2' 'wireless_tools' 'yasm' 'mesa' 'libpulse'
+             'pkg-config' 'autoconf2.13' 'gst-plugins-base-libs' 'xorg-server-xvfb')
+optdepends=('thunderbird-i18n: for multilanguage support'
+            'libcanberra: for sound support')
+conflicts=('thunderbird' 'thunderbird-kde-opensuse')
+install=thunderbird.install
+# For patch look here: https://build.opensuse.org/package/show/mozilla:Factory/MozillaThunderbird
+source=(https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/$pkgver/source/thunderbird-$pkgver.source.tar.bz2
+        mozconfig
+        thunderbird.desktop
+        thunderbird-install-dir.patch
+        vendor.js
+        mozilla-kde.patch
+        mozilla-language.patch
+        mozilla-nongnome-proxies.patch
+        kde.js)
+options=('!emptydirs' '!makeflags')
+sha256sums=('0417711325a4ba6fa61882bfcd9a7ce325fa0b903474e087f16e13a70be15a6b'
+            '6ce788b80d0a1bac96201ca4f4ce93fee5a94e222b1ddb6cdee5c6db2d00ef77'
+            '3fba13d88aeb003ab0811ef739463858172ce0662a1c7d62835df3d83ddbb8fb'
+            '24599eab8862476744fe1619a9a53a5b8cdcab30b3fc5767512f31d3529bd05d'
+            'e4ea8e6788163d9f8db8f1f40023db3ea0a1358f9a4510169f2d4c4fe6a887ed'
+            'b1392d15005ae9bc2bba86a447ae235bc033bf8a904cbe60fed4e98bf8b3b11d'
+            'b9feb66a33dc1644d7d277dc3fc166c655735de7100bc4e93f1fe44567f35345'
+            'e8289ea4c1f8191e1e23661312ceee2128b8e790501b9a589d0d7bfc4384553f'
+            '0850a8a8dea9003c67a8ee1fa5eb19a6599eaad9f2ad09db753b74dc5048fdbc')
+
+prepare(){
+  cd comm-esr${pkgver%%.*}
+  patch -Np1 -i ../thunderbird-install-dir.patch
+
+  msg "Patching for KDE"
+  cd mozilla
+  patch -Np1 -i "$srcdir/mozilla-language.patch"
+  patch -Np1 -i "$srcdir/mozilla-nongnome-proxies.patch"
+  patch -Np1 -i "$srcdir/mozilla-kde.patch"
+  cd ..
+
+  cp "$srcdir/mozconfig" .mozconfig
+
+  # configure script misdetects the preprocessor without an optimization level
+  # https://bugs.archlinux.org/task/34644
+  sed -i '/ac_cpp=/s/$CPPFLAGS/& -O2/' mozilla/configure
+}
+         
+build() {
+  cd comm-esr${pkgver%%.*}
+
+  export PYTHON="/usr/bin/python2"
+  
+  xvfb-run -a -s "-extension GLX -screen 0 1280x1024x24" \
+    make -f client.mk build MOZ_PGO=1
+}
+
+package() {
+  cd comm-esr${pkgver%%.*}
+  make -f client.mk DESTDIR="$pkgdir" install
+
+  install -Dm644 "$srcdir"/vendor.js "$pkgdir/usr/lib/thunderbird/defaults/preferences/vendor.js"
+  install -Dm644 "$srcdir"/kde.js "$pkgdir/usr/lib/thunderbird/defaults/preferences/kde.js"
+
+  for i in 16 22 24 32 48 256; do
+      install -Dm644 other-licenses/branding/thunderbird/mailicon$i.png \
+          "$pkgdir/usr/share/icons/hicolor/${i}x${i}/apps/thunderbird.png"
+  done
+
+  install -Dm644 "$srcdir/thunderbird.desktop" \
+      "$pkgdir/usr/share/applications/thunderbird.desktop"
+
+  # Use system-provided dictionaries
+  rm -rf "$pkgdir"/usr/lib/thunderbird/{dictionaries,hyphenation}
+  ln -sf /usr/share/hunspell "$pkgdir/usr/lib/thunderbird/dictionaries"
+  ln -sf /usr/share/hyphen "$pkgdir/usr/lib/thunderbird/hyphenation"
+  
+  # Replace duplicate binary with symlink
+  # https://bugzilla.mozilla.org/show_bug.cgi?id=658850
+  ln -sf thunderbird "$pkgdir/usr/lib/thunderbird/thunderbird-bin"
+
+  # Remove development stuff
+  rm -r "$pkgdir"/usr/{include,lib/thunderbird-devel-*,share/idl}
+}

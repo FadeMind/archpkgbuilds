@@ -1,0 +1,213 @@
+# $Id$
+# Maintainer : Ramon Buldó <ramon@manjaro.org>
+# Contributor: Thomas Baechler <thomas@archlinux.org>
+# Contributor: Jaroslaw Swierczynski <swiergot@juvepoland.com>
+# Contributor: Michal Hybner <dta081@gmail.com>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+
+pkgbase=firefox-kde-i18n
+pkgver=44.0
+pkgrel=1
+pkgdesc="Language pack for Firefox"
+arch=('any')
+url="http://www.mozilla.com/"
+license=('MPL' 'GPL')
+depends=("firefox-kde>=$pkgver")
+
+_languages=(
+  'ach    "Acholi"'
+  'af     "Afrikaans"'
+  'an     "Aragonese"'
+  'ar     "Arabic"'
+  'as     "Assamese"'
+  'ast    "Asturian"'
+  'be     "Belarusian"'
+  'bg     "Bulgarian"'
+  'bn-BD  "Bengali (Bangladesh)"'
+  'br     "Breton"'
+  'bs     "Bosnian"'
+  'ca     "Catalan"'
+  'cs     "Czech"'
+  'cy     "Welsh"'
+  'da     "Danish"'
+  'de     "German"'
+  'el     "Greek"'
+  'en-GB  "English (British)"'
+  'en-US  "English (US)"'
+  'en-ZA  "English (South African)"'
+  'eo     "Esperanto"'
+  'es-AR  "Spanish (Argentina)"'
+  'es-CL  "Spanish (Chile)"'
+  'es-ES  "Spanish (Spain)"'
+  'es-MX  "Spanish (Mexico)"'
+  'et     "Estonian"'
+  'eu     "Basque"'
+  'fa     "Persian"'
+  'ff     "Fulah"'
+  'fi     "Finnish"'
+  'fr     "French"'
+  'fy-NL  "Frisian"'
+  'ga-IE  "Irish"'
+  'gd     "Gaelic (Scotland)"'
+  'gl     "Galician"'
+  'gu-IN  "Gujarati"'
+  'he     "Hebrew"'
+  'hi-IN  "Hindi (India)"'
+  'hr     "Croatian"'
+  'hu     "Hungarian"'
+  'hy-AM  "Armenian"'
+  'id     "Indonesian"'
+  'is     "Icelandic"'
+  'it     "Italian"'
+  'ja     "Japanese"'
+  'kk     "Kazakh"'
+  'km     "Khmer"'
+  'kn     "Kannada"'
+  'ko     "Korean"'
+  'lij    "Ligurian"'
+  'lt     "Lithuanian"'
+  'lv     "Latvian"'
+  'mai    "Maithili"'
+  'mk     "Macedonian"'
+  'ml     "Malayalam"'
+  'mr     "Marathi"'
+  'nb-NO  "Norwegian (Bokmål)"'
+  'nl     "Dutch"'
+  'nn-NO  "Norwegian (Nynorsk)"'
+  'or     "Oriya"'
+  'pa-IN  "Punjabi"'
+  'pl     "Polish"'
+  'pt-BR  "Portuguese (Brazilian)"'
+  'pt-PT  "Portuguese (Portugal)"'
+  'rm     "Romansh"'
+  'ro     "Romanian"'
+  'ru     "Russian"'
+  'si     "Sinhala"'
+  'sk     "Slovak"'
+  'sl     "Slovenian"'
+  'son    "Songhai"'  
+  'sq     "Albanian"'
+  'sr     "Serbian"'
+  'sv-SE  "Swedish"'
+  'ta     "Tamil"'
+  'te     "Telugu"'
+  'th     "Thai"'
+  'tr     "Turkish"'
+  'uk     "Ukrainian"'
+  'uz     "Uzbek"'
+  'vi     "Vietnamese"'
+  'xh     "Xhosa"'
+  'zh-CN  "Chinese (Simplified)"'
+  'zh-TW  "Chinese (Traditional)"'
+)
+
+pkgname=()
+source=()
+_url=http://download.cdn.mozilla.net/pub/firefox/releases/$pkgver/linux-i686/xpi
+
+for _lang in "${_languages[@]}"; do
+  _locale=${_lang%% *}
+  _pkgname=firefox-kde-i18n-${_locale,,}
+  
+  pkgname+=($_pkgname)
+  source+=("firefox-i18n-$pkgver-$_locale.xpi::$_url/$_locale.xpi")
+  eval "package_$_pkgname() {
+    _package $_lang
+  }"
+done
+
+# Don't extract anything
+noextract=(${source[@]%%::*})
+
+_package() {
+  pkgdesc="$2 language pack for Firefox"
+  __locale=$1
+  conflicts=("firefox-i18n-${__locale,,}")
+  install -Dm644 firefox-i18n-$pkgver-$1.xpi \
+    "$pkgdir/usr/lib/firefox/browser/extensions/langpack-$1@firefox.mozilla.org.xpi"
+}
+
+md5sums=('ad4bfc30ad73313cd440a79abe580a05'
+         '1bdb81383a7429734e0b90277d43b1f4'
+         '51fa9d3b2ca74cf1af97d55a2e28bbb9'
+         '257396e1545cc8926c450bdba839a2ab'
+         'd070560bbaf20da20a9c2a3cc5a74d62'
+         '6fa00f798f684b8c84b391bb531aa33b'
+         '555b62a11e24b8df71e17cad7f523f1a'
+         'b1a07bb058302cee3f86ecfba35638f5'
+         '6c9b74297cd63862ef19e17efdc92189'
+         '7d16a43078b385990fc2255473306058'
+         '7d512b7009c013106d4bd1f4fd317ced'
+         '8762374312244f00af9e109c1de2b93b'
+         'ddaa560b6d0607f1eef69cc58db99d3b'
+         '788a0693108bebc0b5e393e02c6a5c24'
+         '8392330b2f14479cf71c4ea0a2864b4c'
+         '0654073f7626e84a07c9f53a41854ad5'
+         'fa97ad18d9824a8ba6ea6a2471c1ce03'
+         '2bf3aa0f59697b487e9543a7b9a92c22'
+         '9aa06cd22eb48160adbbcad236b9ed76'
+         'e2cd6953daa743fcd17c3c4d6c21c21f'
+         '12c0c2374e3fb263525b9e2278e46fb2'
+         '72d1e05ba10bbecd42e98baa087017f7'
+         'ce593eab5d0dc8154544e3ee7e1a8a29'
+         'a7e03197f7fc44ad760d64a477936841'
+         '4b5fc52f41dd7d25686254b20eef8146'
+         'f9fc8a10a9bae22378231eca00e0f73d'
+         'a7ac21fbc3ab23f3fbc33b48a21cf5be'
+         '268f45c4517d6619c74cf9cfba8d3ce9'
+         '01b6e230b4dbdf4f927b899b6cf2d6cf'
+         'a797699679f553210e5e64614172c36f'
+         '9f30c0591aeb92a83bb5b825d1758435'
+         'c88a57354b17558787e8eb9d3843151c'
+         'b2081b08285cb0cdc6cf96e291599b23'
+         '379eb1dea120bb0692160fdb52b8854c'
+         '92b48d64bca09a398a3f6b9fba958ce8'
+         '10c7b1f56a950a083151073a3fa42578'
+         '7e5d566d88bb1f21dffecc92e785de2f'
+         '474ef84d993059b30e04903622495977'
+         'fc962f1e23240b910b459a2e48990f89'
+         'ea5af5ae3ae7fe6bb086add3c7cbcf89'
+         '267061b29099911ce95a4028315252bc'
+         '2dd4255264246f671b23d8ba0585189f'
+         '52db1effd30219ef631031b133883449'
+         '357e6a7fa931fe640eaa3e54fbebea52'
+         'cf7c8a5a0870042b74214f7a5b3e9860'
+         '6e6c61efa4bff26a4e0ed717eea5971d'
+         'e976f33ca440a29a61db141ef581fbb1'
+         '724f8589ebac08803baa728f0cd18cd3'
+         '147ff5802147d9e25321707a72780184'
+         '9b3a1411956d6d8fb5a26a12f8531bdf'
+         'd4becd651e993729742bea42c4897ad7'
+         'e9b9fde40816d4819f847a5a50d40baa'
+         '4c797b54cc5b3bd41372241b3fe72978'
+         '62ff636d4571cfc3228f17b30542530b'
+         '35e78bd6541112a573cb2d955b4acc4a'
+         '8269ab9a10249731f828fea1ca239efc'
+         '6917b3da4a9005b70cdc8bb0f4fa730b'
+         '937248d9e3305cfc7838fd7e5599f9a6'
+         '9edbf6ddbcde80567240d367aa5fedf8'
+         '31e03d903a97a95252849e69be98a544'
+         'ac1319ac3742a9a8e9aa3df339d78669'
+         'f18e916a391c31737b523ad501210c86'
+         'b000b3761359da8c01151363c6ff03ab'
+         'ddc931b2ff4b293608984cd7fe040616'
+         '0bf357f1dfa52ae8fa229646f82ed013'
+         'e2d2d7afbdbefbbf05bfc677afa8ba5a'
+         'fd7baad5f7d39686a2c00d8e25bd41a1'
+         '49887cc84ab304770b2bc639e13a36c8'
+         '7bb54d35509e8a8147ccf9b408211e55'
+         '23cf3a56839c5c044d3a5b08def3422b'
+         '917d039633d643cad1ff9c31b1c5774f'
+         '2b60380926852cc3ee1a35f1b6f780be'
+         'dd47536a19f2b1efe251d91b43c0bd29'
+         '903cdfa1e8035b20b4d9d6678172b910'
+         '29632ae3da3576f1e62a99909ee70449'
+         'f9553854207719751014488de18257eb'
+         '3f2ab64219785d4cf25a9336e37a13a1'
+         'e309d50d27302ba8466cc524a6b931fd'
+         'f0fe6f7ae1b66fbb1e5f9e6d20aa46d0'
+         '3fe79dca86d99eb35f4476f41ed02dcb'
+         'be52d869c085fb3655b0180d18161421'
+         'ce9e74e468fcba5f46958abdaabe2817'
+         'ba58836fbf5368aaf9544d145f726204'
+         '39a06a91ed38ab22e464358256820917')

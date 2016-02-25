@@ -1,0 +1,43 @@
+thermald_enabled() {
+    systemctl is-enabled thermald.service &> /dev/null
+    if [ $? -eq 0 ]; then
+        echo 'Service thermald is enabled already'
+    else
+        echo 'Enabling thermald service...'
+        systemctl enable thermald.service &> /dev/null
+    fi
+}
+
+thermald_active() {
+    systemctl is-active thermald.service &> /dev/null
+    if [ $? -eq 0 ]; then
+        echo 'Service thermald is active already'
+    else
+        echo 'Starting thermald service...'
+        systemctl start thermald.service &> /dev/null
+    fi
+}
+
+post_upgrade() {
+    thermald_enabled
+    thermald_active
+    systemctl daemon-reload
+}
+
+post_install() {
+    post_upgrade
+}
+
+pre_remove() {
+    echo 'Disabling thermald service...'
+    systemctl is-enabled thermald.service &> /dev/null
+    if [ $? -eq 0 ]; then
+        systemctl disable thermald.service &> /dev/null
+    fi
+    echo 'Stoping thermald service...'
+    systemctl is-active thermald.service &> /dev/null
+    if [ $? -eq 0 ]; then
+        systemctl stop thermald.service &> /dev/null
+    fi
+    systemctl daemon-reload
+}

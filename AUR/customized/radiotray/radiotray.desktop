@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Radio Tray
+Terminal=false
+Exec=radiotray
+Icon=radiotray
+Type=Application
+StartupNotify=false
+Categories=AudioVideo;Audio;Player;GTK;
