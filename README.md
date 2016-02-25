@@ -6,7 +6,7 @@
 * `AUR/bleeding-edge`    GIT/SVN version of LLVM/CLANG, mesa and xf86-video-intel
 * `AUR/customized`      miscellaneous packages customized by me
 * `AUR/maintained`      packages currently maintained by me
-* `AUR/mozilla-kde`     firefox and thunderbird with kde patches (copied from [manjaro community repository](https://github.com/manjaro/packages-community))
+* `AUR/mozilla-kde`     firefox and thunderbird with kde patches (copied from [manjaro community repository](https://github.com/manjaro/packages-community))</br>
 **Clone Repository**</br>
 `git clone https://github.com/FadeMind/archpkgbuilds.git`
 **License**</br>
