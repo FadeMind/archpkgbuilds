@@ -7,7 +7,8 @@
 * `AUR/customized`      miscellaneous packages customized by me
 * `AUR/maintained`      packages currently maintained by me
 * `AUR/mozilla-kde`     firefox and thunderbird with kde patches (copied from [manjaro community repository](https://github.com/manjaro/packages-community))</br>
+
 **Clone Repository**</br>
-`git clone https://github.com/FadeMind/archpkgbuilds.git`
+`git clone https://github.com/FadeMind/archpkgbuilds.git`</br>
 **License**</br>
 See `COPYING` files for details.
