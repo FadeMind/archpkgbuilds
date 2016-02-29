@@ -43,12 +43,9 @@ package() {
     find "${pkgdir}"/opt/dropbox -type d -exec chmod 755 {} +
     find "${pkgdir}"/opt/dropbox -type f -exec chmod 644 {} +
     chmod 755 "${pkgdir}"/opt/dropbox/dropbox{,d}
-
-    install -dm755 ${pkgdir}/usr/bin
-    ln -s /opt/dropbox/dropbox ${pkgdir}/usr/bin/dropbox
+    
     install -Dm755 ${srcdir}/dropbox ${pkgdir}/usr/bin/dropbox
-
-    install -dm 755 ${pkgdir}/usr/share/{applications,licenses/dropbox,pixmaps}
+    install -dm755 ${pkgdir}/usr/share/{applications,licenses/dropbox,pixmaps}
     install -m 644 ../dropbox.desktop ${pkgdir}/usr/share/applications/
     install -m 644 ../dropbox.png     ${pkgdir}/usr/share/pixmaps/
     install -m 644 ../terms.txt       ${pkgdir}/usr/share/licenses/${pkgname}/
