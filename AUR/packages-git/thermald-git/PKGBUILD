@@ -4,7 +4,7 @@
 
 _pkgname=thermald
 pkgname=thermald-git
-pkgver=1.5.2.r0.gca101c5
+pkgver=1.5.3.r0.g0c4c715
 pkgrel=1
 pkgdesc="The Linux Thermal Daemon program from 01.org"
 arch=('i686' 'x86_64')
