@@ -1,0 +1,376 @@
+0.8.0 (dev)
+  This is a Qt5 only version (with the exception of 'octopi-notifier').
+  BugFix: If user refused to remove pacman's lock file, commands 
+	should be canceled!
+  BugFix: Sync Interval dialog was not showing strings in some languages.
+  BugFix: Package counters were not zeroing when searches found no results.
+  BugFix: In some very specific situations Info tab did not refresh info of 
+	selected package.
+  BugFix: If user tried to sync db with kdesu and clicked "ESC", some garbage  
+	went to Output tab.
+  BugFix: When user closed searchbar inside a QTextBrowser, cursor position was 
+	reseted.
+  BugFix: Transaction dialog can now be resized and new value is persisted on disk.
+  BugFix: No columns warning while executing actions inside Octopi (thanks to flying-sheep).
+  BugFix: Cinnamon DE detection fix (thanks to jdelmas).
+  Now tab Files shows a progressbar while building the list of files.
+  Yellow notifier icon tooltip now displays Foreign repo tool name.  
+  When outdated packages are printed at Output tab, you can see their 
+	information just hovering the mouse over them.
+  Added Parabola GNU/Linux-libre support (thanks to coadde).
+  Added galician translation (thanks to Ismael Ordóñez).
+  At Info tab, packages in "depends On" field are shown as clickable anchors.
+  Information tab now supports "ctrl+F" searching.
+  Help/About dialog now shows Pacman information.
+  StatusBar msg got updated with number of selected packages more visible.  
+
+0.7.0
+  Major speed fix: Faster pkg list building.
+  Reverted to showing ALL packages at startup.
+  Added a systemd service to speed up the very first octopi startup time.
+  Added "Copy path to clipboard" context menu option in file list treeview.
+  Now pacman.conf's "IgnoreGroup" option is honored.
+  Disabled "View/Repository/[kcp | aur]" menu item.
+  Toolbar now shows AUR tool button instead of a fake pacman group.
+  Reenabled Pacaur support.
+  Now Package treeview columns get their widths saved.
+  Remove "Yes" button from transaction dialog, everytime 'pacman' 
+	is one of the target packages.
+  SearchBar now reacts to an ENTER or RETURN key press to search for 
+	next found item.
+  Added a notifier setup dialog to set "sync database" interval.
+  Generate a system info report if "gist" tool is available.
+  Added a "-d" switch to octopi and notifier to show some debug info.
+  BugFix: No more horizontal scrollbar in AUR mode.
+  BugFix: When a transaction is available, disable sync pkg and system 
+	upgrade, as well as mirror-check and AUR mode.
+  BugFix: Repository column would get wider after switching from AUR 
+	mode.
+  BugFix: Filter connect chain bug decreased filter's performance over time.
+  BugFix: Search by name was not being used after reverting from AUR search.
+  BugFix: F3 and Shift+F3 keys at SearchBar were not working.
+  BugFix: Sometimes downloaded and installed size information were in KiB, 
+	instead of MiB.
+  BugFix: If user had no gksu/kdesu/root when clicking "clean" button in 
+	cachecleaner, cursor would remain waiting (thanks to imperator-).
+
+0.6.0
+  BugFix: Pkg list was being refreshed twice sometimes.
+  BugFix: Removed some buggy strings from Output tab while in KF5.
+  BugFix: ArrowUp/Down, PageUp/Down and Home/End keys now refresh Package Info tab.
+  BugFix: Open file was not working in KF5.
+  BugFix: Filter by repo was not working with Qt 5.4 libs (thanks to sl1pkn07).
+  BugFix: Chakra CCR for installing pkgs was not being called.
+  BugFix: Notifier would not test for internet connection.
+  BugFix: Repoeditor uses user defined translation (if available) while launched from Octopi.
+  BugFix: Honor plural forms in some languages (thanks to SafaAlfulaij).
+  BugFix: When only notifier is installed, we don't refer Octopi in context menu nor  
+	system upgrade dialog.
+  BugFix: Removed another buggy string while in plasma5.
+  BugFix: Opens install local pkg when you associate octopi to pacman files.
+  BugFix: PacmanHelper is a project related to Octopi-notifier (fix at PKGBUILD).
+  Always reset to "View ALL/ALL repos" when pkg group is changed.
+  Added more safety checks before running octopi-notifier.
+  Now notifier does not close Octopi.
+  Disabled Pacaur support.
+  Now PKGBUILD defaults to Qt5 builds.
+  At startup only installed packages are shown (if distro is not KaOS).
+  Added cachecleaner, a frontend to 'paccache' (thanks to Michaël Lhomme).
+  Added new KDE detection logic (thanks to Kirek).
+  KaOS only: added support for newer versions of Cellix's awesome KCP tool (much faster).
+  KaOS only: do a "kcp -u" sync while in "sync database" and notifier.
+  Refactorings in SearchLineEdit.
+  BugFixes in RepoEditor translation support (repoeditor is now in Transifex too).
+
+0.5.0
+  BugFix: RepoEditor would not compile with Qt5 lib (thanks to Philm).
+  BugFix: Suppress GConf error strings in output.
+  BugFix: mate-terminal is returning code 255 even when execution of 
+	transaction was ok (thanks to ringo32).
+  BugFix: Keep groups panel hidden (if it were before) after pressing 
+	F12 or F10.
+  BugFix: Merged offa's pull request that fixed a bunch of things.
+  BugFix: RepoEditor didn't take into account repo SigLevels while 
+	saving .conf files.
+  Added Qt version in About dialog boxes (also in notifier).
+  Changed repoeditor icon to octopi_green.
+  Show/hide groups panel config is now persisted.
+  Now notifier syncs db once a day and save last synced time.
+  Changed package size to MiB when it was > 1024 KiB.
+  Added option "SyncDbHour" so notifier checks only when that specific hour ticks, 
+	again once a day.
+  Added "sync db" menu option to notifier.
+  Added support for hiding/showing Octopi window in the new KF5 notifier code.
+  Added support for Ctrl+F in Output tab.
+  Added support for the user to choose his terminal by editing 
+	~/.config/octopi/octopi.conf.
+  Added QtQuick code for user change terminal (only if Qt >= 5.3).
+  Added support for KStatusNotifier while in KDE (thanks to brcha).
+  Updated translations.
+
+0.4.2
+  BugFix: when searching AUR pkgs, given search string was not being matched 
+	by package descriptions.
+  BugFix: Sometimes got a gconf bug string at sync db.
+  Updated a bunch of translations.
+  Added support for the new kcp tool (Go version).
+
+0.4.1
+  Added basque translation (thanks to tarteka).
+  Added es_AR translation (thanks to javier).
+  Added japanese translation (thanks to UTUMI Hirosi - utuhiro78).
+  Some coding refactorings regarding Yaourt/AUR as well as utils namespace.
+  BugFix: Tools menu was not being refreshed after a package
+	removal/installation.
+  BugFix: Ctrl and Shift key pkg actions not behaving right in Qt5 
+	builds.
+  BugFix: When clicking a pkg on the outdated list, it could scroll 
+	to a wrong pkg info.
+  BugFix: Adapted ArchBang changes.
+  BugFix: Removed unused Ctrl+N help text.
+  BugFix: Some changes in LXQt support.
+  BugFix: Download and installed size info at info tab.
+  BugFix: The 'Enter' key (numeric keyboard) is now supported.
+  BugFix: At start when there is no pacman db, octopi hangs (thanks to anex).
+  BugFix: After a pkg list rebuild the Files and Info cache were not 
+	being emptied.
+  Now downgrading operations appears in orange in Output tab.
+  Small fixes in packagemodel/package code (thanks to tbinkau).
+  Ctrl+C over an item in Files tab copies it's full path to Clipboard.
+  Reworked code to count installed packages (based on filters).
+  Leave some actions disabled before building pkg list and mirror-checking.
+  Added 'installed size' information in package tooltips.
+  Added Search by file feature (pacman -Qo).
+  Added a string validator in the search edit widget.
+
+0.4.0
+  Huge refactorings in model/view that brings consistent memory and 
+	speed improvements - a single model and a central data storage (thanks to 
+	Thomas Binkau - tbinkau).
+  BugFix: The transparent octopi notifier icon no longer shows a white bar in the 
+	eyes (thanks to Ankde Boersma) .
+  BugFix: Fixed a jump bug when key-navigating in pkg list with Qt5 octopi.
+  BugFix: When a pkg is outdated, show all available information.
+  BugFix: Show warning if user do not have kdesu/gksu in sysupgrade/install local pkgs.
+  BugFix: System upgrade can not be available while in yaourt mode.
+  BugFix: Switching faster to yaourt mode if text field is empty.
+  BugFix: Ctrl+A is available in the package list panel.
+  BugFix: Now Shift+F3 and F3 search keys (and also Esc) work outside 
+	SearchLineEdit widget.
+  BugFix: fixed freeze for install orphaned/yaourt package (thanks to 
+	tbinkau).
+  BugFix: fixed notify-send code in octopi-notifier (thanks to vedgy).
+  BugFix: Files tab presented some nasty results sometimes and even a GPF when it
+	found symlinks to directories.
+  BugFix: running as root was broken in KDE.
+  BugFix: The preventing code for always refresh the pkg list was flawed.
+  BugFix: hasInternetConnection code fixed to improve mirror-check speed.
+  BugFix: Fixed CCR (Chakra) package installation/removal (thanks to dmnmsc).
+  BugFix: Disable group widget while searching for AUR packages.
+  Switched to "pacman -Syy" command when synching. It's safer.
+  Added support for Pacaur tool.
+  Added support to kcp in KaOS (thanks to Cellix).
+  Added support to LXQt DE.
+  Added support to ArchBSD news (thanks to bkc_).
+  Added support to Netrunner news.
+  Added support to mooOS distro (thanks to pdq).
+  Added support to Antergos distro (thanks to Yoyo).
+  Added popularity column (number of votes) in AUR/CCR mode (thanks to 
+	tbinkau).
+  Added more filter options in View menu.
+  Added parameter "sysupgrade-noconfirm" so Octopi can jump automatically 
+	to distro upgrade (if any new packages available) without prompt for 
+	confirmation. Also added a "Yes" button to the sysupgrade 
+	confirmation dialog at octopi-notifier (thanks to wget).
+  Merged Oktopi's code for using KDE icon theme, tools menu and CCR support 
+	(thanks to Giuseppe Calà - gcala).
+  Changed sorting of the first column to also include the name column as second
+        sort criteria (thanks to tbinkau).
+  Added pacman log viewer and repoeditor support in tools menu (thanks to gcala).
+  Added asturian language in Qt5 builds (thanks to Llumex03).
+  Patched repoeditor to run just one instance at a time.
+  The filelist search now searches directories too.
+  Refactorings here and there to make it more Chakra friendly.
+  Updated README file.
+  Updated some icons to unclutter the UI (thanks to Anke Boersma).
+  Refactoring in some code to not generate translatable strings.
+  Fixed getBuildDate code to always convert dates to english format.
+  Updated some translations.
+
+0.3.2
+  Cleaned unused code.
+  Added icon for mirror-check while in KaOS.
+  Does a mirror-check at startup while in KaOS.
+  Added icon for system upgrade.
+  Added system upgrade button in octopi's toolbar.
+  BugFix: Navigating in the package list using [A..Z] keys did not work as 
+	expected.
+  BugFix: When the package list is filtered and you click in a package which is in 
+	the outdated package list, you are redirected to a blank information tab.
+  BugFix: When the groups button is pressed and the lower pane is maximized, the 
+	former is hidden by the later.
+  BugFix: When the user had no yaourt in the system, there were a zombie 
+	octopi process 'left running'.
+
+0.3.1
+  Added support for Qt5.
+  Added chinese (Taiwan), malay, slovak and ukrainian translations.
+  Added support to KaOS, a lean KDE centric Linux distro.
+  Added support to installation of local packages with GUI feedback.
+  Updated translations.
+  Changed widget for package groups, from combobox to treeview.
+  BugFix: When inserting an optional dependency package or removing a dep, 
+	first searches into transaction queue for them.
+  BugFix: Prevent header resizing in File and Transaction tabs.
+
+0.3
+  Code cleanings.
+  BugFix: No need to refresh package list after a cache clean.
+  BugFix: Konsole was not working with yaourt package installation.
+  BugFix: Position of search icon in searchedit sometimes was wrong.
+  BugFix: Some actions did not get disabled while executing a transaction.
+  BugFix: Use -Ss option while searching for yaourt packages.
+  BugFix: Don't show package names in yaourt package descriptions.
+  BugFix: Better RazorQt compatibility.
+  BugFix: Notifier: clear tooltip if no update is available (thanks to 
+	Anselmo L. S. Melo - anselmolsm).
+  BugFix: When refreshing packages from a group, the list could become 
+	outdated if the user had installed/removed some package.
+  BugFix: Use "yaourt -S aur/pkgname" to install yaourt packages 
+	(thanks to ringo32).
+  BugFix: Octopi was only showing the first Optional Deps in some cases.
+  Brought back the option to do a graphical system upgrade.
+  Now when installing a package with optional dependencies, Octopi lets users choose 
+	which optional dependencies (if any) they want to install.
+  Now when removing a package with dependencies, Octopi lets users choose which one they 
+	want to remove.
+  Now Get Latest Distro News doesn't freeze the interface.
+  Changed octopi main icon to octopi-green.png in PKGBUILD and 
+	octopi.desktop.
+  Added menu "Octopi" and "System Upgrade" in octopi-notifier.
+  Show Yaourt packages as outdated in default package list.
+  Now it's possible to upgrade Yaourt packages even outside Yaourt group.
+  Now the yellow octopi icon means there are outdated yaourt packages.
+  Now octopi-notifier opens only the transaction dialog if Octopi is not running 
+	and user requests a system upgrade.
+  Added support to remove Pacman's transaction lock file.
+  Added a new notification for outdated packages on statusbar.
+  Added a new status icon: an orange one for newer than repo 
+	installed packages.
+  Added spanish (Latin America) translation.
+  Added english (Great Britain) translation.
+  Added portuguese (Portugal) translation.
+  Added swedish translation.
+  Added serbian translation.
+  Added hungarian translation.
+  Added new "foreign_red.png" and "octopi_green.png" icons (thanks to Alex 
+	Fredrich).
+  Added support for pkgfile to view uninstalled package file list while in 
+	ArchLinux/ArchBang (thanks to Damián Nohales).
+  Added an About Dialog to Octopi Notifier.
+  Updated translations.
+
+0.2
+  Splitted the project in "octopi" and "octopi-notifier".
+  Yaourt no longer runs with root permissions.
+  Added support for package multi selection in Yaourt mode.
+  Added option to install local packages.
+  Added support for "notify-send" in "octopi-notifier".
+  Added hebrew translation.
+  Added lithuanian translation.
+  Added norwegian bokmål translation.
+  Added servian latin translation.
+  Added dutch translation.
+  Added russian translation.
+  Added uzbek translation.
+  Added finnish translation.
+  Added vietnamese translation.
+  Updated all other translations.
+  GTK native theme is used by default in Manjaro (while not in KDE).
+  Added support for Xterm terminal.
+  IgnorePkg option is now used to build outdated package list.
+  BugFix: Empty pkg descriptions are now shown as empty.
+
+0.1.9.1
+  Important bugfixes to deal with multithreaded code.
+  Added a "globals.h/.cpp" file to group QFutureWatcher globals.
+  Updated style changing code in main.cpp.
+  BugFix: when user cancelled a sysupgrade transaction inside a 
+terminal, the package actions remained disabled.
+
+0.1.9
+  Added yaourt support.
+  Updated most of the translations.
+
+0.1.8
+  Added czech translation.
+  Added support to ArchBang Linux.
+  Added a systemtray icon notifier feature using DBus technology.
+
+0.1.7.3
+  Added a TRANSLATIONS file.
+  Added danish translation.
+  Added indonesian translation.
+  Added polish translation.
+  Added bulgarian translation.
+  sysupgrade command line option now synchronizes database.
+  Bugfix: sysupgrade must refresh packagelist after syncdatabase.
+  Bugfix: if sysupgrade uses SyncFirst, makes it automatically start a second upgrade.
+
+0.1.7.2
+  Added catalan translation.
+  Bugfix: updated new binary translation files to the resources.
+
+0.1.7.1
+  Bugfix: menu icons were not being shown while in Xfce.
+
+0.1.7
+  Added "-sysupgrade" command line option.
+  Added "-removecmd" command line option.
+  Added lots of translations.
+  Added links to outdated package names in outdated package list.
+  Added an About dialog.
+  Changed the old About tab to Usage tab.
+
+0.1.6.1
+  Added pt_BR translation.
+  Added "Open root terminal" option in File menu.
+
+0.1.6
+  Added a new Transaction Dialog.
+  Added a Firefox-like search inside Files, News and About tabs.
+  Added support for Chakra.
+  Added support for ILoveCandy pacman option.
+  Added option to execute any transaction inside a terminal.
+  Changed ProgressDialog to a progressBar at the screen bottom.
+  
+0.1.5
+  Added option to search packages by description and name.
+  Added support for pacman version 4.1.
+  Transactions with conflict errors can be re-executed inside a terminal.
+  Reworked Manjaro Linux theme.
+
+0.1.4.1
+  Bugfix release
+  Added total download size information in transaction dialog.
+
+0.1.4
+  Added a Manjaro Linux theme.
+  Changed position of filter line edit to the toolbar.
+
+0.1.3
+  Added better support to Qt dark themes.
+  Added context menu support inside Files tab.
+  Made URLs clickable inside output tab.
+  Fixed the annoying Packager information display bug.
+
+0.1.2
+  Tons of refactorings and bugfixes.
+  Small changes in UI.
+
+0.1.1 
+  Added all six tabs.
+  Added support for groups of packages.
+
+0.1.0 
+  Initial Proof of Concept release.

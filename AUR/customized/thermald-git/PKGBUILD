@@ -2,7 +2,6 @@
 # Contributor: rat4 <rat4vier@gmail.com>
 # Maintainer: ultraviolet <ultravioletnanokitty@gmail.com>
 
-_pkgname=thermald
 pkgname=thermald-git
 pkgver=1.5.3.r0.g0c4c715
 pkgrel=1
@@ -13,26 +12,26 @@ license=('GPL2')
 depends=('dbus-glib>=0.94' 'libxml2>=2.4')
 backup=('etc/thermald/thermal-conf.xml')
 makedepends=('git' 'bash')
-conflicts=('thermald')
-provides=('thermald')
-install='thermald.install'
-source=("$_pkgname::git://github.com/01org/thermal_daemon.git")
+conflicts=("${pkgname/-git/}")
+provides=("${pkgname/-git/}")
+install="${pkgname/-git/}.install"
+source=("${pkgname/-git/}::git://github.com/01org/thermal_daemon.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${_pkgname}
+  cd ${pkgname/-git//}
   git describe --tags --long | sed -r -e 's,^[^0-9]*,,;s,([^-]*-g),r\1,;s,[-_],.,g'
 }
 
 build() {
-    cd ${_pkgname}
+    cd ${pkgname/-git//}
     ./autogen.sh
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin
     make
 }
 
 package() {
-    cd ${_pkgname}
+    cd ${pkgname/-git//}
     make DESTDIR="$pkgdir" install
     mkdir -p ${pkgdir}/etc/{systemd/system/thermald.service.d,modules-load.d}
     # modules load during boot

@@ -1,0 +1,91 @@
+# Maintainer: FadeMind <fademind@gmail.com>
+# Contributor: Filip Brcic <brcha@gna.org>
+
+pkgname=octopi-frameworks-git
+pkgver=0.8.1.r1055.1829a28
+pkgrel=1
+pkgdesc="A powerful Pacman frontend using Qt libs (Qt5 & KF5 build)"
+arch=('i686' 'x86_64')
+url="https://github.com/aarnt/octopi"
+license=('GPL2')
+makedepends=('git' 'qt5-base')
+depends=('qt5-quickcontrols' 'libnotify')
+optdepends=('pacmanlogviewer-qt5' 'kdesu' 'yaourt' 'pkgfile' 'gist' 'pacaur')
+provides=('octopi' 'octopi-notifier' 'octopi-repoeditor' 'octopi-cachecleaner')
+conflicts=('octopi' 'octopi-notifier' 'octopi-notifier-qt4' 'octopi-notifier-foundations' 'octopi-repoeditor' 'octopi-cachecleaner' 'oktopi-git' 'octopi-frameworks')
+install="${pkgname}.install"
+changelog='CHANGELOG'
+source=("${pkgname}::git+${url}.git" 'CHANGELOG' 'images.tar.gz')
+sha256sums=('SKIP'
+            'd1af2dd595d6ece93045b8c5c419aade08b47c0eb894d8ae9c64a76c48af502c'
+            '596fa43c78f1cae92c3ce8d577828901a6e1064b252263b3ffdb314ec4bcbbaa')
+pkgver() {
+    cd "${srcdir}/${pkgname}"
+    printf "0.8.1.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "${srcdir}/${pkgname}"
+    msg "Prepare octopi..."
+    rm -r "resources/images"
+    mv -iv "${srcdir}/images/" "resources/"
+    sed -i 's/#DEFINES += KSTATUS/DEFINES += KSTATUS/' "notifier/octopi-notifier/octopi-notifier.pro"
+  
+    msg "Building octopi..."
+    qmake-qt5 octopi.pro 
+    make
+  
+    cd "${srcdir}/${pkgname}/notifier/pacmanhelper"
+    msg "Building pacmanhelper..."
+    qmake-qt5 pacmanhelper.pro
+    make
+  
+    cd "${srcdir}/${pkgname}/notifier/octopi-notifier"
+    msg "Building octopi-notifier..."
+    qmake-qt5 octopi-notifier.pro 'DEFINES += KSTATUS'
+    make
+  
+    cd "${srcdir}/${pkgname}/repoeditor"
+    msg "Building octopi-repoeditor..."
+    qmake-qt5 octopi-repoeditor.pro
+    make
+  
+    cd "${srcdir}/${pkgname}/cachecleaner"
+    msg "Building octopi-cachecleaner..."
+    qmake-qt5 octopi-cachecleaner.pro
+    make
+}
+
+package() {
+    cd "${srcdir}/${pkgname}"
+    # octopi files
+    install -D -m755 "bin/octopi"                                                    "${pkgdir}/usr/bin/octopi"
+    install -D -m644 "octopi.desktop"                                                "${pkgdir}/usr/share/applications/octopi.desktop"
+    install -D -m644 "resources/images/octopi_green.png"                             "${pkgdir}/usr/share/icons/octopi.png"
+    install -D -m644 "resources/images/octopi_green.png"                             "${pkgdir}/usr/share/icons/gnome/32x32/apps/octopi.png"
+    install -D -m644 "resources/images/octopi_red.png"                               "${pkgdir}/usr/share/icons/octopi_red.png"
+    install -D -m644 "resources/images/octopi_yellow.png"                            "${pkgdir}/usr/share/icons/octopi_yellow.png"
+    # speedup-octopi files
+    install -D -m755 "speedup/speedup-octopi.sh"                                     "${pkgdir}/usr/bin/speedup-octopi.sh"
+    install -D -m644 "speedup/octopi.service"                                        "${pkgdir}/etc/systemd/system/octopi.service"
+    # pacmanhelper service files
+    install -D -m755 "notifier/bin/pacmanhelper"                                     "${pkgdir}/usr/lib/octopi/pacmanhelper"
+    install -D -m644 "notifier/pacmanhelper/polkit/org.octopi.pacman.policy"         "${pkgdir}/usr/share/polkit-1/actions/org.octopi.pacman.policy"
+    install -D -m644 "notifier/pacmanhelper/polkit/org.octopi.pacmanhelper.conf"     "${pkgdir}/etc/dbus-1/system.d/org.octopi.pacmanhelper.conf"
+    install -D -m644 "notifier/pacmanhelper/polkit/org.octopi.pacmanhelper.xml"      "${pkgdir}/usr/share/dbus-1/interfaces/org.octopi.pacmanhelper.xml"
+    install -D -m644 "notifier/pacmanhelper/polkit/org.octopi.pacmanhelper.service"  "${pkgdir}/usr/share/dbus-1/system-services/org.octopi.pacmanhelper.service"
+    # octopi notifier
+    install -D -m755 "notifier/bin/octopi-notifier"                                  "${pkgdir}/usr/bin/octopi-notifier"
+    install -D -m644 "octopi-notifier.desktop"                                       "${pkgdir}/etc/xdg/autostart/octopi-notifier.desktop"
+    # repoeditor files
+    install -D -m755 "repoeditor/bin/octopi-repoeditor"                              "${pkgdir}/usr/bin/octopi-repoeditor"
+    install -D -m644 "resources/images/octopi_red.png"                               "${pkgdir}/usr/share/icons/octopi-repoeditor.png"
+    # octopi-cachecleaner files
+    install -D -m755 "cachecleaner/bin/octopi-cachecleaner"                          "${pkgdir}/usr/bin/octopi-cachecleaner"
+    # doc files
+    install -D -m644 "CHANGELOG"                                                     "${pkgdir}/usr/share/doc/${pkgname}/CHANGELOG"
+    install -D -m644 "INSTALL"                                                       "${pkgdir}/usr/share/doc/${pkgname}/INSTALL"
+    install -D -m644 "THANKS"                                                        "${pkgdir}/usr/share/doc/${pkgname}/THANKS"
+    install -D -m644 "TRANSLATIONS"                                                  "${pkgdir}/usr/share/doc/${pkgname}/TRANSLATIONS"
+    install -D -m644 "LICENSE"                                                       "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
