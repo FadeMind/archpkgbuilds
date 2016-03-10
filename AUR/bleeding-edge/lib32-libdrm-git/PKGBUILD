@@ -4,7 +4,7 @@
 
 pkgname=lib32-libdrm-git
 _pkgname=libdrm
-pkgver=5836.4274539
+pkgver=5837.ea07de9
 pkgrel=1
 pkgdesc="Userspace interface to kernel DRM services, git 32-bit version"
 arch=(i686 x86_64)
