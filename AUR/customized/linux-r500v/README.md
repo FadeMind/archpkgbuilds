@@ -3,7 +3,7 @@
   <img src="http://i.imgur.com/BbD1jGBl.jpg" alt="tux"/>
 </p>
 
-##<p align="center">Linux Kernel 4.5RC with custom patchset<br/></p>
+##<p align="center">Linux Kernel 4.5 with custom patchset<br/></p>
 
 **Included Patches**
 
