@@ -4,12 +4,12 @@
 # Contributor: Tom < tomgparchaur at gmail dot com >
 # Contributor: David Manouchehri <d@32t.ca>
 
-pkgname=dropbox
+pkgname=dropbox-stable
 pkgver=3.12.6
 pkgrel=1
 pkgdesc="A free service that lets you bring your photos, docs, and videos anywhere and share them easily."
 arch=("x86_64")
-url="http://www.${pkgname}.com"
+url="http://www.${pkgname/-stable/}.com"
 license=('custom')
 depends=('dbus' 
          'libxmu' 
@@ -17,15 +17,16 @@ depends=('dbus'
 makedepends=('chrpath' 'desktop-file-utils')
 optdepends=('ufw-extras: UFW rules for Dropbox'
             'perl-file-mimeinfo: Opening the Dropbox folder on some desktop environments')
-conflicts=("${pkgname}-experimental")
-replaces=("${pkgname}3" 
-          "${pkgname}2")
+conflicts=("${pkgname/-stable/}-experimental" "${pkgname/-stable/}")
+replaces=("${pkgname/-stable/}"
+          "${pkgname/-stable/}3" 
+          "${pkgname/-stable/}2")
 options=('!strip')
-source=("https://dl.${pkgname}usercontent.com/u/17/${pkgname}-lnx.${arch}-${pkgver}.tar.gz" 
-        "${pkgname}"
-        "${pkgname}.desktop"
-        "${pkgname}.png"
-        "${pkgname}-papirus.zip"
+source=("https://dl.${pkgname/-stable/}usercontent.com/u/17/${pkgname/-stable/}-lnx.${arch}-${pkgver}.tar.gz" 
+        "${pkgname/-stable/}"
+        "${pkgname/-stable/}.desktop"
+        "${pkgname/-stable/}.png"
+        "${pkgname/-stable/}-papirus.zip"
         "terms.txt")
 sha256sums=('92ca8fb2fc23c128234505ac8f8b9b1073a3cc17e70a92c9ee51ede7577aa099'
             '4240052a07a0f38dbdea6f199d5f1fc7b04ace9bf7474a63f09bdff7682a5154'
@@ -35,24 +36,24 @@ sha256sums=('92ca8fb2fc23c128234505ac8f8b9b1073a3cc17e70a92c9ee51ede7577aa099'
             'c39d63bcfc0d40002a5df052298feb79f2e8dd3d93da27ef31eb672b8d2fc70e')
 
 prepare() {
-    cd .${pkgname}-dist/${pkgname}-lnx.${arch}-${pkgver}
+    cd .${pkgname/-stable/}-dist/${pkgname/-stable/}-lnx.${arch}-${pkgver}
     rm library.zip
-    ln -s ${pkgname} library.zip
+    ln -s ${pkgname/-stable/} library.zip
     chrpath -d plugins/platforms/libqxcb.so
 }
 
 package() {
-    cd .${pkgname}-dist
+    cd .${pkgname/-stable/}-dist
     install -dm755 ${pkgdir}/opt
-    cp -dr --no-preserve='ownership' "${pkgname}-lnx.${arch}-${pkgver}" "${pkgdir}/opt/${pkgname}"
-    rm -rf "${pkgdir}/opt/${pkgname}/images/hicolor/"
-    cp -R "${srcdir}/hicolor/" "${pkgdir}/opt/${pkgname}/images/"
-    find ${pkgdir}/opt/${pkgname} -type d -exec chmod 755 {} +
-    find ${pkgdir}/opt/${pkgname} -type f -exec chmod 644 {} +
-    chmod 755 ${pkgdir}/opt/${pkgname}/${pkgname}{,d}
-    install -Dm755 ${srcdir}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
-    install -dm755 ${pkgdir}/usr/share/{applications,licenses/${pkgname},pixmaps}
-    install -m 644 ../${pkgname}.png     ${pkgdir}/usr/share/pixmaps/
-    install -m 644 ../terms.txt       ${pkgdir}/usr/share/licenses/${pkgname}/
-    desktop-file-install ${srcdir}/${pkgname}.desktop --dir ${pkgdir}/usr/share/applications/
+    cp -dr --no-preserve='ownership' "${pkgname/-stable/}-lnx.${arch}-${pkgver}" "${pkgdir}/opt/${pkgname/-stable/}"
+    rm -rf "${pkgdir}/opt/${pkgname/-stable/}/images/hicolor/"
+    cp -R "${srcdir}/hicolor/" "${pkgdir}/opt/${pkgname/-stable/}/images/"
+    find ${pkgdir}/opt/${pkgname/-stable/} -type d -exec chmod 755 {} +
+    find ${pkgdir}/opt/${pkgname/-stable/} -type f -exec chmod 644 {} +
+    chmod 755 ${pkgdir}/opt/${pkgname/-stable/}/${pkgname/-stable/}{,d}
+    install -Dm755 ${srcdir}/${pkgname/-stable/} ${pkgdir}/usr/bin/${pkgname/-stable/}
+    install -dm755 ${pkgdir}/usr/share/{applications,licenses/${pkgname/-stable/},pixmaps}
+    install -m 644 ../${pkgname/-stable/}.png     ${pkgdir}/usr/share/pixmaps/
+    install -m 644 ../terms.txt       ${pkgdir}/usr/share/licenses/${pkgname/-stable/}/
+    desktop-file-install ${srcdir}/${pkgname/-stable/}.desktop --dir ${pkgdir}/usr/share/applications/
 }

@@ -9,9 +9,11 @@
 
  - [Graysky's GCC patch](https://github.com/graysky2/kernel_gcc_patch)
  - [Budget Fair Queueing (BFQ) Storage-I/O Scheduler 4.4.0-v7r11](http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php) is enabled in default.
- - Disabled annoying messages during boot and hide them in `dmesg`.
+ - Less debug warning/error messages in `dmesg`.
  - Upstream Arch Linux patches.
-
+ - [ZEN patch](https://github.com/zen-kernel/zen-kernel).
+ - [AUFS4](http://aufs.sourceforge.net/) support.
+ 
 **Customs**
 
  - BFQ Scheduler is set as default I/O Scheduler.
