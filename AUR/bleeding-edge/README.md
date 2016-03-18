@@ -12,7 +12,7 @@
 * mesa
 * xf86-video-intel
 
-### USE at your own risk ###
+<p align="center"><img src="http://i.imgur.com/SN9esDt.png" alt="w"/></p>
 <hr/>
 
 ### REVERT HOW TO ###
@@ -33,3 +33,5 @@
 
     export LANG=C && yes|yaourt -Sy --noconfirm xf86-video-intel 
 <hr/>
+
+All trademarks are the property of their respective owners.
