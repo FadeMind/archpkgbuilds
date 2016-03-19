@@ -1,0 +1,1073 @@
+Version 1.3:
+  Major features:
+    * Vk.com support
+    * Seafile support (server >= 4.4.1)
+    * Add Ampache compatibility (through Subsonic service)
+    * Add new analyzer "Rainbow Dash"
+    * Answer to the ultimate question of life, the universe and everything
+    * Add "Psychedelic Colour" mode to all analyzers
+
+  Other features:
+    * Add left click to fullsize cover on playing widget.
+    * Add m4b support for non-drm files.
+    * Ignore English articles for library sorting.
+    * Improve the organize dialog.
+    * Add an option to warn before closing a playlist tab.
+    * Add an option to disable the pause notification.
+    * Add options to hide some internet services.
+    * Add an option to disable inline song metadata editing.
+    * Add "details below" and "no details" now playing widget options.
+    * Add "no song details" now playing widget option.
+    * Add icons to the extras menu.
+    * Add a source icon for CD tracks.
+    * Allow user to remove directories in the Files tab.
+    * Add ability to remove unavailable items from playlist.
+    * Add a button to the transcode dialog to add all files in a directory.
+    * Make it impossible to collapse either side of the MainWindow splitter.
+    * Add menu items for updating and doing a full rescan of Google Drive.
+    * Increase Soundcloud cover image size.
+    * Add the ability to pause Spotify tracks.
+    * Add the ability to add or remove a Spotify track to a Spotify playlist
+      through context menu.
+    * Add Spotify tracks to Spotify playlists by drag and drop.
+    * Add ability to get a link to share Spotify playlists and songs.
+    * Improve handling of Spotify Top Tracks and compilations.
+    * Add playlist actions to Spotify songs.
+    * Add ability to automatically set podcast as listened after successfully
+      sending it to a device.
+    * Add ability to order podcasts by age.
+    * Allow user to download multiple podcasts at the same time.
+    * Add ability to cancel podcast downloads in progress.
+    * Allow user to hide listened podcast episodes.
+    * Huge improvement of the speed at startup.
+    * Improve performance of mass rating changes.
+    * Improve ripping performance.
+    * Persistent cache for pixmaps. Huge improvement of the performance when
+      scrolling the library for example.
+    * Add AppData file for Clementine (for GNOME and KDE Software Centers).
+    * Add iPod-like behaviour to previous button.
+    * Add HipHop and Kuduro equalizers.
+    * Remember current playlist between restarts.
+    * IDv3 tag lyrics support.
+    * Scroll to last played track when switching playlists.
+    * Add stop after each song repeat mode.
+    * Sort discs numerically when using Group by disc.
+    * Add ability for sort by group and performer in the library view.
+    * Parse the year of a disc from musicbrainz.
+    * Add track intro mode.
+    * Add ability to add a search term with tab and space in the smart playlist
+      window.
+    * Add love/ban (Last.fm) global shortcuts.
+    * Add support for "original year" tags.
+    * Send album artist to Last.fm with liblastfm >= 1.0.0.
+    * Add sample rate selection.
+    * Add option to change the time step when seeking using the keyboard.
+    * Playlist sort by album considers disc and track numbers.
+    * Add options for double clicking song in the playlist.
+    * Volume slider handles glow effect using system theme.
+    * Library view sort line themable.
+    * Show track durations in the CD ripper dialog.
+    * Add ability to read REM DISC tag from Cue sheet.
+    * Add ability to lock/unlock rating edit status.
+    * Add the support of trackNum elements in XSPF.
+    * Add support for inhibiting the screensaver on windows.
+    * Add "Smart Playlists" for Subsonic.
+    * Add lyrics from AZLyrics.
+    * Add lyrics from bollywoodlyrics.com.
+    * Add lyrics from hindilyrics.net.
+    * Add lyrics from lololyrics.com.
+    * Add lyrics from Musixmatch.
+    * Add lyrics from Tekstowo.pl.
+    * (Mac OS X) Use Alt+Tab to switch between playlist tabs.
+
+  Bugfixes:
+    * Fix crash when click on a SoundCloud entry in internet tab.
+    * Fix crash when marking podcast as listened.
+    * Fix crash after pressing OK in the device properties window.
+    * Fix stop after track which doesn't remove now playing.
+    * Fix play bleeding into next track after auto stop.
+    * Fix analyzer framerate when mouseover play scrubber.
+    * Fix issues with buffers sent to analyzer.
+    * Fix block analyzer framerate.
+    * Fix divide-by-zero possibility with small buffers at end of track.
+    * Fix divide-by-zero possibility in moodbar.
+    * Fix oversized album cover art.
+    * Clean cover art from /tmp.
+    * Fix the rendering of the little numbers in the boxes on queued items in
+      the playlist.
+    * Fix parsing of MusicBrainz data for discid.
+    * Fix random artifacting on nyanalyzer on startup.
+    * Fix podcasts length issues (which caused issues with seeking for example).
+    * Fix too small equalizer window size.
+    * Fix labels which don't inherit system text colors in the edit tag dialog.
+    * Fix the mess of the queue manager after playlist re-sort.
+    * Fix for queue ordering issue in the playlist view when using Ctrl+D to
+      dequeue a track.
+    * Fix detection of parent-relative paths in playlist saving.
+    * Fix path seperators issue when reading playlists.
+    * Fix m3u parser issue when an artist's name has a hyphen.
+    * Fix bug with percents when fetch the Jamendo catalogue.
+    * Fix a little dropout when transition to next track.
+    * Fix broken RockRadio.com for premium users.
+    * Fix Subsonic login with + characters in the password.
+    * Fix accents issue in when save playlist in xspf format.
+    * Fix issues with some songs length thanks to Taglib. People with Taglib
+      installed on their system will have to wait a new release of Taglib.
+    * Fix moodbars not generating correctly.
+    * Fix socket leak in moodbar.
+    * Fix memory leak in tagreader.
+    * Fix crash when trying to fingerprint but missing a plugin.
+    * Fix infinite scan with Subsonic when the library is empty.
+    * Fix shortcut/media keys issues on Mac.
+    * Fix compilation issues on Yosemite.
+    * Fix performer tag for mpeg.
+    * Fix parsing issues with "innovative" datetime formats.
+    * Fix laggy interface on Mac.
+    * Fix playback breaks in Spotify.
+    * Fix memory leaks.
+    * Fix crash when stopping song that is fading after pausing.
+    * Fix crash when trying to download a track but there is no current one
+      playing.
+    * Fix default spinner gif image which shows white pixels around the image.
+    * Fix setting album artist tag for FLAC files if it already exists.
+    * Fix crash when Clementine lists the albums on Ampache.
+    * Fix Last.fm scrobbling after seek.
+    * Fix metadata not processed properly for some streams (Akamai).
+    * Fix save state when the song was paused.
+    * Fix some issues in Boom and Turbine analyzers.
+    * Fix song continuously rewinding when seeking using keyboard arrow keys.
+    * Fix OSD re-posistioning which doesn't work on multiple monitors.
+    * Fix Sonogram state while paused.
+    * Fix crash when changing 'group by' while album covers are still loading.
+    * Fix loss of valid data from an mp3 file when using the metadata editor.
+    * Fix track slider twitching.
+    * Fix Di.fm stations stuck when try to play them without internet.
+    * Make mood files hidden in NTFS.
+    * Fix time labels blinking when playing streams without known duration.
+    * Fix tag fetcher which applies incorrect tags for songs without any results.
+    * Fix Clementine getting stuck when transitioning from a local track to a
+      Spotify track with crossfade disabled.
+    * Fix previous track when playing a dynamic random mix.
+    * Fix fullscreen album covers for monitors in portrait mode.
+    * Don't scale down star icons by 1 pixel.
+    * (Mac OS X) Fix Soundcloud API Search which simply doesn't work
+    * (Windows) Fix context menu for the "now playing widget"
+
+  Removed features:
+    * Remove Ubuntu One support.
+    * Remove Discogs support.
+    * Remove GrooveShark support.
+    * Remove Radio GFM support.
+
+  Build system changes:
+    * Update to gstreamer 1.0.
+    * Don't compile vreen with link-time optimizations.
+    * Use the system's sha2 library if it's available.
+    * Remove libindicate-qt.
+    * Remove internal copy of libechonest and add it as dependency.
+    * Use libcrypto++ instead of QCA.
+    * Update TagLib to 1.10.0.
+    * (Windows) Uninstall a previous install of Clementine when installing a new
+      version.
+    * (Windows) Remember the last installation path.
+    * (Windows) Add libgmp-10.dll which is required by libgiognutls.dll.
+    * (Mac OS X) Use a GTlsDatabase for gstreamer SSL.
+    * (Linux) Follow freedesktop.org specifications for icons.
+    * (Linux) Add a 128x128 version of the Clementine icon.
+    * (Debian/Ubuntu) Remove internal copy of chromaprint and add it as
+      dependency.
+    * (Debian/Ubuntu) Add libmygpo-qt-dev (=> 1.0.7).
+    * (Fedora) Don't depend on libplist or usbmuxd.
+
+
+
+Version 1.2.3:
+  Bugfixes:
+    * Fix compilation with GCC 4.9.
+    * (Linux) Fix poor search performance with sqlite 3.8.
+    * (Ubuntu) Fix dependency issues on Ubuntu 14.04.
+    * (Windows) Upgrade to OpenSSL 1.0.1g to fix CVE-2014-0160.
+
+
+
+Version 1.2.2:
+  Major features:
+    * (Android Remote) Add kittens support.
+
+  Bugfixes:
+    * Rename SkyDrive to OneDrive.
+    * Don't include the user's IP address in the log (from the network remote
+      settings dialog).
+    * (Debian) Fix a bug with HTTPS logins to all cloud storage providers.
+    * (Mac OS X) Fix a bug in the workaround for a weird font issue on 10.9.
+    * (Mac OS X) Fix rendering of source icons on retina displays.
+    * (Android Remote) Don't advertise songs that aren't available.
+    * (Android Remote) Fix playing songs with special characters in filenames.
+
+
+
+Version 1.2.1:
+  Bugfixes:
+    * Fix library download in the network remote.
+    * Fix removing songs from playlist in the network remote.
+    * Fix login failures with box.com.
+    * (Mac OS X) Add a workaround for a weird font issue on 10.9.
+    * (Linux) Fix a typo that would prevent the Spotify downloader button from
+      ever being shown.
+
+
+
+Version 1.2:
+  Major features:
+    * Add support for indexing and playing music from Box, Dropbox, Skydrive,
+      and Ubuntu One.
+    * Add support for Subsonic.
+    * Remote control support for Android.
+    * Add a Playlist tab to the sidebar.  Starred playlists are saved in here
+      when their tabs are closed.
+
+  Other features:
+    * Add configurable blur & opacity to album art when used as a playlist
+      background.
+    * Support Opus where available.
+    * Support .mka and .oga file extensions.
+    * Parsing support for WPL playlists.
+    * Sort providers by user preference.
+    * Add year and bitrate to MPRIS2 messages.
+    * Add "not equals" operator to fields in the smart playlist wizard.
+    * Add an option to write ratings, play count and scores to files.
+    * Add options to show the rating and score on the OSD.
+    * Add support for POPM tags.
+    * Add support for FMPS tags in Ogg, FLAC, MP4 and ASF files.
+    * Compile the bundled Taglib with ASF, MP4 and Opus support.
+    * Make it possible to cancel cover searches.
+    * Add an option to resume playback on startup.
+    * Add support for Performer and Grouping tags.
+    * Add Radio GFM.
+    * Add an Apply button to the settings dialog.
+    * Make it possible to mark all episodes of a podcast as new/listened.
+    * Add an option for fading in/out on pause/unpause.
+    * Add stereo balance slider to the equalizer.
+    * Add a --restart-or-previous commandline flag.
+    * Allow files to be transcoded directly from the playlist.
+    * Export downloaded album covers
+
+  Removed features:
+    * Removed iDevice support - it doesn't work well with modern devices and
+      libgpod isn't being updated to support them.
+    * (Windows) Removed support for WMDM devices.  This was very fragile to
+      cross-compile and was buggy and untested.
+    * (Mac OS X) Removed support for 10.6.  OS X 10.7 or later is now required.
+
+  Bugfixes:
+    * Fix gapless playback!
+    * Detect corrupt FLAC files when parsing tags.
+    * Load tags from local files asynchronously.
+    * Show more than 5 album results at a time from Spotify.
+    * Detect last.fm login failures correctly.
+    * Support x-audio/* mime types for podcasts.
+    * Locale-aware library sorting.
+    * Remove duplicate tracks from Spotify search results.
+    * Do not fetch Magnatune library until the service is expanded.
+    * Sort Magnatune library after refresh.
+    * Make the playlist parser recognise 2 character URL schemes.
+    * Read and write more metadata for MP4 tags.
+    * Translate Unity quicklist actions.
+    * Fix a memory leak when fingerprinting songs.
+    * Preserve user stats when opening the edit tag dialog.
+    * Fix neverending task when a Grooveshark session is invalid.
+    * Elide the fancy sidebar text on the right instead of the middle.
+    * Increase the maximum size of the moodbar cache.
+    * Use a new Amazon access key.
+    * Select the next tab when a playlist tab is closed.
+    * Fix radio playlists in non-English locales.
+    * Fix cursor following playback.
+    * Hide moodbar playlist column by default.
+    * Use native language names in the language selector where available.
+    * Only show a tooltip on sidebar tabs when needed.
+    * Never start playing a background stream (like Hypnotoad) on startup.
+    * Run the moodbar generation at a lower CPU and IO priority.
+    * Pressing space with the seekbar focused now toggles play/pause.
+    * Update tray icon progress immediately on track change.
+    * Don't replace song metadata with blank m3u EXTINF metadata.
+    * Fix a bug when fingerprinting files with non-ascii characters.
+    * Fix occasional freezing analyzers.
+    * Make wheel events on the analyzer change the volume.
+    * (Mac OS X and Windows) Highlight the actual file in Finder or Explorer
+      when using "Show file in browser".
+    * (Windows) Run Clementine with normal user privileges after installation.
+    * (Windows) Fix a "Error loading http://audio/mpegurl" error on first start.
+    * (Mac OS X) Don't probe stupid printers when scanning for music devices.
+    * (Mac OS X) Show a better error message when using an old version of OS X.
+
+  Build system changes:
+    * Add continous builds for Fedora Core 18, Ubuntu 12.10 and Ubuntu 13.04.
+    * (Linux) Use the system's version of libmygpo-qt if available.
+    * (Mac OS X and Windows) Upgrade to Qt 4.8.3.
+    * (Mac OS X) Sign release .dmgs.
+
+
+
+Version 1.1.1:
+  Bugfixes:
+    * (Windows) Fix a crash that would always occur for some users.
+    * (Linux) Bundle Taglib 1.8 on older distros to enable Google Drive support
+      in Clementine.
+
+
+
+Version 1.1:
+  Major features:
+    * Podcast support with integration with gpodder.net.
+    * Add support for indexing and playing music from Google Drive.
+    * Add Soundcloud support.
+    * Add jazzradio.com support.
+    * Moodbar support.
+
+  Other features:
+    * Show nearby concerts for an artist using the Songkick API.
+    * Support "My Music" in Grooveshark.
+    * Support logical operators in the playlist filter.
+    * Remove Spotify and Grooveshark search playlists in favour of the
+      internet tab.
+    * Support liblastfm1.
+    * Make the grouping of global search results configurable.
+    * Support top lists in Spotify (eg. top 100).
+    * Support drag and drop from the global search to the playlist.
+    * Support undo for playlist sorting and shuffling.
+    * Updated global search UI.
+    * Verify and backup database on startup.
+    * Support mono playback.
+    * Add an option to prefer the AlbumArtist tag over the Artist tag when
+      scrobbling to Last.fm.
+    * Add the ability to get a Grooveshark URL to share a songs and playlists.
+    * Support loading spotify URLs from the command line.
+    * Add "Very high" quality setting for visualisations.
+    * Support setting the current album cover or a custom image as the
+      playlist background.
+    * Add support for darklyrics as a lyrics source.
+    * Add %filename% as a custom OSD variable.
+    * Show .mka, .ape and .wv in file view.
+    * Load cover art from mp4 files.
+    * Copy text from all visible columns when copying a playlist row.
+    * Add "Edit file information" and "Show in file browser" actions to the
+      file view.
+    * Add Discogs as an album cover provider.
+    * Nyanalyzer cat now goes to sleep between songs.
+    * (Mac OS X) Support drag and dropping files and folders on the dock icon.
+    * (Mac OS X) Support notification center instead of Growl on Mountain
+      Lion.
+    * (Mac OS X) Support fullscreen mode in Mountain Lion.
+    * (Mac OS X) Draw high resolution text when using a retina display.
+
+  Bugfixes:
+    * Use new authentication API for di.fm/sky.fm to fix logging in to those
+      services.
+    * Move tag reading to a separate process to isolate taglib crashes.
+    * Fix hang on exit while library is being changed.
+    * Fix parsing of cue sheets longer than 99 minutes.
+    * Preserve the current song in the library view when filtering.
+    * Previous button actually goes to the previous track when repeat track
+      mode is enabled.
+    * Fix crashes when requesting MPRIS data during startup.
+    * Enable horizontal scrolling in the Transcode dialog so the user can see
+      the whole path.
+    * Stop showing the search box for Grooveshark and Spotify if the user is
+      not logged in.
+    * Fix neverending task in Grooveshark if the user is logged out.
+    * Fix 1px size change in the tool buttons in the main window.
+    * Dragging songs to the bottom of the playlist now adds them to the
+      bottom.
+    * Improve startup time by moving DeviceManager initialisation off the main
+      thread.
+    * Fix crash when trying to seek with no song playing.
+    * Scale the missing cover image in the edit tag dialog correctly.
+    * Use the first visible column when dragging and dropping within the
+      playlist.
+    * Fix a crash at startup when initialising the library before the grouping
+      settings have been loaded.
+    * Handle various artists correctly in global search.
+    * Add suggestions in global search.
+    * Follow HTTP redirects correctly.
+    * Find hidden album art.
+    * Support genre and date in cue sheets.
+    * Cache album art in the library model to prevent flicking when filtering.
+    * Locale-aware sorting of Grooveshark songs.
+    * Sort Grooveshark playlists by name.
+    * Work around a bug in Qt so the number of mouse wheel scroll lines is
+      respected.
+    * Fix transparency of visualisation overlay.
+    * Fix transparency of pretty OSD.
+    * Show thumbnails of album art in the tray icon tooltip instead of full
+      size images.
+    * Allow upper case headers in PLS files.
+    * Support libimobiledevice 1.1.2.
+    * Fix crash when drag and dropping from a separate Clementine instance.
+    * Sort SomaFM streams alphabetically.
+    * Fix crash when OpenGL is unavailable.
+    * Fix some resource leaks in the Grooveshark support.
+    * Update the year when completing tags automatically.
+    * Fix a crash when changing a song's rating.
+    * Fix a crash when searching for album covers.
+    * Load spotify URLs correctly from playlists.
+    * (Linux) Fix a crash on exit when Gnome accessibility is enabled.
+    * (Linux) Work around a hang on exit caused by certain NVidia drivers.
+    * (Linux) Support devices with no partition table.
+    * (Linux) Support "open with" in Ubuntu.
+    * (Linux) Fix a crash in PlayTrack MPRIS method.
+    * (Linux) Fix the types of some MPRIS fields.
+    * (Mac OS X) Fix HTTPS streams.
+    * (Mac OS X) Support keyboard shortcuts in native Mac search fields.
+    * (Mac OS X) Use Qocoa instead of custom hacks for native search widgets.
+    * (Mac OS X) Fix crash on exit.
+    * (Mac OS X) Avoid churn from frequent FSEvent stream updates.
+    * (Mac OS X) Hide empty help menu on Mac.
+    * (Mac OS X) Fix leaks in device handling code.
+    * (Windows) Remove the drop shadow in the OSD.
+    * (Windows) Do not show the OSD in the taskbar.
+    * (Windows) Fix a crash when clicking on the empty button in the thumbbar.
+
+  Build system changes:
+    * Add continous builds for Fedora Core 17 and Ubuntu 12.04.
+    * Show which dependencies are missing when trying to enable optional
+      features.
+    * (Mac OS X and Windows) Upgrade to Qt 4.8.2.
+
+
+
+Version 1.0.1:
+  Bugfixes:
+    * Use Chromaprinter and Acoustid instead of Echoprint and MusicDNS.
+    * Make it possible to play songs from connected iPod Touches again.
+    * (Windows) Fix an SSL issue that would sometimes result in an "Invalid
+      username or password" error when logging in to Grooveshark.
+    * (Mac OS X) Use FSEvent-based filesystem watcher to fix a number of crashes
+      due to running out of file handles when monitoring a large library.
+
+
+
+Version 1.0:
+  Major features:
+    * Add Spotify support.
+    * Add Grooveshark support.
+    * Add Digitally Imported (di.fm) and Sky.fm radio stations.
+    * Add a global search feature:
+      - A single place to search for music and radio.
+      - Includes your library, radio streams, Spotify and Grooveshark.
+    * Add audio CD support.
+    * Add Amazon as an alternate provider for album cover art.
+    * Add Nyanalyzer Cat.
+
+  Other features:
+    * Add transcoder options.
+    * Display album art from FLAC tags if using a version of taglib that
+      supports it.
+    * Rename the existing "Shuffle by album" mode to "Shuffle tracks in this
+      album", and add a new "Shuffle albums" mode that plays all the tracks in
+      each album sequentially, but then jumps to a different random album
+      afterwards.
+    * Improve the organisation of the settings dialog.
+    * Add scroll bars to the settings dialog if it's too big to fit on the
+      screen.
+    * Improve the settings dialog pages for online services like Last.fm to make
+      it easier to log in and log out.
+    * Add a warning about not being able to play Last.fm radio if not a
+      subscriber.
+    * Group album cover search results by category.
+    * Allow the artist and album to be specified separately when searching for
+      album covers.
+    * Made album cover art searches more clever - they will select the "best"
+      image automatically rather than just choosing the first one.
+    * Show some statistics after searching for album cover art.
+    * Show the album cover dimensions on each image when searching for art.
+    * Support dragging and dropping images onto the cover in the edit tag
+      dialog.
+    * Double clicking a playlist tab now lets you rename it.
+    * Add keyboard shortcuts to navigate between playlist tabs.
+    * When songs are added to the end of the playlist, scroll the playlist to
+      ensure the top one is visible.
+    * Make dynamic playlists use the limit specified in the smart playlists
+      dialog.
+    * Add an "Expand" button to add more tracks to a dynamic playlist.
+    * Make it possible to use relative dates in smart playlist criteria.
+    * Add an option to remove the playlist background image.
+    * Add options to customise OSD messages that are shown on song changes.
+    * Add a button in the status bar to toggle Last.fm scrobbling.
+    * Show a song's URL in the title playlist column if it doesn't have a title.
+    * Add a new logging system.
+    * Add file type filtering to the Files view.
+    * Add a --version command line option.
+    * Add a --toggle-pretty-osd command line option.
+    * Add support for custom lastfm:// URLs.
+    * Make the version number in the About dialog selectable.
+    * Elide the hint text in search boxes when it's too long.
+    * Show the artist and album name in the title of the "Show fullsize" window.
+    * Remember which tab was selected last time in the edit tag dialog.
+    * Cache lists of streams/friends fetched from Last.fm, di.fm, soma.fm, etc.
+    * Improve handling of album artist tags.
+    * (Mac OS X) Make the album cover search dialog modal so it acts like a
+      sheet.
+
+  Bugfixes:
+    * Put a limit on the size of the playlist's undo stack and don't record
+      operations that affect more than 500 rows.  Reduces memory usage when
+      adding or removing lots of items to the playlist.
+    * Buffer audio from all sources, not just http.  Fixes audio stuttering when
+      playing from mounted network locations.
+    * When adding files to the playlist that aren't in the library, quickly add
+      playlist entries first and then load more metadata in the background.
+    * Scrobble radio streams even when the length is unknown.
+    * Re-enable the Last.fm Love button after going to another song in a stream.
+    * Scrobble tracks properly if they're loved before the half-way point.
+    * Fix a bug that would sometimes cause the wrong songs to be scrobbled.
+    * Fix a bug where a song's play count would be updated continuously if
+      scrobbling was disabled.
+    * After deleting an item from a playlist move the selection to the next item
+      instead of the previous one.
+    * Translate dynamic playlist names properly at runtime.
+    * Fix a crash on startup if the album cover loader took too long to start.
+    * Show tooltips in the sidebar only in Tabs and Icons Only modes.
+    * Fix the byte order of album cover art images sent over dbus on big endian
+      machines.
+    * When songs disappear from the filesystem, mark them as unavailable instead
+      of completely removing them from the database.
+    * Read album artist tags from ogg/flac/mp4 files properly.
+    * Make the --pause command line option always pause, instead of behaving the
+      same as --play-pause.
+    * Fix a crash when clicking on the "Smart playlists" folder when the library
+      grouping is set to None/None/None.
+    * Keep the state of the rain and hypnotoad menu items in sync.
+    * Fix a bug where playlist columns would slowly change size the more times
+      you opened and closed Clementine.
+    * Save the state of the playlist columns' sort order.
+    * Assume Icecast-style stream metadata is in the "Artist - Title" format,
+      as this seems more common than "Title - Artist".
+    * Preserve high quality (>16-bit) audio streams.
+    * Stop the M3U parser from going into an infinite loop when parsing a file
+      with an invalid #EXTINF line.
+    * When renumbering tracks, number the first track 1 instead of -1.
+    * Fix a bug where notifications would be shown for the wrong song after
+      editing file tags.
+    * When organising files, make %albumartist behave like %artist if the
+      song has no albumartist tag set.
+    * Use locale-aware sorting for artists and albums in the album cover
+      manager.
+    * When stopping due to "Stop after this track", set the current song to the
+      one after, so when the user presses Play it plays the next song instead
+      of the last one again.
+    * Fix a bug that stopped Magnatune album downloads from working.
+    * Improve detection of playlist types when loading a playlist smaller than
+      512 bytes.
+    * Fix Last.fm authentication on Qt 4.8.
+    * Save the playlist column alignment setting properly.
+    * Indicate which playlist column alignment is currently in use in the menu.
+    * Speed up adding entire folders to the playlist from disk.
+    * Load cover art for the library in a background thread.  This makes opening
+      nodes with a large number of albums much faster.
+    * Make manual track changes ignore the "Repeat track" setting
+    * Use MP3 URLs for Jamendo instead of Ogg since they keep breaking the Ogg
+      ones.
+    * Fix a crash when asked over DBus or the commandline to play a track in the
+      playlist that doesn't exist.
+    * Fix a bug where moving songs down in the playlist could not be undone
+      properly.
+    * (Linux) Fix device detection using DeviceKit.
+    * (Linux) Recognise iPods correctly when using GIO.
+    * (Linux) Work around an NVIDIA driver bug that would cause Clementine to
+      use 100% CPU on exit.
+    * (Gnome 3) Register for media key notifications properly.
+    * (Gnome 3) Run the new gnome-control-center command to open the keyboard
+      shortcuts dialog.
+    * (Ubuntu) Add Clementine to the Unity system tray whitelist on startup.
+    * (Ubuntu) Don't use Unity's global menubar.
+    * (OpenBSD) Fix compilation errors in projectm.
+    * (Mac OS X) Fix free space and capacity information for MTP devices.
+    * (Mac OS X) Disable the popup delay settings when using Growl.
+    * (Mac OS X) Blacklist certain USB devices from MTP probing.
+    * (Mac OS X) Fix global shortcuts in Lion.
+    * (Mac OS X) Fix native search widgets in Qt 4.8.
+    * (Windows) Fix an occasional crash when connecting devices.
+    * (Windows) Fix a bug where filenames containing unicode characters could
+      not be transcoded.
+    * (Windows) Close transcoded files after writing them.
+    * (Windows and Mac OS X) Use a git build of taglib to fix a crash when
+      loading malformed ID3v2 tags.
+
+  Build system changes:
+    * Clementine has now moved from svn to git.  Details are on Google Code:
+        http://code.google.com/p/clementine-player/source/checkout
+    * Clementine's translations have moved from Launchpad to Transifex:
+        https://www.transifex.net/projects/p/clementine/
+    * (Linux) Added packages for Fedora 15, Fedora 16 and Ubuntu Oneiric.
+    * (Mac OS X) Compile dependencies in a more controlled way.
+    * (Mac OS X) Create a prettier DMG package.
+    * (Windows) Add a cmake option to enable the debug console in release mode.
+
+
+
+Version 0.7.1:
+  Bugfixes:
+    * Fix several compilation errors under GCC 4.6.0.
+    * Fix a regression that broke gapless playback between certain songs.
+    * Fix the behaviour of --seek-by and --seek-to commandline options.
+    * Fix a crash when the visualisation window was resized to 0x0 pixels.
+    * (Linux) Fix the behaviour of the InsertUrls DBUS method.
+    * (Mac OS X) Fix a crash on startup on machines without X11 installed.
+    * (Mac OS X) Fix a bug that would make Clementine try to update to an
+      earlier version.
+
+
+
+Version 0.7:
+  Major features:
+    * Brand new "Edit track information" dialog.  You can now edit more fields,
+      change multiple songs at once, change album cover art and view song
+      statistics.  Added an option to identify songs and fill in their tags
+      automatically using information from MusicBrainz.
+    * Add support for .cue files.  Songs in a cuesheet appear in the playlist
+      and your library as separate tracks.
+    * Add "Duplicates only" and "Untagged songs only" views to the library that
+      help you find and correct badly tagged music in your library.
+    * Add an option to show album covers in the library view.  This is on by
+      default, but you can turn it off again in the Preferences dialog.
+    * Add an option to load cover art directly from a URL.
+    * Clementine now gracefully handles deleted files by skipping them on
+      playback attempt and greying them out in the playlist view.
+    * Add a "Full library rescan" option which should rescan your library much
+      more thoroughly than before (but will take longer).
+    * Add a "Show in file browser" option to the library and playlist menus.
+    * Add a fancy tooltip to the track seek slider, showing the position that
+      you're about to jump to and its distance from the current position.
+    * Add support for network proxies.  Clementine will use your system's proxy
+      by default, but you can configure a different one in the Preferences
+      dialog.
+    * The "Kittens" extra now fetches even fluffier kittens.
+    * Hypnotoad: now available in fullscreen HD.
+
+  Other features:
+    * Load embedded cover art from ogg files.
+    * Add a backspace shortcut to the files view.
+    * Pressing ESC will clear and focus the search box.  Typing in the playlist
+      view will focus the search box and start searching.
+    * Pressing space in the playlist will play/pause the current track.
+    * Add global shortcuts for rating songs.
+    * Add global shortcuts for all of the repeat and shuffle modes.
+    * Middle-clicking a song now enqueues it into the playlist.
+    * Download higher resolution images from last.fm.
+    * Add options to the now-playing widget's menu to change the album art.
+    * Dragging an image file onto the now-playing widget will now set that
+      image as the cover art for the album.
+    * You can now tell the library scanner which filenames it should prefer
+      when looking for album cover art.
+    * Add a configurable timeout when searching for song and artist info.
+    * Add tooltips to the album cover manager that show the artist and album
+      name.
+    * Improve the options in the context menu for adding tracks to the playlist
+      from the library.  Default behaviours are now configurable in the
+      Preferences dialog.
+    * You can now use "file path" when creating dynamic playlists.
+    * The search box in the album cover manager now searches in artist names
+      as well.
+    * Move the clear button inside search boxes.
+    * Make the pretty OSD snap to the center of the screen when dragging.
+    * Add a text alignment setting to playlist columns.
+    * The scroll wheel now scrolls through images in the artist info view.
+    * You can now drag songs onto empty space in the playlist tab bar to add
+      the songs to a new playlist.
+    * Fade out the currently playing song when exiting Clementine.
+    * Centre on the last played song when restoring a playlist.
+    * Add a menu item to change analyzers' framerate.
+    * Add an option to hide dividers in the library view.
+    * Ability to use either a "time left" timer or a "total time" timer for songs.
+    * (Windows) Add support for automatic updates.  The second time you start
+      Clementine you are asked whether you want to check for updates
+      automatically.  You can check manually at any time in the Tools menu.
+    * (Windows 7) Add playback buttons to the Windows 7 taskbar icon.
+
+  Bugfixes:
+    * Fix several issues loading files with non-ascii characters in their
+      filenames.
+    * Fix several crashes when loading malformed tags from MP3 files.
+    * Fix a crash when clicking the "cancel" button on a dynamic playlist while
+      the preview is still being loaded.
+    * Fix a crash when skipping quickly through tracks while the Artist Info
+      tab was open.
+    * Fix a crash on exit if you have the Magnatune list open.
+    * Fix a crash when closing a playlist that has songs still loading.
+    * Fix a crash when removing the first, active playlist.
+    * Fix a race condition on startup that might lead to two instances of
+      Clementine being started.
+    * Fix a display bug in the "Last played" column for songs that haven't been
+      played in the last week.
+    * Improve the sorting of untagged songs loaded from directories.
+    * Fix a build failure on ARM.
+    * Do library initialisation in the background - fixing a GUI freeze when
+      loading large collections.
+    * Fix a bug where columns would sometimes not appear in the playlist.
+    * Fix some graphical bugs when resizing the sidebar when it is blurred.
+    * Hide the score and comment columns by default, increase the size of the
+      sidebar.
+    * Fix a database error when searching for " characters in the library.
+    * Fix an issue when trying to sign in to last.fm with a username containing
+      special characters.
+    * Fix the "date" and "rating" smart playlist comparisons.
+    * Update statistics properly when playing songs shorter than 30 seconds.
+    * Don't re-read tags from files when loading a playlist if those songs are
+      already in the library.
+    * Make it possible to disable all lyric providers.
+    * Make it possible to delete the active playlist.
+    * Add a workaround for broken XML entities in ASX playlists.
+    * Sort playlist tabs properly when closing and re-opening Clementine.
+    * (Windows) Fix MP3 transcoding.
+    * (Windows) Better error handling when parts of the Windows Media Device
+      Manager SDK aren't installed (like on Windows Server).
+    * (Windows) Fix a crash on startup when a device was connected that gave
+      Clementine an invalid icon.
+    * (Linux) Various MPRIS2 fixes.
+    * (Mac OS X) Increase the maximum file descriptor limit so larger
+      collections can still be monitored for changes.
+
+  Build system changes:
+    * Remove the old xine, VLC and Phonon backends.  These weren't maintained
+      any more and didn't have as many features as the GStreamer backend.
+    * Make Last.fm optional.
+    * Clementine now builds correctly with Clang.
+    * Don't run tests for features if those features are disabled.
+    * (Linux) Make DBUS optional.
+    * (Windows) Upgrade to Qt 4.7.1.
+    * (Mac OS X) Switch the HTTP gstreamer plugin to soup instead of neon.
+
+
+
+Version 0.6:
+  Features:
+    * Added a Song Info tab that contains:
+      - Lyrics fetched from 17 different websites
+      - Statistics, play counts and tags from Last.fm
+      - Wiki from Last.fm
+    * Added an Artist Info tab that contains:
+      - Photos
+      - Biographies from Wikipedia, Last.fm, Amazon and more
+      - Similar artists
+    * Added smart playlists and dynamic playlists.
+    * Add ratings, play counts and skip counts to the library, and remember
+      when a song was last played.
+    * Add a directory of Icecast radio stations to the Internet tab.
+    * Add Jamendo support to the Internet tab.
+    * Redesigned the sidebar so it looks better with the new "Song info" and
+      "Artist info" tabs.  The old style can be used again by right clicking
+      on the sidebar.
+    * Add support for "custom" Last.fm radio stations - see:
+      http://burnysblog.blogspot.com/2010/04/combo-station-urls.html
+    * Inhibit the Gnome, KDE and OS X screensavers when watching visualisations.
+    * Add an option to configure the gstreamer buffer size.
+    * Add a Mute option to the menus and the panel icon.
+    * Add a tooltip to the panel icon showing the currently playing track.
+    * Change the window title to the name of the currently playing track.
+    * Add a comment column to the playlist.
+    * Add volume controls for Rain and Hypnotoad.
+    * Allow editing tags from the library pane.
+    * Add a "Delete from disk" item in the playlist menu.
+    * Single clicking an item in the library view now expands it.
+    * Kittens!
+    * (Linux) Add MPRIS2 support, see http://www.mpris.org/2.0/spec/
+    * (Ubuntu) Add monochrome panel icons.
+    * (Ubuntu) Show Clementine in the Gnome sound menu.
+
+  Bugfixes:
+    * Replace Last.fm loved tracks with mix radio, see:
+      http://www.last.fm/stationchanges2010
+    * Don't block the GUI when starting a background stream.
+    * Don't block the GUI when searching or sorting a large library.
+    * Fix a large number of bugs in the MPRIS API.
+    * Use CBR instead of VBR when encoding MP3 files to copy to devices.
+    * Fixed parsing of DOS line endings in M3U files.
+    * Fix inline editing of multiple tracks in the playlist.
+    * Fix a bug where pressing F2 would sometimes edit the wrong field.
+    * Ignore duplicate items from playlists when opening directories.
+    * Ignore bad metadata in a file if good metadata has already been loaded.
+    * Don't show CD drives in the devices tab.
+    * Don't stop the track prematurely if it's the last one in the playlist
+      and fadeout is disabled.
+    * Write URLs in XSPF playlists properly when saving to a folder inside
+      the library.
+    * Fix some usability issues with the "Show in various artists" feature.
+    * Prevent the last playlist column from being hidden.
+    * Don't download the entire Magnatune catalogue each time Clementine is run.
+    * (Windows Vista) Fix a memory leak when using visualisations.
+    * (KDE) Fix a bug with session management on KDE.
+    * (Ubuntu) Fix compilation with the Gold linker which is used on Natty.
+    * (Mac OS X) Store user files in Library/Application Support/
+
+
+
+Version 0.5.3:
+  Bugfixes:
+    * Fix a crash that would occur when the library scanner encountered a
+      song with invalid metadata.
+    * Show the patch version in the version string.
+    * Work around a broken version of liblastfm.
+    * (Linux) Add some missing metadata to the MPRIS interface.
+    * (Mac) Fix mass-storage devices.
+
+
+
+Version 0.5.2:
+  Bugfixes:
+    * (Windows) Fix a serious handle leak.
+    * (Fedora) Fix gstreamer dependency problem in the 32-bit package.
+
+
+
+Version 0.5.1:
+  Bugfixes:
+    * (Fedora) Fix sqlite dependency problem on startup.
+
+
+
+Version 0.5:
+  Features:
+    * Add support for iPods, MTP music players and USB mass storage disks.
+      You can now copy songs on to and manage files on your portable devices.
+      Music will get transcoded automatically if the device you're copying to
+      doesn't support the file type.
+    * Add a queue manager.  You can now add songs to a queue to have them
+      played before anything else in the playlist.
+    * Add an Organise Files dialog that lets you copy files into your library
+      or rename them to follow your naming convention.
+    * Add support for Wii Remotes - you can now use your Wii Remote as a remote
+      control for Clementine!
+    * The columns in the playlist will now stretch to fit the whole window size.
+    * Load embedded album art from id3v2 tags.
+    * Load local files from the library instead if they exist, meaning existing
+      album art will be used.
+    * Support drag and drop between playlists.
+    * Add options to disable library scanning.
+    * Add an option to group the library by file type.
+    * Add an option to change the GUI language.
+    * Add an option to disable the current track glow effect.
+    * Add a global shortcut to show/hide the OSD.
+    * Show progress information for individual tracks when transcoding.
+    * ALL GLORY TO THE HYPNOTOAD.
+    * (Linux) Add an svg icon.
+    * (Mac) Show now playing information in the dock menu.
+    * (Windows Vista and Windows 7) Add Clementine to the Default Programs menu.
+    * (Windows Vista and Windows 7) Blur the background of the OSD.
+
+  Bugfixes:
+    * Fix a memory leak when playing ogg streams.
+    * Reduce the constant CPU usage when playing music.
+    * Greatly reduce CPU usage when using the equalizer.
+    * Greatly reduce startup time.
+    * Move lots of disk IO to the background, making the GUI more responsive.
+    * Display an error dialog instead of crashing if no projectM visualisations
+      were found.
+    * Fix a crash when the "Last.fm" tree item was expanded.
+    * Fix a bug that would create empty "Unknown" categories in the Library.
+    * Fix a black visualisations window when using a non-English locale.
+    * Fix a crash when closing the visualisation window with the ESC key.
+    * Detect symbolic links in the music library properly.
+    * Pick gstreamer codecs automatically when transcoding, insteading of using
+      a hardcoded list.
+    * Sort items in the library that don't have a track number set properly.
+    * Sort library items with UTF-8 characters properly.
+    * Use the file extension as well as the mime-type when figuring out how to
+      load a remote playlist.
+    * Handle "Artist - Title" icycast metadata properly.
+    * Filtering the playlist now focuses the currently playing song.
+    * Filtering the playlist is now case-insensitive.
+    * Load the "albumartist" tag from flac and ogg metadata.
+    * Ignore garbage iTunNORM comment fields in ID3v2 tags.
+    * Be sure to always enable the OK button in the settings dialog properly.
+    * Fix a bug that would prevent covers from loading in the cover manager.
+    * (Linux) Make the commandline interface work even when not running an X
+      server.
+    * (Mac) Reduce the default font size to fit in with other OS X applications.
+    * (Mac) Use smooth scrolling in the playlist view.
+    * (Mac) Correctly load M3U files created by iTunes.
+    * (Windows) Seed the random number generator properly so the same tracks
+      don't get played over and over when using shuffle.
+    * (Windows) Use \ instead of / in several places in the GUI.
+    * (Windows) Fix a crash when authenticating with Last.fm.
+
+
+
+Version 0.4.2:
+  Bugfixes:
+    * (Linux) Fixed a bug where Clementine wouldn't start at all on Slackware,
+      openSUSE, or any other distro without FTS3 support in sqlite.
+
+
+
+Version 0.4.1:
+  Bugfixes:
+    * (Mac) Fix global shortcuts issue.
+
+
+
+Version 0.4:
+  Features:
+    * Support for multiple, tabbed playlists.
+    * Support for loading and saving XSPF, M3U, PLS and ASX playlists.
+    * Fullscreen visualisation support using projectM.
+    * Added a search bar to filter playlists.
+    * Magnatune integration - search, stream and download from Magnatune's
+      collection of DRM-free music.
+    * Music transcoder that can convert your music to mp3, ogg, flac, spx, 3gp
+      or m4a from any format that's supported by Clementine.
+    * ReplayGain support for volume normalisation.
+    * Improved the manual search feature of the album cover manager - you can
+      now enter text to search for and pick the best cover from a list of
+      results.
+    * Added a "now playing" widget to the main window, and rework the UI slightly.
+    * Added a progress bar to the album cover manager.
+    * Added a "Configure global shortcuts" dialog.
+    * Added a menu item to add whole folders to the playlist.
+    * Added menu items in the Library view to "load" tracks and replace the
+      whole playlist.
+    * Added a "Jump to the currently playing track" menu item.
+    * Added statusbar text saying how many songs are in the playlist.
+    * Added a background rain option from http://www.rainymood.com/
+    * Added some keyboard shortcuts for common actions.
+    * Library scanning on startup is now optional.
+    * Library scanning now shows progress information in the status bar.
+    * New application icon.
+    * The pretty OSD is now even prettier.
+    * (Linux) Use icons from the desktop icon theme where possible.
+
+  Bugfixes:
+    * Searching through large libraries is now much faster.
+    * Gapless playback should now work all the time with all formats.
+    * Song fading and crossfading shouldn't get cut off early on some sound
+      drivers.
+    * Automatically detect and fix non-UTF8 character encodings in song tags.
+    * Fix the 5 second delay between starting the first Last.fm track and
+      showing the cover-art in the notification.
+    * Lower the CPU usage of the currently playing track animation.
+    * Fixed a bug that would cause very high CPU usage after playing a number
+      of tracks.
+    * MMS streams that redirect to a RTSP stream should now play properly.
+    * Group error messages together so the user isn't overwhelmed by dialogs.
+    * Pressing "previous" in a shuffled playlist should follow the same order.
+    * Adding whole directories to the playlist now happens in the background so
+      it doesn't block the GUI.
+    * Fix a bug where Clementine would forget which playlist columns had been
+      hidden which lead to "ghost" columns that were shown but invisible.
+    * (Linux) Fix MPRIS pause behaviour.
+    * (Windows) \\host\share\file style URLs are now playable.
+    * (Windows) Use the improved directsound8 audio driver from Songbird,
+      fixing several playback issues on Windows.
+    * (Windows) Fix playback of AAC and WMA files, as well as MMS streams.
+    * (Windows) Fix a bug that prevented loading of any JPEG album covers.
+    * (Windows) Fix the animated busy spinner.
+    * (Mac) Add a list of supported filetypes so OS X knows which file types
+      Clementine can open.
+    * (Mac) Fix playback of various filetypes.
+    * (Mac) Fix dock menu when Clementine is minimised.
+    * (Mac) Support custom key combinations for global shortcuts (only on
+      Snow Leopard and higher).
+    * (Mac) Hide behaviour tab as it does nothing.
+
+
+
+Version 0.3:
+  Features:
+    * It is now possible to group the library by any field.
+    * Clementine now uses GStreamer to play music.
+    * There is now an equalizer in the Tools menu.
+    * Crossfading between tracks, and gapless playback.
+    * Add an OSD for operating systems that don't have native notifications.
+    * MPRIS support - you can now control Clementine using compatible remote
+      control applications.
+    * You can now control Clementine using the command line.
+    * Better tag editing.  You can now automatically renumber tracks, bulk-edit
+      fields, and edit tags directly from the playlist.
+    * Autocompletion of album and artist names when editing tags.
+    * Undo and redo in the playlist.
+    * Add a menu option to delete items from the playlist.
+    * Add options to hide/show the main window on startup.
+    * Add options to sign out of Last.fm, and hide the Last.fm buttons.
+    * Automatically scroll to the currently playing song.
+    * Automatically start playing again from the previously playing track.
+    * Show a tiny "play" or "pause" icon in the system tray.
+    * Show a nicer indicator in the playlist when drag+dropping songs.
+    * (Windows and Mac) Global shortcut support.
+    * (Windows) The analyzer now works.
+    * (Mac) Remove the system tray icon, and minimize to the dock properly.
+    * (Mac) Use Sparkle for updates.
+
+  Bugfixes:
+    * The library scanner should now be much more efficient, and won't scan
+      your entire collection on startup.
+    * Saving and loading huge playlists should now be much faster.
+    * Fix several issues with runtime linking of sqlite.
+    * It is now possible to play songs that have '#' in the name.
+    * The currently playing track animation is now a more readable colour.
+    * Fix a crash when right-clicking an empty area of the playlist.
+    * Fix a crash when starting Clementine from a directory that contained
+      another directory called "clementine".
+    * Fix a crash when deleting songs from the library while the library
+      scanner is running.
+    * Fix an occasional crash when playing music.
+    * Left clicking on the track slider will now jump to that position.
+    * Stop the user from rearranging album covers in the cover manager.
+    * (Linux) Stop Clementine from creating loads of notifications at once.
+    * (Linux) Clementine will no longer prevent KDE from logging out.
+
+  Internationalization:
+    * Added translations for Portuguese, Czech, Danish, British English,
+      Finnish, French, Galician, German, Italian, Kazakh, Bokmal, Polish,
+      Romanian, Swedish and Turkish.
+  
+  Buildsystem changes:
+    * (Linux) Use the notification daemon directly, instead of through
+      libnotify.
+    * It is now possible to select other audio backends (xine, vlc, phonon)
+      through a cmake option, although doing so is not recommended, and may
+      cause a terrible plague to wreak havok and despair upon your friends and
+      loved ones.  You have been warned.
+
+
+
+Version 0.2:
+  Features:
+    * Album cover art is now automatically loaded from disk for your library
+    * Cover manager downloads missing covers from Last.fm
+    * Covers for Last.fm radio tracks are shown in notifications
+    * Much better "Various Artists" detection
+    * Menu items to force albums to be shown under "Various Artists"
+    * Support for M3U and XSPF playlists
+    * Menu items to add files and streams by URL
+    * Shuffle and Repeat modes for the playlist
+    * Option to hide the system tray icon
+    * Option to show notifications when changing volume (disabled by default)
+    * Playlist columns for albumartist, composer, file type, date
+    * Menu item to automatically number tracks in the playlist
+    * More 2D analyzers from Amarok 1.4
+    * (Linux) Media keys (play, stop, etc.) should work under Gnome
+
+  Bugfixes:
+    * Fixed Last.fm scrobbling for local music
+    * Fixed problems writing UTF-8 tags
+    * Searching the library now supports unicode
+    * Fixed a serious memory leak when the window is minimized to the tray
+    * Fixed tracks without an album field not showing up in the library
+    * Clicking the track slider to move it now works properly
+    * The track slider should no longer move around underneath you while being
+      dragged
+    * Colours should now obey the system colour scheme
+    * Searching the library should now be much faster
+    * (Windows) Fixed logarithmic volume issues
+    * (Linux and Mac) Volume is now saved and restored properly when you exit
+    * (Linux and Mac) Library scanner now runs at a low IO priority to make it
+      much less intrusive
+    * (Mac) Fix crash when universal access options are enabled
+
+  Internationalization:
+    * Added translations for Spanish, Russian, Greek and Slovak
+
+  Buildsystem changes:
+    * Moved from qmake to cmake
+    * It's now possible to build without libnotify
+    * Unit tests using gtest
+
