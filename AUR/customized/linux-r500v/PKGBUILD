@@ -20,6 +20,7 @@ url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
+_bfqver=v7r11
 _zenpatch=aef76a8a11ead31f777986fb3ad0d9e7d497f7ac
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
@@ -31,7 +32,8 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         ### ZEN patch
-        "zen-${_zenpatch}.patch"
+        "zen-${_zenpatch}.patch::https://github.com/zen-kernel/zen-kernel/commit/${_zenpatch}.patch"
+        '0001-exfat-build-fix.patch'
         ### AUFS4 support
         "0001-AUFS-aufs4.x-rcN-20160301.patch"
         '0002-AUFS-base.patch'
@@ -43,7 +45,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         '0008-AUFS-vfs-ino.patch'
         ### GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
-        ### mute
+        ### mute ### NOTICE less debug warning/error messages in dmesg patchset
         '0001-mute-efi-bgrt.patch'
         '0002-mute-intel-fifo-underrun.patch'
         '0003-mute-osl.patch'
@@ -52,11 +54,12 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 
 sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             'SKIP'
-            '096b1ce3db61e867e5bf571858d467be4ecdc8d5d246e1fda6641ab3e3acabbd'
+            '4d4063eb56a48ae2724606dafb0ffb820807a6b6780d8ba757881f7674d21353'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
             'b7adc5f75480e1b1e2528ad71ee30f16e4894a083066c5996f9bf756e4a1e932'
+            '12e5e65625ef15032af32201386d9bcdef163ba721ad44cba88e149fb4ce7553'
             'edcc921cb7e2ab43c680b7f373ce1ff1ee255379698592007ed3bbc9e68d5e1e'
             '5e743bbfb0d44c9d216a04842914b4e26d20bcd84a16149e2a6a679a9a99cfd2'
             'ddf7886d1edeb4c4f47d52cf019065a6267b1334a87481fd513562f271ff4304'
@@ -104,10 +107,8 @@ prepare() {
     # https://bugs.archlinux.org/task/47092
     patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
     
-    #msg "Patching source with BFQ patches"
-    #for p in $(ls ${srcdir}/000{1,2,3}-block*.patch); do
-    #    patch -Np1 -i "$p"
-    #done
+    # Fix exfat module compilation
+    patch -Np1 -i "${srcdir}/0001-exfat-build-fix.patch"
     
     msg "Patching source with AUFS4 patches"
     for p in $(ls ${srcdir}/000{1,2,3,4,5,6,7,8}-AUFS*.patch); do

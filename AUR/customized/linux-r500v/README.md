@@ -12,7 +12,8 @@
  - Less debug warning/error messages in `dmesg`.
  - Upstream Arch Linux patches.
  - [ZEN patch](https://github.com/zen-kernel/zen-kernel).
- - [AUFS4](http://aufs.sourceforge.net/) support.
+ - [AUFS4](http://aufs.sourceforge.net/) support is enabled in default.
+ - exFAT support is enabled in default. See: [#48](https://github.com/zen-kernel/zen-kernel/pull/48).
  
 **Customs**
 
