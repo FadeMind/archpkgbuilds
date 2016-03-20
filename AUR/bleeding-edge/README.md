@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="http://llvm.org/img/LLVM-Logo-Derivative-1.png" alt="llvmlogo"/> <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/GNU_Compiler_Collection_logo.png" alt="gcclogo"/> <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Khronos_Group_logo.png" alt="kglogo"/> <img src="http://members.shaw.ca/golinux/0.0/logomed.128.png" alt="tux"/>
+  <img src="http://llvm.org/img/LLVM-Logo-Derivative-1.png" alt="llvmlogo"/> <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/GNU_Compiler_Collection_logo.png" alt="gcclogo"/> <img src="http://i.imgur.com/EHhmbsZ.jpg" alt="kglogo"/> <img src="http://members.shaw.ca/golinux/0.0/logomed.128.png" alt="tux"/>
 </p>
 
 ### CVS version of:
@@ -34,7 +34,7 @@
 
     export LANG=C && yes|yaourt -Sy --noconfirm xf86-video-intel
     
-**linux-firmwares**
+**linux-firmware**
 
     export LANG=C && yes|yaourt -Sy --noconfirm linux-firmware 
 
