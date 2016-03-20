@@ -19,19 +19,19 @@ source=("${pkgname/-git/}::git://github.com/01org/thermal_daemon.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname/-git//}
+  cd ${pkgname/-git/}
   git describe --tags --long | sed -r -e 's,^[^0-9]*,,;s,([^-]*-g),r\1,;s,[-_],.,g'
 }
 
 build() {
-    cd ${pkgname/-git//}
+    cd ${pkgname/-git/}
     ./autogen.sh
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin
     make
 }
 
 package() {
-    cd ${pkgname/-git//}
+    cd ${pkgname/-git/}
     make DESTDIR="$pkgdir" install
     mkdir -p ${pkgdir}/etc/{systemd/system/thermald.service.d,modules-load.d}
     # modules load during boot
