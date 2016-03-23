@@ -1,5 +1,5 @@
 pkgname=corebird-git
-pkgver=1.2.r33.g20b5516
+pkgver=1.2.r35.g767eb5b
 pkgrel=1
 pkgdesc="Native Gtk+ Twitter Client. Git version"
 arch=('i686' 'x86_64')
