@@ -5,6 +5,8 @@
 **Arch PKGBUILD collection**</br>
 * `AUR/bleeding-edge`   GIT/SVN version of LLVM/CLANG, Mesa and xf86-video-intel
 * `AUR/customized`      miscellaneous packages customized by me
+* `AUR/extras`          ACPI tables tools, modprobed-db tools
+* `AUR/linux-r500v`     Linux Kernel 4.5 with custom patchset
 * `AUR/maintained`      packages currently maintained by me
 * `AUR/mozilla-kde`     Firefox and Thunderbird with KDE patches (copied from [manjaro community repository](https://github.com/manjaro/packages-community))</br>
 * `AUR/nvidia-optimus`  Bumblebee, Primus, NVIDIA Drivers and extras
