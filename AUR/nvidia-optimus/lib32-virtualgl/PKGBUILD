@@ -1,0 +1,55 @@
+# Maintainer: Sven-Hendrik Haase <sh@lutzhaase.com>
+# Contributor: FigoDaPaura <ffigoDaPaura>
+
+pkgname=lib32-virtualgl
+pkgver=2.5
+pkgrel=2
+pkgdesc="32-bit serverside components for 64-bit VirtualGL servers"
+arch=('x86_64')
+url="http://virtualgl.org"
+license=('LGPL')
+makedepends=('lib32-libxv' 'lib32-glu' 'virtualgl' 'lib32-libjpeg-turbo' 'cmake' 'gcc-multilib' 'lib32-mesa' 'lib32-mesa-libgl')
+depends=('virtualgl' 'lib32-libxv' 'lib32-glu' 'lib32-turbojpeg')
+source=("http://downloads.sourceforge.net/project/virtualgl/${pkgver}/VirtualGL-${pkgver}.tar.gz")
+sha1sums=('494ced91402e7cd4b3f561c202f8b4298d777785')
+
+prepare() {
+  # FS#48403
+  export LDFLAGS="${LDFLAGS/--as-needed,}"
+}
+
+build() {
+  cd "$srcdir/VirtualGL-$pkgver"
+ 
+  export CC="gcc -m32"
+  export CXX="g++ -m32"
+  export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+ 
+  mkdir -p build && cd build
+ 
+  cmake .. \
+      -DCMAKE_INSTALL_PREFIX=/usr/share \
+      -DTJPEG_INCLUDE_DIR=/usr/include \
+      -DTJPEG_LIBRARY=/usr/lib32/libturbojpeg.so \
+      -DVGL_LIBDIR=/usr/lib32 \
+      -DVGL_BINDIR=/usr/bin \
+      -DX11_X11_LIB=/usr/lib32/libX11.so \
+      -DX11_Xext_LIB=/usr/lib32/libXext.so \
+      -DOPENGL_gl_LIBRARY=/usr/lib32/libGL.so
+  make
+}
+ 
+package() {
+  cd "$srcdir/VirtualGL-$pkgver/build"
+  make install DESTDIR="$pkgdir"
+
+  cd "$pkgdir/usr"
+  mv bin/glxspheres glxspheres32
+  rm -rf bin
+  mkdir -p bin
+  mv glxspheres32 bin/
+ 
+  cd "$pkgdir/usr/share"
+  rm -rf doc
+  rm -rf include
+}
