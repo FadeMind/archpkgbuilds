@@ -87,6 +87,7 @@ package() {
     install -dm755 ${pkgdir}/usr/lib/modprobe.d
     bash -c "{
     echo \"blacklist nvidia\"
+    echo \"blacklist nvidia-drm\"
     echo \"blacklist nvidia-modeset\"
     echo \"blacklist nvidia-uvm\"
     echo \"blacklist nouveau\"
