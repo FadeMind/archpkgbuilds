@@ -3,7 +3,7 @@
 # Maintainer: Jan de Groot <jgc@archlinux.org>
 
 pkgname=xf86-video-intel-git
-pkgver=2.99.917+584+gf6316fb
+pkgver=2.99.917+589+g39fbae3
 pkgrel=1
 epoch=1
 arch=('i686' 'x86_64')
@@ -57,7 +57,7 @@ prepare() {
 
 build() {
     cd ${pkgname/-git/}
-    ./configure --prefix=/usr --libexecdir=/usr/lib
+    ./configure --prefix=/usr --libexecdir=/usr/lib #--enable-debug=full
     make
 }
 
