@@ -52,7 +52,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 
 sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             'SKIP'
-            '8d74b424d90e64f9b2d38e86522df61dfaa81cc77cab2286914fba5e407170b5'
+            '473b27d43bc324181e9a93aeafb36edfd64f462b06f533d1f5d65dd0cf8808d3'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -116,13 +116,10 @@ prepare() {
     done
     
     ### Patch source to enable more gcc CPU optimizatons via the make nconfig
+    ### ATTENTION during prepare config wizard will ask you for proper CPU family
     # https://github.com/graysky2/kernel_gcc_patch
     msg "Patching source with gcc patch to enable more cpus types"
     patch -Np1 -i "${srcdir}/0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
-    
-    ### Clean tree and copy ARCH config over
-    #msg "Running make mrproper to clean source tree"
-    #make mrproper
         
     cat "${srcdir}/config.x86_64" > ./.config
     
@@ -130,6 +127,35 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
+        
+    ### Disabling NUMA since >99% of users have mono-socket systems.
+    # For more, see: https://bugs.archlinux.org/task/31187
+    msg "Disabling NUMA from kernel config..."
+    sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
+        -i -e '/CONFIG_AMD_NUMA=y/d' \
+        -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
+        -i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
+        -i -e '/# CONFIG_NUMA_EMU is not set/d' \
+        -i -e '/CONFIG_NODES_SHIFT=6/d' \
+        -i -e '/CONFIG_NEED_MULTIPLE_NODES=y/d' \
+        -i -e '/# CONFIG_MOVABLE_NODE is not set/d' \
+        -i -e '/CONFIG_USE_PERCPU_NUMA_NODE_ID=y/d' \
+        -i -e '/CONFIG_ACPI_NUMA=y/d' ./.config
+        
+    ### Enabling XZ kernel compression
+    # XZ uses the LZMA2 algorithm and instruction set specific BCJ filters 
+    # which can improve compression ratio of executable code. 
+    # The size of the kernel is about 30% smaller with XZ in comparison to gzip. 
+    # On architectures for which there is a BCJ filter (i386, x86_64, ARM, IA-64, PowerPC, and SPARC), 
+    # XZ will create a few percent smaller kernel than plain LZMA. The speed is about the same as with LZMA: 
+    # The decompression speed of XZ is better than that of bzip2 but worse than gzip and LZO. Compression is slow.
+    msg "Enabling XZ kernel compression"
+    sed -i -e s'/CONFIG_KERNEL_GZIP=y/# CONFIG_KERNEL_GZIP is not set/' \
+        -i -e s'/# CONFIG_KERNEL_XZ is not set/CONFIG_KERNEL_XZ=y /' ./.config
+
+    msg "Enabling XZ modules compression"
+    sed -i -e s'/CONFIG_MODULE_COMPRESS_GZIP=y/# CONFIG_MODULE_COMPRESS_GZIP is not set/' \
+        -i -e s'/# CONFIG_MODULE_COMPRESS_XZ/CONFIG_MODULE_COMPRESS_XZ=y /' ./.config
     
     # set extraversion to pkgrel
     sed -ri "s|^(EXTRAVERSION =).*|\1 -${pkgrel}|" Makefile

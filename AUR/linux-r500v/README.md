@@ -21,6 +21,7 @@
  - XZ compression for kernel and modules.
 
 PKGBUILD code is based on `linux-mainline` and `linux-ck`.
+Template `config.x86_64` code is based on `linux-zen`. 
 
 **License**
 
