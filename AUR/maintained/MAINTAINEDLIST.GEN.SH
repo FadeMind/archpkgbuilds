@@ -12,6 +12,9 @@ if [ $? -eq 0 ]; then
             do
                 yaourt -G $i &> /dev/null
         done
+        rm -rf */.git
+        rm -rf */.SRCINFO
+        rm -rf */.gitignore
         printf "AUR packages list: \n"
         ls -d */ | cut -f1 -d'/'
     else
