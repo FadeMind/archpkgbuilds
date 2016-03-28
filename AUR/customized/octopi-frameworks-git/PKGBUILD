@@ -2,7 +2,7 @@
 # Contributor: Filip Brcic <brcha@gna.org>
 
 pkgname=octopi-frameworks-git
-pkgver=0.8.1.r1062.66fd074
+pkgver=0.8.1.r1086.0d98280
 pkgrel=1
 pkgdesc="A powerful Pacman frontend using Qt libs (Qt5 & KF5 build)"
 arch=('i686' 'x86_64')
