@@ -9,12 +9,13 @@
 
 **WARNING: PKGBUILDs are designed mostly for x86_64 based system.<br/>**
 **Don't try installing these packages on Manjaro caused due MHWD restrictions! You have been warned.<br/>**
-**DKMS NVIDIA sources are ready for stable Linux Kernel.**
+**DKMS based sources are ready for stable Linux Kernel.**
 
 ### CONTENTS ###
 
 | **PACKAGE**             	| **VERSION**           	| **DESCRIPTION**                                                                                                                                                                                              	|
 |-------------------------	|-----------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `bbswitch-dkms`               | `0.8-1`                       | Kernel module allowing to switch dedicated graphics card on Optimus laptops. DKMS version.
 | `bumblebee`             	| `3.2.1-11`            	| NVIDIA Optimus support for Linux through VirtualGL Included patches [GH-699](https://github.com/Bumblebee-Project/Bumblebee/issues/699), [GH-573](https://github.com/Bumblebee-Project/Bumblebee/issues/573) 	|
 | `bumblebeed-resume-git` 	| `20160220-1`          	| Simple systemd service for restart bumblebeed service after resume                                                                                                                                           	|
 | `dkms`                  	| `2.2.0.3+git151023-9` 	| Dynamic Kernel Modules System                                                                                                                                                                                	|
