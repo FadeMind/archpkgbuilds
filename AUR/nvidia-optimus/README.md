@@ -3,9 +3,13 @@
   <img src="https://i.imgur.com/gkdq7EZ.jpg " alt="nvidiatuxlogo"/>
 </p>
 
-##<p align="center">Bumblebee, Primus, NVIDIA Drivers and extras <br/>PKGBUILDs for Arch Linux <br/></p>
+##<p align="center">Bumblebee, DKMS, Primus, NVIDIA Drivers and extras <br/>PKGBUILDs for Arch Linux <br/></p>
 
 <hr/>
+
+**WARNING: PKGBUILDs are designed mostly for x86_64 based system.<br/>**
+**Don't try installing these packages on Manjaro caused due MHWD restrictions! You have been warned.<br/>**
+**DKMS NVIDIA sources are ready for stable Linux Kernel.**
 
 ### CONTENTS ###
 
