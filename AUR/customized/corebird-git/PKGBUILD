@@ -1,5 +1,5 @@
 pkgname=corebird-git
-pkgver=1.2.r39.g88c0159
+pkgver=4432+g854d971
 pkgrel=1
 pkgdesc="Native Gtk+ Twitter Client. Git version"
 arch=('i686' 'x86_64')
@@ -25,7 +25,8 @@ install="${pkgname/-git/}.install"
 
 pkgver() {
     cd ${pkgname/-git/}
-    git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+    #git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+    echo $(git rev-list --count HEAD)+g$(git rev-parse --short HEAD)
 }
 
 build() {
