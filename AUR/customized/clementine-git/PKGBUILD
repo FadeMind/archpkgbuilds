@@ -4,7 +4,7 @@
 # Contributor: Xiao-Long Chen <chenxiaolong@cxl.epac.to>
 
 pkgname=clementine-git
-pkgver=1.2.3.1589.g30c75f8
+pkgver=1.2.3.1611.ged13d02
 pkgrel=1
 pkgdesc="A modern music player and library organiser and a port of Amarok 1.4, with some features rewritten to take advantage of Qt4. Git version"
 arch=('i686' 'x86_64')

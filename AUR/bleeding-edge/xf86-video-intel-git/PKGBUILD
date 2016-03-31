@@ -3,7 +3,7 @@
 # Maintainer: Jan de Groot <jgc@archlinux.org>
 
 pkgname=xf86-video-intel-git
-pkgver=2.99.917+590+g094924f
+pkgver=2.99.917+591+gebe86fd
 pkgrel=1
 epoch=1
 arch=('i686' 'x86_64')
