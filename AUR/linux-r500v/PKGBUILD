@@ -11,36 +11,20 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 ### Do no edit below this line unless you know what you're doing    
 
 pkgbase=linux-r500v
-_srcname=linux-4.5
-#_patchver=4.6-rc1
+_srcname=zen-kernel-4.5-master
 pkgver=4.5
 pkgrel=1
 arch=('x86_64')
-url="http://www.kernel.org/"
+url="https://github.com/zen-kernel/zen-kernel"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
-_zenpatch=aef76a8a11ead31f777986fb3ad0d9e7d497f7ac
-source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        #"https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-${_patchver}.xz"
-        #"https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-${_patchver}.sign"
+source=("${_srcname}.zip::${url}/archive/${pkgver}/master.zip"
         ### Configs
         'config.x86_64' 'linux-r500v.preset'
         ### Arch patches 
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
-        ### ZEN patch
-        "0001-zen-${_zenpatch}.patch::https://github.com/zen-kernel/zen-kernel/commit/${_zenpatch}.patch"
-        ### AUFS4 support
-        "0001-AUFS-aufs4.x-rcN-20160301.patch"
-        '0002-AUFS-base.patch'
-        '0003-AUFS-kbuild.patch'
-        '0004-AUFS-loopback.patch'
-        '0005-AUFS-mmap.patch'
-        '0006-AUFS-standalone.patch'
-        '0007-AUFS-tmpfs-idr.patch'
-        '0008-AUFS-vfs-ino.patch'
         ### GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
         ### mute ### NOTICE less debug warning/error messages in dmesg patchset
@@ -50,21 +34,11 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         '0004-mute-lpc-ich.patch'
         '0005-mute-intel-rapl.patch')
 
-sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
-            'SKIP'
-            '473b27d43bc324181e9a93aeafb36edfd64f462b06f533d1f5d65dd0cf8808d3'
+sha256sums=('6909452b7c8558aa781a3cfdad2df4aa597a088c326d612a853740c450772e3b'
+            'a32b123288c04f8afb52a29b82892940712219865bea64368435224b4e8d3417'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
-            'b7adc5f75480e1b1e2528ad71ee30f16e4894a083066c5996f9bf756e4a1e932'
-            'edcc921cb7e2ab43c680b7f373ce1ff1ee255379698592007ed3bbc9e68d5e1e'
-            '5e743bbfb0d44c9d216a04842914b4e26d20bcd84a16149e2a6a679a9a99cfd2'
-            'ddf7886d1edeb4c4f47d52cf019065a6267b1334a87481fd513562f271ff4304'
-            '6822ff776d406a7a254f9011c323d42974f2e5c0c0a61dcb9f3ca8b15282dbe1'
-            'c3a31273e3f197deed71b34cbf0529dd11116e70dc4dc946ac31718dc7c20195'
-            '68ce423cb4f3790f514435ad372201cc1db40667418ea9d9023af75664c1c01a'
-            '1419e6aa021e5cd8686291205a84f0fc018f34bf6a3c46a037090116b6f5d021'
-            '8fd87c9ab764ad599c61c6878148d7e3ecd2d082257061da9708a6567fc5ba45'
             'f479a5ca6abe4d50ca4c09e6e83a027369fcd3efff8d5ce60f0699d8fa47beb8'
             'bc68e258da00da168d5216be278294425cd7a808a8f03e6e91e615db5e71211e'
             'c9a44f7b3cbeea3cd373ba24c515a22fc95e392dc24a98d914127edea6fc8c18'
@@ -72,43 +46,20 @@ sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
             '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d')
 
-validpgpkeys=(
-              'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
-              '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
-              '64254695FFF0AA4466CC19E67B96E8162A8CF5D1' # Sebastian Andrzej Siewior
-              '5ED9A48FC54C0A22D1D0804CEBC26CDB5A56DE73' # Steven Rostedt
-             )
-
 _kernelname=${pkgbase#linux}
-
-#pkgver(){
-#    echo "${_patchver/-/}"
-#}
 
 prepare() {
     cd "${srcdir}/${_srcname}"
-    
-    #msg "Patching source with upstream patches"
-    #patch -p1 -i "${srcdir}/patch-${_patchver}"
     
     # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
     # remove this when a Kconfig knob is made available by upstream
     # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
     patch -p1 -i "${srcdir}/0001-change-default-console-loglevel.patch"
     
-    # add zen patch
-    msg "Patching source with ZEN patch"
-    patch -p1 -i "${srcdir}/0001-zen-${_zenpatch}.patch"
-    
     # Fix Nvidia 304xx issue
     # https://bugs.archlinux.org/task/47092
     msg "Fix Nvidia 304xx issue"
     patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
-    
-    msg "Patching source with AUFS4 patches"
-    for p in $(ls ${srcdir}/000{1,2,3,4,5,6,7,8}-AUFS*.patch); do
-        patch -Np1 -i "$p"
-    done
     
     msg "Patching source with mute patches"
     for p in $(ls ${srcdir}/000{1,2,3,4,5}-mute*.patch); do
@@ -127,10 +78,10 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
-        
+ 
     ### Disabling NUMA since >99% of users have mono-socket systems.
     # For more, see: https://bugs.archlinux.org/task/31187
-    msg "Disabling NUMA from kernel config..."
+    #msg "Disabling NUMA from kernel config..."
     sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
         -i -e '/CONFIG_AMD_NUMA=y/d' \
         -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
@@ -153,10 +104,10 @@ prepare() {
     sed -i -e s'/CONFIG_KERNEL_GZIP=y/# CONFIG_KERNEL_GZIP is not set/' \
         -i -e s'/# CONFIG_KERNEL_XZ is not set/CONFIG_KERNEL_XZ=y /' ./.config
 
-    msg "Enabling XZ modules compression"
+    #msg "Enabling XZ modules compression"
     sed -i -e s'/CONFIG_MODULE_COMPRESS_GZIP=y/# CONFIG_MODULE_COMPRESS_GZIP is not set/' \
         -i -e s'/# CONFIG_MODULE_COMPRESS_XZ/CONFIG_MODULE_COMPRESS_XZ=y /' ./.config
-    
+
     # set extraversion to pkgrel
     sed -ri "s|^(EXTRAVERSION =).*|\1 -${pkgrel}|" Makefile
     
