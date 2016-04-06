@@ -1,14 +1,14 @@
+# $Id: PKGBUILD 263503 2016-03-31 11:59:33Z fyan $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
-# Contributor: FadeMind <fademind@gmail.com>
 
 pkgname=nvidia-settings
-pkgver=364.12
+pkgver=361.42
 pkgrel=1
 pkgdesc="Tool for configuring the NVIDIA graphics driver"
 arch=('i686' 'x86_64')
 url="https://github.com/NVIDIA/nvidia-settings"
 license=('GPL2')
-depends=('jansson' 'gtk3' 'libxv' 'libvdpau')
+depends=('jansson' 'gtk3' 'libxv' 'libvdpau' 'nvidia-utils')
 makedepends=('git' 'inetutils' 'gtk2')
 source=("git+https://github.com/NVIDIA/nvidia-settings#tag=$pkgver")
 sha1sums=('SKIP')

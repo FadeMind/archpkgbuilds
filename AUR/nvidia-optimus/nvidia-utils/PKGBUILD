@@ -1,19 +1,23 @@
+# $Id: PKGBUILD 263502 2016-03-31 11:59:32Z fyan $
 # Maintainer: Sven-Hendrik Haase <sh@lutzhaase.com>
 # Maintainer: Thomas Baechler <thomas@archlinux.org>
 # Contributor: James Rayner <iphitus@gmail.com>
-# Contributor: FadeMind <fademind@gmail.com>
 
 pkgbase=nvidia-utils
 pkgname=('nvidia-utils' 'nvidia-libgl' 'opencl-nvidia')
-pkgver=364.12
+pkgver=361.42
 pkgrel=1
-arch=('x86_64')
+arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
 license=('custom')
 options=('!strip')
-source=("http://us.download.nvidia.com/XFree86/Linux-x86_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
-sha256sums=('6d4827edf5d69d0bcf5beb40bda9494888c5ab6de4989fcc66aadaac0fe0a323')
-_pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
+source_i686=("http://us.download.nvidia.com/XFree86/Linux-x86/${pkgver}/NVIDIA-Linux-x86-${pkgver}.run")
+source_x86_64=("http://us.download.nvidia.com/XFree86/Linux-x86_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
+sha512sums_i686=('f20af256d3ab4cbac0bdf59ada558c27827439ab0170e22824bf10f52a4a7944994904db8b062d0948f2e5470c3220ea4ff6e8dae74000ae29d2badc71022cba')
+sha512sums_x86_64=('fd6e16cb7488f522b200eb2f5a666c35d151b7afd72f0897fd44c4892be277ebe49e541d8a88156bfa06cc54d1f51888ade37f4c4f09207911d12c1433656a5a')
+
+[[ "$CARCH" = "i686" ]] && _pkg="NVIDIA-Linux-x86-${pkgver}"
+[[ "$CARCH" = "x86_64" ]] && _pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
 
 create_links() {
     # create soname links
@@ -103,11 +107,7 @@ package_nvidia-utils() {
     # OpenGL core library
     install -D -m755 "libnvidia-glcore.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-glcore.so.${pkgver}"
     install -D -m755 "libnvidia-eglcore.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-eglcore.so.${pkgver}"
-    install -D -m755 "libnvidia-egl-wayland.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-egl-wayland.so.${pkgver}"
     install -D -m755 "libnvidia-glsi.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-glsi.so.${pkgver}"
-    
-    # Vulkan icd
-    install -D -m644 nvidia_icd.json "${pkgdir}/etc/vulkan/icd.d/nvidia_icd.json"
     
     # misc
     install -D -m755 "libnvidia-ifr.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-ifr.so.${pkgver}"
