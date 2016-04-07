@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd AUR/
 find * -type f -name .gitignore -delete
 find * -type f -name .directory -delete
 find * -type f -name *.pkg.tar.xz -delete
