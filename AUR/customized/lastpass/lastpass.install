@@ -1,5 +1,5 @@
 # Directories
-_user=tomasz            # User
+_user=det            # User
 _home=/home/$_user/  # $HOME
 
 ## Install for Mozilla Firefoxes

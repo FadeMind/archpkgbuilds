@@ -19,22 +19,24 @@ url="https://github.com/zen-kernel/zen-kernel"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
-source=("${_srcname}.zip::${url}/archive/${pkgver}/master.zip"
+source=("${_srcname}.zip::${url}/archive/${pkgver}/master.zip")
+source+=(
         ### Configs
-        'config.x86_64' 'linux-r500v.preset'
+        'config.x86_64' "${pkgbase}.preset"
         ### Arch patches 
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         ### GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
-        ### mute ### NOTICE less debug warning/error messages in dmesg patchset
+        ### mute
         '0001-mute-efi-bgrt.patch'
         '0002-mute-intel-fifo-underrun.patch'
         '0003-mute-osl.patch'
         '0004-mute-lpc-ich.patch'
-        '0005-mute-intel-rapl.patch')
-
-sha256sums=('6909452b7c8558aa781a3cfdad2df4aa597a088c326d612a853740c450772e3b'
+        '0005-mute-intel-rapl.patch'
+        )
+sha256sums=('SKIP')
+sha256sums+=(
             'a32b123288c04f8afb52a29b82892940712219865bea64368435224b4e8d3417'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
@@ -44,7 +46,8 @@ sha256sums=('6909452b7c8558aa781a3cfdad2df4aa597a088c326d612a853740c450772e3b'
             'c9a44f7b3cbeea3cd373ba24c515a22fc95e392dc24a98d914127edea6fc8c18'
             'dda83ac32c2c4f338890191b87f8bb330182af83c6f28c0c3e96a3d13e85247d'
             '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
-            '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d')
+            '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d'
+            )
 
 _kernelname=${pkgbase#linux}
 
@@ -104,7 +107,7 @@ prepare() {
     sed -i -e s'/CONFIG_KERNEL_GZIP=y/# CONFIG_KERNEL_GZIP is not set/' \
         -i -e s'/# CONFIG_KERNEL_XZ is not set/CONFIG_KERNEL_XZ=y /' ./.config
 
-    #msg "Enabling XZ modules compression"
+    msg "Enabling XZ modules compression"
     sed -i -e s'/CONFIG_MODULE_COMPRESS_GZIP=y/# CONFIG_MODULE_COMPRESS_GZIP is not set/' \
         -i -e s'/# CONFIG_MODULE_COMPRESS_XZ/CONFIG_MODULE_COMPRESS_XZ=y /' ./.config
 
