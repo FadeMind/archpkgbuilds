@@ -1,5 +1,24 @@
-# $Id$
 # Maintainer: Sven-Hendrik Haase <sh@lutzhaase.com>
+
+###############################################################################################################################
+# Issue #699                                                                                                                  #
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Dirty fix for issue #699 version improved This should fix issue #699 without causing any problems for non-affected users.   #
+# It should correctly detect if nvidia and nvidia_modeset are loaded, unload nvidia_modeset using modprobe -r nvidia_modeset  #
+# (this also unloads nvidia), and log errors (as before). If it doesn't detect nvidia_modeset but detects "driver",           #
+# then it will unload the detected driver just like before, except it does so using modprobe -r "driver" for consistency.     #
+# https://github.com/Bumblebee-Project/Bumblebee/issues/699                                                                   #
+# https://github.com/arafey/Bumblebee/commit/5636b24fa86a005a5d2e30bd794516db13ccba56                                         #
+# https://github.com/arafey/Bumblebee/commit/09d537e8e5313cd0f2c7bf6620ca70454de8a04a                                         #
+# https://github.com/arafey/Bumblebee/commit/dbbf20a38aa2bffb10c4e8af583b34dff6bfe721                                         #
+###############################################################################################################################
+# Issue #573                                                                                                                  #
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Fix devices with a bus larger than 9 (GH-573)                                                                               #
+# The `-isolateDevice` option accepts a PCI ID in decimal format, not hex.                                                    #
+# https://github.com/Bumblebee-Project/Bumblebee/issues/573                                                                   #
+# https://github.com/Bumblebee-Project/Bumblebee/commit/2073f8537412aa47755eb6f3f22a114403e5285b                              #
+###############################################################################################################################
 
 pkgname=bumblebee
 pkgver=3.2.1
@@ -40,25 +59,6 @@ sha256sums=('1018703b07e2f607a4641249d69478ce076ae5a1e9dd6cff5694d394fa7ee30e'
 
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}"
-    ###############################################################################################################################
-    # Issue #699                                                                                                                  #
-    #-----------------------------------------------------------------------------------------------------------------------------#
-    # Dirty fix for issue #699 version improved This should fix issue #699 without causing any problems for non-affected users.   #
-    # It should correctly detect if nvidia and nvidia_modeset are loaded, unload nvidia_modeset using modprobe -r nvidia_modeset  #
-    # (this also unloads nvidia), and log errors (as before). If it doesn't detect nvidia_modeset but detects "driver",           #
-    # then it will unload the detected driver just like before, except it does so using modprobe -r "driver" for consistency.     #
-    # https://github.com/Bumblebee-Project/Bumblebee/issues/699                                                                   #
-    # https://github.com/arafey/Bumblebee/commit/5636b24fa86a005a5d2e30bd794516db13ccba56                                         #
-    # https://github.com/arafey/Bumblebee/commit/09d537e8e5313cd0f2c7bf6620ca70454de8a04a                                         #
-    # https://github.com/arafey/Bumblebee/commit/dbbf20a38aa2bffb10c4e8af583b34dff6bfe721                                         #
-    ###############################################################################################################################
-    # Issue #573                                                                                                                  #
-    #-----------------------------------------------------------------------------------------------------------------------------#
-    # Fix devices with a bus larger than 9 (GH-573)                                                                               #
-    # The `-isolateDevice` option accepts a PCI ID in decimal format, not hex.                                                    #
-    # https://github.com/Bumblebee-Project/Bumblebee/issues/573                                                                   #
-    # https://github.com/Bumblebee-Project/Bumblebee/commit/2073f8537412aa47755eb6f3f22a114403e5285b                              #
-    ###############################################################################################################################
     for p in $(ls ${srcdir}/00{01,02,03,04,05}*.patch); do
         patch -Np1 -i "$p"
     done
@@ -72,7 +72,6 @@ build() {
         --with-udev-rules=/usr/lib/udev/rules.d/ \
         --sysconfdir=/etc \
         --without-pidfile
-
     make
 }
 

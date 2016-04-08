@@ -3,7 +3,7 @@
 
 pkgname=libdrm-git
 _pkgname=libdrm
-pkgver=5843.ea78c17
+pkgver=5850.65ea85d
 pkgrel=1
 pkgdesc="Userspace interface to kernel DRM services, master git version"
 arch=(i686 x86_64)
