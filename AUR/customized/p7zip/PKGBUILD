@@ -1,5 +1,5 @@
-# $Id: PKGBUILD 237197 2015-04-15 21:18:37Z foutrelis $
-# Maintainer: Evangelos Foutras <evangelos@foutrelis.com>
+# Maintainer: FadeMind <fademind@gmail.com>
+# Contributor: Evangelos Foutras <evangelos@foutrelis.com>
 # Contributor: Gaetan Bisson <bisson@archlinux.org>
 # Contributor: Thayer Williams <thayer@archlinux.org>
 # Contributor: Hugo Doria <hugo@archlinux.org>
@@ -7,48 +7,46 @@
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
 
 pkgname=p7zip
-pkgver=15.09
+pkgver=15.14.1
 pkgrel=1
 pkgdesc="Command-line file archiver with high compression ratio"
 arch=('i686' 'x86_64')
-url="http://p7zip.sourceforge.net/"
+url="https://sourceforge.net/projects/${pkgname}/"
 license=('LGPL' 'custom:unRAR')
 depends=('gcc-libs' 'sh')
 makedepends_i686=('nasm')
 makedepends_x86_64=('yasm')
-install=$pkgname.install
-source=(https://downloads.sourceforge.net/project/$pkgname/$pkgname/$pkgver/${pkgname}_${pkgver}_src_all.tar.bz2)
-sha256sums=('8783acf747e210e00150f7311cc06c4cd8ecf7b0c27b4adf2194284cc49b4d6f')
+install="${pkgname}.install"
+source=("${pkgname}_${pkgver}_src_all.tar.bz2::https://downloads.sourceforge.net/project/${pkgname}/${pkgname}/15.14%20.1/${pkgname}_${pkgver}_src_all.tar.bz2")
+sha256sums=('699db4da3621904113e040703220abb1148dfef477b55305e2f14a4f1f8f25d4')
 
 prepare() {
-  cd "$srcdir/${pkgname}_$pkgver"
+    cd ${pkgname}_${pkgver}
 
-  if [[ $CARCH = x86_64 ]]; then
-    cp makefile.linux_amd64_asm makefile.machine
-  else
-    cp makefile.linux_x86_asm_gcc_4.X makefile.machine
-  fi
+    if [[ $CARCH = x86_64 ]]; then
+        cp makefile.linux_amd64_asm makefile.machine
+    else
+        cp makefile.linux_x86_asm_gcc_4.X makefile.machine
+    fi
 }
 
 build() {
-  cd "$srcdir/${pkgname}_$pkgver"
-  make all3 OPTFLAGS="$CFLAGS"
+    cd ${pkgname}_${pkgver}
+    make all3 OPTFLAGS="$CFLAGS"
 }
 
 package() {
-  cd "$srcdir/${pkgname}_$pkgver"
+    cd ${pkgname}_${pkgver}
 
-  make install \
-    DEST_DIR="$pkgdir" \
-    DEST_HOME=/usr \
-    DEST_MAN=/usr/share/man
+    make install \
+        DEST_DIR="$pkgdir" \
+        DEST_HOME=/usr \
+        DEST_MAN=/usr/share/man
 
-  install -d "${pkgdir}"/usr/share/licenses/p7zip
-  ln -s -t "$pkgdir/usr/share/licenses/p7zip/" \
-    /usr/share/doc/p7zip/DOC/License.txt \
-    /usr/share/doc/p7zip/DOC/unRarLicense.txt
+    install -d "${pkgdir}"/usr/share/licenses/p7zip
+    ln -s -t "$pkgdir/usr/share/licenses/p7zip/" \
+        /usr/share/doc/p7zip/DOC/License.txt \
+        /usr/share/doc/p7zip/DOC/unRarLicense.txt
 
-  chmod -R a+r,u+w,a+X "$pkgdir/usr"
+    chmod -R a+r,u+w,a+X "$pkgdir/usr"
 }
-
-# vim:set ts=2 sw=2 et:

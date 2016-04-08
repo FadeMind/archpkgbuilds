@@ -3,7 +3,7 @@
 # Maintainer: ultraviolet <ultravioletnanokitty@gmail.com>
 
 pkgname=thermald-git
-pkgver=1.5.3.r0.g0c4c715
+pkgver=1.5.3.r2.gc4e0864
 pkgrel=1
 pkgdesc="The Linux Thermal Daemon program from 01.org"
 arch=('i686' 'x86_64')
@@ -19,8 +19,8 @@ source=("${pkgname/-git/}::git://github.com/01org/thermal_daemon.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname/-git/}
-  git describe --tags --long | sed -r -e 's,^[^0-9]*,,;s,([^-]*-g),r\1,;s,[-_],.,g'
+    cd ${pkgname/-git/}
+    git describe --tags --long | sed -r -e 's,^[^0-9]*,,;s,([^-]*-g),r\1,;s,[-_],.,g'
 }
 
 build() {
@@ -36,8 +36,8 @@ package() {
     mkdir -p ${pkgdir}/etc/{systemd/system/thermald.service.d,modules-load.d}
     # modules load during boot
     bash -c "{
-    echo \"msr\"
     echo \"coretemp\"
+    echo \"msr\"
     } > ${pkgdir}/etc/modules-load.d/thermald.conf"
     # disable debug info in journal logs
     # Reference: https://www.reddit.com/r/archlinux/comments/3okrhl/thermald_anyone/cw0fqmb
