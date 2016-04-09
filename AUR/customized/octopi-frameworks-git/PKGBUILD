@@ -2,7 +2,7 @@
 # Contributor: Filip Brcic <brcha@gna.org>
 
 pkgname=octopi-frameworks-git
-pkgver=0.8.1.r1086.0d98280
+pkgver=0.9.0.r1088.4a03666
 pkgrel=1
 pkgdesc="A powerful Pacman frontend using Qt libs (Qt5 & KF5 build)"
 arch=('i686' 'x86_64')
@@ -17,11 +17,11 @@ install="${pkgname}.install"
 changelog='CHANGELOG'
 source=("${pkgname}::git+${url}.git" 'CHANGELOG' 'images.tar.gz')
 sha256sums=('SKIP'
-            'd1af2dd595d6ece93045b8c5c419aade08b47c0eb894d8ae9c64a76c48af502c'
+            'f6289150c0b0a6a1f724ec33d226c292a9eba7756886010c0535ba9a2a7c0a5e'
             '596fa43c78f1cae92c3ce8d577828901a6e1064b252263b3ffdb314ec4bcbbaa')
 pkgver() {
     cd "${srcdir}/${pkgname}"
-    printf "0.8.1.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    printf "0.9.0.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
