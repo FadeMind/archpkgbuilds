@@ -20,7 +20,7 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'xz')
 options=('!strip')
 source=("${_srcname}.zip::${url}/archive/4.5/master.zip")
-source+=(
+source=(
         ### Configs
         'config.x86_64' "${pkgbase}.preset"
         ### Arch patches 
@@ -34,9 +34,9 @@ source+=(
         '0003-mute-osl-4.5.patch'
         '0004-mute-lpc-ich-4.5.patch'
         '0005-mute-intel-rapl-4.5.patch'
+        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
         )
-sha256sums=('df7c485a3c3d612b13b0b3ffe1f7f2dca2b8f8e77c33a2c9dbd7d7b107d26006'
-            'a32b123288c04f8afb52a29b82892940712219865bea64368435224b4e8d3417'
+sha256sums=('a32b123288c04f8afb52a29b82892940712219865bea64368435224b4e8d3417'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -45,7 +45,8 @@ sha256sums=('df7c485a3c3d612b13b0b3ffe1f7f2dca2b8f8e77c33a2c9dbd7d7b107d26006'
             'c9a44f7b3cbeea3cd373ba24c515a22fc95e392dc24a98d914127edea6fc8c18'
             'dda83ac32c2c4f338890191b87f8bb330182af83c6f28c0c3e96a3d13e85247d'
             '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
-            '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d')
+            '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d'
+            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2')
 
 _kernelname=${pkgbase#linux}
 
@@ -61,6 +62,13 @@ prepare() {
     # https://bugs.archlinux.org/task/47092
     msg "Fix Nvidia 304xx issue"
     patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
+    
+    # There's no real reason the user should care that we're about to fall
+    # back to bitbanging, so let's change the message from DRM_INFO to DRM_DEBUG_KMS.
+    # https://bugs.freedesktop.org/show_bug.cgi?id=94890
+    # https://patchwork.freedesktop.org/patch/76053/
+    msg "drm/i915: Make GMBUS timeout message DRM_DEBUG_KMS"
+    patch -Np1 -i "${srcdir}/0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
     
     msg "Patching source with mute patches"
     for p in $(ls ${srcdir}/000{1,2,3,4,5}-mute*.patch); do
@@ -92,7 +100,7 @@ prepare() {
  
     ### Disabling NUMA since >99% of users have mono-socket systems.
     # For more, see: https://bugs.archlinux.org/task/31187
-    #msg "Disabling NUMA from kernel config..."
+    msg "Disabling NUMA from kernel config..."
     sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
         -i -e '/CONFIG_AMD_NUMA=y/d' \
         -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
