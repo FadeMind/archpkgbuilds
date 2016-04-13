@@ -12,14 +12,14 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 
 pkgbase=linux-r500v
 _srcname=zen-kernel-4.5-master
-pkgver=4.5
+pkgver=4.5.1
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/zen-kernel/zen-kernel"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
-source=("${_srcname}.zip::${url}/archive/${pkgver}/master.zip")
+source=("${_srcname}.zip::${url}/archive/4.5/master.zip")
 source+=(
         ### Configs
         'config.x86_64' "${pkgbase}.preset"
@@ -81,6 +81,11 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
+    
+    msg "Setting tick rate to 1k..."
+    sed -i -e 's/^CONFIG_HZ_300=y/# CONFIG_HZ_300 is not set/' \
+        -i -e 's/^# CONFIG_HZ_1000 is not set/CONFIG_HZ_1000=y/' \
+        -i -e 's/^CONFIG_HZ=300/CONFIG_HZ=1000/' .config
  
     ### Disabling NUMA since >99% of users have mono-socket systems.
     # For more, see: https://bugs.archlinux.org/task/31187

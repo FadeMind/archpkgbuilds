@@ -1,8 +1,8 @@
-# $Id: PKGBUILD 263503 2016-03-31 11:59:33Z fyan $
+# $Id: PKGBUILD 264667 2016-04-11 15:43:55Z svenstaro $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=nvidia-settings
-pkgver=361.42
+pkgver=364.12
 pkgrel=1
 pkgdesc="Tool for configuring the NVIDIA graphics driver"
 arch=('i686' 'x86_64')
