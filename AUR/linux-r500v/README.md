@@ -19,6 +19,7 @@
  - Sources [linux-zen](https://github.com/zen-kernel/zen-kernel).
  - NUMA is disabled since >99% of users have mono-socket systems. See: [FS#31187](https://bugs.archlinux.org/task/31187).
  - XZ compression for kernel and modules.
+ - **1000 Hz interrupt frequency instead of 300Hz.**
 
 **License**
 
