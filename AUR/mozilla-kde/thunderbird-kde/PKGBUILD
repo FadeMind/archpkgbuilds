@@ -2,8 +2,8 @@
 # Contributor: AlmAck <almack@chakra-project.org>
 
 pkgname=thunderbird-kde
-pkgver=38.7.2
-pkgrel=2
+pkgver=45.0
+pkgrel=1
 provides=(thunderbird=${pkgver})
 pkgdesc="Standalone Mail/News reader"
 arch=('i686' 'x86_64')
@@ -19,15 +19,15 @@ optdepends=('thunderbird-i18n: for multilanguage support'
 conflicts=('thunderbird' 'thunderbird-kde-opensuse')
 install=thunderbird.install
 # For patch look here: https://build.opensuse.org/package/show/mozilla:Factory/MozillaThunderbird
-source=(https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/$pkgver/source/thunderbird-$pkgver.source.tar.bz2
-        mozconfig
-        thunderbird.desktop
-        thunderbird-install-dir.patch
-        vendor.js
-        mozilla-kde.patch
-        mozilla-language.patch
-        mozilla-nongnome-proxies.patch
-        kde.js)
+source=("thunderbird-${pkgver}.source.tar.xz::https://ftp.mozilla.org/pub/thunderbird/releases/${pkgver}/source/thunderbird-${pkgver}.source.tar.xz"
+        'mozconfig'
+        'thunderbird.desktop'
+        'thunderbird-install-dir.patch'
+        'vendor.js'
+        'mozilla-kde.patch'
+        'mozilla-language.patch'
+        'mozilla-nongnome-proxies.patch'
+        'kde.js')
 options=('!emptydirs' '!makeflags')
 sha256sums=('e2b1453ac193615586e350bc729278db8c8a61a8d4ac089db370754af47d4493'
             '6ce788b80d0a1bac96201ca4f4ce93fee5a94e222b1ddb6cdee5c6db2d00ef77'

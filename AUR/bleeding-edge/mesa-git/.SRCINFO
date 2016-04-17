@@ -1,0 +1,115 @@
+pkgbase = mesa-git
+	pkgdesc = an open-source implementation of the OpenGL specification, git version
+	pkgver = 11.3.0_devel.80247.f30f6e2
+	pkgrel = 2
+	url = http://mesa3d.sourceforge.net
+	arch = i686
+	arch = x86_64
+	license = custom
+	makedepends = python2-mako
+	makedepends = libxml2
+	makedepends = libx11
+	makedepends = glproto
+	makedepends = libdrm>=2.4.66
+	makedepends = dri2proto
+	makedepends = dri3proto
+	makedepends = presentproto
+	makedepends = libxshmfence
+	makedepends = libxxf86vm
+	makedepends = libxdamage
+	makedepends = libvdpau
+	makedepends = libva
+	makedepends = wayland
+	makedepends = elfutils
+	makedepends = llvm-svn
+	makedepends = libomxil-bellagio
+	makedepends = libcl
+	makedepends = libclc
+	makedepends = clang-svn
+	makedepends = git
+	makedepends = nettle
+	makedepends = libtxc_dxtn
+	makedepends = ocl-icd
+	makedepends = libxvmc
+	makedepends = vulkan-icd-loader
+	makedepends = libgcrypt
+	source = mesa::git://anongit.freedesktop.org/mesa/mesa#branch=master
+	source = LICENSE
+	source = vulkan-fix-install-data-local.patch
+	md5sums = SKIP
+	md5sums = 5c65a0fe315dd347e09b1f2826a1df5a
+	md5sums = 3db37a8e69dc3580ceb634305e654ec2
+
+pkgname = opencl-mesa-git
+	pkgdesc = OpenCL support for AMD/ATI Radeon Mesa drivers
+	depends = libxfixes
+	depends = libxext
+	depends = libcl
+	depends = libclc
+	depends = nettle
+	depends = mesa-git=11.3.0_devel.80247.f30f6e2
+	optdepends = opencl-headers: headers necessary for OpenCL development
+	provides = opencl-mesa=11.3.0-devel
+	conflicts = opencl-mesa
+	replaces = opencl-mesa
+
+pkgname = mesa-vulkan-intel-git
+	pkgdesc = Vulkan driver for selected intel graphic chipsets
+	depends = vulkan-icd-loader
+	depends = libgcrypt
+	depends = wayland
+	depends = libxcb
+	depends = mesa-git=11.3.0_devel.80247.f30f6e2
+	provides = vulkan-intel
+	conflicts = vulkan-intel
+	replaces = vulkan-intel
+
+pkgname = libva-mesa-driver-git
+	pkgdesc = VA-API implementation for gallium
+	depends = nettle
+	depends = mesa-git=11.3.0_devel.80247.f30f6e2
+	provides = libva-mesa-driver=11.3.0-devel
+	conflicts = libva-mesa-driver
+
+pkgname = mesa-vdpau-git
+	pkgdesc = Mesa VDPAU drivers
+	depends = nettle
+	depends = mesa-git=11.3.0_devel.80247.f30f6e2
+	provides = mesa-vdpau=11.3.0-devel
+	conflicts = mesa-vdpau
+	replaces = mesa-vdpau
+
+pkgname = mesa-git
+	pkgdesc = an open-source implementation of the OpenGL specification, git version
+	depends = libdrm>=2.4.66
+	depends = wayland
+	depends = libxxf86vm
+	depends = libxdamage
+	depends = libxshmfence
+	depends = elfutils
+	depends = libomxil-bellagio
+	depends = libtxc_dxtn
+	depends = nettle
+	depends = llvm-libs-svn
+	depends = libxvmc
+	optdepends = opengl-man-pages: for the OpenGL API man pages
+	optdepends = mesa-vdpau-git: for accelerated video playback
+	optdepends = libva-mesa-driver-git: for accelerated video playback
+	provides = mesa=11.3.0-devel
+	provides = mesa-r300-r600-radeonsi-git
+	provides = mesa-dri
+	conflicts = mesa
+	conflicts = mesa-r300-r600-radeonsi-git
+	conflicts = mesa-dri
+	replaces = mesa
+	replaces = mesa-r300-r600-radeonsi-git
+	replaces = mesa-dri
+
+pkgname = mesa-libgl-git
+	pkgdesc = Mesa 3-D graphics library
+	depends = mesa-git=11.3.0_devel.80247.f30f6e2
+	provides = mesa-libgl=11.3.0-devel
+	provides = libgl=11.3.0-devel
+	conflicts = mesa-libgl
+	replaces = mesa-libgl
+

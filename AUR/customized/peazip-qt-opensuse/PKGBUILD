@@ -4,7 +4,7 @@
 
 pkgname=peazip-qt-opensuse
 pkgver=6.0.0
-_rpmrel=2.8
+_rpmrel=2.15
 pkgrel=8
 pkgdesc="QT archiver utility (openSUSE x86_64 RPM)"
 arch=(x86_64)
@@ -16,7 +16,7 @@ provides=(${pkgname%-*-*} ${pkgname%-*})
 conflicts=(${pkgname%-*-*} ${pkgname%-*-*}-gtk2 ${pkgname%-*})
 source=(http://download.opensuse.org/repositories/devel:/languages:/pascal/openSUSE_Factory/${arch}/${pkgname%-*-*}-${pkgver}-${_rpmrel}.x86_64.rpm
         peazip_additional_formats_plugin-merged.LINUX.ALL.tar.xz::https://github.com/FadeMind/archpkgbuilds/blob/master/AUR/customized/peazip-qt-opensuse/peazip_additional_formats_plugin-merged.LINUX.ALL.tar.xz?raw=true)
-sha256sums=('5bda8fc463ef5da0e03e506703422153569914ba46e2823c9fd0f7d51ba05e87'
+sha256sums=('f2da8fe00c34c1f833a27801a25b4f13704cf9fa0583ade7f0776c01efb0b7c2'
             'f86b659739dc0c7c9e4365f700fae91677cd290fc61743381d14ab300ccded72')
 
 prepare() {

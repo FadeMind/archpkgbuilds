@@ -12,8 +12,8 @@
 pkgbase=mesa-git
 pkgname=('opencl-mesa-git' 'libva-mesa-driver-git' 'mesa-vdpau-git' 'mesa-git' 'mesa-libgl-git')
 pkgdesc="an open-source implementation of the OpenGL specification, git version"
-pkgver=11.3.0_devel.77712.5b6a0b7
-pkgrel=1
+pkgver=11.3.0_devel.80247.f30f6e2
+pkgrel=2
 arch=('i686' 'x86_64')
 makedepends=('python2-mako' 'libxml2' 'libx11' 'glproto' 'libdrm>=2.4.66' 'dri2proto' 'dri3proto' 'presentproto' 
              'libxshmfence' 'libxxf86vm'  'libxdamage' 'libvdpau' 'libva' 'wayland' 'elfutils' 'llvm-svn'

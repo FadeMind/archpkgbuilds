@@ -15,9 +15,9 @@
 
 | **PACKAGE**             	| **VERSION**           	| **DESCRIPTION**                                                                                                                                                                                              	|
 |-------------------------	|-----------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `bbswitch-dkms`               | `0.8-1`                       | Kernel module allowing to switch dedicated graphics card on Optimus laptops. DKMS version.
+| `acpi_call-dkms`              | `0.8-1`                       | Kernel module that enables calls to ACPI methods through `/proc/acpi/call`. DKMS version.
+| `bbswitch-dkms`               | `1.1.0-4`                     | Kernel module allowing to switch dedicated graphics card on Optimus laptops. DKMS version.
 | `bumblebee`             	| `3.2.1-11`            	| NVIDIA Optimus support for Linux through VirtualGL Included patches [GH-699](https://github.com/Bumblebee-Project/Bumblebee/issues/699), [GH-573](https://github.com/Bumblebee-Project/Bumblebee/issues/573) 	|
-| `bumblebeed-resume-git` 	| `20160220-1`          	| Simple systemd service for restart bumblebeed service after resume                                                                                                                                           	|
 | `dkms`                  	| `2.2.0.3+git151023-9` 	| Dynamic Kernel Modules System                                                                                                                                                                                	|
 | `lib32-libglvnd`        	| `0.1.0.20160329-2`    	| The GL Vendor-Neutral Dispatch library (32-bit)                                                                                                                                                              	|
 | `lib32-mesa`        	        | `11.2.0`    	                | An open-source implementation of the OpenGL specification (32-bit)                                                                                                                                                              	|
