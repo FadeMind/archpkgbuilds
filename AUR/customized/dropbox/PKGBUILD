@@ -5,7 +5,7 @@
 # Contributor: David Manouchehri <d@32t.ca>
 
 pkgname=dropbox
-pkgver=3.18.1
+pkgver=3.19.31
 pkgrel=1
 pkgdesc="A free service that lets you bring your photos, docs, and videos anywhere and share them easily."
 arch=("x86_64")
@@ -28,7 +28,7 @@ source=("https://dl.${pkgname}usercontent.com/u/17/${pkgname}-lnx.${arch}-${pkgv
         "${pkgname}.png"
         "${pkgname}-papirus.zip"
         "terms.txt")
-sha256sums=('153e39f32363dff87e923dbaea8395cf3da1d4a0658c8476ce7fccdf5186aae1'
+sha256sums=('7c89d9f9bd774a60b19cae125c51e8bee0c043b4c8a91711ce5cddd0810fc8f1'
             '4240052a07a0f38dbdea6f199d5f1fc7b04ace9bf7474a63f09bdff7682a5154'
             '541f2fd2de0d601a08cde7853e404062f542af21e6e7106825b5e68177168e0f'
             'e7d245f5d1a3d5322614b61400ae2913a8caef44bc86717ff7d8197a15dd7f01'
