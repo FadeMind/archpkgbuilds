@@ -2,8 +2,17 @@ arc-dark-suite-git
 asus-nb-wmi-reload-git
 breeze-icons-git
 bumblebeed-resume-git
-faenzaflattr-zephyr-icon-theme
-fasm
+firefox-extension-bloody-vikings
+firefox-extension-bookmarks-checker
+firefox-extension-feedly-notifier
+firefox-extension-keefox
+firefox-extension-kwallet
+firefox-extension-mozilla-archive-format
+firefox-extension-saved-password-editor
+firefox-extension-scriptish
+firefox-extension-shumway
+firefox-extension-speed-dial
+firefox-extension-unmht
 imagewriter-git
 k3b-l10n-bin-git
 kde-servicemenus-mktemplate
@@ -21,5 +30,5 @@ papirus-git
 papirus-wallpapers-git
 rar
 rmdupe
-wallpapers-malcer-bundle
+xdg-utils-git
 yakuake-l10n-bin-git
