@@ -88,9 +88,9 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
     
-    # msg "Setting GCC flags for IVYBRIDGE..."
-    # sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    # sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    msg "Setting GCC flags for IVYBRIDGE..."
+    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     ### 1000 Hz interrupt frequency instead of 300Hz
     # 1000 Hz is the preferred choice for desktop systems and other
@@ -105,7 +105,9 @@ prepare() {
     ### Disabling NUMA since >99% of users have mono-socket systems.
     # For more, see: https://bugs.archlinux.org/task/31187
     msg "Disabling NUMA from kernel config..."
-    sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
+    sed -i -e '/CONFIG_NUMA_BALANCING=y/d' \
+        -i -e '/CONFIG_NUMA_BALANCING_DEFAULT_ENABLED=y/d' \
+        -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
         -i -e '/CONFIG_AMD_NUMA=y/d' \
         -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
         -i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
