@@ -35,7 +35,7 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         '0005-mute-intel-rapl-4.5.patch'
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch')
 sha256sums=('e9cc815a6a1431f46725e85f03200f260262f1ebbed2b2d4262de6219827a6f6'
-            'ade84885d24c158bf7e30d6338b03940a3923366cc642c3ccf3d1a5bc22b6299'
+            'd89034b39fc0c9b3d0b864112982616d1bfba52c387f1f4c7a13fbe4db5fac4d'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -88,9 +88,9 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
     
-    #msg "Setting GCC flags for IVYBRIDGE..."
-    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    msg "Setting GCC flags for IVYBRIDGE..."
+    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     ### 1000 Hz interrupt frequency instead of 300Hz
     # 1000 Hz is the preferred choice for desktop systems and other

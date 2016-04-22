@@ -5,13 +5,14 @@
 
 pkgname=nvidia-dkms
 pkgver=364.16
-pkgrel=2
+pkgrel=4
 pkgdesc="NVIDIA driver sources for Linux"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
 depends=('dkms' "nvidia-utils=$pkgver" 'libgl')
 optdepends=('linux-headers: Build the module for Arch kernel'
-            'linux-lts-headers: Build the module for LTS Arch kernel')
+            'linux-lts-headers: Build the module for LTS Arch kernel'
+            'linux-zen-headers: Build the module for ZEN kernel')
 conflicts=('nvidia')
 license=('custom')
 options=('!strip')

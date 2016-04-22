@@ -9,13 +9,13 @@
 * `AUR/linux-r500v`     Linux Kernel 4.5 with custom patchset
 * `AUR/linux-r500v46`   Linux Kernel 4.6 RC with custom patchset
 * `AUR/maintained`      packages currently maintained by me
-* `AUR/mozilla-kde`     Firefox and Thunderbird with KDE patches (copied from [manjaro community repository](https://github.com/manjaro/packages-community))</br>
+* `AUR/mozilla-kde`     Firefox and Thunderbird with KDE patches (copied from [Manjaro Community Repository](https://github.com/manjaro/packages-community))</br>
 * `AUR/nvidia-optimus`  Bumblebee, Primus, NVIDIA Drivers and extras
 
 **Clone Repository**</br>
 `git clone https://github.com/FadeMind/archpkgbuilds.git`</br>
 **License**</br>
-See `COPYING` files for details.
+See `COPYING` directory contents files for details.
 <hr/>
 
 All trademarks are the property of their respective owners.
