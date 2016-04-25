@@ -31,14 +31,14 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         ### AUFS4 support
-        "0001-AUFS-aufs4.x-rcN-20160301.patch"
-        '0002-AUFS-base.patch'
-        '0003-AUFS-kbuild.patch'
-        '0004-AUFS-loopback.patch'
-        '0005-AUFS-mmap.patch'
-        '0006-AUFS-standalone.patch'
-        '0007-AUFS-tmpfs-idr.patch'
-        '0008-AUFS-vfs-ino.patch'
+        "aufs4.x-rcN-20160328.patch"
+        'aufs4-base.patch'
+        'aufs4-kbuild.patch'
+        'aufs4-loopback.patch'
+        'aufs4-mmap.patch'
+        'aufs4-standalone.patch'
+        'tmpfs-idr.patch'
+        'vfs-ino.patch'
         ### BFQ support
         '0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.4.0.patch'
         '0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.4.0.patch'
@@ -108,9 +108,14 @@ prepare() {
     patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
     
     msg "Patching source with AUFS4 patches"
-    for p in $(ls ${srcdir}/000{1,2,3,4,5,6,7,8}-AUFS*.patch); do
-        patch -Np1 -i "$p"
-    done
+    patch -Np1 -i "${srcdir}/aufs4.x-rcN-20160328.patch"
+    patch -Np1 -i "${srcdir}/aufs4-base.patch"
+    patch -Np1 -i "${srcdir}/aufs4-kbuild.patch"
+    patch -Np1 -i "${srcdir}/aufs4-loopback.patch"
+    patch -Np1 -i "${srcdir}/aufs4-mmap.patch"
+    patch -Np1 -i "${srcdir}/aufs4-standalone.patch"
+    patch -Np1 -i "${srcdir}/tmpfs-idr.patch"
+    patch -Np1 -i "${srcdir}/vfs-ino.patch"
     
     msg "Patching source with mute patches"
     for p in $(ls ${srcdir}/000{1,2,3,4,5}-mute*.patch); do
@@ -138,7 +143,9 @@ prepare() {
     ### Disabling NUMA since >99% of users have mono-socket systems.
     # For more, see: https://bugs.archlinux.org/task/31187
     msg "Disabling NUMA from kernel config..."
-    sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
+    sed -i -e '/CONFIG_NUMA_BALANCING=y/d' \
+        -i -e '/CONFIG_NUMA_BALANCING_DEFAULT_ENABLED=y/d' \
+        -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
         -i -e '/CONFIG_AMD_NUMA=y/d' \
         -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
         -i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
