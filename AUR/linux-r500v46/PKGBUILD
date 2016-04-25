@@ -45,28 +45,29 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         '0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch'
         ### GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
-        ### mute ### NOTICE less debug warning/error messages in dmesg patchset
+        ### mute
         '0001-mute-efi-bgrt-4.6.patch'
-        '0002-mute-intel-fifo-underrun.patch'
-        '0003-mute-osl.patch'
-        '0004-mute-lpc-ich.patch'
-        '0005-mute-intel-rapl-4.6.patch')
+        '0002-mute-intel-fifo-underrun-4.6.patch'
+        '0003-mute-osl-4.6.patch'
+        '0004-mute-lpc-ich-4.6.patch'
+        '0005-mute-intel-rapl-4.6.patch'
+        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch')
 
 sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             'SKIP'
             '792466e412ed0f3a1401c7563eef138c03bc76e21e6928e220035eb4a0f42e2f'
             'SKIP'
-            'efc41fc3900e51e9d263fbfa7b8b582e9ce53f9c612bd65a616c02dcc0d54c2d'
+            '33f8dc1d597e431da82c7a121d9c8dbedd5e327ea0381d9405517ebed8e9a8bb'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
-            'edcc921cb7e2ab43c680b7f373ce1ff1ee255379698592007ed3bbc9e68d5e1e'
-            '5e743bbfb0d44c9d216a04842914b4e26d20bcd84a16149e2a6a679a9a99cfd2'
-            'ddf7886d1edeb4c4f47d52cf019065a6267b1334a87481fd513562f271ff4304'
-            '6822ff776d406a7a254f9011c323d42974f2e5c0c0a61dcb9f3ca8b15282dbe1'
-            'c3a31273e3f197deed71b34cbf0529dd11116e70dc4dc946ac31718dc7c20195'
-            '68ce423cb4f3790f514435ad372201cc1db40667418ea9d9023af75664c1c01a'
-            '1419e6aa021e5cd8686291205a84f0fc018f34bf6a3c46a037090116b6f5d021'
+            '54af8cc1ad27605a29bd1af4a0ff29272c104276a15d3e0c7820650795104e40'
+            'f013d6c39809d3455185a38b0fedd9a5a78226eb881b24df760bf4e42cb69056'
+            '6d47f56dfe2937c1d8c0a0e9f10d9d3c02e39db394077544d0b7a7138b76c1ac'
+            '01641ed867f9fca3616eef7b2bf496a744257e91220d2ca7d0995133a11f489b'
+            '103bec6851fb24f2d1c5fef011d8ff2a4fb2d288ca2276f361d5cefc6822089f'
+            '22814996b9c428dcca7badf6695829cfb951b199663fda15fbb83cb97f4042a8'
+            '7a5cd24c4752aac4c662493050eab33d871d5d35e9858636ad6c2a0f14227ac4'
             '8fd87c9ab764ad599c61c6878148d7e3ecd2d082257061da9708a6567fc5ba45'
             'd1cf14cc696b0f716454fe8eb9746383700889d5d22ad829611f0433cc77b4ce'
             'b17c3fb18c5b8c20a45a38198f293679ca6aef08d16f12cd816a5cfafac4b2c4'
@@ -76,7 +77,8 @@ sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             'c9a44f7b3cbeea3cd373ba24c515a22fc95e392dc24a98d914127edea6fc8c18'
             'dda83ac32c2c4f338890191b87f8bb330182af83c6f28c0c3e96a3d13e85247d'
             '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
-            '9a6f3dcf6329de78fb816989a6d03bcf2d3323d691cccee76f1ef25128f0eaa3')
+            '9a6f3dcf6329de78fb816989a6d03bcf2d3323d691cccee76f1ef25128f0eaa3'
+            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -106,6 +108,13 @@ prepare() {
     # https://bugs.archlinux.org/task/47092
     msg "Fix Nvidia 304xx issue"
     patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
+    
+    # There's no real reason the user should care that we're about to fall
+    # back to bitbanging, so let's change the message from DRM_INFO to DRM_DEBUG_KMS.
+    # https://bugs.freedesktop.org/show_bug.cgi?id=94890
+    # https://patchwork.freedesktop.org/patch/76053/
+    msg "drm/i915: Make GMBUS timeout message DRM_DEBUG_KMS"
+    patch -Np1 -i "${srcdir}/0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
     
     msg "Patching source with AUFS4 patches"
     patch -Np1 -i "${srcdir}/aufs4.x-rcN-20160328.patch"
