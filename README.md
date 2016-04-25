@@ -13,6 +13,7 @@
 * `AUR/maintained`      packages currently maintained by me
 * `AUR/mozilla-kde`     Firefox and Thunderbird with KDE patches (copied from [Manjaro Community Repository](https://github.com/manjaro/packages-community))
 * `AUR/nvidia-optimus`  Bumblebee, Primus, NVIDIA Drivers and extras
+* `AUR/ZFS`             Zettabyte File System DKMS PKGBUILDs
 
 **Clone Repository**
 

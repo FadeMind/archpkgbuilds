@@ -22,7 +22,7 @@ options=('!strip')
 source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         ### Configs
         'config.x86_64' "${pkgbase}.preset"
-        ### Arch patches 
+        ### Arch and Manjaro patches 
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         ### GCC CPU patch

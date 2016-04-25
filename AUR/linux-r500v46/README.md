@@ -10,13 +10,14 @@
  - [Graysky's GCC patch](https://github.com/graysky2/kernel_gcc_patch)
  - [Budget Fair Queueing (BFQ) Storage-I/O Scheduler 4.4.0-v7r11](http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php) is enabled in default.
  - Less debug warning/error messages in `dmesg`.
- - Upstream Arch Linux patches.
+ - Upstream Arch Linux and Manjaro patches.
  - [AUFS4](http://aufs.sourceforge.net/) support is enabled in default.
  
 **Customs**
 
  - NUMA is disabled since >99% of users have mono-socket systems. See: [FS#31187](https://bugs.archlinux.org/task/31187).
  - XZ compression for kernel and modules.
+ - **1000 Hz interrupt frequency instead of 300Hz.**
 
 **License**
 

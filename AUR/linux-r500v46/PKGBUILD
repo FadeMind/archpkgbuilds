@@ -27,7 +27,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-${_patchver}.sign"
         ### Configs
         'config.x86_64' 'linux-r500v46.preset'
-        ### Arch patches 
+        ### Arch and Manjaro patches 
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         ### AUFS4 support
@@ -155,6 +155,16 @@ prepare() {
         -i -e '/# CONFIG_MOVABLE_NODE is not set/d' \
         -i -e '/CONFIG_USE_PERCPU_NUMA_NODE_ID=y/d' \
         -i -e '/CONFIG_ACPI_NUMA=y/d' ./.config
+        
+    ### 1000 Hz interrupt frequency instead of 300Hz
+    # 1000 Hz is the preferred choice for desktop systems and other
+    # systems requiring fast interactive responses to events.
+    # https://www.kernel.org/doc/menuconfig/kernel-Kconfig.hz.html
+    # http://www.makelinux.net/books/lkd2/ch10lev1sec2
+    msg "Setting tick rate to 1k..."
+    sed -i -e 's/^CONFIG_HZ_300=y/# CONFIG_HZ_300 is not set/' \
+        -i -e 's/^# CONFIG_HZ_1000 is not set/CONFIG_HZ_1000=y/' \
+        -i -e 's/^CONFIG_HZ=300/CONFIG_HZ=1000/' .config
         
     ### Setting BFQ as default I/O scheduler
     # http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php
