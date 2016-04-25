@@ -12,8 +12,8 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 
 pkgbase=linux-r500v46
 _srcname=linux-4.5
-_patchver=4.6-rc3
-pkgver=4.6rc3
+_patchver=4.6-rc5
+pkgver=4.6rc5
 pkgrel=1
 arch=('x86_64')
 url="http://www.kernel.org/"
@@ -54,7 +54,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 
 sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             'SKIP'
-            '45bc4f50c98d6dfea3c802f89cbae79553c308f3f2fc802d8fd9f84cb7f9f808'
+            '792466e412ed0f3a1401c7563eef138c03bc76e21e6928e220035eb4a0f42e2f'
             'SKIP'
             'efc41fc3900e51e9d263fbfa7b8b582e9ce53f9c612bd65a616c02dcc0d54c2d'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
