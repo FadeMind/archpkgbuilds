@@ -14,7 +14,7 @@
 **DO NOT USE ON PRODUCTION DESKTOP. THIS IS DEVELOPMENT VERSION FOR TESTING ONLY.** <br/>
 **LOTS OF EXTERNAL MODULES ARE DAMAGED DUE CHANGES IN KERNEL CODE.** <br/>
 * [**AUR/maintained**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/maintained)      packages currently maintained by me
-* [**AUR/mozilla-kde**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/mozilla-kde)     Firefox and Thunderbird with KDE patches (copied from [Manjaro Community Repository**](https://github.com/manjaro/packages-community))
+* [**AUR/mozilla-kde**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/mozilla-kde)     Firefox and Thunderbird with KDE patches (copied from [**Manjaro Community Repository**](https://github.com/manjaro/packages-community))
 * [**AUR/nvidia-optimus**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/nvidia-optimus)  `Bumblebee` `Primus` `NVIDIA Drivers` and extras
 
 **Clone Repository**
