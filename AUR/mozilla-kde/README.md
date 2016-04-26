@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/FadeMind/archpkgbuilds/master/AUR/mozilla-kde/ff-th-logo.svg" alt="ffthlogo"/> <img src="https://raw.githubusercontent.com/FadeMind/archpkgbuilds/master/AUR/mozilla-kde/kde-logo.svg" alt="kdelogo"/> 
+  <img src="https://raw.githubusercontent.com/FadeMind/archpkgbuilds/master/AUR/mozilla-kde/ff-th-logo.png" alt="ffthlogo"/> <img src="https://raw.githubusercontent.com/FadeMind/archpkgbuilds/master/AUR/mozilla-kde/kde-logo.png" alt="kdelogo"/> 
 </p> 
 
  
