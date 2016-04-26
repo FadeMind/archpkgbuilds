@@ -5,23 +5,23 @@
 
 ### CVS version of:
 
-[**AUR/bleeding-edge/gcc-multilib-trunk-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/gcc-multilib-trunk-git) <br/>
-[**AUR/bleeding-edge/lib32-libdrm-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/lib32-libdrm-git) <br/>
-[**AUR/bleeding-edge/lib32-llvm-svn**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/lib32-llvm-svn) <br/>
-[**AUR/bleeding-edge/lib32-mesa-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/lib32-mesa-git) <br/>
-[**AUR/bleeding-edge/libcpuid-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/libcpuid-git) <br/>
-[**AUR/bleeding-edge/libdrm-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/libdrm-git) <br/>
-[**AUR/bleeding-edge/linux-firmware-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/linux-firmware-git) <br/>
-[**AUR/bleeding-edge/llvm-svn**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/llvm-svn) <br/>
-[**AUR/bleeding-edge/mesa-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/mesa-git) <br/>
-[**AUR/bleeding-edge/xf86-video-intel-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/xf86-video-intel-git) <br/>
+- [**gcc-multilib-trunk-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/gcc-multilib-trunk-git) <br/>
+- [**lib32-libdrm-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/lib32-libdrm-git) <br/>
+- [**lib32-llvm-svn**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/lib32-llvm-svn) <br/>
+- [**lib32-mesa-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/lib32-mesa-git) <br/>
+- [**libcpuid-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/libcpuid-git) <br/>
+- [**libdrm-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/libdrm-git) <br/>
+- [**linux-firmware-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/linux-firmware-git) <br/>
+- [**llvm-svn**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/llvm-svn) <br/>
+- [**mesa-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/mesa-git) <br/>
+- [**xf86-video-intel-git**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/bleeding-edge/xf86-video-intel-git) <br/>
 
 <p align="center"><img src="http://i.imgur.com/SN9esDt.png" alt="w"/></p>
 <hr/>
 
 ### REVERT HOW TO ###
 
-**LLVM, CLANG, MESA, LIBDRM**
+**CLANG, LIBDRM, LLVM, MESA**
 
     export LANG=C && yes|yaourt -Rdd {llvm-{,libs-,ocaml-},clang-{analyzer-,compiler-rt-,tools-extra-}}svn \
     {mesa-{,libgl-,vdpau-},libva-mesa-driver-,opencl-mesa-}git \
