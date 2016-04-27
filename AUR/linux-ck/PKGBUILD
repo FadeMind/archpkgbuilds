@@ -1,0 +1,419 @@
+# Contributor: FadeMind <fademind@gmail.com>
+# Contributor: Mikael Eriksson <mikael_eriksson@miffe.org>
+# Contributor: graysky <graysky AT archlinux DOT us>
+# Contributor: Tobias Powalowski <tpowa@archlinux.org>
+# Contributor: Thomas Baechler <thomas@archlinux.org>
+
+### BUILD OPTIONS
+
+_localmodcfg=     # Optionally load needed modules for the make localmodconfigs
+
+### Do no edit below this line unless you know what you're doing
+
+pkgname=(linux-ck linux-ck-headers)
+_kernelname=-ck
+_srcname=linux-4.5
+pkgver=4.5.2
+pkgrel=1
+arch=('x86_64')
+url="https://wiki.archlinux.org/index.php/Linux-ck"
+license=('GPL2')
+makedepends=('kmod' 'inetutils' 'bc' 'xz')
+options=('!strip')
+_bfqver=v7r11
+source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
+        "http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        ### Configs
+        'config.x86_64' 'linux-ck.preset'
+        # CK BFS CPU Scheduler 0.469
+        "0001-patch-4.5-ck1.patch"
+        ### Arch and Manjaro patches 
+        '0001-change-default-console-loglevel.patch'
+        '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
+        ### Graysky GCC CPU patch
+        '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
+        ### mute
+        'MUTE-01-efi-bgrt-4.5.patch'
+        'MUTE-02-intel-fifo-underrun-4.5.patch'
+        'MUTE-03-osl-4.5.patch'
+        'MUTE-04-lpc-ich-4.5.patch'
+        'MUTE-05-intel-rapl-4.5.patch'
+        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
+        ### Paolo Valente Budget Fair Queueing (BFQ) Storage-I/O Scheduler v7r11
+        "0001-block-cgroups-kconfig-build-bits-for-BFQ-${_bfqver}-4.4.0.patch"
+        "0002-block-introduce-the-BFQ-${_bfqver}-I-O-sched-for-4.4.0.patch"
+        "0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-${_bfqver}-for.patch"
+        ### AUFS4 filesystem
+        'AUFS4-01-aufs4.x-rcN-20160328.patch'
+        'AUFS4-02-aufs4-base.patch'
+        'AUFS4-03-aufs4-kbuild.patch'
+        'AUFS4-04-aufs4-loopback.patch'
+        'AUFS4-05-aufs4-mmap.patch'
+        'AUFS4-06-aufs4-standalone.patch'
+        'AUFS4-07-tmpfs-idr.patch'
+        'AUFS4-08-vfs-ino.patch'
+        ### EXFAT filesystem
+        'EXFAT-01-basic-support.patch'
+        'EXFAT-02-update-for-4.5.patch')
+
+sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
+            'SKIP'
+            'a9913a04ddbd06acde9b00b3179c41fddb99f61168ef5d01d3e8cf72385038b1'
+            'SKIP'
+            'fb4037a2bd29b9129e750c81b8340eef9f0a4f3328f027c0d27d6d5896f68409'
+            '2b3ebf5446aa3cac279842ca00bc1f2d6b7ff1766915282c201d763dbf6ca07e'
+            'cac25a5c97264aa8aa57e3c9f66f13a767ca0ede4c173b2007741ed37fef862f'
+            '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
+            '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
+            'f479a5ca6abe4d50ca4c09e6e83a027369fcd3efff8d5ce60f0699d8fa47beb8'
+            'bc68e258da00da168d5216be278294425cd7a808a8f03e6e91e615db5e71211e'
+            'c9a44f7b3cbeea3cd373ba24c515a22fc95e392dc24a98d914127edea6fc8c18'
+            'dda83ac32c2c4f338890191b87f8bb330182af83c6f28c0c3e96a3d13e85247d'
+            '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
+            '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d'
+            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
+            'd1cf14cc696b0f716454fe8eb9746383700889d5d22ad829611f0433cc77b4ce'
+            'b17c3fb18c5b8c20a45a38198f293679ca6aef08d16f12cd816a5cfafac4b2c4'
+            '69a21bc286a628128cfc4723558829cb6ff6c2d7c4dfd4468457898674187b25'
+            'd36cf3fed61c5b9b7684fb130093950c5310590316f3ccf3495a3302017627dc'
+            'f013d6c39809d3455185a38b0fedd9a5a78226eb881b24df760bf4e42cb69056'
+            '6d47f56dfe2937c1d8c0a0e9f10d9d3c02e39db394077544d0b7a7138b76c1ac'
+            '01641ed867f9fca3616eef7b2bf496a744257e91220d2ca7d0995133a11f489b'
+            '103bec6851fb24f2d1c5fef011d8ff2a4fb2d288ca2276f361d5cefc6822089f'
+            '22814996b9c428dcca7badf6695829cfb951b199663fda15fbb83cb97f4042a8'
+            '7a5cd24c4752aac4c662493050eab33d871d5d35e9858636ad6c2a0f14227ac4'
+            '8fd87c9ab764ad599c61c6878148d7e3ecd2d082257061da9708a6567fc5ba45'
+            '038da9203b11db3f3af54e34ab49bd5ddb186365fbc165a2ffc398ab34264fb6'
+            '9c97a08a79ac16b0000b98afbb5b397a29d9410010779f46861799f6f500da1d')
+
+validpgpkeys=(
+              'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
+              '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
+             )
+
+prepare() {
+    cd "${_srcname}"
+
+    # add upstream patch
+    patch -p1 -i "${srcdir}/patch-${pkgver}"
+
+    # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
+    # remove this when a Kconfig knob is made available by upstream
+    # (relevant patch sent upstream: 
+    # https://lkml.org/lkml/2011/7/26/227 
+    # http://lkml.iu.edu/hypermail/linux/kernel/1107.3/00955.html)
+    patch -p1 -i "${srcdir}/0001-change-default-console-loglevel.patch"
+    
+    # patch source with ck patchset with BFS
+    # fix double name in EXTRAVERSION
+    sed -i -re "s/^(.EXTRAVERSION).*$/\1 = /" "${srcdir}/0001-patch-4.5-ck1.patch"
+    msg "Patching source with ck1 including BFS v0.469"
+    patch -Np1 -i "${srcdir}/0001-patch-4.5-ck1.patch"
+    
+    # Fix Nvidia 304xx issue
+    # https://bugs.archlinux.org/task/47092
+    msg "Fix Nvidia 304xx issue"
+    patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
+    
+    # There's no real reason the user should care that we're about to fall
+    # back to bitbanging, so let's change the message from DRM_INFO to DRM_DEBUG_KMS.
+    # https://bugs.freedesktop.org/show_bug.cgi?id=94890
+    # https://patchwork.freedesktop.org/patch/76053/
+    msg "drm/i915: Make GMBUS timeout message DRM_DEBUG_KMS"
+    patch -Np1 -i "${srcdir}/0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
+    
+    msg "Patching source with mute patches"
+    for p in $(ls ${srcdir}/MUTE*.patch); do
+        patch -Np1 -i "$p"
+    done
+    
+    msg "Patching source with AUFS4 patches"
+    for p in $(ls ${srcdir}/AUFS4*.patch); do
+        patch -Np1 -i "$p"
+    done
+    
+    # https://github.com/zen-kernel/zen-kernel/commit/cc25f3de6c28b4ebe0d2358ab37edac3fe9f355a
+    # https://github.com/zen-kernel/zen-kernel/commit/6bdd54cb6495c54d2b296521453db27dbd2b047b
+    msg "Patching source with EXFAT patches"
+    for p in $(ls ${srcdir}/EXFAT*.patch); do
+        patch -Np1 -i "$p"
+    done
+    
+    ### Patch source to enable more gcc CPU optimizatons
+    # https://github.com/graysky2/kernel_gcc_patch
+    msg "Patching source with gcc patch to enable more cpus types"
+    patch -Np1 -i "${srcdir}/0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
+	
+    msg "Patching source with BFQ patches"
+    for p in $(ls ${srcdir}/000{1,2,3}-block*.patch); do
+        patch -Np1 -i "$p"
+    done
+	
+    cat "${srcdir}/config.x86_64" > ./.config
+    
+    ### 1000 Hz interrupt frequency instead of 300Hz
+    # 1000 Hz is the preferred choice for desktop systems and other
+    # systems requiring fast interactive responses to events.
+    # https://www.kernel.org/doc/menuconfig/kernel-Kconfig.hz.html
+    # http://www.makelinux.net/books/lkd2/ch10lev1sec2
+    msg "Setting tick rate to 1k..."
+    sed -i -e 's/^CONFIG_HZ_300=y/# CONFIG_HZ_300 is not set/' \
+        -i -e 's/^# CONFIG_HZ_1000 is not set/CONFIG_HZ_1000=y/' \
+        -i -e 's/^CONFIG_HZ=300/CONFIG_HZ=1000/' .config
+
+    #msg "Setting GCC flags for IVYBRIDGE..."
+    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    
+    ### Enabling XZ kernel compression
+    # XZ uses the LZMA2 algorithm and instruction set specific BCJ filters 
+    # which can improve compression ratio of executable code. 
+    # The size of the kernel is about 30% smaller with XZ in comparison to gzip. 
+    # On architectures for which there is a BCJ filter (i386, x86_64, ARM, IA-64, PowerPC, and SPARC), 
+    # XZ will create a few percent smaller kernel than plain LZMA. The speed is about the same as with LZMA: 
+    # The decompression speed of XZ is better than that of bzip2 but worse than gzip and LZO. Compression is slow.
+    msg "Enabling XZ kernel compression"
+    sed -i -e s'/CONFIG_KERNEL_GZIP=y/# CONFIG_KERNEL_GZIP is not set/' \
+        -i -e s'/# CONFIG_KERNEL_XZ is not set/CONFIG_KERNEL_XZ=y /' ./.config
+
+    msg "Enabling XZ modules compression"
+    sed -i -e s'/CONFIG_MODULE_COMPRESS_GZIP=y/# CONFIG_MODULE_COMPRESS_GZIP is not set/' \
+        -i -e s'/# CONFIG_MODULE_COMPRESS_XZ/CONFIG_MODULE_COMPRESS_XZ=y /' ./.config
+
+    if [ "${_kernelname}" != "" ]; then
+        sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
+        sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
+    fi
+
+    # set extraversion to pkgrel
+    sed -ri "s|^(EXTRAVERSION =).*|\1 -${pkgrel}|" Makefile
+
+    # don't run depmod on 'make install'. We'll do this ourselves in packaging
+    sed -i '2iexit 0' scripts/depmod.sh
+
+    # get kernel version
+    msg "Running make prepare for you to enable patched options of your choosing"
+    make prepare
+
+    ### Optionally load needed modules for the make localmodconfig
+    # See https://aur.archlinux.org/packages/modprobed-db
+    if [ -n "$_localmodcfg" ]; then
+    msg "If you have modprobed-db installed, running it in recall mode now"
+        if [ -e /usr/bin/modprobed-db ]; then
+            [[ ! -x /usr/bin/sudo ]] && echo "Cannot call modprobe with sudo.  Install via pacman -S sudo and configure to work with this user." && exit 1
+            sudo /usr/bin/modprobed-db recall
+        fi
+        msg "Running Steven Rostedt's make localmodconfig now"
+        make localmodconfig
+    fi
+
+    # load configuration
+    # Configure the kernel. Replace the line below with one of your choice.
+    #make menuconfig # CLI menu for configuration
+    #make nconfig # new CLI menu for configuration
+    #make xconfig # X-based configuration
+    #make oldconfig # using old config from previous kernel version
+    #make olddefconfig # same as silentoldconfig but sets new symbols to their default value
+    # ... or manually edit .config
+    
+    # rewrite configuration
+    yes "" | make config >/dev/null
+    
+    # save configuration for later reuse
+    cat .config > "${startdir}/config.x86_64.last"
+}
+
+build() {
+    cd "${_srcname}"
+    make ${MAKEFLAGS} LOCALVERSION= bzImage modules
+    msg "Running make bzImage and modules"
+}
+
+package_linux-ck() {
+    pkgdesc='Linux Kernel with the ck1 patchset featuring the Brain Fuck Scheduler v0.469.'
+    depends=('coreutils' 'linux-firmware' 'mkinitcpio>=0.7' 'xz')
+    optdepends=('crda: to set the correct wireless channels of your country' 'nvidia-ck: nVidia drivers for linux-ck' 'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
+    provides=("linux-ck=${pkgver}")
+    conflicts=('kernel26-ck' 'linux-ck-corex' 'linux-ck-p4' 'linux-ck-pentm' 'linux-ck-atom' 'linux-ck-core2' 'linux-ck-nehalem' 'linux-ck-sandybridge' 'linux-ck-ivybridge' 'linux-ck-broadwell' 'linux-ck-skylake' 'linux-ck-haswell' 'linux-ck-kx' 'linux-ck-k10' 'linux-ck-barcelona' 'linux-ck-bulldozer' 'linux-ck-piledriver' 'linux-ck-silvermont')
+    replaces=('kernel26-ck')
+    backup=("etc/mkinitcpio.d/linux-ck.preset")
+    install=linux-ck.install
+
+    cd "${_srcname}"
+
+    KARCH=x86
+
+    # get kernel version
+    _kernver="$(make LOCALVERSION= kernelrelease)"
+    _basekernel=${_kernver%%-*}
+    _basekernel=${_basekernel%.*}
+
+    mkdir -p "${pkgdir}"/{lib/modules,lib/firmware,boot}
+    make LOCALVERSION= INSTALL_MOD_PATH="${pkgdir}" modules_install
+    cp arch/$KARCH/boot/bzImage "${pkgdir}/boot/vmlinuz-linux-ck"
+
+    # set correct depmod command for install
+    cp -f "${startdir}/${install}" "${startdir}/${install}.pkg"
+    true && install=${install}.pkg
+
+    sed \
+        -e  "s/KERNEL_NAME=.*/KERNEL_NAME=-ck/g" \
+        -e  "s/KERNEL_VERSION=.*/KERNEL_VERSION=${_kernver}/g" \
+        -i "${startdir}/${install}"
+
+    # install mkinitcpio preset file for kernel
+    install -D -m644 "${srcdir}/linux-ck.preset" "${pkgdir}/etc/mkinitcpio.d/linux-ck.preset"
+    sed \
+        -e "1s|'linux.*'|'linux-ck'|" \
+        -e "s|ALL_kver=.*|ALL_kver=\"/boot/vmlinuz-linux-ck\"|" \
+        -e "s|default_image=.*|default_image=\"/boot/initramfs-linux-ck.img\"|" \
+        -e "s|fallback_image=.*|fallback_image=\"/boot/initramfs-linux-ck-fallback.img\"|" \
+        -i "${pkgdir}/etc/mkinitcpio.d/linux-ck.preset"
+
+    # remove build and source links
+    rm -f "${pkgdir}"/lib/modules/${_kernver}/{source,build}
+    # remove the firmware
+    rm -rf "${pkgdir}/lib/firmware"
+    # make room for external modules
+    ln -s "../extramodules-${_basekernel}${_kernelname:ck}" "${pkgdir}/lib/modules/${_kernver}/extramodules"
+    # add real version for building modules and running depmod from post_install/upgrade
+    mkdir -p "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:ck}"
+    echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:ck}/version"
+
+    # Now we call depmod...
+    depmod -b "${pkgdir}" -F System.map "${_kernver}"
+
+    # move module tree /lib -> /usr/lib
+    mkdir -p "${pkgdir}/usr"
+    mv "${pkgdir}/lib" "${pkgdir}/usr/"
+
+    # add vmlinux
+    install -D -m644 vmlinux "${pkgdir}/usr/lib/modules/${_kernver}/build/vmlinux"
+}
+
+package_linux-ck-headers() {
+    pkgdesc='Header files and scripts to build modules for linux-ck.'
+    depends=('linux-ck')
+    provides=("linux-ck-headers=${pkgver}" "linux-headers=${pkgver}")
+    conflicts=('kernel26-ck-headers' 'linux-ck-corex-headers' 'linux-ck-p4-headers' 'linux-ck-pentm-headers' 'linux-ck-atom-headers' 'linux-ck-core2-headers' 'linux-ck-nehalem-headers' 'linux-ck-sandybridge-headers' 'linux-ck-ivybridge-headers' 'linux-ck-haswell-headers' 'linux-ck-broadwell-headers' 'linux-ck-skylake-headers' 'linux-ck-kx-headers' 'linux-ck-k10-headers' 'linux-ck-barcelona-headers' 'linux-ck-bulldozer-headers' 'linux-ck-piledriver-headers' 'linux-ck-silvermont-headers')
+    replaces=('kernel26-ck-headers')
+
+    install -dm755 "${pkgdir}/usr/lib/modules/${_kernver}"
+
+    cd "${srcdir}/${_srcname}"
+    install -D -m644 Makefile \
+        "${pkgdir}/usr/lib/modules/${_kernver}/build/Makefile"
+    install -D -m644 kernel/Makefile \
+        "${pkgdir}/usr/lib/modules/${_kernver}/build/kernel/Makefile"
+    install -D -m644 .config \
+        "${pkgdir}/usr/lib/modules/${_kernver}/build/.config"
+
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/include"
+
+    for i in acpi asm-generic config crypto drm generated keys linux math-emu media net pcmcia scsi sound trace uapi video xen; do
+        cp -a include/${i} "${pkgdir}/usr/lib/modules/${_kernver}/build/include/"
+    done
+
+    # copy arch includes for external modules
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/arch/x86"
+    cp -a arch/x86/include "${pkgdir}/usr/lib/modules/${_kernver}/build/arch/x86/"
+
+    # copy files necessary for later builds, like nvidia and vmware
+    cp Module.symvers "${pkgdir}/usr/lib/modules/${_kernver}/build"
+    cp -a scripts "${pkgdir}/usr/lib/modules/${_kernver}/build"
+
+    # fix permissions on scripts dir
+    chmod og-w -R "${pkgdir}/usr/lib/modules/${_kernver}/build/scripts"
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/.tmp_versions"
+
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/arch/${KARCH}/kernel"
+
+    cp arch/${KARCH}/Makefile "${pkgdir}/usr/lib/modules/${_kernver}/build/arch/${KARCH}/"
+
+    cp arch/${KARCH}/kernel/asm-offsets.s "${pkgdir}/usr/lib/modules/${_kernver}/build/arch/${KARCH}/kernel/"
+
+    # add docbook makefile
+    install -D -m644 Documentation/DocBook/Makefile "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/DocBook/Makefile"
+
+    # add dm headers
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/md"
+    cp drivers/md/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/md"
+
+    # add inotify.h
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/include/linux"
+    cp include/linux/inotify.h "${pkgdir}/usr/lib/modules/${_kernver}/build/include/linux/"
+
+    # add wireless headers
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/net/mac80211/"
+    cp net/mac80211/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/net/mac80211/"
+
+    # add dvb headers for external modules
+    # in reference to:
+    # http://bugs.archlinux.org/task/9912
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/dvb-core"
+    cp drivers/media/dvb-core/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/dvb-core/"
+    # and...
+    # http://bugs.archlinux.org/task/11194
+    ###
+    ### DO NOT MERGE OUT THIS IF STATEMENT
+    ### IT AFFECTS USERS WHO STRIP OUT THE DVB STUFF SO THE OFFICIAL ARCH CODE HAS A CP
+    ### LINE THAT CAUSES MAKEPKG TO END IN AN ERROR
+    ###
+    if [ -d include/config/dvb/ ]; then
+        mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/include/config/dvb/"
+        cp include/config/dvb/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/include/config/dvb/"
+    fi
+
+    # add dvb headers for http://mcentral.de/hg/~mrec/em28xx-new
+    # in reference to:
+    # http://bugs.archlinux.org/task/13146
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/dvb-frontends/"
+    cp drivers/media/dvb-frontends/lgdt330x.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/dvb-frontends/"
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/i2c/"
+    cp drivers/media/i2c/msp3400-driver.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/i2c/"
+
+    # add dvb headers
+    # in reference to:
+    # http://bugs.archlinux.org/task/20402
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/usb/dvb-usb"
+    cp drivers/media/usb/dvb-usb/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/usb/dvb-usb/"
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/dvb-frontends"
+    cp drivers/media/dvb-frontends/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/dvb-frontends/"
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/tuners"
+    cp drivers/media/tuners/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/media/tuners/"
+
+    # add xfs and shmem for aufs building
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/fs/xfs"
+    mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/mm"
+
+    # copy in Kconfig files
+    for i in $(find . -name "Kconfig*"); do
+        mkdir -p "${pkgdir}"/usr/lib/modules/${_kernver}/build/`echo ${i} | sed 's|/Kconfig.*||'`
+        cp ${i} "${pkgdir}/usr/lib/modules/${_kernver}/build/${i}"
+    done
+
+    chown -R root.root "${pkgdir}/usr/lib/modules/${_kernver}/build"
+    find "${pkgdir}/usr/lib/modules/${_kernver}/build" -type d -exec chmod 755 {} \;
+
+    # strip scripts directory
+    find "${pkgdir}/usr/lib/modules/${_kernver}/build/scripts" -type f -perm -u+w 2>/dev/null | while read binary ; do
+    case "$(file -bi "${binary}")" in
+    *application/x-sharedlib*) # Libraries (.so)
+        /usr/bin/strip ${STRIP_SHARED} "${binary}";;
+    *application/x-archive*) # Libraries (.a)
+        /usr/bin/strip ${STRIP_STATIC} "${binary}";;
+    *application/x-executable*) # Binaries
+        /usr/bin/strip ${STRIP_BINARIES} "${binary}";;
+    esac
+    done
+
+    # remove unneeded architectures
+    rm -rf "${pkgdir}"/usr/lib/modules/${_kernver}/build/arch/{alpha,arc,arm,arm26,arm64,avr32,blackfin,c6x,cris,frv,h8300,hexagon,ia64,m32r,m68k,m68knommu,metag,mips,microblaze,mn10300,openrisc,parisc,powerpc,ppc,s390,score,sh,sh64,sparc,sparc64,tile,unicore32,um,v850,xtensa}
+
+    # remove a files already in linux-docs package
+    rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-01"
+    rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-02"
+    rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.select-break"
+}

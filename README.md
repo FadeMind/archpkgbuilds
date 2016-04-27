@@ -10,7 +10,8 @@
 * [**AUR/dkms**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/dkms)    miscellaneous DKMS based PKGBUILDs (`acpi_call` `bbswitch` `exfat` `spl` `zfs`)
 * [**AUR/extras**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/extras)    ACPI tables tools, modprobed-db tools
 * [**AUR/git-edge**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/git-edge)    GIT based packages PKGBUILDs
-* [**AUR/linux-r500v**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500)   Linux Kernel 4.5 based on zen-kernel sources with additional changes.
+* [**AUR/linux-ck**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-ck)    Linux Kernel 4.5 with **CK BFS CPU Scheduler 0.469** and custom patchset.
+* [**AUR/linux-r500v**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v)   Linux Kernel 4.5 based on zen-kernel sources with additional changes.
 * [**AUR/linux-r500v46**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v46)  Linux Kernel 4.6 RC with custom patchset <br/>
 **DO NOT USE ON PRODUCTION DESKTOP. THIS IS DEVELOPMENT VERSION FOR TESTING ONLY.** <br/>
 **LOTS OF EXTERNAL MODULES ARE DAMAGED DUE CHANGES IN KERNEL CODE.** <br/>

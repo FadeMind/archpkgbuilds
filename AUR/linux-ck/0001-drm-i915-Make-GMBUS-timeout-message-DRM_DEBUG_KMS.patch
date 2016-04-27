@@ -1,0 +1,15 @@
+diff --git a/drivers/gpu/drm/i915/intel_i2c.c b/drivers/gpu/drm/i915/intel_i2c.c
+index 5d4b3604afd2..edeb74c94d88 100644
+--- a/drivers/gpu/drm/i915/intel_i2c.c
++++ b/drivers/gpu/drm/i915/intel_i2c.c
+@@ -571,8 +571,8 @@ clear_err:
+ 	goto out;
+ 
+ timeout:
+-	DRM_INFO("GMBUS [%s] timed out, falling back to bit banging on pin %d\n",
+-		 bus->adapter.name, bus->reg0 & 0xff);
++	DRM_DEBUG_KMS("GMBUS [%s] timed out, falling back to bit banging on pin %d\n",
++		      bus->adapter.name, bus->reg0 & 0xff);
+ 	I915_WRITE(GMBUS0, 0);
+ 
+ 	/*

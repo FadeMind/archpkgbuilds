@@ -10,7 +10,7 @@
  - [Graysky's GCC patch](https://github.com/graysky2/kernel_gcc_patch) **Customize `config.x86_64` against Your CPU family flag BEFORE build a package.** 
  - [Budget Fair Queueing (BFQ) Storage-I/O Scheduler 4.4.0-v7r11](http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php) is enabled in default.
  - Less debug warning/error messages in `dmesg`.
- - Upstream Arch Linux patches.
+ - Upstream Arch Linux and Manjaro patches.
  - [AUFS4](http://aufs.sourceforge.net/) support is enabled in default.
  - exFAT support is enabled in default.
  
