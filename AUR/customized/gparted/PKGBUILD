@@ -24,7 +24,6 @@ optdepends=('dosfstools: for FAT16 and FAT32 partitions'
             'polkit: to run gparted directly from menu'
             'gpart: for recovering corrupt partition tables'
             'mtools: utilities to access MS-DOS disks')
-install=gparted.install
 source=("http://downloads.sourceforge.net/project/${pkgname}/${pkgname}/${pkgname}-${pkgver}/${pkgname}-${pkgver}.tar.gz"
         'org.archlinux.pkexec.gparted.policy'
         'gparted_polkit')

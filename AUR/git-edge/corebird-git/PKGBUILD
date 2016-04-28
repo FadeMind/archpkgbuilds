@@ -6,22 +6,21 @@ arch=('i686' 'x86_64')
 license=('GPL')
 url="https://github.com/baedert/${pkgname/-git/}"
 depends=('gtk3>=3.14'
-     'glib2>=2.40'
-     'rest>=0.7'
-     'libgee'
-     'sqlite3'
-     'libsoup>=2.4'
-     'json-glib'
-     'intltool'
-     'gstreamer'
-     'gst-plugins-good'
-     'gst-plugins-bad'
-     'gst-libav')
+        'glib2>=2.40'
+        'rest>=0.7'
+        'libgee'
+        'sqlite3'
+        'libsoup>=2.4'
+        'json-glib'
+        'intltool'
+        'gstreamer'
+        'gst-plugins-good'
+        'gst-plugins-bad'
+        'gst-libav')
 makedepends=('vala>=0.26' 'git' 'automake')
 conflicts=("${pkgname/-git/}")
 source=("${pkgname/-git/}::git+${url}")
 sha1sums=('SKIP')
-install="${pkgname/-git/}.install"
 
 pkgver() {
     cd ${pkgname/-git/}

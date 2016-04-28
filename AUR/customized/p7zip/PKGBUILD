@@ -17,7 +17,7 @@ depends=('gcc-libs' 'sh')
 makedepends_i686=('nasm')
 makedepends_x86_64=('yasm')
 install="${pkgname}.install"
-source=("${pkgname}_${pkgver}_src_all.tar.bz2::https://downloads.sourceforge.net/project/${pkgname}/${pkgname}/15.14%20.1/${pkgname}_${pkgver}_src_all.tar.bz2")
+source=("${pkgname}_${pkgver}_src_all.tar.bz2::http://downloads.sourceforge.net/project/${pkgname}/${pkgname}/${pkgver}/${pkgname}_${pkgver}_src_all.tar.bz2")
 sha256sums=('699db4da3621904113e040703220abb1148dfef477b55305e2f14a4f1f8f25d4')
 
 prepare() {

@@ -20,7 +20,6 @@ optdepends=('networkmanager: Location detection via available WiFi networks'
             'upower: Battery API')
 provides=("firefox=${pkgver}")
 conflicts=('firefox' 'firefox-kde-opensuse')
-install=firefox.install
 options=('!emptydirs' '!makeflags')
 _patchrev=6a889427cd4f
 _patchurl=http://www.rosenauer.org/hg/mozilla/raw-file/$_patchrev

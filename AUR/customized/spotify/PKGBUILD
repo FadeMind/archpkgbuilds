@@ -23,9 +23,7 @@ md5sums_i686=('e43ed18f354c185357d82b11c3ea2224')
 
 depends=("alsa-lib>=1.0.14" "gconf" "gtk2" "glib2" "nss" "libsystemd" "libxtst" "libx11" "libxss" "libcurl-compat" "desktop-file-utils" "rtmpdump")
 optdepends=('ffmpeg0.10: Adds support for playback of local files'
-            'zenity: Adds support for importing local files'
-						)
-install=spotify.install
+            'zenity: Adds support for importing local files')
 
 package() {
     cd "${srcdir}"

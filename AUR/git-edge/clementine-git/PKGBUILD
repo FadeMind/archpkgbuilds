@@ -20,7 +20,6 @@ optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
 provides=("${pkgname/-git/}")
 conflicts=("${pkgname/-git/}")
 replaces=("${pkgname/-git/}")
-install="${pkgname/-git/}.install"
 changelog='Changelog'
 source=("Clementine::git+${url}.git")
 sha256sums=('SKIP')

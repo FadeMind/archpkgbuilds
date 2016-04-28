@@ -17,7 +17,6 @@ makedepends=('unzip' 'zip' 'python2' 'wireless_tools' 'yasm' 'mesa' 'libpulse'
 optdepends=('thunderbird-i18n: for multilanguage support'
             'libcanberra: for sound support')
 conflicts=('thunderbird' 'thunderbird-kde-opensuse')
-install=thunderbird.install
 # For patch look here: https://build.opensuse.org/package/show/mozilla:Factory/MozillaThunderbird
 source=("thunderbird-${pkgver}.source.tar.xz::https://ftp.mozilla.org/pub/thunderbird/releases/${pkgver}/source/thunderbird-${pkgver}.source.tar.xz"
         'mozconfig'

@@ -18,7 +18,6 @@ optdepends=('gutenprint: for sophisticated printing only as gimp has built-in cu
             'ghostscript: for postscript support')
 options=('!makeflags')
 conflicts=('gimp-devel')
-install=gimp.install
 source=(http://download.gimp.org/pub/gimp/v${pkgver%.*}/${pkgname}-${pkgver}.tar.bz2 linux.gpl)
 md5sums=('aa8a846a497e3328c5b7d2fd33f5cf63' 'bb27bc214261d36484093e857f015f38')
 

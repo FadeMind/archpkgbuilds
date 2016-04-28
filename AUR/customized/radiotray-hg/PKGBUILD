@@ -12,7 +12,6 @@ depends=(gstreamer0.10-{bad,base,good,ugly}-plugins gstreamer0.10-{ffmpeg,python
 makedepends=('desktop-file-utils' 'mercurial' 'python2')
 conflicts=('radiotray' 'radiotray-python3-git')
 source=("${pkgname}::hg+https://bitbucket.org/carlmig/radio-tray" 'encoding.patch' 'bookmarks.xml' 'radiotray.desktop')
-install="${pkgname}.install"
 sha256sums=('SKIP'
             'a73badc0ddbf726d3f554e328b8836883bf816751cd0dc2034795a03466cd2df'
             '1cd0e16a5500c228756ffe5f4817f671ac46534ae955801a44efd1d12aec9250'

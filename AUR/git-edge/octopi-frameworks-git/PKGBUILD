@@ -13,7 +13,6 @@ depends=('qt5-quickcontrols' 'libnotify')
 optdepends=('pacmanlogviewer-qt5' 'kdesu' 'yaourt' 'pkgfile' 'gist' 'pacaur')
 provides=('octopi' 'octopi-notifier' 'octopi-repoeditor' 'octopi-cachecleaner')
 conflicts=('octopi' 'octopi-notifier' 'octopi-notifier-qt4' 'octopi-notifier-foundations' 'octopi-repoeditor' 'octopi-cachecleaner' 'oktopi-git' 'octopi-frameworks')
-install="${pkgname}.install"
 changelog='CHANGELOG'
 source=("${pkgname}::git+${url}.git" 'CHANGELOG' 'images.tar.gz')
 sha256sums=('SKIP'
