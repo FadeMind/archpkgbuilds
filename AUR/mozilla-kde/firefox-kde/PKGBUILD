@@ -4,16 +4,16 @@
 
 pkgname=firefox-kde
 _pkgname=firefox
-pkgver=45.0.2
+pkgver=46.0
 pkgrel=1
 pkgdesc="Standalone web browser from mozilla.org with OpenSUSE patch, integrate better with KDE"
 arch=('i686' 'x86_64')
 license=('MPL' 'GPL' 'LGPL')
 url="https://build.opensuse.org/package/show/mozilla:Factory/MozillaFirefox"
-depends=('gtk2' 'gtk3' 'mozilla-common' 'libxt' 'startup-notification' 'mime-types'
-         'dbus-glib' 'alsa-lib' 'ffmpeg' 'desktop-file-utils' 'hicolor-icon-theme'
-         'libvpx' 'icu'  'libevent' 'nss' 'nspr' 'hunspell' 'sqlite' 
-         'libnotify' 'kmozillahelper' 'ttf-font')
+depends=('gtk3' 'gtk2' 'mozilla-common' 'libxt' 'startup-notification' 'mime-types'
+         'dbus-glib' 'alsa-lib' 'ffmpeg' 'desktop-file-utils'
+         'libvpx' 'icu'  'libevent' 'nss' 'hunspell' 'sqlite' 'ttf-font'
+         'kmozillahelper' 'nspr')
 makedepends=('unzip' 'zip' 'diffutils' 'python2' 'yasm' 'mesa' 'imake' 'gconf'
              'xorg-server-xvfb' 'libpulse' 'inetutils')
 optdepends=('networkmanager: Location detection via available WiFi networks'
@@ -21,19 +21,17 @@ optdepends=('networkmanager: Location detection via available WiFi networks'
 provides=("firefox=${pkgver}")
 conflicts=('firefox' 'firefox-kde-opensuse')
 options=('!emptydirs' '!makeflags')
-_patchrev=6a889427cd4f
+_patchrev=c6717354928b
 _patchurl=http://www.rosenauer.org/hg/mozilla/raw-file/$_patchrev
-#_patchurl=http://88.198.125.221/hg/mozilla/raw-file/$_patchrev
 source=(https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$pkgver/source/firefox-$pkgver.source.tar.xz
         mozconfig 
         firefox.desktop 
         firefox-install-dir.patch 
         vendor.js
-        kde.js
         firefox-symbolic.svg
-        firefox-fixed-loading-icon.png
-        no-libnotify.patch
         firefox-gtk3-20.patch
+        no-libnotify.patch
+        kde.js
         # Firefox patchset
         $_patchurl/firefox-branded-icons.patch
         $_patchurl/firefox-kde.patch
@@ -42,28 +40,23 @@ source=(https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$pkgver/source/
         $_patchurl/mozilla-kde.patch
         $_patchurl/mozilla-language.patch
         $_patchurl/mozilla-nongnome-proxies.patch
-        unity-menubar.patch
-        add_missing_pgo_rule.patch
         pgo_fix_missing_kdejs.patch)
 
-sha256sums=('a6b09bac0390d4e48b752026ec1aaa934332dee31fb3ff3ca59f8209f4217a53'
-            'e824be6de82b82cf8177b24d154f1f5dc32f2855790b847c1690de415ac139f1'
+sha256sums=('b35aa05162362d73cd308066adca207f7aa40ceae10931fa4819371df6c4f8bf'
+            'a25ecf8029ecd7238299059f5f39712c0f93fdc365e4ea3ee0b7b098e7346d44'
             'c202e5e18da1eeddd2e1d81cb3436813f11e44585ca7357c4c5f1bddd4bec826'
             'd86e41d87363656ee62e12543e2f5181aadcff448e406ef3218e91865ae775cd'
             '4b50e9aec03432e21b44d18c4c97b2630bace606b033f7d556c9d3e3eb0f4fa4'
-            '1ca0debb89d1d2f0becf21bac2d5e87857d58b37b16d9b6cf559607e5a993238'
             'a2474b32b9b2d7e0fb53a4c89715507ad1c194bef77713d798fa39d507def9e9'
-            '68e3a5b47c6d175cc95b98b069a15205f027cab83af9e075818d38610feb6213'
+            '440c3e22d98ecf8c44dcedbe90bbb302da3a059e3fc3fba205d89f0eca329cbf'
             'e4ebdd14096d177d264a7993dbd5df46463605ff45f783732c26d30b9caa53a7'
-            '2e355a477f1df792cd7f9d1e3a56030543e0cf2d09051dd293ba495a7edb54fd'
-            '0778583e04d021d317aede459e47e9393bb164913eaa40aef56453377e2685ea'
-            '661ed67b994605862999a8f650e3b660fae32d39c77f0663ea2d6578578b4a21'
-            '02e92f84dd31ed079be3e67509cf23d0d351e06bb690fcc091c904d906d2d690'
-            '3e7d8d65b481c03eb1da37b2e211f018e6fc9de381433205398e5ddaaff1c44a'
+            '1ca0debb89d1d2f0becf21bac2d5e87857d58b37b16d9b6cf559607e5a993238'
+            '33bec5cc4da0a94d6c113775da981605adba1ce2199044e6550356baa686cc65'
+            '99b31936405e4be7c82cba09e695b2d2de1d8d652228cdf9f903f98f821284af'
+            'c3f50c89379351609cd9f8c3f1a1ef7f246da6ea463760932436384a2f428d1e'
+            '065a5771f6b09f0bbadb4d038ecdf12a8656066c280a5e38b8ce8968be95835c'
             'feede2fb86527c4a5d90bd5458fe582da920ab02dd25ec656236d87caf8888ba'
             'e8289ea4c1f8191e1e23661312ceee2128b8e790501b9a589d0d7bfc4384553f'
-            '5fd329439480d861eb37edcca47fb3e05801f5a48b4d6c2afa17fb4c71c65fa1'
-            'f9067f62a25a7a77276e15f91cc9e7ba6576315345cfc6347b1b2e884becdb0c'
             '55c4d93761ad46326c511246cef05abc09407d8f8f7131c9dad865b35cbcfad2')
 
 # Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
@@ -90,7 +83,7 @@ prepare() {
   # Notifications with libnotify are broken
   # https://bugzilla.mozilla.org/show_bug.cgi?id=1236150
   patch -Np1 -i ../no-libnotify.patch
-  
+
   echo -n "$_google_api_key" >google-api-key
   echo "ac_add_options --with-google-api-keyfile=\"$PWD/google-api-key\"" >>.mozconfig
 
@@ -110,42 +103,27 @@ prepare() {
   patch -Np1 -i "$srcdir/firefox-no-default-ualocale.patch"
   patch -Np1 -i "$srcdir/firefox-branded-icons.patch"
 
-  # Thaodan patches: https://github.com/Thaodan/thaopkgs/tree/master/firefox-kde-opensuse
-  #msg "Add globalmenu support"
-  #patch -Np1 -i "$srcdir/unity-menubar.patch"  
-  msg "Add missing rule for pgo builds"
-  patch -Np1 -i "$srcdir/add_missing_pgo_rule.patch"
-  msg "Add missing file Makefile for pgo builds"
+  msg "Add missing file in Makefile for pgo builds"
   patch -Np1 -i "$srcdir/pgo_fix_missing_kdejs.patch"
-  
+
   # https://bugzilla.mozilla.org/show_bug.cgi?id=1234158
   msg "Patching for GTK 3.20 changes"
   patch -Np1 -i "$srcdir/firefox-gtk3-20.patch"
 
   mkdir "$srcdir/path"
-
-  # WebRTC build tries to execute "python" and expects Python 2
   ln -s /usr/bin/python2 "$srcdir/path/python"
-
-  # configure script misdetects the preprocessor without an optimization level
-  # https://bugs.archlinux.org/task/34644
-  sed -i '/ac_cpp=/s/$CPPFLAGS/& -O2/' configure
-
-  # Fix tab loading icon (doesn't work with libpng 1.6)
-  # https://bugzilla.mozilla.org/show_bug.cgi?id=841734
-  cp "$srcdir/firefox-fixed-loading-icon.png" \
-    browser/themes/linux/tabbrowser/loading.png
 }
 
 build() {
   cd $_pkgname-$pkgver
 
-  export PATH="$srcdir/path:$PATH"
-  export PYTHON="/usr/bin/python2"
+  # _FORTIFY_SOURCE causes configure failures
+  CPPFLAGS+=" -O2"
 
-  # Do PGO
+  export PATH="$srcdir/path:$PATH"
+
   xvfb-run -a -s "-extension GLX -screen 0 1280x1024x24" \
-    make -f client.mk build MOZ_PGO=1
+    make -f client.mk profiledbuild
 }
 
 package() {
@@ -182,7 +160,7 @@ package() {
   ln -s /usr/share/hunspell "$pkgdir/usr/lib/firefox/dictionaries"
   ln -s /usr/share/hyphen "$pkgdir/usr/lib/firefox/hyphenation"
 
-  #workaround for now
-  #https://bugzilla.mozilla.org/show_bug.cgi?id=658850
+  # Replace duplicate binary with symlink
+  # https://bugzilla.mozilla.org/show_bug.cgi?id=658850
   ln -sf firefox "$pkgdir/usr/lib/firefox/firefox-bin"
 }
