@@ -5,7 +5,7 @@
 pkgname=firefox-kde
 _pkgname=firefox
 pkgver=46.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Standalone web browser from mozilla.org with OpenSUSE patch, integrate better with KDE"
 arch=('i686' 'x86_64')
 license=('MPL' 'GPL' 'LGPL')
@@ -21,7 +21,7 @@ optdepends=('networkmanager: Location detection via available WiFi networks'
 provides=("firefox=${pkgver}")
 conflicts=('firefox' 'firefox-kde-opensuse')
 options=('!emptydirs' '!makeflags')
-_patchrev=c6717354928b
+_patchrev=32eafb4c7b34
 _patchurl=http://www.rosenauer.org/hg/mozilla/raw-file/$_patchrev
 source=(https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$pkgver/source/firefox-$pkgver.source.tar.xz
         mozconfig 
@@ -52,7 +52,7 @@ sha256sums=('b35aa05162362d73cd308066adca207f7aa40ceae10931fa4819371df6c4f8bf'
             'e4ebdd14096d177d264a7993dbd5df46463605ff45f783732c26d30b9caa53a7'
             '1ca0debb89d1d2f0becf21bac2d5e87857d58b37b16d9b6cf559607e5a993238'
             '33bec5cc4da0a94d6c113775da981605adba1ce2199044e6550356baa686cc65'
-            '99b31936405e4be7c82cba09e695b2d2de1d8d652228cdf9f903f98f821284af'
+            'e21af645722430001052b8b9f935909d4b5048786f7d63a07ed97ba90253e7a8'
             'c3f50c89379351609cd9f8c3f1a1ef7f246da6ea463760932436384a2f428d1e'
             '065a5771f6b09f0bbadb4d038ecdf12a8656066c280a5e38b8ce8968be95835c'
             'feede2fb86527c4a5d90bd5458fe582da920ab02dd25ec656236d87caf8888ba'

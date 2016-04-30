@@ -47,6 +47,13 @@ sha256sums=('ac6846a1a052f0b8c22cff30092181a237faaabbc03915c24777bb8a11f5e16e'
             '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d'
             '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2')
 
+validpgpkeys=(
+              'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
+              '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
+              '64254695FFF0AA4466CC19E67B96E8162A8CF5D1' # Sebastian Andrzej Siewior
+              '5ED9A48FC54C0A22D1D0804CEBC26CDB5A56DE73' # Steven Rostedt
+             )
+
 _kernelname=${pkgbase#linux}
 
 prepare() {
