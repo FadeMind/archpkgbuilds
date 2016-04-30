@@ -34,7 +34,7 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         '0004-mute-lpc-ich-4.5.patch'
         '0005-mute-intel-rapl-4.5.patch'
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch')
-sha256sums=('6458b7893e9e3939916db996bc6d521bba25b32e46792cbf48378f5e26a2521a'
+sha256sums=('ac6846a1a052f0b8c22cff30092181a237faaabbc03915c24777bb8a11f5e16e'
             'd89034b39fc0c9b3d0b864112982616d1bfba52c387f1f4c7a13fbe4db5fac4d'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
