@@ -22,10 +22,11 @@
  - Sources [zen-kernel](https://github.com/zen-kernel/zen-kernel). 
  - XZ compression for kernel and modules.
  - **1000 Hz interrupt frequency instead of 300Hz.** [See comments](http://ck-hack.blogspot.com/2013/09/bfs-0441-311-ck1.html?showComment=1378756529345#c5266548105449573343).
+<br/>
 
- | **IF CHECKSUMS FOR KERNEL SOURCES ZIP FILE FAILED, THEN JUST UPDATE IT VIA `updpkgsums`.** |
-|--------------------------------------------------------------------------------------------------|
- 
+| **IF CHECKSUMS FOR KERNEL SOURCES ZIP FILE FAILED, THEN JUST UPDATE IT VIA `updpkgsums`.** |
+|--------------------------------------------------------------------------------------------|
+ <br/>
 **License**
 
 [GPL2](https://www.gnu.org/licenses/gpl-2.0.txt)
