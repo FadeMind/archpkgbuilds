@@ -95,9 +95,9 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
     
-    msg "Setting GCC flags for IVYBRIDGE..."
-    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    #msg "Setting GCC flags for IVYBRIDGE..."
+    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     ### 1000 Hz interrupt frequency instead of 300Hz
     # 1000 Hz is the preferred choice for desktop systems and other
