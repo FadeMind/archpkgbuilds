@@ -36,9 +36,11 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         'MUTE-03-osl-4.5.patch'
         'MUTE-04-lpc-ich-4.5.patch'
         'MUTE-05-intel-rapl-4.5.patch'
-        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch')
+        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
+        ### reiser4 filesystem patch
+        "0001-reiser4-for-${pkgver}.patch")
 sha256sums=('ac6846a1a052f0b8c22cff30092181a237faaabbc03915c24777bb8a11f5e16e'
-            '02d7ee6c8a3fad887aafba1e5a0a2c4802a316aa5086e598df6c05c2152de756'
+            'd3dcf348bf4b2a8b7638642b2ed97eaaf80dcef4f18ba3f01f1ebcd06c98a2fe'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -49,7 +51,8 @@ sha256sums=('ac6846a1a052f0b8c22cff30092181a237faaabbc03915c24777bb8a11f5e16e'
             'dda83ac32c2c4f338890191b87f8bb330182af83c6f28c0c3e96a3d13e85247d'
             '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
             '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d'
-            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2')
+            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
+            '923a8a5f6e05b7f7dd79005034c4a9f8ff0ab3b626ddcae646e0f07ab9361f66')
 
 _kernelname=${pkgbase#linux}
 
@@ -62,6 +65,9 @@ prepare() {
     # https://lkml.org/lkml/2011/7/26/227 
     # http://lkml.iu.edu/hypermail/linux/kernel/1107.3/00955.html)
     patch -p1 -i "${srcdir}/0001-change-default-console-loglevel.patch"
+    
+    msg "Patching source with reiser4 patch"
+    patch -Np1 -i "${srcdir}/0001-reiser4-for-${pkgver}.patch"
     
     msg "Patching source with TuxOnIce patch"
     patch -Np1 -i "${srcdir}/0001-tuxonice-for-linux-${pkgver}-${_toiver}.patch"

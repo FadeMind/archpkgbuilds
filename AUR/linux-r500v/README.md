@@ -14,6 +14,7 @@
  - [TuxOnIce 3.3](http://tuxonice.nigelcunningham.com.au/) support. [Arch Wiki](https://wiki.archlinux.org/index.php/TuxOnIce).
  - [AUFS4](http://aufs.sourceforge.net/) support. 
  - [EXFAT](https://github.com/dorimanx/exfat-nofuse) support.
+ - [Reiser4](https://sourceforge.net/projects/reiser4/) support. [ArchWiki](https://wiki.archlinux.org/index.php/Reiser4) [reiser4.wiki.kernel.org](https://reiser4.wiki.kernel.org/index.php/Main_Page)
  - Less debug warning/error messages in `dmesg`.
  - Upstream Arch Linux and Manjaro patches.
  
@@ -26,7 +27,7 @@
 
 | **IF CHECKSUMS FOR KERNEL SOURCES ZIP FILE FAILED, THEN JUST UPDATE IT VIA `updpkgsums`.** |
 |--------------------------------------------------------------------------------------------|
- <br/>
+<br/>
 **License**
 
 [GPL2](https://www.gnu.org/licenses/gpl-2.0.txt)
