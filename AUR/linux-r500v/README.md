@@ -3,7 +3,7 @@
   <img src="http://i.imgur.com/BbD1jGBl.jpg" alt="tux"/>
 </p>
 
-##<p align="center">Linux Kernel 4.5 with CK BFS CPU Scheduler 0.469, ZEN customisations and <br/>additional custom patchset<br/></p>
+##<p align="center">Linux Kernel 4.5 with CK BFS patch, ZEN customisations and additional custom patchset<br/></p>
 
 **Included Patches**
 
@@ -23,7 +23,7 @@
  - XZ compression for kernel and modules.
  - **1000 Hz interrupt frequency instead of 300Hz.** [See comments](http://ck-hack.blogspot.com/2013/09/bfs-0441-311-ck1.html?showComment=1378756529345#c5266548105449573343).
 
- | **IF CHECKSUMS FOR KERNEL SOURCES ZIP FILE FAILED, THEN JUST UPDATE IT VIA `updpkgsums` COMMAND. |
+ | **IF CHECKSUMS FOR KERNEL SOURCES ZIP FILE FAILED, THEN JUST UPDATE IT VIA `updpkgsums`.** |
 |--------------------------------------------------------------------------------------------------|
  
 **License**
