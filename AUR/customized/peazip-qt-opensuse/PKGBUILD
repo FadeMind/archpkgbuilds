@@ -15,20 +15,19 @@ optdepends=(balz lpaq p7zip paq8o quad unace upx rar zpaq)
 provides=(${pkgname%-*-*} ${pkgname%-*})
 conflicts=(${pkgname%-*-*} ${pkgname%-*-*}-gtk2 ${pkgname%-*})
 source=(http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Factory/${arch}/${pkgname%-*-*}-${pkgver}-${_rpmrel}.${arch}.rpm 
-        peazip_additional_formats_plugin-merged.LINUX.ALL.tar.xz
+        https://github.com/FadeMind/peazip-additional-formats-plugin/archive/master.zip
         peazip_help.pdf)
 sha256sums=('7ae858362df20cb9850268861b26b853489da725779a097a5227709212b7d1bf'
-            'f86b659739dc0c7c9e4365f700fae91677cd290fc61743381d14ab300ccded72'
+            '32bb0d25c2c746d55c07fd336b443581bdf0d28ffadd7a23b5bb2ad86e0fa5c7'
             '5efdee100d15b114413cc9f419aa9d78889bf1998f1d3060371b9c2bd4ea1d4c')
 
 prepare() {
     # creating lib path
-    install -dm755 "$srcdir"/usr/lib/
+    install -dm755 "$srcdir"/usr/lib
     # removing conflicts
     rm -R "$srcdir"/usr/share/peazip/res/upx
     # moving peazip directory to proper path
     mv -f "$srcdir"/usr/share/peazip "$srcdir"/usr/lib/
-    
 }
 
 package() {
@@ -36,7 +35,7 @@ package() {
     _respath=usr/lib/peazip/res
     # installing main app directory and copy files
     cp -R "$srcdir"/usr "$pkgdir"/
-    cp -R "$srcdir"/res/* "$pkgdir"/$_respath/
+    cp -R "$srcdir"/peazip-additional-formats-plugin-master/res/* "$pkgdir"/$_respath/
     # looking for p7zip libs and create proper symlinks in $_respath directory
     install -d "$pkgdir/$_respath"/7z/Codecs/
     for i in 7z{,a,r,.so,Con.sfx,.sfx} Codecs/Rar{,29}.so; do
