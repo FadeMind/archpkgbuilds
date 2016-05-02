@@ -16,10 +16,10 @@ provides=(${pkgname%-*-*} ${pkgname%-*})
 conflicts=(${pkgname%-*-*} ${pkgname%-*-*}-gtk2 ${pkgname%-*})
 source=(http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Factory/${arch}/${pkgname%-*-*}-${pkgver}-${_rpmrel}.${arch}.rpm 
         https://github.com/FadeMind/peazip-additional-formats-plugin/archive/master.zip
-        peazip_help.pdf)
+        http://www.peazip.org/peazip_help.pdf)
 sha256sums=('7ae858362df20cb9850268861b26b853489da725779a097a5227709212b7d1bf'
             '32bb0d25c2c746d55c07fd336b443581bdf0d28ffadd7a23b5bb2ad86e0fa5c7'
-            '5efdee100d15b114413cc9f419aa9d78889bf1998f1d3060371b9c2bd4ea1d4c')
+            '925e9c65f4ae38c120651cdfc6567687770238487655e0bcd4f1e6bf53ca2929')
 
 prepare() {
     # creating lib path
@@ -47,12 +47,14 @@ package() {
         ln -sf /usr/bin/$(basename $i) "$pkgdir/$_respath"/$i
     done
     # creating symlinks for executable files
-    ln -sf /usr/lib/peazip/res/pea          "$pkgdir"/usr/bin/pea
-    ln -sf /usr/lib/peazip/res/pealauncher  "$pkgdir"/usr/bin/pealauncher
-    ln -sf /usr/lib/peazip/peazip           "$pkgdir"/usr/bin/peazip
+    ln -sf /$_respath/pea          "$pkgdir"/usr/bin/pea
+    ln -sf /$_respath/pealauncher  "$pkgdir"/usr/bin/pealauncher
+    ln -sf /usr/lib/peazip/peazip  "$pkgdir"/usr/bin/peazip
     # installing doc files
     mv -f "$pkgdir"/usr/share/doc/packages/peazip "$pkgdir"/usr/share/doc/"$pkgname"/
     rm -R "$pkgdir"/usr/share/doc/packages/
     # installing help file
     install -Dm0644 "$srcdir"/peazip_help.pdf "$pkgdir"/usr/lib/peazip/peazip_help.pdf
+    # fix chmod
+    find "$pkgdir" -type f -name *.txt -exec chmod 644 {} +
 }
