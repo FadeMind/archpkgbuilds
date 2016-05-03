@@ -17,19 +17,20 @@ pkgname=(
          'papirus-konsole-colorscheme-git'
          'papirus-plasma-theme-git'
          'papirus-qtcurve-theme-git'
+         'papirus-sddm-theme-git'
          'papirus-smplayer-theme-git'
          'papirus-vlc-theme-git'
          'papirus-yakuake-theme-git' 
          )
-pkgver=r610.bc77d3e
+pkgver=r624.eda134b
 pkgrel=1
 pkgdesc="Papirus Suite for KDE (git version)"
 arch=('any')
 url="https://github.com/varlesh/${_pkgname}"
 license=('CCPL:by-sa')
 options=()
-makedepends=('git' 'gtk-update-icon-cache' 'xdg-utils')
-depends=()
+makedepends=('git'  'xdg-utils')
+depends=('gtk-update-icon-cache')
 conflicts=('papirus')
 source=("${_pkgname}::git+${url}.git")
 sha256sums=('SKIP')
@@ -43,7 +44,7 @@ package_bomi-skin-papirus-git() {
     pkgdesc="Papirus theme for Bomi"
     options=()
     makedepends=('git')
-    depends=('bomi')
+    depends=('bomi-fresh')
     optdepends=()
     conflicts=('bomi-skin-papirus')
     install -dm755 ${pkgdir}/usr/share/bomi/skins
@@ -71,10 +72,11 @@ package_papirus-git() {
              'papirus-aurorae-theme-git'
              'papirus-color-scheme-git'
              'papirus-gtk-theme-git'
-             'papirus-plasma-theme-git' 
              'papirus-icon-theme-kde-git'
              'papirus-konsole-colorscheme-git'
+             'papirus-plasma-theme-git' 
              'papirus-qtcurve-theme-git'
+             'papirus-sddm-theme-git'
              'papirus-yakuake-theme-git'
              )
     optdepends=(
@@ -130,8 +132,8 @@ package_papirus-gtk-theme-git() {
 package_papirus-icon-theme-gtk-git() {
     pkgdesc="Papirus icon theme for GTK (git version)"
     options=('!strip')
-    makedepends=('git' 'gtk-update-icon-cache' 'xdg-utils')
-    depends=()
+    makedepends=('git' 'xdg-utils')
+    depends=('gtk-update-icon-cache')
     optdepends=()
     conflicts=('papirus-gtk-icon-theme' 'papirus-gtk-icon-theme-git' 'papirus-icon-theme-gtk')
     install -dm755 ${pkgdir}/usr/share/icons
@@ -143,8 +145,8 @@ package_papirus-icon-theme-gtk-git() {
 package_papirus-icon-theme-kde-git() {
     pkgdesc="Papirus icon theme for KDE (git version)"
     options=('!strip')
-    makedepends=('git' 'gtk-update-icon-cache' 'xdg-utils')
-    depends=()
+    makedepends=('git' 'xdg-utils')
+    depends=('gtk-update-icon-cache')
     optdepends=()
     conflicts=('papirus-icon-theme' 'papirus-icon-theme-kde' 'papirus-icon-theme-git')
     install -dm755 ${pkgdir}/usr/share/{icons,apps/amarok/icons/papirus{,-black-panel,-dark}}
@@ -161,6 +163,7 @@ package_papirus-k3b-theme-git() {
     options=()
     makedepends=('git')
     depends=('k3b')
+    optdepends=()
     install -dm755 ${pkgdir}/usr/share/{k3b/pics,apps/k3b/pics}
     cp -r ${srcdir}/${_pkgname}/kde-pack/k3b-themes/* ${pkgdir}/usr/share/k3b/pics/
     cp -r ${srcdir}/${_pkgname}/kde-pack/k3b-themes/* ${pkgdir}/usr/share/apps/k3b/pics/
@@ -220,11 +223,25 @@ package_papirus-qtcurve-theme-git() {
     find "${pkgdir}" -type d -exec chmod 755 {} +
 }
 
+package_papirus-sddm-theme-git() {
+    pkgdesc="Papirus theme for SDDM (git version)"
+    options=()
+    makedepends=('git')
+    depends=('sddm' 'sddm-kcm')
+    optdepends=()
+    conflicts=('papirus-sddm-theme')
+    install -Dm644 -t "${pkgdir}/usr/share/sddm/themes/papirus/"      ${srcdir}/${_pkgname}/kde-pack/sddm-themes/papirus/*
+    install -Dm644 -t "${pkgdir}/usr/share/sddm/themes/papirus-dark/" ${srcdir}/${_pkgname}/kde-pack/sddm-themes/papirus-dark/*
+    find "${pkgdir}" -type f -exec chmod 644 {} +
+    find "${pkgdir}" -type d -exec chmod 755 {} +
+}
+
 package_papirus-smplayer-theme-git() {
     pkgdesc="Papirus theme for SMPlayer (git version)"
     options=()
     makedepends=('git')
     depends=('smplayer')
+    optdepends=()
     conflicts=('papirus-smplayer-theme')
     install -Dm644 -t "${pkgdir}/usr/share/smplayer/themes/Papirus/"        ${srcdir}/${_pkgname}/players-skins/smplayer-themes/Papirus/*
     install -Dm644 -t "${pkgdir}/usr/share/smplayer/themes/PapirusDark/"    ${srcdir}/${_pkgname}/players-skins/smplayer-themes/PapirusDark/*
@@ -237,6 +254,7 @@ package_papirus-vlc-theme-git() {
     options=()
     makedepends=('git')
     depends=('vlc')
+    optdepends=()
     conflicts=('papirus-vlc-theme')
     install -Dm644 -t "${pkgdir}/usr/share/vlc/skins2/" ${srcdir}/${_pkgname}/players-skins/vlc-skins/*.vlt
     find "${pkgdir}" -type f -exec chmod 644 {} +
@@ -248,6 +266,7 @@ package_papirus-yakuake-theme-git() {
     options=()
     makedepends=('git')
     depends=('yakuake')
+    optdepends=()
     conflicts=('papirus-yakuake-theme' 'yakuake-skin-papirus' 'yakuake-skin-papirus-dark' 'yakuake-skin-papirus-dark-frameworks' 'yakuake-skin-papirus-frameworks')
     install -dm755 ${pkgdir}/usr/share/{apps/yakuake/skins,yakuake/skins}
     cp -r ${srcdir}/${_pkgname}/kde-pack/yakuake-skins/papirus* ${pkgdir}/usr/share/yakuake/skins/
