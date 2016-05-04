@@ -38,9 +38,13 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         'MUTE-05-intel-rapl-4.5.patch'
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
         ### reiser4 filesystem patch
-        "0001-reiser4-for-${pkgver}.patch")
+        "0001-reiser4-for-${pkgver}.patch"
+        ### GCC6
+        'GCC6-1001-perf-pmu-Fix-misleadingly-indented-assignment-whites.patch'
+        'GCC6-1002-perf-tools-fix-unused-variables-x86_-32-64-_regoffse.patch')
+
 sha256sums=('d1b69f110c6c4ff526146598e0d1d856eb86e0cd4af455e3017d59cbe015ca3d'
-            '8529b8aad3255a31b553f2cfefee902bb61563187b5e36a27dcd0dc2649e666f'
+            '227f38e9b72b7377d877867b6c61d022711b16679e8699bdd6079f34d2039cf3'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -52,7 +56,9 @@ sha256sums=('d1b69f110c6c4ff526146598e0d1d856eb86e0cd4af455e3017d59cbe015ca3d'
             '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
             '4b438d6053f4678a00d2a8640804ba6b16628596b16efff367b050e17844414d'
             '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
-            '923a8a5f6e05b7f7dd79005034c4a9f8ff0ab3b626ddcae646e0f07ab9361f66')
+            '923a8a5f6e05b7f7dd79005034c4a9f8ff0ab3b626ddcae646e0f07ab9361f66'
+            '5a289288c63905b4b41840cc308b5c8ccac262b6169b9f80158a96f699289a1a'
+            '9af44bbe56a4c6bf21cd34d28be79621df7aa3ab3866766534df2f45e29beb99')
 
 _kernelname=${pkgbase#linux}
 
@@ -86,6 +92,11 @@ prepare() {
     
     msg "Patching source with mute patches"
     for p in $(ls ${srcdir}/MUTE*.patch); do
+        patch -Np1 -i "$p"
+    done
+    
+    msg "Patching source with gcc6 fixes patches"
+    for p in $(ls ${srcdir}/GCC6*.patch); do
         patch -Np1 -i "$p"
     done
     

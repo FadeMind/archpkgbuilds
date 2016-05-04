@@ -3,7 +3,7 @@
 pkgname=franz
 pkgver=0.9.10
 _gittag=2.0
-pkgrel=3
+pkgrel=4
 pkgdesc='A free messaging app for WhatsApp, Facebook Messenger, Telegram, Slack and more.'
 arch=('i686' 'x86_64')
 depends=('alsa-lib' 'bash' 'desktop-file-utils' 'gconf' 'gtk2' 'libnotify' 'libxtst' 'nss')
@@ -20,7 +20,7 @@ sha256sums_i686=('9a4ca6e06339b4a01f644fd081b0c1bb8eb3a4e5b8dc8e1c65e09e667b2547
 sha256sums_x86_64=('3bcd64f01ddd2f5bd723d3fd04524eddc3fd11a3c53c95acc0029bb46d11042a')
 [[ "$CARCH" = "i686" ]] && _path="Franz-linux-ia32-${pkgver}"
 [[ "$CARCH" = "x86_64" ]] && _path="Franz-linux-x64-${pkgver}"
-noextract=(${_path})
+noextract=("${_path}.tgz")
 
 prepare() {
     install -d ${srcdir}/${_path}/

@@ -17,7 +17,6 @@
 * [**AUR/maintained**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/maintained)    packages currently maintained by me
 * [**AUR/mozilla-kde**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/mozilla-kde)  Firefox and Thunderbird with KDE patches (copied from [**Manjaro Community Repository**](https://github.com/manjaro/packages-community))
 * [**AUR/nvidia-optimus**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/nvidia-optimus)    `Bumblebee` `Primus` `NVIDIA Drivers` and extras
-* [**AUR/toolchain-gcc-6.1.0**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/toolchain-gcc-6.1.0)  `GCC 6.1.0 MULTILIB` and toolchains to recompile against new GCC version
 
 | **DO NOT USE `linux-r500v46` ON PRODUCTION DESKTOP. THIS IS DEVELOPMENT VERSION FOR TESTING ONLY.** **LOTS OF EXTERNAL MODULES DOES NOT WORK DUE CHANGES IN KERNEL CODE.** |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
