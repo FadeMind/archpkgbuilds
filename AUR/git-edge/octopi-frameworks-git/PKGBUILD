@@ -26,8 +26,8 @@ pkgver() {
 build() {
     cd "${srcdir}/${pkgname}"
     msg "Prepare octopi..."
-    rm -r "resources/images"
-    mv -iv "${srcdir}/images/" "resources/"
+    #rm -r "resources/images"
+    #mv -iv "${srcdir}/images/" "resources/"
     sed -i 's/#DEFINES += KSTATUS/DEFINES += KSTATUS/' "notifier/octopi-notifier/octopi-notifier.pro"
   
     msg "Building octopi..."

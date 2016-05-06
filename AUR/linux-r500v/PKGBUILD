@@ -12,7 +12,7 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 
 pkgbase=linux-r500v
 _srcname=zen-kernel-4.5-master
-pkgver=4.5.2
+pkgver=4.5.3
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/zen-kernel/zen-kernel"
@@ -29,7 +29,7 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         ### Graysky GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
         ### TuxOnIce patch
-        "0001-tuxonice-for-linux-${pkgver}-${_toiver}.patch"
+        "0001-tuxonice-for-linux-4.5.2-${_toiver}.patch"
         ### mute
         'MUTE-01-efi-bgrt-4.5.patch'
         'MUTE-02-intel-fifo-underrun-4.5.patch'
@@ -38,13 +38,13 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         'MUTE-05-intel-rapl-4.5.patch'
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
         ### reiser4 filesystem patch
-        "0001-reiser4-for-${pkgver}.patch"
+        "0001-reiser4-for-4.5.2.patch"
         ### GCC6
         'GCC6-1001-perf-pmu-Fix-misleadingly-indented-assignment-whites.patch'
         'GCC6-1002-perf-tools-fix-unused-variables-x86_-32-64-_regoffse.patch')
 
-sha256sums=('d1b69f110c6c4ff526146598e0d1d856eb86e0cd4af455e3017d59cbe015ca3d'
-            '227f38e9b72b7377d877867b6c61d022711b16679e8699bdd6079f34d2039cf3'
+sha256sums=('cd964ef5f08c17745520d5e4adabee30797948e0b8d6cce969ebe1b2547c408e'
+            '092f1410c60fc7bfccb08309dcae8be408fded40cd185631c04cf0cd6754dcfa'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -73,10 +73,10 @@ prepare() {
     patch -p1 -i "${srcdir}/0001-change-default-console-loglevel.patch"
     
     msg "Patching source with reiser4 patch"
-    patch -Np1 -i "${srcdir}/0001-reiser4-for-${pkgver}.patch"
+    patch -Np1 -i "${srcdir}/0001-reiser4-for-4.5.2.patch"
     
     msg "Patching source with TuxOnIce patch"
-    patch -Np1 -i "${srcdir}/0001-tuxonice-for-linux-${pkgver}-${_toiver}.patch"
+    patch -Np1 -i "${srcdir}/0001-tuxonice-for-linux-4.5.2-${_toiver}.patch"
     
     # Fix Nvidia 304xx issue
     # https://bugs.archlinux.org/task/47092
