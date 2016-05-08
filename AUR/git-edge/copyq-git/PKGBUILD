@@ -30,7 +30,6 @@ pkgver() {
 }
 
 build() {
-    mkdir -p ${srcdir}/${pkgname}/build
     cd ${pkgname}/build
     cmake \
         -DCMAKE_INSTALL_PREFIX=/usr \

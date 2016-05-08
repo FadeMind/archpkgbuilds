@@ -16,7 +16,9 @@ depends=('gtk3>=3.14'
         'gstreamer'
         'gst-plugins-good'
         'gst-plugins-bad'
-        'gst-libav')
+        'gst-libav'
+        'hicolor-icon-theme' 
+        'desktop-file-utils')
 makedepends=('vala>=0.26' 'git' 'automake')
 conflicts=("${pkgname/-git/}")
 source=("${pkgname/-git/}::git+${url}")

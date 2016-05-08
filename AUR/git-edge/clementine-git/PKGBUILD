@@ -12,7 +12,7 @@ url="https://github.com/clementine-player/Clementine"
 license=('GPL')
 depends=('gst-plugins-base' 'taglib' 'glew' 'liblastfm' 'libgpod' 'libmtp' 'libplist' 
          'hicolor-icon-theme' 'qt4' 'sparsehash' 'libechonest' 'qjson' 'libcdio' 'protobuf' 
-         'crypto++' 'chromaprint' 'libmygpo-qt' 'libspotify' 'libimobiledevice')
+         'crypto++' 'chromaprint' 'libmygpo-qt' 'libspotify' 'libimobiledevice' 'desktop-file-utils')
 makedepends=('git' 'boost' 'cmake' 'mesa')
 optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
             'gst-plugins-bad: for use with "Bad" plugin libraries'
