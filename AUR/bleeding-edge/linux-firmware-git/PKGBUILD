@@ -3,7 +3,7 @@
 # Contributor: xduugu
 
 pkgname=linux-firmware-git
-pkgver=20160428.5e6165a
+pkgver=20160503.8afadbe
 pkgrel=1
 pkgdesc="Firmware files for Linux. Git version"
 makedepends=('bash' 'git')

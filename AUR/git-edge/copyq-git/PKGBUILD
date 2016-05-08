@@ -1,0 +1,45 @@
+# Maintainer: Karol "Kenji Takahashi" Woźniak <kenji.sx>
+# Contributor: SanskritFritz (gmail)
+
+pkgname=copyq-git
+pkgver=20160430
+pkgrel=1
+pkgdesc="Clipboard manager with searchable and editable history."
+url="https://github.com/hluk/CopyQ"
+arch=('i686' 'x86_64')
+license=('GPL3')
+depends=('libxtst' 'qt5-script' 'hicolor-icon-theme' 'desktop-file-utils')
+makedepends=('cmake' 'git' 'qt5-tools' 'qt5-svg')
+provides=('copyq' 'copyq-plugin-itemweb' 'copyq-plugin-itemweb-git')
+conflicts=('copyq' 'copyq-plugin-itemweb' 'copyq-plugin-itemweb-git')
+changelog="CHANGES"
+source=("${pkgname}::git+${url}.git")
+md5sums=('SKIP')
+
+prepare() {
+    cd ${pkgname}
+    if [[ -d build ]]; then
+        rm -Rf build
+    fi
+    mkdir -p build
+}
+
+pkgver() {
+    cd ${pkgname}
+    git log -1 --format="%cd" --date=short | tr -d '-'
+}
+
+build() {
+    mkdir -p ${srcdir}/${pkgname}/build
+    cd ${pkgname}/build
+    cmake \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DWITH_QT5=TRUE \
+        ${srcdir}/${pkgname}
+    make
+}
+
+package() {
+    cd ${pkgname}/build
+    make DESTDIR="${pkgdir}" install
+}

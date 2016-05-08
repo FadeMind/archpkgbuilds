@@ -1,0 +1,54 @@
+# Contributor: FadeMind <fademind@gmail.com>
+# Maintainer: Salan54 <salan at fremenil dot com>
+
+pkgname=zulucrypt-git
+pkgver=5.0.0.4.g3edbf67
+pkgrel=1
+pkgdesc="a cli and gui frontend to cryptsetup"
+arch=('x86_64' 'i686')
+url='https://github.com/mhogomchungu/zuluCrypt'
+license=('GPL')
+depends=('cryptsetup' 'libsecret' 'libpwquality' 'libxkbcommon-x11' 'qt5-base')
+makedepends=('bash' 'cmake' 'git')
+provides=('zulucrypt')
+conflicts=('zulucrypt')
+optdepends=('kwalletmanager: retrieve volume keys from kde kwallet')
+options=('!buildflags')
+changelog="changelog"
+source=("${pkgname}::git+${url}")
+sha256sums=('SKIP')
+
+prepare() {
+    cd ${pkgname}
+    if [[ -d build ]]; then
+        rm -Rf build
+    fi
+    mkdir -p build
+}
+
+pkgver() {
+    cd ${pkgname}
+    git describe --always | sed 's|-|.|g'
+}
+
+build() {
+    cd ${pkgname}/build
+    cmake \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DLIB_SUFFIX=lib \
+        -DNOGUI=false \
+        -DQT5=true \
+        -DHOMEMOUNTPREFIX=false \
+        -DNOKDE=true \
+        -DCMAKE_BUILD_TYPE=release . ..
+    make
+}
+ 
+package() {
+    cd ${pkgname}/build
+    make DESTDIR="${pkgdir}" install
+    install -d "${pkgdir}"/etc/modules-load.d/
+    bash -c "{
+    echo \"loop\"
+    } > ${pkgdir}/etc/modules-load.d/zulucrypt.conf"
+}

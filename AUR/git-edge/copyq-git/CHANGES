@@ -1,0 +1,355 @@
+v2.7.0
+- Log accessible from GUI
+- Performance and memory usage improvements
+- Added scriptable function to set current tab (setCurrentTab())
+- Added scriptable function to modify new items (setData())
+- Appearance fixes
+- Simplified window management
+- Improved pasting to current window on Windows
+- Window geometry fixes
+- Command with Enter shortcut overrides item activate action
+
+v2.6.1
+- Moved configuration from registry on Windows
+- Fixed shortcuts on Windows
+- Fixed window geometry restoring
+
+v2.6.0
+- Show item notes in tray and window title
+- Removed broken console executable on Windows
+- Dutch translation
+- Added env() and setEnv() to access and modify environment variables
+- Access shortcut which activated command
+- Fixed closing the application at shutdown on Windows
+- Fixed some global shortcuts on Windows
+- Fixed capturing some shortcuts
+
+v2.5.0
+- Smarter tab name matching (ignore key hints '&')
+- Fixed omit passing global shortcuts to widgets
+- Fixed autostart option on Ubuntu
+- Fixed window geometry saving and restoring
+- Fixed reading binary input on Windows
+- Fixed clearing configuration
+
+v2.4.9
+- Added new light theme
+- Added scriptable function focused() to test main window focus
+- Customizable shortcuts for tab navigation
+- Extended item selection
+- Fixed tab expiration and updating context menu
+- Fixed passing text to command from action dialog
+
+v2.4.8
+- New command to show main window under mouse cursor or at a position with custom size
+- Hide clipboard content when "application/x-copyq-hidden" is "1"
+- "Copy next/previous item" command waits for clipboard to be set
+- Fixed updating window title and tray tool tip on X11
+- Fixed modifying multiple commands in Command dialog
+- Fixed implicit date to string conversions
+
+v2.4.7
+- Separate dialog for command help
+- Added scriptable function visible() to check main window visibility
+- Linux: Install bitmap icons for menus
+- Linux: Install AppData file
+- Allow to search for specific MIME types stored in items
+- Menu items and customizable shortcut for cycling item format
+- Fixed icon alignment
+- Fixed moving tabs with Qt 5
+- Fixed overriding socket file path (Linux and OS X)
+- Fixed "Paste as Plain Text" command (Windows and OS X)
+- Fixed tab tree layout and changing icons for tab groups
+- Fixed URL encoding
+
+v2.4.6
+- Fixed crash when removing command
+- Fixed encryption/decryption selected items
+- Fixed reading from standard input
+- GUI fixes for high-DPI displays
+
+v2.4.5
+- Option to save/restore history for filtering items
+- Clipboard changes with unchanged content is ignored
+- Notify about unsaved changes in command dialog
+- Use application icons from current icon theme on Linux
+- Simple error checking for user scripts
+- Fix blocked system shutdown on Linux/X11
+
+v2.4.4
+- Option to choose tab for storing clipboard
+- Fixed overriding mouse selection (Linux/X11)
+- Fixed window title updates from user commands
+- Fixed toggling window visibility with Qt 5
+- Minor GUI improvements and user command fixes
+
+v2.4.3
+- Plugin for tagging items
+- Plugins can provide script functions and commands
+- Improved automatic commands execution
+- Fixed gradients, transparency and other style improvements
+- Fixed decryption with newer version of GnuPG
+- Fixes for Qt 5 version
+
+v2.4.2
+- Send input data to execute()
+- Better clipboard encoding guessing
+- Set tab icon from commands using tabicon()
+- Fixed window title encoding on Windows
+- Fixed restoring window geometry
+- Performance fixes
+- Various bug and usability fixes
+- New logo
+
+v2.4.1
+- Added scriptable classes File and Dir
+- Added scriptable function settings() for saving custom user data
+- Improved dialog() command
+- Windows: Qt translated strings bundled with application
+- Fixed %1 in command
+- Fixed building with tests and Qt5
+
+v2.4.0
+- Separate dialog for user commands and global shortcuts
+- Search for item by row number
+- Command highlighting
+- More shortcuts can be mapped on Windows and X11
+- New "copy" command to copy from current window to clipboard
+- New "dialog" command to show dialog with custom input fields
+- Fixed crash on log out on Windows
+- Fixed clipboard monitoring on Windows
+- Fixed argument encoding from client on Windows
+- Fixed log output when printing messages from multiple processes
+- GUI fixes
+
+v2.3.0
+- Support for OS X
+- Japanese translation
+- Custom icons for tabs
+- Show item count next to each tab name (optional)
+- Added Process Manager for running and finished commands
+- Scripting improvements
+- Nicer format for copied user commands
+- GUI fixes
+
+v2.2.0
+- Custom system shortcuts for any user command
+- Drag'n'drop items to tabs
+- Options to set position and maximum size for notifications
+- Option to open windows on same desktop
+- Weblate service for translations (https://hosted.weblate.org/projects/copyq/master/)
+- Commands input and output is UTF-8 only (this fixes encoding issues on Windows)
+- Scripting engine improvements
+- Various GUI improvements and fixes
+- Fix main window position in various X11 window managers
+- Fix crashing with Oxygen GUI style
+- Fix storing images from clipboard on Windows
+- Various GUI improvements and fixes
+
+v2.1.0
+- French translation
+- Save/load and copy/paste user commands
+- Easier way to write longer commands and scripts
+- Remove formats in clipboard and item content dialogs
+- Command "toggle" focuses main window if unfocused (instead of closing)
+- Choose log file and amount of information to log
+- Lot of bugfixes and GUI improvements
+
+v2.0.1
+- Initial OS X support
+- Configuration moved into installed directory in Windows
+- Change language in configuration
+- New tool bar with item actions
+- Option to apply color theme in tabs, tool bar and menus
+- Allow to match items using a command
+- Focus output item of the last executed command
+- Allow to cancel exit if there are active commands
+- Removed option to hide menu bar (inconsistent behavior)
+- Fix showing lock icon in encrypted items
+
+v2.0.0
+- Synchronize items with files on disk
+- Faster tab loading and saving (data format was changed; only backward compatible)
+- User can limit size of text items
+- Opening external image editor fixed on Windows
+- New logo and website
+- Lot of other fixes
+
+v1.9.3
+- Item and tab encryption (using GnuPG)
+- FakeVim plugin for editing items (Vim editor emulation)
+- Drag'n'drop items from and to list
+- Improved appearance for notes
+- Improved search bar
+- New GUI for application and system-wide shortcuts
+- Option to unload tabs after an interval
+- Fixed item sizes and disabling font anti-aliasing
+- Major bug fixes (mainly for Windows) and performance improvements
+
+v1.9.2
+- Better performance
+- GUI improvements and bugfixes
+
+v1.9.1
+- Notifications -- customizable theme, timeout and position on screen
+- Optional notification for new clipboard content
+- Autostart option on Linux
+- Reset empty clipboard to previous content
+- More user-friendly item editor
+- Optional font antialiasing
+- Changed layout of configuration dialog
+- Other fixes
+
+v1.9.0
+- User notes
+- Improved appearance settings with some example themes
+- Tree view for tabs with groups
+- Sessions, i.e. run multiple independent instances
+- Lot of GUI improvements
+- Compatibility with Qt5
+- Bugfixes (crashing on Unity, icon colors etc.)
+
+v1.8.3
+- Options to hide tab bar and main menu
+- Automatic paste works with more applications under Linux/X11
+- Multi-monitor support
+- Lot of GUI fixes and improvements
+
+v1.8.2
+- Added shortcut to paste current and copy next/previous item
+- Bugfixes (paste to correct window, show tray menu on Unity, GUI and usability fixes)
+
+v1.8.1
+- Spanish translation
+- Option and system-wide shortcuts to temporarily disable clipboard storing
+- Option for main window transparency
+- Custom action on item activation
+- Various GUI improvements and bugfixes
+
+v1.8.0
+- New shortcuts: "Next/previous item to clipboard", "Paste as plain text"
+- Show clipboard content in main window title and tray tooltip
+- New options for commands (transform current item, close main window)
+- GUI enhancements, faster application start with many tabs and items, lot of bugfixes
+
+v1.7.5
+- User-settable editor for images
+- Command-line fixes for Windows
+- Commands for items of specified format (MIME type)
+- Tray menu fixes
+
+v1.7.4
+- Improved automatic paste from tray
+
+v1.7.3
+- Paste immediately after choosing tray item
+- German translation
+- Support for system-wide shortcuts on Qt 5
+
+v1.7.2
+- Clipboard content visible in tray tooltip
+
+v1.7.1
+- Bugfixes for text encoding
+
+v1.7.0
+- Plugins for saving and displaying clipboard content
+- Bugfixes (lot of refactoring and tests happened)
+
+v1.6.3
+- Some important bugfixes
+
+v1.6.2
+- Dialog for viewing item content
+- Improved tray menu
+- Minor GUI updates
+
+v1.6.1
+- Configurable tray menu
+- Lot of fixes in GUI and bugfixes
+
+v1.6.0
+- Highlight text and copy text in items
+- Interactive web view
+- Commands for any MIME type
+- e.g. it's possible to create QR Code image from an URL and save it in list
+- Pipe commands using '|' character
+
+v1.5.0
+- Option to use WebKit to render HTML
+- Wrap text with long lines
+- Faster list rendering
+- Icons from FontAwesome
+- Desktop icon on Linux
+
+v1.4.1
+- Support for other languages -- right now supports only English and Czech (any help is welcome)
+- New "insert" command
+- More safe item saving
+
+v1.4.0
+- lot of GUI Improvements, faster interaction
+- Automatic commands for matched windows (only on Linux and Windows)
+
+v1.3.3
+- GUI Improvements
+- New system-wide shortcuts
+- Item editing improved
+
+v1.3.2
+- Drag'n'Drop to clipboard
+- "Always on Top" option
+- Change tab bar position
+- Fix parsing arguments
+
+v1.3.1
+- GUI improvements
+- Mode for Vi navigation (h, j, k, l keys for movement)
+- Better performance
+
+v1.3.0
+- Import/export items to/from a file (not compatible with older saved format)
+- Use scripts to handle item history
+- Improved performance
+
+v1.2.5
+- Save/load items to/from a file
+- Sort selected items
+- Easier tab browsing (left/right arrow keys)
+- GUI improvements
+- More shortcut combinations work on Linux
+
+v1.2.4
+- Improved commands
+- Fixed and faster scrolling
+- Better tab manipulation
+
+v1.2.3
+- Bugfixes and major clean-up
+
+v1.2.2
+- Performance improved
+
+v1.2.1
+- Save items from commands in other tabs
+- Missing icons in Windows version
+
+v1.2.0
+- Appearance settings
+- Tab manipulation from command line
+- Copy/paste items from/to tabs
+- Faster searching
+
+v1.1.0
+- Better performance
+- New configuration options
+- Improved command line
+
+v1.0.2
+- Improved Windows compatibility
+- Global shortcuts
+- Automatic commands
+
+v1.0.1
+- Compatibility with different platforms
+
