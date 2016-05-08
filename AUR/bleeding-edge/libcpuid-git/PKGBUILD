@@ -4,7 +4,7 @@
 _pkgname=libcpuid
 pkgname=$_pkgname-git
 epoch=2
-pkgver=0.2.2.r26.gf55168b
+pkgver=0.2.2.r28.g756ef8c
 pkgrel=1
 pkgdesc="Provides CPU identification for x86 (and x86_64)"
 arch=('i686' 'x86_64')
