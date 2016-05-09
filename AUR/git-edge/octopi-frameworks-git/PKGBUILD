@@ -2,7 +2,7 @@
 # Contributor: Filip Brcic <brcha@gna.org>
 
 pkgname=octopi-frameworks-git
-pkgver=0.9.0.r1091.fb117c4
+pkgver=0.9.0.r1092.dea7426
 pkgrel=1
 pkgdesc="A powerful Pacman frontend using Qt libs (Qt5 & KF5 build)"
 arch=('i686' 'x86_64')
@@ -14,8 +14,9 @@ optdepends=('pacmanlogviewer-qt5' 'kdesu' 'yaourt' 'pkgfile' 'gist' 'pacaur')
 provides=('octopi' 'octopi-notifier' 'octopi-repoeditor' 'octopi-cachecleaner')
 conflicts=('octopi' 'octopi-notifier' 'octopi-notifier-qt4' 'octopi-notifier-foundations' 'octopi-repoeditor' 'octopi-cachecleaner' 'oktopi-git' 'octopi-frameworks')
 changelog='CHANGELOG'
-source=("${pkgname}::git+${url}.git")
-sha256sums=('SKIP')
+source=("${pkgname}::git+${url}.git" 'images.tar.gz')
+sha256sums=('SKIP'
+            '596fa43c78f1cae92c3ce8d577828901a6e1064b252263b3ffdb314ec4bcbbaa')
 pkgver() {
     cd "${srcdir}/${pkgname}"
     printf "0.9.0.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
@@ -24,8 +25,8 @@ pkgver() {
 build() {
     cd "${srcdir}/${pkgname}"
     msg "Prepare octopi..."
-    #rm -r "resources/images"
-    #mv -iv "${srcdir}/images/" "resources/"
+    rm -r "resources/images"
+    mv -iv "${srcdir}/images/" "resources/"
     sed -i 's/#DEFINES += KSTATUS/DEFINES += KSTATUS/' "notifier/octopi-notifier/octopi-notifier.pro"
   
     msg "Building octopi..."
