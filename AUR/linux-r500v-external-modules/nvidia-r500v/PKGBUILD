@@ -1,0 +1,51 @@
+# Maintainer: graysky <graysky AT archlnux.us>
+# Contributor: Sven-Hendrik Haase <sh@lutzhaase.com>
+# Contrubutor: Thomas Baechler <thomas@archlinux.org>
+
+pkgname=nvidia-r500v
+pkgver=364.19
+_extramodules=extramodules-4.5-r500v
+pkgrel=1
+_pkgdesc="NVIDIA drivers for linux-r500v."
+pkgdesc="$_pkgdesc"
+arch=('i686' 'x86_64')
+url="http://www.nvidia.com/"
+depends=('linux-r500v>=4.5' 'linux-r500v<4.6' 'libgl' "nvidia-utils=${pkgver}" 'xz')
+makedepends=('linux-r500v-headers>=4.5' 'linux-r500v-headers<4.6')
+conflicts=('nvidia-dkms')
+license=('custom')
+install=nvidia-r500v.install
+options=(!strip)
+source_i686=("http://us.download.nvidia.com/XFree86/Linux-x86/${pkgver}/NVIDIA-Linux-x86-${pkgver}.run")
+source_x86_64=("http://us.download.nvidia.com/XFree86/Linux-x86_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
+sha256sums_i686=('9f891d4b22c43c9094b59af5c8474e29c70813110b346834a5cad81a224d4112')
+sha256sums_x86_64=('d7fcc78409d9ebc5663d1d925076199de2c64bbc16df84d9ed783f8f873e8c5d')
+[[ "$CARCH" = "i686" ]] && _pkg="NVIDIA-Linux-x86-${pkgver}"
+[[ "$CARCH" = "x86_64" ]] && _pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
+
+prepare() {
+    sh "${_pkg}.run" --extract-only
+    cd "${_pkg}"
+    # patches here
+}
+
+build() {
+    _kernver="$(cat /usr/lib/modules/${_extramodules}/version)"
+    cd "${_pkg}/kernel"
+    make SYSSRC=/usr/lib/modules/"${_kernver}/build" module
+}
+
+package() {
+    install -Dm644 "${srcdir}/${_pkg}/kernel/nvidia.ko"         "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia.ko"
+    install -Dm644 "${srcdir}/${_pkg}/kernel/nvidia-modeset.ko" "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia-modeset.ko"
+    install -Dm644 "${srcdir}/${_pkg}/kernel/nvidia-drm.ko"     "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia-drm.ko"
+
+    if [[ "$CARCH" = "x86_64" ]]; then
+        install -D -m644 "${srcdir}/${_pkg}/kernel/nvidia-uvm.ko" "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia-uvm.ko"
+    fi
+
+    xz -T 0 -7 "${pkgdir}/usr/lib/modules/${_extramodules}/"*.ko
+    install -dm755 "${pkgdir}/usr/lib/modprobe.d"
+
+    echo "blacklist nouveau" >> "${pkgdir}/usr/lib/modprobe.d/nvidia-r500v.conf"
+}
