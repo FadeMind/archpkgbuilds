@@ -5,7 +5,7 @@
 # Contributor: David Manouchehri <d@32t.ca>
 
 pkgname=dropbox
-pkgver=3.19.35
+pkgver=3.20.1
 pkgrel=1
 pkgdesc="A free service that lets you bring your photos, docs, and videos anywhere and share them easily."
 arch=("x86_64")
@@ -28,7 +28,7 @@ source=("${pkgname}-lnx.${arch}-${pkgver}.tar.gz::https://dl.${pkgname}userconte
         "${pkgname}.png"
         "${pkgname}-papirus.zip"
         "terms.txt")
-sha256sums=('67aaadaa0ec565fdce5aa4d88a5d59c04b7011c80b7903243b6012dd9eaf94d6'
+sha256sums=('6f7789e9c8183b2d1bf9a81659aca107193e2872e60893782cb4294d7bb61d9c'
             '4240052a07a0f38dbdea6f199d5f1fc7b04ace9bf7474a63f09bdff7682a5154'
             '541f2fd2de0d601a08cde7853e404062f542af21e6e7106825b5e68177168e0f'
             'e7d245f5d1a3d5322614b61400ae2913a8caef44bc86717ff7d8197a15dd7f01'
@@ -46,8 +46,8 @@ package() {
     cd .${pkgname}-dist
     install -dm755 ${pkgdir}/opt
     cp -dr --no-preserve='ownership' "${pkgname}-lnx.${arch}-${pkgver}" "${pkgdir}/opt/${pkgname}"
-    #rm -rf "${pkgdir}/opt/${pkgname}/images/hicolor/"
-    #cp -R "${srcdir}/hicolor/" "${pkgdir}/opt/${pkgname}/images/"
+    rm -rf "${pkgdir}/opt/${pkgname}/images/hicolor/"
+    cp -R "${srcdir}/hicolor/" "${pkgdir}/opt/${pkgname}/images/"
     find ${pkgdir}/opt/${pkgname} -type d -exec chmod 755 {} +
     find ${pkgdir}/opt/${pkgname} -type f -exec chmod 644 {} +
     chmod 755 ${pkgdir}/opt/${pkgname}/${pkgname}{,d}
