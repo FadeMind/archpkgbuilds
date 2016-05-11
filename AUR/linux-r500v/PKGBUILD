@@ -23,7 +23,7 @@ _toiver=2016-04-21
 source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         ### Configs
         'config.x86_64' "${pkgbase}.preset"
-        ### Arch patches 
+        ### Arch Linux and Manjaro patches
         '0001-change-default-console-loglevel.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
@@ -40,7 +40,7 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         ### Backported from stable-queue
         'KRNL-4.5-20160510.tar.xz')
 
-sha256sums=('f0735530239c73c5a4e6fb6d04aa3c0ca67fd28a16e51a123d9a4a0a0c242f7b'
+sha256sums=('02ea62220691508cc3e2c4d32973ed7b47c8a5fccd39e234494abc761560b815'
             'c2881d1bd38d256f159998fd844006304eac350be7125ca3318e0c48292b87e6'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
@@ -110,9 +110,9 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
     
-    msg "Setting GCC flags for IVYBRIDGE..."
-    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    #msg "Setting GCC flags for IVYBRIDGE..."
+    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     ### 1000 Hz interrupt frequency instead of 300Hz
     # 1000 Hz is the preferred choice for desktop systems and other

@@ -17,6 +17,7 @@
  - [Reiser4](https://sourceforge.net/projects/reiser4/) support. [ArchWiki](https://wiki.archlinux.org/index.php/Reiser4) [reiser4.wiki.kernel.org](https://reiser4.wiki.kernel.org/index.php/Main_Page)
  - Less debug warning/error messages in `dmesg`.
  - Upstream Arch Linux and Manjaro patches.
+ - Patches from [stable-queue](https://git.kernel.org/cgit/linux/kernel/git/stable/stable-queue.git/).
  
 **Customs**
 
