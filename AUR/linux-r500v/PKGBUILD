@@ -34,7 +34,7 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         ### mute
         'MUTE-4.5-20160322.tar.xz'
         ### reiser4 filesystem patch
-        'REISER4-4.5-20160501.tar.xz'
+        'REISER4-4.5-20160509.tar.xz'
         ### GCC6
         'GCC6-4.5-20160429.tar.xz'
         ### Backported from stable-queue
@@ -49,7 +49,7 @@ sha256sums=('02ea62220691508cc3e2c4d32973ed7b47c8a5fccd39e234494abc761560b815'
             'f479a5ca6abe4d50ca4c09e6e83a027369fcd3efff8d5ce60f0699d8fa47beb8'
             '650d80deaf159b1cf12e3967242256bcd35150cdbe27c63ba25f17369992968e'
             'bc58924d2543869ef236d95aa5bbfd2ffd8e2171d251eeb1585d5f8f4bf5d295'
-            'eb6021174f81d5e67d34d99c954ecbe17a8ac07b892978388452c4e3a8439ca1'
+            'eea7169ca63388f2dfe74d08b343e9fc1e3894b2954e3af8a648e10bfb6dd866'
             '93601fdb1479357fd17635ef6372e8750c57eefffb1a9eca18a363714939dde6'
             '627cb7589035a09bb0fdc2641cb57748bbaa6ce5aaaf52505733bac248b0b687')
 
@@ -71,7 +71,7 @@ prepare() {
     patch -p1 -i "${srcdir}/0001-change-default-console-loglevel.patch"
     
     msg "Patching source with reiser4 patch"
-    patch -Np1 -i "${srcdir}/0001-reiser4-for-4.5.2.patch"
+    patch -Np1 -i "${srcdir}/0001-reiser4-for-4.5.3.patch"
     
     msg "Patching source with TuxOnIce patch"
     patch -Np1 -i "${srcdir}/0001-tuxonice-for-linux-4.5.2-${_toiver}.patch"
@@ -110,9 +110,9 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
     
-    #msg "Setting GCC flags for IVYBRIDGE..."
-    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    msg "Setting GCC flags for IVYBRIDGE..."
+    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     ### 1000 Hz interrupt frequency instead of 300Hz
     # 1000 Hz is the preferred choice for desktop systems and other
