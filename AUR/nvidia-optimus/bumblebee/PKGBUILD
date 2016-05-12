@@ -2,7 +2,7 @@
 # Maintainer: Sven-Hendrik Haase <sh@lutzhaase.com>
 
 pkgname=bumblebee
-pkgver=20160508
+pkgver=20160511
 pkgrel=1
 pkgdesc="NVIDIA Optimus support for Linux through VirtualGL"
 arch=('i686' 'x86_64')

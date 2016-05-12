@@ -12,7 +12,7 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 
 pkgbase=linux-r500v
 _srcname=zen-kernel-4.5-master
-pkgver=4.5.3
+pkgver=4.5.4
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/zen-kernel/zen-kernel"
@@ -36,12 +36,10 @@ source=("zen-${pkgver}.zip::${url}/archive/4.5/master.zip"
         ### reiser4 filesystem patch
         'REISER4-4.5-20160509.tar.xz'
         ### GCC6
-        'GCC6-4.5-20160429.tar.xz'
-        ### Backported from stable-queue
-        'KRNL-4.5-20160510.tar.xz')
+        'GCC6-4.5-20160429.tar.xz')
 
-sha256sums=('02ea62220691508cc3e2c4d32973ed7b47c8a5fccd39e234494abc761560b815'
-            'c2881d1bd38d256f159998fd844006304eac350be7125ca3318e0c48292b87e6'
+sha256sums=('5312a40d472fd192eb36e1b08ef540ab416cecdfdbe82d0c6a872e5c6a4f0a2c'
+            '38fb0b61e479dbb0812f0ebccf20af8c0082a4e2eaac49f72d651862b0db2db8'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
@@ -50,18 +48,12 @@ sha256sums=('02ea62220691508cc3e2c4d32973ed7b47c8a5fccd39e234494abc761560b815'
             '650d80deaf159b1cf12e3967242256bcd35150cdbe27c63ba25f17369992968e'
             'bc58924d2543869ef236d95aa5bbfd2ffd8e2171d251eeb1585d5f8f4bf5d295'
             'eea7169ca63388f2dfe74d08b343e9fc1e3894b2954e3af8a648e10bfb6dd866'
-            '93601fdb1479357fd17635ef6372e8750c57eefffb1a9eca18a363714939dde6'
-            '627cb7589035a09bb0fdc2641cb57748bbaa6ce5aaaf52505733bac248b0b687')
+            '93601fdb1479357fd17635ef6372e8750c57eefffb1a9eca18a363714939dde6')
 
 _kernelname=${pkgbase#linux}
 
 prepare() {
     cd "${srcdir}/${_srcname}"
-    
-    msg "Patching source with Backported patches"
-    for p in $(ls ${srcdir}/KRNL*.patch); do
-        patch -p1 -i "$p"
-    done
     
     # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
     # remove this when a Kconfig knob is made available by upstream
@@ -110,9 +102,9 @@ prepare() {
         sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
     fi
     
-    msg "Setting GCC flags for IVYBRIDGE..."
-    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    #msg "Setting GCC flags for IVYBRIDGE..."
+    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     ### 1000 Hz interrupt frequency instead of 300Hz
     # 1000 Hz is the preferred choice for desktop systems and other

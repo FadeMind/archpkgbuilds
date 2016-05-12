@@ -11,13 +11,12 @@
  - [CK BFS CPU Scheduler 0.469](http://users.tpg.com.au/ckolivas/kernel/)
  - [Graysky's GCC patch](https://github.com/graysky2/kernel_gcc_patch) **Customize `config.x86_64` against Your CPU family flag BEFORE build a package.**
  - [Budget Fair Queueing (BFQ) Storage-I/O Scheduler 4.5.0-v7r11](http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php) is enabled as default I/O sheduler.
- - [TuxOnIce 3.3](http://tuxonice.nigelcunningham.com.au/) support. [Arch Wiki](https://wiki.archlinux.org/index.php/TuxOnIce).
+ - [TuxOnIce](http://tuxonice.nigelcunningham.com.au/) support. [Arch Wiki](https://wiki.archlinux.org/index.php/TuxOnIce).
  - [AUFS4](http://aufs.sourceforge.net/) support. 
  - [EXFAT](https://github.com/dorimanx/exfat-nofuse) support.
  - [Reiser4](https://sourceforge.net/projects/reiser4/) support. [ArchWiki](https://wiki.archlinux.org/index.php/Reiser4) [reiser4.wiki.kernel.org](https://reiser4.wiki.kernel.org/index.php/Main_Page)
  - Less debug warning/error messages in `dmesg`.
  - Upstream Arch Linux and Manjaro patches.
- - Patches from [stable-queue](https://git.kernel.org/cgit/linux/kernel/git/stable/stable-queue.git/).
  
 **Customs**
 
