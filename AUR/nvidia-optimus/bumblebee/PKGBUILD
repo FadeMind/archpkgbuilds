@@ -1,31 +1,31 @@
 # Maintainer: FadeMind <fademind@gmail.com>
 # Maintainer: Sven-Hendrik Haase <sh@lutzhaase.com>
 
-pkgname=bumblebee
-pkgver=20160511
+pkgname=bumblebee-git
+pkgver=20160512
 pkgrel=1
+epoch=1
 pkgdesc="NVIDIA Optimus support for Linux through VirtualGL"
 arch=('i686' 'x86_64')
-depends=('virtualgl' 'glib2' 'mesa-libgl' 'kmod')
+url="http://www.bumblebee-project.org"
+license=("GPL3")
+depends=('glib2' 'kmod' 'mesa-libgl' 'virtualgl')
 makedepends=('bash' 'git' 'help2man')
 optdepends=('bbswitch: switch on/off discrete card' 
             'nvidia: NVIDIA kernel driver'
             'nvidia-340xx: NVIDIA kernel driver for older devices'
             'nvidia-304xx: NVIDIA kernel driver for even older devices'
             'primus: faster back-end for optirun')
-if [ "$CARCH" = "x86_64" ]; then
-     optdepends[${#optdepends[@]}]='lib32-virtualgl: run 32bit applications with optirun'
-     optdepends[${#optdepends[@]}]='lib32-primus: faster back-end for optirun'
-fi
-conflicts=('nvidia-libgl' 'nvidia-340xx-libgl' 'nvidia-304xx-libgl')
-provides=('nvidia-libgl' 'nvidia-340xx-libgl' 'nvidia-304xx-libgl')
-url="http://www.bumblebee-project.org"
-license=("GPL3")
-install='bumblebee.install'
+optdepends_x86_64=('lib32-virtualgl: run 32bit applications with optirun'
+                   'lib32-primus: faster back-end for optirun')
+provides=('bumblebee' 'nvidia-libgl' 'nvidia-340xx-libgl' 'nvidia-304xx-libgl')
+conflicts=('bumblebee' 'nvidia-libgl' 'nvidia-340xx-libgl' 'nvidia-304xx-libgl')
 backup=('etc/bumblebee/bumblebee.conf' 
         'etc/bumblebee/xorg.conf.nouveau' 
         'etc/bumblebee/xorg.conf.nvidia')
-source=("${pkgname}::git+https://github.com/FadeMind/Bumblebee.git" 'bumblebee.conf')
+install='bumblebee.install'
+source=("${pkgname}::git+https://github.com/FadeMind/Bumblebee.git" 
+        'bumblebee.conf')
 sha256sums=('SKIP'
             '1c3d4f5d40245a23a5f1cb1f2f6bd4274ff3c5b3749f76a09255191328ae3193')
 
@@ -36,6 +36,7 @@ pkgver() {
 
 build() {
     cd ${pkgname}
+    msg2 "Preparing bumblebee sources..."
     autoreconf -fi
     ./configure \
         CONF_DRIVER_MODULE_NVIDIA=nvidia \
@@ -46,26 +47,32 @@ build() {
         --with-udev-rules=/usr/lib/udev/rules.d/ \
         --sysconfdir=/etc \
         --without-pidfile
+    msg2 "Making bumblebee..."
     make
 }
 
 package() {
     cd ${pkgname}
-    
+
     # Install main app
+    msg2 "Installing bumblebee..."
     make install DESTDIR="$pkgdir"
     
     # Blacklist nvidia and nouveau modules
     # Reference: https://github.com/Bumblebee-Project/Bumblebee/issues/719
+    msg2 "Blacklisting nvidia and nouveau modules..."
     install -Dm644 "${srcdir}/bumblebee.conf" "${pkgdir}/usr/lib/modprobe.d/bumblebee.conf"
     
     # Install systemd unit
+    msg2 "Installing systemd unit..."
     install -Dm644 "scripts/systemd/bumblebeed.service" "${pkgdir}/usr/lib/systemd/system/bumblebeed.service"    
     sed -i "s/sbin/bin/" "${pkgdir}/usr/lib/systemd/system/bumblebeed.service"
 
     # Make bash_completion work
+    msg2 "Making bash_completion work..."
     mv -v "${pkgdir}/etc/bash_completion.d/bumblebee" "${pkgdir}/etc/bash_completion.d/optirun"
     
     # Install udev rule to prevent GH-#144
+    msg2 "Installing udev rule..."
     install -Dm644 "conf/99-bumblebee-nvidia-dev.rules" "${pkgdir}/usr/lib/udev/rules.d/99-bumblebee-nvidia-dev.rules"
 }
