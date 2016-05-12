@@ -35,6 +35,9 @@ pkgver() {
 }            
 
 build() {
+    export CFLAGS="-g -Ofast"
+    export CPPFLAGS="-g -Ofast"
+    
     cd ${pkgname}
     msg2 "Preparing bumblebee sources..."
     autoreconf -fi
@@ -47,6 +50,7 @@ build() {
         --with-udev-rules=/usr/lib/udev/rules.d/ \
         --sysconfdir=/etc \
         --without-pidfile
+    
     msg2 "Making bumblebee..."
     make
 }

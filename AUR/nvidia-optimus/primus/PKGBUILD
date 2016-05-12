@@ -16,15 +16,16 @@ sha1sums=('SKIP'
           'fd48f89c55c1ad854d7a985781faed2c52c0135f')
 
 prepare() {
-  cd primus
+    cd primus
 
-  patch -Np1 < "$srcdir/register_cleanup.patch"
+    patch -Np1 < "$srcdir/register_cleanup.patch"
 }
 
 build() {
-  cd primus
+    export CXXFLAGS="-Ofast"
+    cd primus
 
-  make
+    make
 }
 
 package() {
@@ -41,5 +42,3 @@ package() {
 
   install -D -m644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
-
-# vim:set ts=2 sw=2 et:

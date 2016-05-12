@@ -26,6 +26,7 @@ build() {
 
   export CC="g++ -m32"
   export CXX="g++ -m32"
+  export CXXFLAGS="-Ofast"
 
   LIBDIR=lib32 make
 }
