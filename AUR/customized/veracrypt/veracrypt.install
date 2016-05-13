@@ -1,0 +1,3 @@
+post_upgrade() {
+  ( [[ -e /usr/share/pixmaps/icon-theme.cache ]] && rm /usr/share/pixmaps/icon-theme.cache ) || true
+}
