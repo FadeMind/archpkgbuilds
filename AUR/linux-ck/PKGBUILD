@@ -13,7 +13,7 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 pkgname=(linux-ck linux-ck-headers)
 _kernelname=-ck
 _srcname=linux-4.5
-pkgver=4.5.2
+pkgver=4.5.4
 pkgrel=1
 arch=('x86_64')
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -38,7 +38,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         ### Graysky GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
         ### TuxOnIce patch
-        "0001-tuxonice-for-linux-${pkgver}-${_toiver}.patch"
+        "0001-tuxonice-for-linux-4.5.2-${_toiver}.patch"
         ### mute
         'MUTE-01-efi-bgrt-4.5.patch'
         'MUTE-02-intel-fifo-underrun-4.5.patch'
@@ -65,7 +65,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 
 sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
             'SKIP'
-            'a9913a04ddbd06acde9b00b3179c41fddb99f61168ef5d01d3e8cf72385038b1'
+            '6a9cfe691ac77346c48b7f83375a1880ebb379594de1000acad45da45d711e42'
             'SKIP'
             'e6f7ad7b39cd41e24d72ebaeac5a7af6c0b2967dfb34dafe315a40de488d8052'
             '2b3ebf5446aa3cac279842ca00bc1f2d6b7ff1766915282c201d763dbf6ca07e'
@@ -121,7 +121,7 @@ prepare() {
     patch -Np1 -i "${srcdir}/0001-patch-${_bfsver}.patch"
     
     msg "Patching source with TuxOnIce patch"
-    patch -Np1 -i "${srcdir}/0001-tuxonice-for-linux-${pkgver}-${_toiver}.patch"
+    patch -Np1 -i "${srcdir}/0001-tuxonice-for-linux-4.5.2-${_toiver}.patch"
     
     # Fix Nvidia 304xx issue
     # https://bugs.archlinux.org/task/47092

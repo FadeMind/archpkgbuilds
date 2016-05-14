@@ -1,0 +1,12 @@
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=0
+GRUB_DISTRIBUTOR="Arch"
+GRUB_CMDLINE_LINUX_DEFAULT=quiet
+GRUB_CMDLINE_LINUX="acpi_enforce_resources=lax acpi_osi=Linux acpi_osi='!Windows 2012' acpi=force pcie_aspm=force zswap.enabled=1 zswap.compressor=lz4 scsi_mod.use_blk_mq=1 rd.udev.log-priority=3 ath9k.ps_enable=1 nmi_watchdog=0 ipv6.disable=1 net.ifnames=0 i915.modeset=1 nogpumanager intel_iommu=igfx_off bbswitch.unload_state=0 bbswitch.load_state=0" # DEBUG DRM drm.debug=0x7 
+GRUB_SAVEDEFAULT=true
+GRUB_DISABLE_SUBMENU=y
+GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+GRUB_TERMINAL_INPUT=console
+GRUB_GFXMODE=auto
+GRUB_GFXPAYLOAD_LINUX=keep
+GRUB_DISABLE_RECOVERY=true

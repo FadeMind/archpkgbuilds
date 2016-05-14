@@ -1,73 +1,115 @@
 # Maintainer : Ramon Buldó <ramon@manjaro.org>
+# Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
+# Contributor: Alexander Baldeck <alexander@archlinux.org>
+# Contributor: Dale Blount <dale@archlinux.org>
+# Contributor: Anders Bostrom <anders.bostrom@home.se>
 # Contributor: AlmAck <almack@chakra-project.org>
 
 pkgname=thunderbird-kde
-pkgver=45.0
+pkgver=45.1.0
 pkgrel=1
 provides=(thunderbird=${pkgver})
-pkgdesc="Standalone Mail/News reader"
+pkgdesc="Standalone mail and news reader from mozilla.org"
 arch=('i686' 'x86_64')
-license=('MPL' 'GPL')
+license=('MPL' 'GPL' 'LGPL')
 url="http://www.mozilla.org/thunderbird/"
 depends=('gtk2' 'mozilla-common' 'libxt' 'startup-notification' 'mime-types'
-         'dbus-glib' 'alsa-lib' 'desktop-file-utils' 'hicolor-icon-theme'
-         'libvpx' 'icu' 'libevent' 'nss' 'hunspell' 'sqlite' 'nspr' 'libnotify')
-makedepends=('unzip' 'zip' 'python2' 'wireless_tools' 'yasm' 'mesa' 'libpulse'
-             'pkg-config' 'autoconf2.13' 'gst-plugins-base-libs' 'xorg-server-xvfb')
+         'dbus-glib' 'alsa-lib' 'libvpx' 'icu' 'libevent' 'nss' 'hunspell' 
+         'sqlite' 'ttf-font' 'nspr' 'libnotify')
+makedepends=('unzip' 'zip' 'diffutils' 'python2' 'yasm' 'mesa' 'imake' 'gconf' 
+             'libpulse' 'inetutils' 'pkg-config' 'autoconf2.13' 'xorg-server-xvfb')
 optdepends=('thunderbird-i18n: for multilanguage support'
             'libcanberra: for sound support')
 conflicts=('thunderbird' 'thunderbird-kde-opensuse')
-# For patch look here: https://build.opensuse.org/package/show/mozilla:Factory/MozillaThunderbird
-source=("thunderbird-${pkgver}.source.tar.xz::https://ftp.mozilla.org/pub/thunderbird/releases/${pkgver}/source/thunderbird-${pkgver}.source.tar.xz"
-        'mozconfig'
-        'thunderbird.desktop'
-        'thunderbird-install-dir.patch'
-        'vendor.js'
-        'mozilla-kde.patch'
-        'mozilla-language.patch'
-        'mozilla-nongnome-proxies.patch'
-        'kde.js')
 options=('!emptydirs' '!makeflags')
-sha256sums=('e2b1453ac193615586e350bc729278db8c8a61a8d4ac089db370754af47d4493'
-            '6ce788b80d0a1bac96201ca4f4ce93fee5a94e222b1ddb6cdee5c6db2d00ef77'
+# For patch look here: https://build.opensuse.org/package/show/mozilla:Factory/MozillaThunderbird
+source=(https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/$pkgver/source/thunderbird-$pkgver.source.tar.xz
+        mozconfig
+        thunderbird.desktop
+        thunderbird-install-dir.patch
+        firefox-gcc-6.0.patch mozilla-1228540.patch mozilla-1228540-1.patch
+        vendor.js
+        mozilla-kde.patch
+        mozilla-language.patch
+        mozilla-nongnome-proxies.patch
+        kde.js)
+sha256sums=('8ae9ebe536895d69d99f412f2b3aba645b7dd839e520959330da13892d672309'
+            '3ae18949ebb4bfd3990258cc855bcc3ac46e3f1f3154780d3e3bd1524956593b'
             'b4371b9021fd5f65a1f546fca36c6c326a00ef0f57b448e86a33656ac7f780a8'
             '24599eab8862476744fe1619a9a53a5b8cdcab30b3fc5767512f31d3529bd05d'
+            '4d1e1ddabc9e975ed39f49e134559a29e01cd49439e358233f1ede43bf5a52bf'
+            '2588c567fec88b44b65f0cd111e8769361c138d4c964310684f7bb80066f8f9f'
+            'd1ccbaf0973615c57f7893355e5cd3a89efb4e91071d0ec376e429b50cf6ed19'
             'e4ea8e6788163d9f8db8f1f40023db3ea0a1358f9a4510169f2d4c4fe6a887ed'
-            'b1392d15005ae9bc2bba86a447ae235bc033bf8a904cbe60fed4e98bf8b3b11d'
+            '3e7d8d65b481c03eb1da37b2e211f018e6fc9de381433205398e5ddaaff1c44a'
             'b9feb66a33dc1644d7d277dc3fc166c655735de7100bc4e93f1fe44567f35345'
             'e8289ea4c1f8191e1e23661312ceee2128b8e790501b9a589d0d7bfc4384553f'
             '0850a8a8dea9003c67a8ee1fa5eb19a6599eaad9f2ad09db753b74dc5048fdbc')
 
+# Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
+# Note: These are for Arch Linux use ONLY. For your own distribution, please
+# get your own set of keys. Feel free to contact foutrelis@archlinux.org for
+# more information.
+_google_api_key=AIzaSyDwr302FpOSkGRpLlUpPThNTDPbXcIn_FM
+_google_default_client_id=413772536636.apps.googleusercontent.com
+_google_default_client_secret=0ZChLK6AxeA3Isu96MkwqDR4
+
+# Mozilla API keys (see https://location.services.mozilla.com/api)
+# Note: These are for Arch Linux use ONLY. For your own distribution, please
+# get your own set of keys. Feel free to contact heftig@archlinux.org for
+# more information.
+_mozilla_api_key=16674381-f021-49de-8622-3021c5942aff
+
+
 prepare(){
-  cd comm-esr${pkgver%%.*}
+  cd thunderbird-$pkgver
+
+  cp ../mozconfig .mozconfig
   patch -Np1 -i ../thunderbird-install-dir.patch
 
+  # Required for GCC 6
+  patch -d mozilla -Np1 < ../firefox-gcc-6.0.patch
+  patch -d mozilla -Np1 < ../mozilla-1228540.patch
+  patch -d mozilla -Np1 < ../mozilla-1228540-1.patch
+
+  echo -n "$_google_api_key" >google-api-key
+  echo "ac_add_options --with-google-api-keyfile=\"$PWD/google-api-key\"" >>.mozconfig
+
+  echo -n "$_google_default_client_id $_google_default_client_secret" >google-oauth-api-key
+  echo "ac_add_options --with-google-oauth-api-keyfile=\"$PWD/google-oauth-api-key\"" >>.mozconfig
+
+  echo -n "$_mozilla_api_key" >mozilla-api-key
+  echo "ac_add_options --with-mozilla-api-keyfile=\"$PWD/mozilla-api-key\"" >>.mozconfig
+
+  mkdir "$srcdir/path"
+  ln -s /usr/bin/python2 "$srcdir/path/python"
+
   msg "Patching for KDE"
-  cd mozilla
-  patch -Np1 -i "$srcdir/mozilla-language.patch"
-  patch -Np1 -i "$srcdir/mozilla-nongnome-proxies.patch"
-  patch -Np1 -i "$srcdir/mozilla-kde.patch"
-  cd ..
-
-  cp "$srcdir/mozconfig" .mozconfig
-
-  # configure script misdetects the preprocessor without an optimization level
-  # https://bugs.archlinux.org/task/34644
-  sed -i '/ac_cpp=/s/$CPPFLAGS/& -O2/' mozilla/configure
+  patch -d mozilla -Np1 < ../mozilla-language.patch
+  patch -d mozilla -Np1 < ../mozilla-nongnome-proxies.patch
+  patch -d mozilla -Np1 < ../mozilla-kde.patch
 }
-         
-build() {
-  cd comm-esr${pkgver%%.*}
 
-  export PYTHON="/usr/bin/python2"
-  
+build() {
+  cd thunderbird-$pkgver
+
+  # _FORTIFY_SOURCE causes configure failures
+  CPPFLAGS+=" -O2"
+
+  # GCC 6
+  CFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse"
+  CXXFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse"
+
+  export PATH="$srcdir/path:$PATH"
+
   xvfb-run -a -s "-extension GLX -screen 0 1280x1024x24" \
-    make -f client.mk build MOZ_PGO=1
+    make -f client.mk profiledbuild
 }
 
 package() {
-  cd comm-esr${pkgver%%.*}
-  make -f client.mk DESTDIR="$pkgdir" install
+  cd thunderbird-$pkgver
+  make -f client.mk DESTDIR="$pkgdir" INSTALL_SDK= install
 
   install -Dm644 "$srcdir"/vendor.js "$pkgdir/usr/lib/thunderbird/defaults/preferences/vendor.js"
   install -Dm644 "$srcdir"/kde.js "$pkgdir/usr/lib/thunderbird/defaults/preferences/kde.js"
@@ -82,13 +124,10 @@ package() {
 
   # Use system-provided dictionaries
   rm -rf "$pkgdir"/usr/lib/thunderbird/{dictionaries,hyphenation}
-  ln -sf /usr/share/hunspell "$pkgdir/usr/lib/thunderbird/dictionaries"
-  ln -sf /usr/share/hyphen "$pkgdir/usr/lib/thunderbird/hyphenation"
-  
+  ln -s /usr/share/hunspell "$pkgdir/usr/lib/thunderbird/dictionaries"
+  ln -s /usr/share/hyphen "$pkgdir/usr/lib/thunderbird/hyphenation"
+
   # Replace duplicate binary with symlink
   # https://bugzilla.mozilla.org/show_bug.cgi?id=658850
   ln -sf thunderbird "$pkgdir/usr/lib/thunderbird/thunderbird-bin"
-
-  # Remove development stuff
-  rm -r "$pkgdir"/usr/{include,lib/thunderbird-devel-*,share/idl}
 }
