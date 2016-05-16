@@ -19,7 +19,7 @@ pkgrel=1
 arch=('x86_64')
 url="http://www.kernel.org/"
 license=('GPL2')
-makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'xz')
+makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'elfutils' 'xz')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
@@ -38,7 +38,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 
 sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             'SKIP'
-            '86362da5f1f3b425dfef8c9de170f18e45b62fea74ed7a35c03e6b1014e91811'
+            '2b4bb0678b86e1f64efd28bcab6f5db0b8f7afb8f9ccb4ce6abc47ff94b6647b'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             'f479a5ca6abe4d50ca4c09e6e83a027369fcd3efff8d5ce60f0699d8fa47beb8'
@@ -325,6 +325,12 @@ _package-headers() {
         cp ${i} "${pkgdir}/usr/lib/modules/${_kernver}/build/${i}"
     done
 
+    # add objtool for external module building and enabled VALIDATION_STACK option
+    if [ -f tools/objtool/objtool ];  then
+        mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/tools/objtool"
+        cp -a tools/objtool/objtool ${pkgdir}/usr/lib/modules/${_kernver}/build/tools/objtool/ 
+    fi
+  
     chown -R root.root "${pkgdir}/usr/lib/modules/${_kernver}/build"
     find "${pkgdir}/usr/lib/modules/${_kernver}/build" -type d -exec chmod 755 {} \;
 
