@@ -892,20 +892,6 @@ intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
 
 ------------------------------------------------------------------------------------------------------------------------------------
-filename:       /lib/modules/4.6.0-1-r500v46/kernel/crypto/ccm.ko.xz
-alias:          crypto-ccm
-alias:          ccm
-alias:          crypto-rfc4309
-alias:          rfc4309
-alias:          crypto-ccm_base
-alias:          ccm_base
-description:    Counter with CBC MAC
-license:        GPL
-depends:        
-intree:         Y
-vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
-
-------------------------------------------------------------------------------------------------------------------------------------
 filename:       /lib/modules/4.6.0-1-r500v46/kernel/drivers/cdrom/cdrom.ko.xz
 license:        GPL
 depends:        
@@ -937,7 +923,7 @@ description:    VFS to access servers complying with the SNIA CIFS Specification
 license:        GPL
 author:         Steve French <sfrench@us.ibm.com>
 alias:          fs-cifs
-srcversion:     7A0A06D67FDF2F5A95F367E
+srcversion:     493E788C32FC641A4DF5A8C
 depends:        fscache,dns_resolver
 intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
@@ -1061,18 +1047,6 @@ filename:       /lib/modules/4.6.0-1-r500v46/kernel/crypto/cryptd.ko.xz
 alias:          crypto-cryptd
 alias:          cryptd
 description:    Software async crypto daemon
-license:        GPL
-depends:        
-intree:         Y
-vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
-
-------------------------------------------------------------------------------------------------------------------------------------
-filename:       /lib/modules/4.6.0-1-r500v46/kernel/crypto/ctr.ko.xz
-alias:          crypto-ctr
-alias:          ctr
-alias:          crypto-rfc3686
-alias:          rfc3686
-description:    CTR Counter block mode
 license:        GPL
 depends:        
 intree:         Y
@@ -1898,7 +1872,6 @@ alias:          cpu:type:x86,ven0000fam0006mod004A:feature:*
 alias:          cpu:type:x86,ven0000fam0006mod004C:feature:*
 alias:          cpu:type:x86,ven0000fam0006mod004E:feature:*
 alias:          cpu:type:x86,ven0000fam0006mod0047:feature:*
-alias:          cpu:type:x86,ven0000fam0006mod0046:feature:*
 alias:          cpu:type:x86,ven0000fam0006mod0045:feature:*
 alias:          cpu:type:x86,ven0000fam0006mod004F:feature:*
 alias:          cpu:type:x86,ven0000fam0006mod003F:feature:*
@@ -1911,9 +1884,6 @@ alias:          cpu:type:x86,ven0000fam0006mod002A:feature:*
 depends:        
 intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
-
-------------------------------------------------------------------------------------------------------------------------------------
-modinfo: ERROR: Module iosf_mbi not found.
 
 ------------------------------------------------------------------------------------------------------------------------------------
 filename:       /lib/modules/4.6.0-1-r500v46/kernel/net/ipv6/netfilter/ip6table_filter.ko.xz
@@ -2810,7 +2780,7 @@ version:        2.1.32
 description:    NTFS 1.2/3.x driver - Copyright (c) 2001-2014 Anton Altaparmakov and Tuxera Inc.
 author:         Anton Altaparmakov <anton@tuxera.com>
 alias:          fs-ntfs
-srcversion:     B79099841F8E90DB5800697
+srcversion:     478F3EC081407F39EDF426A
 depends:        
 intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
@@ -3303,7 +3273,7 @@ alias:          hdaudio:v1002AA01r*a01*
 alias:          hdaudio:v1002791Ar*a01*
 alias:          hdaudio:v10027919r*a01*
 alias:          hdaudio:v1002793Cr*a01*
-depends:        snd-hda-core,snd,snd-hda-codec,snd-pcm
+depends:        snd,snd-hda-codec,snd-hda-core,snd-pcm
 intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
 parm:           static_hdmi_pcm:Don't restrict PCM parameters per ELD info (bool)
@@ -3455,7 +3425,6 @@ alias:          pci:v00008086d0000160Csv*sd*bc*sc*i*
 alias:          pci:v00008086d00000D0Csv*sd*bc*sc*i*
 alias:          pci:v00008086d00000C0Csv*sd*bc*sc*i*
 alias:          pci:v00008086d00000A0Csv*sd*bc*sc*i*
-alias:          pci:v00008086d00001A98sv*sd*bc*sc*i*
 alias:          pci:v00008086d00005A98sv*sd*bc*sc*i*
 alias:          pci:v00008086d00009D70sv*sd*bc*sc*i*
 alias:          pci:v00008086d0000A170sv*sd*bc*sc*i*
@@ -3471,7 +3440,7 @@ alias:          pci:v00008086d00008C20sv*sd*bc*sc*i*
 alias:          pci:v00008086d00001E20sv*sd*bc*sc*i*
 alias:          pci:v00008086d00001D20sv*sd*bc*sc*i*
 alias:          pci:v00008086d00001C20sv*sd*bc*sc*i*
-depends:        snd-hda-core,snd-hda-codec,snd-pcm,snd
+depends:        snd-hda-codec,snd-hda-core,snd-pcm,snd
 intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
 parm:           index:Index value for Intel HD audio interface. (array of int)
@@ -3649,15 +3618,6 @@ parm:           hid:Set additional specific HID for this driver to probe (string
 parm:           force:Force device probe rather than using ACPI entry (bool)
 
 ------------------------------------------------------------------------------------------------------------------------------------
-filename:       /lib/modules/4.6.0-1-r500v46/kernel/drivers/gpu/drm/ttm/ttm.ko.xz
-license:        GPL and additional rights
-description:    TTM memory manager subsystem (for DRM device)
-author:         Thomas Hellstrom, Jerome Glisse
-depends:        drm
-intree:         Y
-vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
-
-------------------------------------------------------------------------------------------------------------------------------------
 filename:       /lib/modules/4.6.0-1-r500v46/kernel/arch/x86/crypto/twofish-avx-x86_64.ko.xz
 alias:          crypto-twofish
 alias:          twofish
@@ -3720,7 +3680,6 @@ alias:          usb:v0BC2pA0A4d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2pA013d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2pA003d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2p3320d*dc*dsc*dp*ic*isc*ip*in*
-alias:          usb:v0BC2p331Ad*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2p3312d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2p2312d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0984p0301d0128dc*dsc*dp*ic*isc*ip*in*
@@ -3735,19 +3694,6 @@ description:    Universal Disk Format Filesystem
 author:         Ben Fennema
 alias:          fs-udf
 depends:        crc-itu-t
-intree:         Y
-vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
-
-------------------------------------------------------------------------------------------------------------------------------------
-filename:       /lib/modules/4.6.0-1-r500v46/kernel/drivers/input/misc/uinput.ko.xz
-version:        0.3
-license:        GPL
-description:    User level driver support for input subsystem
-author:         Aristeu Sergio Rozanski Filho
-alias:          devname:uinput
-alias:          char-major-10-223
-srcversion:     A71681D743D5A69E48C9C5D
-depends:        
 intree:         Y
 vermagic:       4.6.0-1-r500v46 SMP preempt mod_unload modversions 
 
@@ -3847,7 +3793,6 @@ alias:          usb:v0BC2pA0A4d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2pA013d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2pA003d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2p3320d*dc*dsc*dp*ic*isc*ip*in*
-alias:          usb:v0BC2p331Ad*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2p3312d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0BC2p2312d*dc*dsc*dp*ic*isc*ip*in*
 alias:          usb:v0984p0301d0128dc*dsc*dp*ic*isc*ip*in*
