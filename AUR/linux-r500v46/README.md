@@ -3,15 +3,13 @@
   <img src="http://i.imgur.com/BbD1jGBl.jpg" alt="tux"/>
 </p>
 
-##<p align="center">Linux Kernel 4.6 RC with custom patchset<br/></p>
+##<p align="center">Linux Kernel 4.6 with custom patchset<br/></p>
 
 **Included Patches**
 
  - [Graysky's GCC patch](https://github.com/graysky2/kernel_gcc_patch)
- - [Budget Fair Queueing (BFQ) Storage-I/O Scheduler 4.4.0-v7r11](http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php) is enabled in default.
- - Less debug warning/error messages in `dmesg`.
- - Upstream Arch Linux and Manjaro patches.
- - [AUFS4](http://aufs.sourceforge.net/) support is enabled in default.
+ - [Budget Fair Queueing (BFQ) Storage-I/O Scheduler 4.5.0-v7r11](http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php) is enabled in default.
+ - Upstream Arch Linux patches.
  
 **Customs**
 

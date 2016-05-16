@@ -11,74 +11,40 @@ _localmodcfg=     # Optionally load needed modules for the make localmodconfigs
 ### Do no edit below this line unless you know what you're doing    
 
 pkgbase=linux-r500v46
-_srcname=linux-4.5
-_patchver=4.6-rc5
-pkgver=4.6rc5
+_srcname=linux-4.6
+#_patchver=4.6
+_bfqver=v7r11
+pkgver=4.6
 pkgrel=1
 arch=('x86_64')
 url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'xz')
 options=('!strip')
-#_zenpatch=aef76a8a11ead31f777986fb3ad0d9e7d497f7ac
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-${_patchver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/testing/patch-${_patchver}.sign"
+        #"https://www.kernel.org/pub/linux/kernel/v4.x/patch-${_patchver}.xz"
+        #"https://www.kernel.org/pub/linux/kernel/v4.x/patch-${_patchver}.sign"
         ### Configs
         'config.x86_64' 'linux-r500v46.preset'
-        ### Arch and Manjaro patches 
+        ### Arch patches 
         '0001-change-default-console-loglevel.patch'
-        '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
-        ### AUFS4 support
-        "aufs4.x-rcN-20160328.patch"
-        'aufs4-base.patch'
-        'aufs4-kbuild.patch'
-        'aufs4-loopback.patch'
-        'aufs4-mmap.patch'
-        'aufs4-standalone.patch'
-        'tmpfs-idr.patch'
-        'vfs-ino.patch'
-        ### BFQ support
-        '0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.4.0.patch'
-        '0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.4.0.patch'
-        '0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch'
         ### GCC CPU patch
         '0001-enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
-        ### mute
-        '0001-mute-efi-bgrt-4.6.patch'
-        '0002-mute-intel-fifo-underrun-4.6.patch'
-        '0003-mute-osl-4.6.patch'
-        '0004-mute-lpc-ich-4.6.patch'
-        '0005-mute-intel-rapl-4.6.patch'
-        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch')
+        ### Paolo Valente Budget Fair Queueing (BFQ) Storage-I/O Scheduler v7r11
+        "BFQ-01-block-cgroups-kconfig-build-bits-for-BFQ-${_bfqver}-4.5.0.patch"
+        "BFQ-02-block-introduce-the-BFQ-${_bfqver}-I-O-sched-for-4.5.0.patch"
+        "BFQ-03-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-${_bfqver}-for-4.5.0.patch")
 
-sha256sums=('a40defb401e01b37d6b8c8ad5c1bbab665be6ac6310cdeed59950c96b31a519c'
+sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             'SKIP'
-            '792466e412ed0f3a1401c7563eef138c03bc76e21e6928e220035eb4a0f42e2f'
-            'SKIP'
-            '33f8dc1d597e431da82c7a121d9c8dbedd5e327ea0381d9405517ebed8e9a8bb'
+            'f43ba0e2b696f6802f65068e7ab80eb6415940442161f8f3d7e55989c393e314'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
-            '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
-            '54af8cc1ad27605a29bd1af4a0ff29272c104276a15d3e0c7820650795104e40'
-            'f013d6c39809d3455185a38b0fedd9a5a78226eb881b24df760bf4e42cb69056'
-            '6d47f56dfe2937c1d8c0a0e9f10d9d3c02e39db394077544d0b7a7138b76c1ac'
-            '01641ed867f9fca3616eef7b2bf496a744257e91220d2ca7d0995133a11f489b'
-            '103bec6851fb24f2d1c5fef011d8ff2a4fb2d288ca2276f361d5cefc6822089f'
-            '22814996b9c428dcca7badf6695829cfb951b199663fda15fbb83cb97f4042a8'
-            '7a5cd24c4752aac4c662493050eab33d871d5d35e9858636ad6c2a0f14227ac4'
-            '8fd87c9ab764ad599c61c6878148d7e3ecd2d082257061da9708a6567fc5ba45'
-            'd1cf14cc696b0f716454fe8eb9746383700889d5d22ad829611f0433cc77b4ce'
-            'b17c3fb18c5b8c20a45a38198f293679ca6aef08d16f12cd816a5cfafac4b2c4'
-            '69a21bc286a628128cfc4723558829cb6ff6c2d7c4dfd4468457898674187b25'
             'f479a5ca6abe4d50ca4c09e6e83a027369fcd3efff8d5ce60f0699d8fa47beb8'
-            '1cefdac511d9062ad644085a1a013a4367163b3e5a98a162398147b003c4c00b'
-            'c9a44f7b3cbeea3cd373ba24c515a22fc95e392dc24a98d914127edea6fc8c18'
-            'dda83ac32c2c4f338890191b87f8bb330182af83c6f28c0c3e96a3d13e85247d'
-            '1b4dbb6af30bf800cb488ccfbe55deb3073c028223e2b06f5a8399556b5b73ec'
-            '9a6f3dcf6329de78fb816989a6d03bcf2d3323d691cccee76f1ef25128f0eaa3'
-            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2')
+            '5d19ecb91320a64f0abb6c8e70205fef848ada967093faa94e4c0c39c340d0c8'
+            '9c1e11772ff29d37dacc9246f63e24d5154eb61682ba2b7e175a9ccbdc7116e1'
+            'e0c9474431b60ca9fc3da04e7610748219da143440f1d7f5152572c7c63b52e0')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -89,50 +55,23 @@ validpgpkeys=(
 
 _kernelname=${pkgbase#linux}
 
-pkgver(){
-    echo "${_patchver/-/}"
-}
+#pkgver(){
+#    echo "${_patchver/-/}"
+#}
 
 prepare() {
     cd "${srcdir}/${_srcname}"
     
-    msg "Patching source with upstream patches"
-    patch -p1 -i "${srcdir}/patch-${_patchver}"
+    #msg "Patching source with upstream patches"
+    #patch -p1 -i "${srcdir}/patch-${_patchver}"
     
     # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
     # remove this when a Kconfig knob is made available by upstream
     # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
     patch -p1 -i "${srcdir}/0001-change-default-console-loglevel.patch"
     
-    # Fix Nvidia 304xx issue
-    # https://bugs.archlinux.org/task/47092
-    msg "Fix Nvidia 304xx issue"
-    patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
-    
-    # There's no real reason the user should care that we're about to fall
-    # back to bitbanging, so let's change the message from DRM_INFO to DRM_DEBUG_KMS.
-    # https://bugs.freedesktop.org/show_bug.cgi?id=94890
-    # https://patchwork.freedesktop.org/patch/76053/
-    msg "drm/i915: Make GMBUS timeout message DRM_DEBUG_KMS"
-    patch -Np1 -i "${srcdir}/0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
-    
-    msg "Patching source with AUFS4 patches"
-    patch -Np1 -i "${srcdir}/aufs4.x-rcN-20160328.patch"
-    patch -Np1 -i "${srcdir}/aufs4-base.patch"
-    patch -Np1 -i "${srcdir}/aufs4-kbuild.patch"
-    patch -Np1 -i "${srcdir}/aufs4-loopback.patch"
-    patch -Np1 -i "${srcdir}/aufs4-mmap.patch"
-    patch -Np1 -i "${srcdir}/aufs4-standalone.patch"
-    patch -Np1 -i "${srcdir}/tmpfs-idr.patch"
-    patch -Np1 -i "${srcdir}/vfs-ino.patch"
-    
-    msg "Patching source with mute patches"
-    for p in $(ls ${srcdir}/000{1,2,3,4,5}-mute*.patch); do
-        patch -Np1 -i "$p"
-    done
-    
     msg "Patching source with BFQ patches"
-    for p in $(ls ${srcdir}/000{1,2,3}-block*.patch); do
+    for p in $(ls ${srcdir}/BFQ*.patch); do
         patch -Np1 -i "$p"
     done
     
@@ -177,10 +116,10 @@ prepare() {
         
     ### Setting BFQ as default I/O scheduler
     # http://algo.ing.unimo.it/people/paolo/disk_sched/sources.php
-    msg "Setting BFQ as default I/O scheduler"
-    sed -i -e '/CONFIG_DEFAULT_IOSCHED/ s,cfq,bfq,' \
-        -i -e s'/CONFIG_DEFAULT_CFQ=y/# CONFIG_DEFAULT_CFQ is not set\nCONFIG_DEFAULT_BFQ=y/' \
-        -i -e s'/CONFIG_CFQ_GROUP_IOSCHED=y/CONFIG_CFQ_GROUP_IOSCHED=y\nCONFIG_IOSCHED_BFQ=y\nCONFIG_BFQ_GROUP_IOSCHED=y/' ./.config
+    #msg "Setting BFQ as default I/O scheduler"
+    #sed -i -e '/CONFIG_DEFAULT_IOSCHED/ s,cfq,bfq,' \
+    #    -i -e s'/CONFIG_DEFAULT_CFQ=y/# CONFIG_DEFAULT_CFQ is not set\nCONFIG_DEFAULT_BFQ=y/' \
+    #    -i -e s'/CONFIG_CFQ_GROUP_IOSCHED=y/CONFIG_CFQ_GROUP_IOSCHED=y\nCONFIG_IOSCHED_BFQ=y\nCONFIG_BFQ_GROUP_IOSCHED=y/' ./.config
         
     ### Enabling XZ kernel compression
     # XZ uses the LZMA2 algorithm and instruction set specific BCJ filters 

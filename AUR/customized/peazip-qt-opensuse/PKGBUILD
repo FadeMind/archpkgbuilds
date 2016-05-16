@@ -1,29 +1,30 @@
+# Contributor: FadeMind <fademind@gmail.com>
 # Contributor: Yamashita Ren
 # Contributor: Limao Luo <luolimao+AUR@gmail.com>
 # Contributor: TuxSpirit <tuxspirit@archlinux.fr>
 
 pkgname=peazip-qt-opensuse
-pkgver=6.0.1
-_rpmrel=1.1
+pkgver=6.0.2
+_rpmrel=3.1
 pkgrel=1
 pkgdesc="QT archiver utility (openSUSE x86_64 RPM)"
-arch=(x86_64)
-url=http://peazip.sourceforge.net/peazip-linux.html
-license=(Artistic2.0 LGPL2.1)
-depends=(curl desktop-file-utils gmp4 libx11 ncurses qt4pas)
-optdepends=(balz lpaq p7zip paq8o quad unace upx rar zpaq)
+arch=('x86_64')
+url='http://peazip.sourceforge.net/peazip-linux.html'
+license=('Artistic2.0' 'LGPL2.1')
+depends=('curl' 'desktop-file-utils' 'gmp4' 'libx11' 'ncurses' 'qt4pas')
+optdepends=('balz' 'lpaq' 'p7zip' 'paq8o' 'quad' 'unace' 'upx' 'rar' 'zpaq')
 provides=(${pkgname%-*-*} ${pkgname%-*})
 conflicts=(${pkgname%-*-*} ${pkgname%-*-*}-gtk2 ${pkgname%-*})
-source=(http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Factory/${arch}/${pkgname%-*-*}-${pkgver}-${_rpmrel}.${arch}.rpm 
-        https://github.com/FadeMind/peazip-additional-formats-plugin/archive/master.zip
-        http://www.peazip.org/peazip_help.pdf)
-sha256sums=('7ae858362df20cb9850268861b26b853489da725779a097a5227709212b7d1bf'
+source=("http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Factory/${arch}/${pkgname%-*-*}-${pkgver}-${_rpmrel}.${arch}.rpm"
+        'https://github.com/FadeMind/peazip-additional-formats-plugin/archive/master.zip'
+        'http://www.peazip.org/peazip_help.pdf')
+sha256sums=('6cde64172121c0cf6ad11f9c2e80367f210b0f21891ce9ef50c236654b0b2c76'
             '32bb0d25c2c746d55c07fd336b443581bdf0d28ffadd7a23b5bb2ad86e0fa5c7'
             '925e9c65f4ae38c120651cdfc6567687770238487655e0bcd4f1e6bf53ca2929')
 
 prepare() {
     # creating lib path
-    install -dm755 "$srcdir"/usr/lib
+    install -d "$srcdir"/usr/lib
     # removing conflicts
     rm -R "$srcdir"/usr/share/peazip/res/upx
     # moving peazip directory to proper path
