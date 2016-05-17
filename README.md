@@ -13,14 +13,10 @@
 * [**AUR/gtk-edge**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/gtk-edge)    GTK3 PKGBUILDs
 * [**AUR/linux-ck**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-ck)    Linux Kernel 4.5 with **CK BFS CPU Scheduler 0.469** and custom patchset.
 * [**AUR/linux-r500v**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v)   Linux Kernel 4.5 with CK BFS patch, ZEN customisations and additional custom patchset.
-* [**AUR/linux-r500v46**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v46)  Linux Kernel 4.6 with custom patchset <br/>
+* [**AUR/linux-r500v46**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v46)  Linux Kernel 4.6 with ZEN customisations and additional custom patchset <br/>
 * [**AUR/maintained**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/maintained)    packages currently maintained by me
 * [**AUR/mozilla-kde**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/mozilla-kde)  Firefox and Thunderbird with KDE patches (copied from [**Manjaro Community Repository**](https://github.com/manjaro/packages-community))
 * [**AUR/nvidia-optimus**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/nvidia-optimus)    `Bumblebee` `Primus` `NVIDIA Drivers` and extras
-
-| **DO NOT USE `linux-r500v46` ON PRODUCTION DESKTOP. THIS IS DEVELOPMENT VERSION FOR TESTING ONLY.** **LOTS OF EXTERNAL MODULES DOES NOT WORK DUE CHANGES IN KERNEL CODE.** |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
 
 **Clone Repository**
 

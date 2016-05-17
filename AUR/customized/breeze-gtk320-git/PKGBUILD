@@ -1,0 +1,22 @@
+# Maintainer: FadeMind <fademind@gmail.com>
+
+pkgname=breeze-gtk320-git
+pkgver=3.20.20160517
+pkgrel=1
+pkgdesc="Breeze widget theme for GTK 2 and 3"
+arch=(i686 x86_64)
+url='https://github.com/dirruk1/gnome-breeze'
+license=(LGPL)
+depends_i686=(gtk{2,3} gdk-pixbuf2)
+depends_x86_64=(gtk{2,3} {lib32-,}gdk-pixbuf2 lib32-gtk3)
+conflicts=('breeze-gtk')
+provides=('breeze-gtk')
+replaces=('breeze-gtk')
+source=(20160517-breeze-gtk.tar.gz)
+sha256sums=('3319df97050530d625c06df6e7850844706d056b45fb087db5c4cb9622b836c6')
+package() {
+    install -d ${pkgdir}/usr/share/themes
+    cp -R  ${srcdir}/Breeze* ${pkgdir}/usr/share/themes/
+    find "${pkgdir}" -type f -exec chmod 644 {} +
+    find "${pkgdir}" -type d -exec chmod 755 {} +
+}
