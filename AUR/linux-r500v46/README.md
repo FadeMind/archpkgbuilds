@@ -22,11 +22,11 @@
  
  - `CONFIG_HZ_1000`
 
-|1000 Hz is the preferred choice for desktop systems and other systems requiring fast interactive responses to events.|
-|---------------------------------------------------------------------------------------------------------------------|
+|1000 Hz is the preferred choice for desktop systems requiring fast interactive responses to events.|
+|---------------------------------------------------------------------------------------------------|
 
  - `CONFIG_CC_OPTIMIZE_HARDER`
- ```
+
 |This option will pass "-O3" to your compiler resulting in a larger and faster kernel. The more complex optimizations also increase compilation time and may affect stability.|
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
