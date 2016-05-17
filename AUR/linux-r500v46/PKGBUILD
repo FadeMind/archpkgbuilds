@@ -145,9 +145,9 @@ prepare() {
     #    -i -e s'/# CONFIG_MODULE_COMPRESS_XZ is not set/CONFIG_MODULE_COMPRESS_XZ=y /' ./.config
     ### WARNING CHANGES ARE INCLUDED IN config.x86_64 FILE ALREADY ## END ###
     
-    msg2 "Setting GCC flags for IVYBRIDGE..."
-    sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
-    sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
+    #msg2 "Setting GCC flags for IVYBRIDGE..."
+    #sed -i -e s'/CONFIG_GENERIC_CPU=y/# CONFIG_GENERIC_CPU is not set/' ./.config
+    #sed -i -e s'/# CONFIG_MIVYBRIDGE is not set/CONFIG_MIVYBRIDGE=y/' ./.config
     
     # set extraversion to pkgrel
     sed -ri "s|^(EXTRAVERSION =).*|\1 -${pkgrel}|" Makefile
