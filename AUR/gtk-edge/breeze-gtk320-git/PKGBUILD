@@ -1,14 +1,14 @@
 # Maintainer: FadeMind <fademind@gmail.com>
 
 pkgname=breeze-gtk320-git
-pkgver=3.20."20160510"
+pkgver=3.20."20160520"
 pkgrel=1
 pkgdesc="Breeze widget theme for GTK 2 and 3"
 arch=(i686 x86_64)
 url='https://github.com/FadeMind/breeze-gtk'
 license=(LGPL)
-depends_i686=(gtk{2,3} gdk-pixbuf2)
-depends_x86_64=(gtk{2,3} {lib32-,}gdk-pixbuf2 lib32-gtk3)
+depends=(gtk{2,3} gdk-pixbuf2)
+optdepends_x86_64=(lib32-{gdk-pixbuf2,gtk3})
 makedepends=('git')
 conflicts=('breeze-gtk')
 provides=('breeze-gtk')
