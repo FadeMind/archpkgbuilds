@@ -7,14 +7,14 @@
 # Contributor: Daniel J Griffiths <ghost1227 at archlinux dot us>
 
 pkgname=aria2-git
-pkgver=1.23.0.6.g1603d8e
+pkgver=1.23.0.7.g949a580
 pkgrel=1
 pkgdesc='Download utility that supports HTTP(S), FTP, BitTorrent, and Metalink'
 arch=('i686' 'x86_64')
 url='http://aria2.sourceforge.net/'
 license=('GPL')
 conflicts=('aria2')
-provides=('aria2')
+provides=("aria2=${pkgver%.*}")
 depends=('gnutls' 'libxml2' 'sqlite' 'c-ares' 'ca-certificates' 'libssh2')
 makedepends=('git' 'python2-sphinx')
 checkdepends=('cppunit')

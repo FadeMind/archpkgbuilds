@@ -2,7 +2,7 @@
 # Contributor: SanskritFritz (gmail)
 
 pkgname=copyq-git
-pkgver=20160430
+pkgver=20160517
 pkgrel=1
 pkgdesc="Clipboard manager with searchable and editable history."
 url="https://github.com/hluk/CopyQ"
