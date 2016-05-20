@@ -2,17 +2,18 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=lib32-libglvnd
-pkgver=0.1.0.20160329
-_commit=af2aeb0b4293e085ad61eae08be34e52f9d7b389
-pkgrel=3
+pkgver=0.1.0.20160519
+pkgrel=1
 pkgdesc="The GL Vendor-Neutral Dispatch library"
 arch=('x86_64')
 url="https://github.com/NVIDIA/libglvnd"
 license=('custom:BSD-like')
 depends=('lib32-libxext' 'libglvnd')
 makedepends=('xorg-server-devel' 'git' 'python2')
-source=("git+https://github.com/NVIDIA/libglvnd.git#commit=$_commit")
-sha1sums=('SKIP')
+source=("git+${url}.git"
+        LICENSE)
+sha1sums=('SKIP'
+          'c88e07f333fcf8dcdbef370b85372b4d88ad8a66')
 
 build() {
   export CC='gcc -m32'
