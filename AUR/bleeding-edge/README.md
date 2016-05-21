@@ -23,24 +23,38 @@
 
 **CLANG, LIBDRM, LLVM, MESA**
 
-    export LANG=C && yes|yaourt -Rdd {llvm-{,libs-,ocaml-},clang-{analyzer-,compiler-rt-,tools-extra-}}svn \
-    {mesa-{,libgl-,vdpau-},libva-mesa-driver-,opencl-mesa-}git \
-    lib32-{llvm-{,libs-}svn,clang-svn,{mesa-{,libgl-,vdpau-},libva-mesa-driver-}git} {lib32-,}libdrm-git && \
-    yaourt -Sy --noconfirm mesa{,-libgl} clang libdrm lib32-{mesa{,-libgl},libdrm,clang,llvm,llvm,llvm-libs}
+```
+yaourt -Rdd $(pacman -Qqe|grep mesa|grep git) ;\
+yaourt -Rdd $(pacman -Qqe|grep clang|grep svn) ;\
+yaourt -Rdd $(pacman -Qqe|grep llvm|grep svn) ;\
+yaourt -Rdd $(pacman -Qqe|grep libdrm|grep git)
+```
+```
+yaourt -S --needed  mesa mesa-libgl llvm llvm-libs clang libdrm
+yaourt -S --needed  lib32-mesa lib32-mesa-libgl lib32-clang lib32-llvm-libs libdrm
+```
 
 **GCC**
 
-    export LANG=C && yes|yaourt -Rdd {gcc{,-libs,-objc}-multilib,lib32-gcc-libs}-git && \
-    yaourt -Sy --noconfirm gcc{,-libs,-objc}-multilib lib32-gcc-libs
+```
+yaourt -Rdd $(pacman -Qqe|grep gcc|grep git)
+```
+```
+yaourt -Sy --noconfirm gcc gcc-libs
+yaourt -Sy --noconfirm gcc{,-libs,-objc}-multilib lib32-gcc-libs
+```
 
 **xf86-video-intel**
 
-    export LANG=C && yes|yaourt -Sy --noconfirm xf86-video-intel
-    
+```
+export LANG=C && yes|yaourt -Sy --noconfirm xf86-video-intel
+```
+
 **linux-firmware**
 
-    export LANG=C && yes|yaourt -Sy --noconfirm linux-firmware 
-
+```
+export LANG=C && yes|yaourt -Sy --noconfirm linux-firmware 
+```
 <hr/>
 
 All trademarks are the property of their respective owners.
