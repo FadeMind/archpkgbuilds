@@ -89,7 +89,6 @@ prepare() {
     patch -Np1 -i "${srcdir}/0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
     
     ### Patch source to enable more gcc CPU optimizatons via the make nconfig
-    ### ATTENTION during prepare config wizard will ask you for proper CPU family
     # https://github.com/graysky2/kernel_gcc_patch
     msg2 "Patching source with gcc patch to enable more cpus types"
     patch -Np1 -i "${srcdir}/${_gccpatch}"
@@ -211,10 +210,10 @@ _package() {
     # remove the firmware
     rm -rf "${pkgdir}/lib/firmware"
     # make room for external modules
-    ln -s "../extramodules-${_basekernel}${_kernelname:r500v46}" "${pkgdir}/lib/modules/${_kernver}/extramodules"
+    ln -s "../extramodules-${_basekernel}${_kernelname:r500v}" "${pkgdir}/lib/modules/${_kernver}/extramodules"
     # add real version for building modules and running depmod from post_install/upgrade
-    mkdir -p "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:r500v46}"
-    echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:r500v46}/version"
+    mkdir -p "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:r500v}"
+    echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:r500v}/version"
 
     # Now we call depmod...
     depmod -b "${pkgdir}" -F System.map "${_kernver}"

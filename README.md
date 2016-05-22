@@ -11,7 +11,7 @@
 * [**AUR/extras**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/extras)    ACPI tables tools, modprobed-db tools
 * [**AUR/git-edge**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/git-edge)    GIT based packages PKGBUILDs
 * [**AUR/gtk-edge**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/gtk-edge)    GTK3 PKGBUILDs
-* [**AUR/linux-r500v46**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v)  Linux Kernel 4.6 with ZEN customisations and additional custom patchset
+* [**AUR/linux-r500v**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/linux-r500v)  Linux Kernel 4.6 with ZEN customisations and additional custom patchset
 * [**AUR/maintained**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/maintained)    packages currently maintained by me
 * [**AUR/mozilla-kde**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/mozilla-kde)  Firefox and Thunderbird with KDE patches (copied from [**Manjaro Community Repository**](https://github.com/manjaro/packages-community))
 * [**AUR/nvidia-optimus**](https://github.com/FadeMind/archpkgbuilds/tree/master/AUR/nvidia-optimus)    `Bumblebee` `Primus` `NVIDIA Drivers` and extras
