@@ -3,7 +3,7 @@
 # Contributor: Boyan Ding <stu_dby@126.com>
 
 _realname=bbswitch
-_extramodules=extramodules-4.5-r500v # Don't forget to update bbswitch-r500v.install
+_extramodules=extramodules-4.6-r500v # Don't forget to update bbswitch-4.6-r500v.install
 pkgname=bbswitch-r500v
 pkgver=0.8
 pkgrel=1
@@ -11,22 +11,30 @@ pkgdesc="Kernel module allowing to switch dedicated graphics card on Optimus lap
 arch=('i686' 'x86_64')
 url="http://github.com/Bumblebee-Project/bbswitch"
 license=('GPL')
-depends=('linux-r500v>=4.5' 'linux-r500v<4.6' 'xz')
-makedepends=('linux-r500v-headers>=4.5' 'linux-r500v-headers<4.6')
+depends=('linux-r500v>=4.6' 'linux-r500v<4.7' 'xz')
+makedepends=('linux-r500v-headers>=4.6' 'linux-r500v-headers<4.7')
 conflicts=('bbswitch-dkms')
 provides=('bbswitch')
 install=${pkgname}.install
-source=("v${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
-md5sums=('5b116b31ace3604ddf9d1fc1f4bc5807')
+source=("v${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz"
+        "0001-disable-DSM-if-power-resources-are-in-use.patch")
+sha256sums=('76cabd3f734fb4fe6ebfe3ec9814138d0d6f47d47238521ecbd6a986b60d1477'
+            'e3959d8c3526979b6f684c06aaa061b06466a60e4c5009b2fc57cf8a3fdaa600')
+
+prepare() {
+    cd ${srcdir}/${_realname}-${pkgver}
+    patch -Np1 -i "${srcdir}/0001-disable-DSM-if-power-resources-are-in-use.patch"
+}
 
 build() {
     cd ${srcdir}/${_realname}-${pkgver}
     _kernver="$(cat /usr/lib/modules/${_extramodules}/version)"
+    make -k clean
     make KDIR=/lib/modules/${_kernver}/build
 }
 
 package() {
-  cd ${srcdir}/${_realname}-${pkgver}
-  install -Dm644 bbswitch.ko "${pkgdir}"/usr/lib/modules/${_extramodules}/bbswitch.ko
-  xz -T 0 -7 "${pkgdir}/usr/lib/modules/${_extramodules}/bbswitch.ko"
+    cd ${srcdir}/${_realname}-${pkgver}
+    install -Dm644 bbswitch.ko "${pkgdir}"/usr/lib/modules/${_extramodules}/bbswitch.ko
+    xz -T 0 -7 "${pkgdir}/usr/lib/modules/${_extramodules}/bbswitch.ko"
 }

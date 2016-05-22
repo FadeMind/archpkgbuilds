@@ -1,5 +1,5 @@
 post_install() {
-    EXTRAMODULES='extramodules-4.5-r500v'
+    EXTRAMODULES='extramodules-4.6-r500v'
     depmod $(cat /usr/lib/modules/$EXTRAMODULES/version)
 }
 

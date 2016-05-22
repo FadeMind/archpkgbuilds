@@ -4,20 +4,22 @@
 
 pkgname=nvidia-r500v
 pkgver=367.18
-_extramodules=extramodules-4.5-r500v
+_extramodules=extramodules-4.6-r500v
 pkgrel=1
-_pkgdesc="NVIDIA drivers for linux-r500v."
+_pkgdesc="NVIDIA drivers for linux-r500v"
 pkgdesc="$_pkgdesc"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
-depends=('linux-r500v>=4.5' 'linux-r500v<4.6' 'libgl' "nvidia-utils=${pkgver}" 'xz')
-makedepends=('linux-r500v-headers>=4.5' 'linux-r500v-headers<4.6')
+depends=('linux-r500v>=4.6' 'linux-r500v<4.7' 'libgl' "nvidia-utils=${pkgver}" 'xz')
+makedepends=('linux-r500v-headers>=4.6' 'linux-r500v-headers<4.7')
 conflicts=('nvidia-dkms')
 license=('custom')
 install=nvidia-r500v.install
 options=(!strip)
+source=(0001-GCC-Ofast.patch)
 source_i686=("http://us.download.nvidia.com/XFree86/Linux-x86/${pkgver}/NVIDIA-Linux-x86-${pkgver}.run")
 source_x86_64=("http://us.download.nvidia.com/XFree86/Linux-x86_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
+sha256sums=('fbd4236ac014142c03f8839802b1301c3160b45509cb23cd6904af2afb44adb3')
 sha256sums_i686=('9a5184308a981b1b36dde4466006b7b45ff4c2a2f364374b3835112899a55dbd')
 sha256sums_x86_64=('2e512251203af2ae7d3691046de669b23b62ff3c2940e517940f2e510a93b376')
 [[ "$CARCH" = "i686" ]] && _pkg="NVIDIA-Linux-x86-${pkgver}"
@@ -27,6 +29,7 @@ prepare() {
     sh "${_pkg}.run" --extract-only
     cd "${_pkg}"
     # patches here
+    patch -Np1 -i $srcdir/0001-GCC-Ofast.patch
 }
 
 build() {

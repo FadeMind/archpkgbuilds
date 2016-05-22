@@ -1,0 +1,22 @@
+--- /kernel/conftest.sh	2015-11-17 03:04:38.000000000 +0100
++++ /kernel/conftest.sh	2015-12-21 20:33:35.000000000 +0100
+@@ -89,7 +89,7 @@
+ }
+ 
+ build_cflags() {
+-    BASE_CFLAGS="-O2 -D__KERNEL__ \
++    BASE_CFLAGS="-Ofast -march=native -D__KERNEL__ \
+ -DKBUILD_BASENAME=\"#conftest$$\" -DKBUILD_MODNAME=\"#conftest$$\" \
+ -nostdinc -isystem $ISYSTEM"
+ 
+--- /kernel/Kbuild	2015-11-17 03:31:21.000000000 +0100
++++ /kernel/Kbuild	2015-12-21 20:33:50.000000000 +0100
+@@ -59,7 +59,7 @@
+ EXTRA_CFLAGS += -I$(src)/common/inc
+ EXTRA_CFLAGS += -I$(src)
+ EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(INCLUDES) -Wsign-compare -Wno-cast-qual -Wno-error
+-EXTRA_CFLAGS += -D__KERNEL__ -DMODULE -DNVRM -DNV_VERSION_STRING=\"367.18\" -Wno-unused-function -Wuninitialized -fno-strict-aliasing -mno-red-zone -mcmodel=kernel -DNV_UVM_ENABLE -Wno-sign-compare -Wno-format-extra-args
++EXTRA_CFLAGS += -D__KERNEL__ -DMODULE -DNVRM -DNV_VERSION_STRING=\"367.18\" -Ofast -march=native -Wno-unused-function -Wuninitialized -fno-strict-aliasing -mno-red-zone -mcmodel=kernel -DNV_UVM_ENABLE -Wno-sign-compare -Wno-format-extra-args
+ 
+ #
+ # Detect SGI UV systems and apply system-specific optimizations.
