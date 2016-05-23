@@ -5,7 +5,7 @@
 # Contributor: David Manouchehri <d@32t.ca>
 
 pkgname=dropbox
-pkgver=4.3.25
+pkgver=4.3.26
 pkgrel=1
 pkgdesc="A free service that lets you bring your photos, docs, and videos anywhere and share them easily."
 arch=("x86_64")
@@ -22,13 +22,13 @@ replaces=("${pkgname}"
           "${pkgname}3" 
           "${pkgname}2")
 options=('!strip')
-source=("${pkgname}-lnx.${arch}-${pkgver}.tar.gz::https://dl.${pkgname}usercontent.com/u/17/${pkgname}-lnx.${arch}-${pkgver}.tar.gz" 
+source=("${pkgname}-lnx.${arch}-${pkgver}.tar.gz::https://d1ilhw0800yew8.cloudfront.net/client/${pkgname}-lnx.${arch}-${pkgver}.tar.gz" 
         "${pkgname}"
         "${pkgname}.desktop"
         "${pkgname}.png"
         "${pkgname}-papirus.zip"
         "terms.txt")
-sha256sums=('48538d5a3887996bad5e02ca60dfa77c3b7e1dc1775e8642bcd53e4089f588fb'
+sha256sums=('f4f52e4d4033145fdea94866dc9cc1f020157c58cc1f0ae726df6a35f90548ed'
             '4240052a07a0f38dbdea6f199d5f1fc7b04ace9bf7474a63f09bdff7682a5154'
             '541f2fd2de0d601a08cde7853e404062f542af21e6e7106825b5e68177168e0f'
             'e7d245f5d1a3d5322614b61400ae2913a8caef44bc86717ff7d8197a15dd7f01'

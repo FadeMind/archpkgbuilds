@@ -62,8 +62,8 @@ if ! [ -f "$1" ]; then
 fi
 
 # set base directory for template and .desktop file
-declare -r DIR=$(kde4-config --localprefix)/share/templates # .desktop file directory
-declare -r SOURCE="$DIR/.source"                            # template file directory
+declare -r DIR="$HOME/.local/share/templates" # .desktop file directory
+declare -r SOURCE="$DIR/.source"              # template file directory
 
 # make sure all required directories exist
 if ! mkdir -p $SOURCE >/dev/null 2>&1 && ! [ -d $SOURCE ]; then

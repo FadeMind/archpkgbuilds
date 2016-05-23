@@ -1,7 +1,7 @@
 # Maintainer: FadeMind <fademind@gmail.com>
 
 pkgname=breeze-gtk320-git
-pkgver=3.20."20160520"
+pkgver=3.20."20160523"
 pkgrel=1
 pkgdesc="Breeze widget theme for GTK 2 and 3"
 arch=(i686 x86_64)

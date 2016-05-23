@@ -18,7 +18,9 @@
 
 **Clone Repository**
 
-`git clone https://github.com/FadeMind/archpkgbuilds.git`
+```
+git clone https://github.com/FadeMind/archpkgbuilds.git
+```
 
 **License**
 
