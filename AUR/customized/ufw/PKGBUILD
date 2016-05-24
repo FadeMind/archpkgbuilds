@@ -1,0 +1,53 @@
+# $Id$
+# Maintainer: Kyle Keen <keenerd@gmail.com>
+# Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
+# Contributor: Jaroslav Lichtblau <dragonlord@aur.archlinux.org>
+# Contributor: Kessia 'even' Pinheiro <kessiapinheiro at gmail.com>
+# Contributor: Sorin Ionescu <sorin.ionescu@gmail.com>
+
+pkgname=ufw
+pkgver=0.35
+pkgrel=2
+pkgdesc="Uncomplicated and easy to use CLI tool for managing a netfilter firewall"
+arch=('any')
+url="https://launchpad.net/ufw"
+license=('GPL3')
+depends=('iptables' 'python3')
+backup=('etc/ufw/before.rules'
+        'etc/ufw/before6.rules'
+        'etc/ufw/after.rules'
+        'etc/ufw/after6.rules'
+        'etc/ufw/ufw.conf'
+        'etc/ufw/user.rules'
+        'etc/ufw/sysctl.conf'
+        'etc/default/ufw'
+        'usr/lib/ufw/user.rules'
+        'usr/lib/ufw/user6.rules'
+        'etc/ufw/user.rules'
+        'etc/ufw/user6.rules')
+source=(https://launchpad.net/ubuntu/+archive/primary/+files/ufw_${pkgver}.orig.tar.gz
+        service)
+sha256sums=('662f865bc83bf8aa1a40a6fe578bc2ce796ff60a1be2c1103def7db1b91f8509'
+            'fdface6f4690e4748fbbd5661c02e1967a8750fdb23581d35516174017a3fe39')
+
+# this /usr/lib/ufw/ rules were moved to /etc/ufw
+# remove /usr/lib from backup in O.36?
+
+package() {
+    cd "$pkgname-$pkgver"
+    
+    # FS#28769 - move from /lib to /usr/lib
+    sed -i -e 's|/lib|/usr/lib|' \
+           -e 's|sbin|bin|g' setup.py
+
+    python3 setup.py install --root="$pkgdir"
+
+    # FS#35458 - correct iptables location
+    
+    for f in applications.py backend_iptables.py backend.py common.py frontend.py __init__.py parser.py util.py
+    do
+        sed -i -e 's|sbin|bin|g' "$pkgdir"/usr/lib/python3.5/site-packages/ufw/$f
+    done
+    install -Dm644 "$srcdir/service" "$pkgdir/usr/lib/systemd/system/ufw.service"
+    chmod 644 "$pkgdir/etc/ufw/"*.rules
+}
