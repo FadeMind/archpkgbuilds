@@ -21,7 +21,10 @@ pkgver() {
 }
 
 prepare() {
-  mkdir -p build
+    if [[ -d build ]]; then
+        rm -Rf build
+    fi
+    mkdir -p build
 }
 
 build() { 

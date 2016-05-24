@@ -6,14 +6,14 @@ pkgver=r269.b009681
 pkgrel=1
 pkgdesc="A very powerful batch file renamer for KDE. KF5 Version."
 arch=('i686' 'x86_64')
-url="http://www.krename.net"
+url="https://github.com/sandsmark/krename"
 license=('GPL')
-depends=('kdelibs4support' 'taglib' 'podofo' 'kjs' 'exiv2' 'hicolor-icon-theme')
-makedepends=('cmake' 'automoc4' 'extra-cmake-modules' 'kdoctools' 'git')
+depends=('taglib' 'podofo' 'kjs' 'exiv2' 'hicolor-icon-theme')
+makedepends=('extra-cmake-modules' 'kdoctools' 'git')
 options=('libtool')
-provides=($_pkgname)
-conflicts=($_pkgname)
-source=(git+https://github.com/FadeMind/krename.git)
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+source=("${_pkgname}::git+${url}.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -21,18 +21,24 @@ pkgver() {
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+    if [[ -d build ]]; then
+        rm -Rf build
+    fi
+    mkdir -p build
+}
+
 build() {
-  mkdir build
-  cd build
-  cmake ../${_pkgname} \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUILD_TESTING=OFF \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_CXX_FLAGS="-I/usr/include/freetype2"
-  make
+    cd build
+    cmake ../${_pkgname} \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DBUILD_TESTING=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_CXX_FLAGS="-I/usr/include/freetype2"
+    make
 }
 
 package() {
-  cd build
-  make DESTDIR="${pkgdir}" install
+    cd build
+    make DESTDIR="${pkgdir}" install
 }
