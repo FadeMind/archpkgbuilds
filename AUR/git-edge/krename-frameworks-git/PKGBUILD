@@ -1,0 +1,38 @@
+# Maintainer: maz-1 <ohmygod19993 at gmail dot com>
+
+_pkgname=krename
+pkgname=$_pkgname-frameworks-git
+pkgver=r269.b009681
+pkgrel=1
+pkgdesc="A very powerful batch file renamer for KDE. KF5 Version."
+arch=('i686' 'x86_64')
+url="http://www.krename.net"
+license=('GPL')
+depends=('kdelibs4support' 'taglib' 'podofo' 'kjs' 'exiv2' 'hicolor-icon-theme')
+makedepends=('cmake' 'automoc4' 'extra-cmake-modules' 'kdoctools' 'git')
+options=('libtool')
+provides=($_pkgname)
+conflicts=($_pkgname)
+source=(git+https://github.com/FadeMind/krename.git)
+sha256sums=('SKIP')
+
+pkgver() {
+    cd ${_pkgname}
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  mkdir build
+  cd build
+  cmake ../${_pkgname} \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_TESTING=OFF \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_FLAGS="-I/usr/include/freetype2"
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="${pkgdir}" install
+}
