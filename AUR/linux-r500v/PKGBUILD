@@ -33,11 +33,11 @@ source=("https://cdn.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         ### GCC CPU patch
-        'enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch'
+        "${_gccpatch}.tar.xz"
         ### ZEN Tweaks
-        'zen-4.6-8eef8e59b2c372bea31d18b3b11e3d5a59484b17.patch'
+        "${_zenpatch}.tar.xz"
         ### reiser4
-        'reiser4-for-4.6.0.patch')
+        'reiser4-for-4.6.0.patch.tar.xz')
 
 sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             'SKIP'
@@ -46,9 +46,9 @@ sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
-            'f479a5ca6abe4d50ca4c09e6e83a027369fcd3efff8d5ce60f0699d8fa47beb8'
-            '84d772c224499f526593e444310bc32935e5a31ae160b30fe06d6a43d578f83e'
-            '2fe19ab7ebfcbbd1cac933d4bf4ef361da7b49ce74c029594b78c90bbbed9510')
+            '3fa4573432f86611d182e6fdd6aa9fec486f996737736f23b1204e451ed4dd60'
+            '20f2c38b09b093077fc65062f7cbc5b397c91cab93c00805accad824064d47b4'
+            '95d5c8ba47558a9066e4f79b4ca5149528a26dd900fefbf8a8f3ffc5d531a117')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
