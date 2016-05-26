@@ -28,10 +28,14 @@ source=("https://cdn.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         #"https://cdn.kernel.org/pub/linux/kernel/v4.x/patch-${_patchver}.sign"
         ### Configs
         'config.x86_64.zen' 'linux-r500v.preset'
-        ### Arch and Manjaro patches 
+        ### Arch, Gentoo and Manjaro patches 
         'change-default-console-loglevel.patch'
         '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
         '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
+        '1700_enable-thinkpad-micled.patch'
+        '2700_ThinkPad-30-brightness-control-fix.patch'
+        'i8042-asus-x455lab-dmi.patch'
+        'revert-intel-asoc.patch'
         ### GCC CPU patch
         "${_gccpatch}.tar.xz"
         ### ZEN Tweaks
@@ -41,11 +45,15 @@ source=("https://cdn.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 
 sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             'SKIP'
-            '598488dc6ce3a5bd0f21c7e0d53ae89485f7ef36ac162f6723721ec280e481c7'
+            '41a968fbe47bb246794cba5e3e370c4e09ec1054c170ef7cafbe5908902230f3'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
             '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
             '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
+            '461aa0da7de8bda9474797339532304894b55825be34f8c009244da8c00c5b41'
+            'a3f85c3c35ee478fd174f8aaa6ca15e5fad8612b42ca4d90cc3ef79b49a99989'
+            'eaffd380604e9460d7bbd995915c85fea6ba636847a1ed9c523ea171b9345d2d'
+            '030deb6b46cea9a3f037b03af4e53d27aa70537d42c535cf30db5c02e4a8ab43'
             '3fa4573432f86611d182e6fdd6aa9fec486f996737736f23b1204e451ed4dd60'
             '20f2c38b09b093077fc65062f7cbc5b397c91cab93c00805accad824064d47b4'
             '95d5c8ba47558a9066e4f79b4ca5149528a26dd900fefbf8a8f3ffc5d531a117')
@@ -78,8 +86,23 @@ prepare() {
     
     # Fix Nvidia 304xx issue
     # https://bugs.archlinux.org/task/47092
-    msg "Fix Nvidia 304xx issue"
+    msg2 "Fix Nvidia 304xx issue"
     patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
+
+    # add Gentoo patches
+    msg2 "Thinkpad fixes"
+    patch -Np1 -i "${srcdir}/1700_enable-thinkpad-micled.patch"
+    patch -Np1 -i "${srcdir}/2700_ThinkPad-30-brightness-control-fix.patch"
+    
+    # fix X455LB touchpad issue
+    # https://github.com/manjaro/packages-core/pull/39
+    msg2 "fix X455LB touchpad issue"
+    patch -p1 -i "${srcdir}/i8042-asus-x455lab-dmi.patch"
+    
+    # Deal with the Intel ASoC issue
+    # https://github.com/manjaro/packages-core/issues/35
+    msg2 "Deal with the Intel ASoC issue"
+    patch -Rp1 -i "${srcdir}/revert-intel-asoc.patch"
     
     # There's no real reason the user should care that we're about to fall
     # back to bitbanging, so let's change the message from DRM_INFO to DRM_DEBUG_KMS.
