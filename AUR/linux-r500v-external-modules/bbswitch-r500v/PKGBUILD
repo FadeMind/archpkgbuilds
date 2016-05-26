@@ -29,7 +29,6 @@ prepare() {
 build() {
     cd ${srcdir}/${_realname}-${pkgver}
     _kernver="$(cat /usr/lib/modules/${_extramodules}/version)"
-    make -k clean
     make KDIR=/lib/modules/${_kernver}/build
 }
 

@@ -13,7 +13,7 @@
  - [AUFS4](http://aufs.sourceforge.net/) support. 
  - [EXFAT](https://github.com/dorimanx/exfat-nofuse) support.
  - [Reiser4](https://sourceforge.net/projects/reiser4/) support. [ArchWiki](https://wiki.archlinux.org/index.php/Reiser4) [reiser4.wiki.kernel.org](https://reiser4.wiki.kernel.org/index.php/Main_Page)
- - Upstream Arch Linux and Manjaro patches.
+ - Upstream Arch Linux, Gentoo and Manjaro patches.
  
 **Customs**
 
