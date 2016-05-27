@@ -1,15 +1,15 @@
 # Maintainer: FadeMind <fademind@gmail.com>
 
 pkgname=breeze-gtk320-git
-pkgver=3.20."20160523"
+pkgver=3.20.20160527
 pkgrel=1
 pkgdesc="Breeze widget theme for GTK 2 and 3"
-arch=(i686 x86_64)
+arch=('i686' 'x86_64')
 url='https://github.com/FadeMind/breeze-gtk'
-license=(LGPL)
-depends=(gtk{2,3} gdk-pixbuf2)
-optdepends_x86_64=(lib32-{gdk-pixbuf2,gtk3})
-makedepends=('git')
+license=('LGPL')
+depends=('gdk-pixbuf2' 'gtk2' 'gtk3>=3.20')
+optdepends_x86_64=('lib32-gdk-pixbuf2' 'lib32-gtk2' 'lib32-gtk3>=3.20')
+makedepends=('git' 'make')
 conflicts=('breeze-gtk')
 provides=('breeze-gtk')
 replaces=('breeze-gtk')
@@ -18,12 +18,10 @@ sha256sums=('SKIP')
 
 pkgver() {
     cd ${pkgname}
-    echo 3.20.$(git log -1 --format=\"%cd\" --date=short | tr -d '-')
+    echo 3.20.$(git log -1 --format='%cd' --date=short | tr -d '-')
 }
 
 package() {
-    install -d ${pkgdir}/usr/share/themes
-    cp -R  ${srcdir}/${pkgname}/Breeze* ${pkgdir}/usr/share/themes/
-    find "${pkgdir}" -type f -exec chmod 644 {} +
-    find "${pkgdir}" -type d -exec chmod 755 {} +
+    cd ${pkgname}
+    make install DESTDIR="$pkgdir"
 }

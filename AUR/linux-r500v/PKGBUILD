@@ -29,12 +29,12 @@ source=("https://cdn.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         ### Configs
         'config.x86_64.zen' 'linux-r500v.preset'
         ### Arch, Gentoo and Manjaro patches 
-        'change-default-console-loglevel.patch'
-        '0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
-        '0001-nvidia-304xx-mtrr-unknown-symbol.patch'
         '1700_enable-thinkpad-micled.patch'
         '2700_ThinkPad-30-brightness-control-fix.patch'
+        'change-default-console-loglevel.patch'
+        'drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch'
         'i8042-asus-x455lab-dmi.patch'
+        'nvidia-304xx-mtrr-unknown-symbol.patch'
         'revert-intel-asoc.patch'
         ### GCC CPU patch
         "${_gccpatch}.tar.xz"
@@ -47,12 +47,12 @@ sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             'SKIP'
             '41a968fbe47bb246794cba5e3e370c4e09ec1054c170ef7cafbe5908902230f3'
             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
-            '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
-            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
-            '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
             '461aa0da7de8bda9474797339532304894b55825be34f8c009244da8c00c5b41'
             'a3f85c3c35ee478fd174f8aaa6ca15e5fad8612b42ca4d90cc3ef79b49a99989'
+            '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
+            '45c02c74fc11de736c315a81506b7fa9e4ec939343f2437b11f43b414bdce7c2'
             'eaffd380604e9460d7bbd995915c85fea6ba636847a1ed9c523ea171b9345d2d'
+            '3c158ebe93e3710d9a669015f0868f89c5170efdc36cb7cf5f46cc85df61ad3e'
             '030deb6b46cea9a3f037b03af4e53d27aa70537d42c535cf30db5c02e4a8ab43'
             '3fa4573432f86611d182e6fdd6aa9fec486f996737736f23b1204e451ed4dd60'
             '20f2c38b09b093077fc65062f7cbc5b397c91cab93c00805accad824064d47b4'
@@ -87,7 +87,7 @@ prepare() {
     # Fix Nvidia 304xx issue
     # https://bugs.archlinux.org/task/47092
     msg2 "Fix Nvidia 304xx issue"
-    patch -Np1 -i "${srcdir}/0001-nvidia-304xx-mtrr-unknown-symbol.patch"
+    patch -Np1 -i "${srcdir}/nvidia-304xx-mtrr-unknown-symbol.patch"
 
     # add Gentoo patches
     msg2 "Thinkpad fixes"
@@ -109,7 +109,7 @@ prepare() {
     # https://bugs.freedesktop.org/show_bug.cgi?id=94890
     # https://patchwork.freedesktop.org/patch/76053/
     msg2 "drm/i915: Make GMBUS timeout message DRM_DEBUG_KMS"
-    patch -Np1 -i "${srcdir}/0001-drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
+    patch -Np1 -i "${srcdir}/drm-i915-Make-GMBUS-timeout-message-DRM_DEBUG_KMS.patch"
     
     ### Patch source to enable more gcc CPU optimizatons via the make nconfig
     # https://github.com/graysky2/kernel_gcc_patch
