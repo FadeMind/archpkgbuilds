@@ -6,12 +6,12 @@ pkgname=linux-firmware-git
 pkgver=20160516.80d463b
 pkgrel=1
 pkgdesc="Firmware files for Linux. Git version"
-makedepends=('bash' 'git')
+makedepends=('git')
 arch=('any')
 url="https://git.kernel.org/cgit/linux/kernel/git/firmware/${pkgname/-g/.g}"
 license=('GPL2' 'GPL3' 'custom')
-conflicts=("${pkgname/-git/}")
-provides=("${pkgname/-git/}=${pkgver}")
+conflicts=("${pkgname%-git}")
+provides=("${pkgname%-git}=${pkgver}")
 options=('!strip')
 source=("${pkgname}::git+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/${pkgname/-g/.g}")
 md5sums=('SKIP')
@@ -33,12 +33,10 @@ package() {
     make DESTDIR="${pkgdir}" FIRMWAREDIR=/usr/lib/firmware install
     rm "${pkgdir}/usr/lib/firmware/"{Makefile,README,configure,GPL-3}
 
-    install -d "${pkgdir}/usr/share/licenses/${pkgname/-git/}"
-    install -Dm644 LICEN* WHENCE "${pkgdir}/usr/share/licenses/${pkgname/-git/}/"
+    install -d "${pkgdir}"/usr/share/licenses/${pkgname%-git}/
+    install -Dm644 LICEN* WHENCE "${pkgdir}"/usr/share/licenses/${pkgname%-git}/
 
     # Trigger a microcode reload for configurations not using early updates
-    install -d "${pkgdir}/usr/lib/tmpfiles.d"
-    bash -c "{
-        echo \"w /sys/devices/system/cpu/microcode/reload - - - - 1\"
-        } > ${pkgdir}/usr/lib/tmpfiles.d/${pkgname/-git/}.conf"
+    install -d "${pkgdir}"/usr/lib/tmpfiles.d
+    echo 'w /sys/devices/system/cpu/microcode/reload - - - - 1' > "${pkgdir}"/usr/lib/tmpfiles.d/${pkgname%-git}.conf
 }
