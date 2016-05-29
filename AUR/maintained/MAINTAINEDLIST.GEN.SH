@@ -5,8 +5,8 @@ wget -q --spider http://google.com
 
 if [ $? -eq 0 ]; then
     if [ -e "$MFILE" ]; then
-        printf "Cleanup...\n"
-        find * -type d -exec rm -rf {} +
+#         printf "Cleanup...\n"
+#         find * -type d -exec rm -rf {} +
         printf "Downloading sources from AUR... Please wait... \n"
         for i in $(cat "$MFILE")
             do

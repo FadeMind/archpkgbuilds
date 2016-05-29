@@ -1,0 +1,28 @@
+# Maintainer: FadeMind <fademind@gmail.com>
+
+pkgname=firefox-extension-lastpass
+pkgver=4.1.7a
+pkgrel=1
+pkgdesc="LastPass, an award-winning password manager, saves your passwords and gives you secure access from every computer and mobile device."
+license=('custom')
+arch=('any')
+url="https://lastpass.com"
+depends=("firefox")
+makedepends=('unzip')
+source=("${url}/download/cdn/lp4.xpi")
+sha256sums=('f3d0a4327b6bf9d2b166fa469eaf7adff546c61d9497bba86a939d71a37ee4ce')
+noextract=("lp4.xpi")
+
+prepare(){
+    unzip -qqo lp4.xpi
+}
+
+package() {
+    cd "$srcdir"
+    emid=$(sed -n '/.*<em:id>\(.*\)<\/em:id>.*/{s//\1/p;q}' install.rdf)
+    local dstdir="$pkgdir/usr/lib/firefox/browser/extensions/${emid}"
+    install -d "$dstdir"
+    rm *.xpi
+    cp -dpr --no-preserve=ownership * "$dstdir"
+    chmod -R 755 "$dstdir"
+}

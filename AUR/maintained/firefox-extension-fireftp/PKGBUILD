@@ -2,18 +2,18 @@
 # Contributor: Alois Nespor <info@aloisnespor.info>
 # Contributor: Tianjiao Yin <ytj000+aur@gmail.com>
 
-_dver=49357
-pkgname=firefox-extension-kwallet
-pkgver=2.4.1
-pkgrel=2
-pkgdesc="An extension to allows Firefox to use KDE's Kwallet to store passwords"
-url="https://addons.mozilla.org/firefox/addon/kwallet/"
-depends=('qt4' 'firefox' 'kwalletmanager')
+_dver=684
+pkgname=firefox-extension-fireftp
+pkgver=2.0.26
+pkgrel=1
+pkgdesc="A free, secure, cross-platform FTP/SFTP client for Mozilla Firefox"
+url="https://addons.mozilla.org/firefox/addon/fireftp/"
+depends=("firefox")
 makedepends=('unzip')
 license=('MPL2')
 arch=('any')
-source=("https://addons.mozilla.org/firefox/downloads/latest/${_dver}/platform:2/addon-${_dver}-latest.xpi")
-sha256sums=('57ab91bdd4ae1dc231551ce3e164f6a8315bb3e36d3704423e7d64625ad1fbc4')
+source=("https://addons.mozilla.org/firefox/downloads/latest/${_dver}/addon-${_dver}-latest.xpi")
+sha256sums=('8b2d2c859ac4d58ec165b32cafc38134a5f69ae0c198e374e8232be8ee7ef321')
 noextract=(addon-${_dver}-latest.xpi)
 
 pkgver() {
@@ -26,7 +26,7 @@ prepare(){
 
 package() {
     cd "$srcdir"
-    emid=$(sed -n '/.*<em:id>\(.*\)<\/em:id>.*/{s//\1/p;q}' install.rdf)
+    emid=$(grep -Pom1 'id>\K[^<]*' install.rdf)
     local dstdir="$pkgdir/usr/lib/firefox/browser/extensions/${emid}"
     install -d "$dstdir"
     rm *.xpi

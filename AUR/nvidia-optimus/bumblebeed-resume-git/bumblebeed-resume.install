@@ -1,9 +1,9 @@
 post_install() {
-    printf "NOTE: Enable systemd service via command:\n"
-    printf "systemctl enable bumblebeed-resume"
+    printf "NOTE: You need manually enable the systemd service after install via command:\n"
+    printf "sudo systemctl enable bumblebeed-resume\n"
 }
 
 post_remove() {
-    printf "NOTE: Disable systemd service via command:\n"
-    printf "systemctl disable bumblebeed-resume"
+    printf "NOTE: You need manually disable the systemd service after remove via command:\n"
+    printf "sudo systemctl disable bumblebeed-resume\n"
 }
