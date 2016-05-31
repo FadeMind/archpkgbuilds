@@ -3,13 +3,13 @@
 
 pkgbase=tlp-git
 pkgname=('tlp-git' 'tlp-rdw-git')
-pkgver=0.8.r81.4738c45
+pkgver=0.8.r82.72e0e29
 pkgrel=1
 arch=('any')
 url='http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html'
 license=('GPL2' 'GPL3')
 makedepends=('git')
-source=('tlp::git+https://github.com/FadeMind/TLP.git')
+source=('tlp::git+https://github.com/linrunner/TLP.git')
 sha256sums=('SKIP')
 
 pkgver() {
