@@ -2,9 +2,9 @@
 
 pkgname=wd719x-firmware
 pkgver=1
-pkgrel=1
-pkgdesc="Driver for Western Digital WD7193, WD7197 and WD7296 SCSI cards"
-url="http://support.wdc.com/product/download.asp?groupid=801&sid=27&lang=en"
+pkgrel=3
+pkgdesc='Driver for Western Digital WD7193, WD7197 and WD7296 SCSI cards'
+url='http://support.wdc.com/'
 license=('unknown')
 makedepends=('lha')
 arch=('any')
@@ -20,7 +20,5 @@ build() {
 }
 
 package() {
-    install -Dm644 $srcdir/wd719x-risc.bin $pkgdir/usr/lib/firmware/wd719x-risc.bin
-    install -Dm644 $srcdir/wd719x-wcs.bin $pkgdir/usr/lib/firmware/wd719x-wcs.bin
+    find wd719x-{risc,wcs}.bin -type f -exec install -Dm644 '{}' "${pkgdir}/usr/lib/firmware/{}" \;
 }
-

@@ -13,7 +13,7 @@ pkgver=1.9.2
 pkgrel=1
 pkgdesc="Thunderbird extension that enables sending and receiving signed and encrypted e-mail messages"
 arch=('i686' 'x86_64')
-url="https://www.enigmail.net/"
+url='https://www.enigmail.net/'
 license=('MPL' 'GPL')
 depends=('thunderbird' 'gnupg')
 makedepends=('zip' 'unzip' 'python2' 'perl>=5.8')
@@ -24,20 +24,20 @@ sha256sums=('81c92937911005a5b94956d6d330a6f4114ad91da2dc10137bb0a3cbafd0ca42'
             'SKIP')
 
 build() {
-  cd "$srcdir/enigmail"
-  PYTHON=/usr/bin/python2 ./configure
-  make -j1 # fails with -j greater than 1
+    cd "$srcdir/enigmail"
+    PYTHON=/usr/bin/python2 ./configure
+    make -j1 # fails with -j greater than 1
 }
 
 package() {
-  cd "$srcdir/enigmail"
-  emid="$(sed -n '/.*<em:id>\(.*\)<\/em:id>.*/{s//\1/p;q}' package/install.rdf)"
-  install -d -m755 "$pkgdir"/usr/lib/thunderbird/extensions/"$emid"
-  cd "$pkgdir"/usr/lib/thunderbird/extensions/"$emid"
-  unzip "$srcdir"/enigmail/build/enigmail-*.xpi
+    cd "$srcdir/enigmail"
+    emid="$(sed -n '/.*<em:id>\(.*\)<\/em:id>.*/{s//\1/p;q}' package/install.rdf)"
+    install -d -m755 "$pkgdir"/usr/lib/thunderbird/extensions/"$emid"
+    cd "$pkgdir"/usr/lib/thunderbird/extensions/"$emid"
+    unzip "$srcdir"/enigmail/build/enigmail-*.xpi
 
-  # Uncomment the following lines if you use thunderbird-nightly
-  # install -d -m755 "$pkgdir"/opt/thunderbird-nightly-*/extensions/"$emid"
-  # cd "$pkgdir"/opt/thunderbird-nightly-*/extensions/"$emid"
-  # unzip "$srcdir"/enigmail/build/enigmail-*.xpi
+    # Uncomment the following lines if you use thunderbird-nightly
+    # install -d -m755 "$pkgdir"/opt/thunderbird-nightly-*/extensions/"$emid"
+    # cd "$pkgdir"/opt/thunderbird-nightly-*/extensions/"$emid"
+    # unzip "$srcdir"/enigmail/build/enigmail-*.xpi
 }

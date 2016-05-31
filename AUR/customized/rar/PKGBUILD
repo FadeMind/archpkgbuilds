@@ -4,7 +4,7 @@
 # Contributor: TuxSpirit <tuxspirit AT archlinux DOT fr>
 
 pkgname=rar
-pkgver=5.4.b1
+pkgver=5.4.b2
 pkgrel=1
 pkgdesc="A command-line port of the rar compression utility"
 url="http://www.rarlab.com"
@@ -19,8 +19,8 @@ source_i686+=("http://www.rarlab.com/rar/rarlinux-${pkgver}.tar.gz")
 source_x86_64+=("http://www.rarlab.com/rar/rarlinux-x64-${pkgver}.tar.gz")
 md5sums=('4cffd2771bb4a51e4a68500d799550d8'
          '594b777453751ee331ef241160f31499')
-md5sums_i686=('331faacf101ec130617a25a42cc74724')
-md5sums_x86_64=('0c932849fe8cf0d7d67afa990826a9a9')
+md5sums_i686=('1eff8e833d082facde3baabd99314b12')
+md5sums_x86_64=('4ab3c05051a294390987c5f93e1bc1d3')
 
 
 package() {
