@@ -1,9 +1,10 @@
-# Maintainer: Gustavo Alvarez <sl1pkn07@gmail.com>
+# Maintainer: FadeMind <fademind@gmail.com>
+# Contributor: Gustavo Alvarez <sl1pkn07@gmail.com>
 
-pkgname=k3b-frameworks-git
-pkgver=2.9.90.r5959.2699da9
+pkgname=k3b-frameworks
+pkgver=2.9.90
 pkgrel=1
-pkgdesc="Feature-rich and easy to handle CD burning application. KF5 Frameworks branch. (Git version)"
+pkgdesc="Feature-rich and easy to handle CD burning application. KF5 Frameworks branch."
 arch=('i686' 'x86_64')
 url='https://quickgit.kde.org/?p=k3b.git'
 license=('GPL')
@@ -29,25 +30,16 @@ optdepends=('cdrdao: for CD DAO mode burning support'
             'libvorbis: Needed for the K3b Ogg Vorbis decoder and encoder plugins'
             'musicbrainz: Provide information about the CD, about the artist or about related information')
 provides=('k3b')
-conflicts=('k3b')
-source=('git://anongit.kde.org/k3b.git#branch=kf5'
-        '0001-Fixed-compilation-with-newer-ffmpeg-libav.patch')
-sha1sums=('SKIP'
-          '8ee47b04e92499d484c49e33dd33dabdf53025c9')
-
-pkgver() {
-    cd k3b
-    _ver="$(cat CMakeLists.txt | grep -m3 -e 'K3B_VERSION_MAJOR' -e 'K3B_VERSION_MINOR' -e 'K3B_VERSION_RELEASE' | sed 's|K3B|KEB|' | grep -o "[[:digit:]]*" | paste -sd'.')"
-    echo "${_ver}.r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
-}
+conflicts=('k3b' 'k3b-l10n-bin-git')
+source=('git+https://github.com/FadeMind/k3b.git'
+        'git+https://github.com/FadeMind/k3b-l10n-bin.git#branch=kf5')
+sha1sums=('SKIP' 'SKIP')
 
 prepare() {
     if [[ -d build ]]; then
         rm -Rf build
     fi
     mkdir -p build
-    cd k3b
-    patch -Np1 -i ${srcdir}/0001-Fixed-compilation-with-newer-ffmpeg-libav.patch
 }
 
 build() {
@@ -62,4 +54,5 @@ build() {
 
 package() {
     make -C build DESTDIR="${pkgdir}" install
+    make -C k3b-l10n-bin DESTDIR="${pkgdir}" install
 }
