@@ -1,7 +1,16 @@
+post_install() {
+	printf ">>> WARNING\n"
+	printf ">>> As of version 15.09, upstream is considering 7zFM broken.\n"
+	printf ">>> Use it only for viewing archives. Every manipulation of archives\n"
+	printf ">>> using this tool can produce unpredictable results.\n"
+	[[ -x usr/bin/kbuildsycoca5 ]] && kbuildsycoca5 &> /dev/null || true
+}
+
 post_upgrade() {
-  if (($(vercmp $2 9.38.1-3) < 0)); then
-    echo ':: The 7zFM graphical frontend is no longer included in this package.'
-    echo '   If you used it, consider installing one of the following packages:'
-    echo '   1) file-roller, 2) engrampa, 3) ark, 4) xarchiver.'
-  fi
+	post_install
+}
+
+
+post_remove() {
+	[[ -x usr/bin/kbuildsycoca5 ]] && kbuildsycoca5 &> /dev/null || true
 }

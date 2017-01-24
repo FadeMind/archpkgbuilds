@@ -2,7 +2,7 @@
 # Maintainer: Salan54 <salan at fremenil dot com>
 
 pkgname=zulucrypt-git
-pkgver=5.0.0.23.g42fdb6c
+pkgver=5.1.0.4.ge6600fec
 pkgrel=1
 pkgdesc="a cli and gui frontend to cryptsetup"
 arch=('x86_64' 'i686')

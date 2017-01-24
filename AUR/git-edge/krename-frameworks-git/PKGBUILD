@@ -2,7 +2,7 @@
 
 _pkgname=krename
 pkgname=$_pkgname-frameworks-git
-pkgver=r269.b009681
+pkgver=r269.22bcb1e
 pkgrel=1
 pkgdesc="A very powerful batch file renamer for KDE. KF5 Version."
 arch=('i686' 'x86_64')
