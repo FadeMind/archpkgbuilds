@@ -2,14 +2,14 @@
 # Maintainer: Eric Ozwigh <ozwigh at gmail dot com>
 
 pkgname=veracrypt-git
-pkgver=20160513
+pkgver=20170124
 pkgrel=1
 pkgdesc="Disk encryption with strong security based on TrueCrypt. Git version."
 arch=('i686' 'x86_64')
 url="https://github.com/veracrypt/VeraCrypt"
 license=('custom')
 depends=('fuse' 'wxgtk>=3.0')
-makedepends=('binutils' 'desktop-file-utils' 'git' 'make' 'nasm' 'pkg-config')
+makedepends=('bash' 'binutils' 'desktop-file-utils' 'git' 'make' 'nasm' 'pkg-config')
 conflicts=("${pkgname%-git}")
 provides=("${pkgname%-git}")
 replaces=("${pkgname%-git}")
@@ -45,4 +45,8 @@ package() {
     install -D -m644 Resources/Icons/VeraCrypt-48x48.xpm "${pkgdir}/usr/share/pixmaps/veracrypt.xpm"
     install -D -m644 License.txt "${pkgdir}/usr/share/licenses/${pkgname}/License.txt"
     desktop-file-install ${srcdir}/${pkgname%-git}.desktop --dir ${pkgdir}/usr/share/applications/
+    install -d "${pkgdir}"/etc/modules-load.d/
+    bash -c "{
+    echo \"loop\"
+    } > ${pkgdir}/etc/modules-load.d/zulucrypt.conf"
 }
